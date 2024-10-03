@@ -1,0 +1,102 @@
+\documentclass{article}
+\usepackage{fullpage}
+
+%load needed packages
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage[spanish]{babel} % Paquete para el idioma español
+\usepackage{float}  % Necesario para [H]
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{codegreen}{HTML}{5AB2FF}
+\definecolor{morado}{HTML}{AD88C6}
+\definecolor{BG}{HTML}{EEEEEE}
+\definecolor{azul}{HTML}{4D869C}
+\definecolor{sqlblue}{HTML}{FF8C00} % Color para las palabras clave SQL
+
+% Estilo para DDL
+\lstdefinestyle{ddlstyle}{
+	language=SQL,
+	backgroundcolor=\color{BG},
+	commentstyle=\color{codegreen},
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{azul},
+	stringstyle=\color{morado},
+	showstringspaces=false,
+	breaklines=true,
+	frame=shadowbox,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	captionpos=b,
+}
+
+% Estilo para SQL
+\lstdefinestyle{sqlstyle}{
+	language=SQL,
+	backgroundcolor=\color{BG},
+	commentstyle=\color{codegreen},
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{sqlblue}, % Color diferente para palabras clave SQL
+	stringstyle=\color{morado},
+	showstringspaces=false,
+	breaklines=true,
+	frame=shadowbox,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	captionpos=b,
+}
+
+\begin{document}
+
+
+
+% Portada
+\begin{titlepage}
+	\centering
+	\vspace*{3cm}
+	
+	% Título destacado
+	{\Huge \textbf{Practica 1: Bases De Datos Relacionales}\\[0.5cm]}
+	
+	% Espacio y logotipo (si lo tienes, por ejemplo el logo de tu universidad)
+	\vspace{2cm}
+	\includegraphics[width=0.3\textwidth]{images/uma_logo.jpg}\\[1cm]
+	
+	% Nombre del autor
+	{\LARGE \textbf{Alejandro Silva Rodríguez}\\[0.5cm]}
+	{\LARGE \textbf{Marta Cuevas Rodríguez}\\[0.5cm]}
+	{\large \textit{Almacenes De Datos}\\
+		Universidad de Málaga\\
+		}
+	
+	\vfill
+	
+	% Fecha en la parte inferior de la página
+	{\large Septiembre 2024}
+\end{titlepage}
+
+% indice
+\tableofcontents
+
+\newpage
+
+\section{Introducción}
+
+
+
+
+
+\section{Acceso al Repositorio}
+
+Toda la información adicional, incluyendo el código fuente y la documentación completa de este proyecto, está disponible en el repositorio de GitHub .
+
+% Incluir la bibliografía
+\bibliographystyle{plain}  % Estilo de la bibliografía (por ejemplo, plain, alpha, ieee, etc.)
+\bibliography{bibli}  % Nombre del archivo .bib sin la extensión
+
+\end{document}
