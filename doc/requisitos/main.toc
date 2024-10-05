@@ -3,5 +3,5 @@
 \contentsline {section}{\numberline {2}Descripción de Stakeholders}{2}{}%
 \contentsline {section}{\numberline {3}Requisitos}{3}{}%
 \contentsline {subsection}{\numberline {3.1}Funcionales}{3}{}%
-\contentsline {subsection}{\numberline {3.2}No funcionales}{3}{}%
-\contentsline {section}{\numberline {4}Acceso al Repositorio}{3}{}%
+\contentsline {subsection}{\numberline {3.2}No funcionales}{4}{}%
+\contentsline {section}{\numberline {4}Acceso al Repositorio}{4}{}%
