@@ -52,69 +52,119 @@
 }
 
 \begin{document}
-
-
-
-% Portada
-\begin{titlepage}
-	\centering
-	\vspace*{3cm}
 	
-	% Título destacado
-	{\Huge \textbf{Plataforma web de rehabilitación a distancia}\\[0.5cm]}
-	
-	% Espacio y logotipo (si lo tienes, por ejemplo el logo de tu universidad)
-	\vspace{2cm}
-	\includegraphics[width=0.3\textwidth]{images/uma_logo.jpg}\\[1cm]
-	
-	% Nombre del autor
-	{\LARGE \textbf{Organización basada en componentes}\\[0.5cm]}
-	{\large \textit{Ingeniería web}\\
-		Universidad de Málaga\\
+	% Portada
+	\begin{titlepage}
+		\centering
+		\vspace*{3cm}
+		
+		% Título destacado
+		{\Huge \textbf{Plataforma web de rehabilitación a distancia}\\[0.5cm]}
+		
+		% Espacio y logotipo (si lo tienes, por ejemplo el logo de tu universidad)
+		\vspace{2cm}
+		\includegraphics[width=0.3\textwidth]{images/uma_logo.jpg}\\[1cm]
+		
+		% Nombre del autor
+		{\LARGE \textbf{Organización basada en componentes}\\[0.5cm]}
+		{\large \textit{Ingeniería web}\\
+			Universidad de Málaga\\
 		}
+		
+		\vfill
+		
+		% Fecha en la parte inferior de la página
+		{\large Septiembre 2024}
+	\end{titlepage}
 	
-	\vfill
+	% índice
+	\tableofcontents
 	
-	% Fecha en la parte inferior de la página
-	{\large Septiembre 2024}
-\end{titlepage}
-
-% indice
-\tableofcontents
-
-\newpage
-
-\section{Introducción}
-La rehabilitación es una fase crítica en el proceso de recuperación de pacientes que han
-sufrido lesiones, intervenciones quirúrgicas o padecen de enfermedades crónicas.
-Tradicionalmente, la rehabilitación se realiza de manera presencial, lo que puede generar
-barreras logísticas, económicas y geográficas tanto para los pacientes como para los
-profesionales de la salud. Ante esta realidad, surge la necesidad de una Plataforma Web de
-Rehabilitación a Distancia, cuyo objetivo es facilitar el acceso a programas de rehabilitación
-personalizados, ofrecer seguimiento remoto y mejorar la calidad de vida de los pacientes sin
-la necesidad de visitas constantes a centros de rehabilitación.
-Este proyecto plantea el desarrollo de una plataforma web integral que permita a los
-pacientes recibir tratamientos de rehabilitación de manera remota, mientras que los
-profesionales de la salud pueden monitorizar el progreso y ajustar las terapias en tiempo real.
-A través de la combinación de herramientas tecnológicas avanzadas como la videollamada,
-la telemetría de dispositivos médicos, y la inteligencia artificial para la personalización de
-ejercicios, esta plataforma buscará convertirse en un referente en el ámbito de la telerehabilitación.
-
-\section{Requisitos}
-
-\subsection{Funcionales}
+	\newpage
+	
+	\section{Introducción}
+	La rehabilitación es una fase crítica en el proceso de recuperación de pacientes que han
+	sufrido lesiones, intervenciones quirúrgicas o padecen de enfermedades crónicas.
+	Tradicionalmente, la rehabilitación se realiza de manera presencial, lo que puede generar
+	barreras logísticas, económicas y geográficas tanto para los pacientes como para los
+	profesionales de la salud. Ante esta realidad, surge la necesidad de una Plataforma Web de
+	Rehabilitación a Distancia, cuyo objetivo es facilitar el acceso a programas de rehabilitación
+	personalizados, ofrecer seguimiento remoto y mejorar la calidad de vida de los pacientes sin
+	la necesidad de visitas constantes a centros de rehabilitación.
+	Este proyecto plantea el desarrollo de una plataforma web integral que permita a los
+	pacientes recibir tratamientos de rehabilitación de manera remota, mientras que los
+	profesionales de la salud pueden monitorizar el progreso y ajustar las terapias en tiempo real.
+	A través de la combinación de herramientas tecnológicas avanzadas como la videollamada,
+	la telemetría de dispositivos médicos, y la inteligencia artificial para la personalización de
+	ejercicios, esta plataforma buscará convertirse en un referente en el ámbito de la telerehabilitación.
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Stakeholders Principales}
+		\begin{tabular}{@{} p{5cm} p{8cm} @{}}
+			\toprule
+			\textbf{Stakeholder} & \textbf{Descripción} \\
+			\midrule
+			Personal Sanitario & Profesionales de la salud, como fisioterapeutas y médicos, que supervisan y personalizan los planes de rehabilitación. \\
+			\addlinespace
+			Paciente &  \\
+			\addlinespace
+			Desarrollador de Software & \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	\section{Requisitos}
+	
+	\subsection{Funcionales}
+	
+\newcounter{requisitosFuncionales}
+\begin{table}[H]
+	\centering
+	\caption{Requisitos Funcionales}
+	\begin{tabular}{@{} p{2.5cm} p{6.5cm} p{3cm} p{3cm} @{}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Padres} \\
+		\midrule
+		\addlinespace
+		\stepcounter{requisitosFuncionales} RF\therequisitosFuncionales & Los pacientes podrán registrar sus resultados y cumplimiento diario del plan de ejercicios, especificando series, repeticiones y niveles de dolor. & Obligatorio & - \\
+		\addlinespace
+		\stepcounter{requisitosFuncionales} RF\therequisitosFuncionales & La plataforma recopilará datos de dispositivos wearables como frecuencia cardíaca, calorías quemadas y tiempo de actividad. & Obligatorio & - \\
+		\addlinespace
+		\stepcounter{requisitosFuncionales} RF\therequisitosFuncionales & Si se detecta un patrón inusual (dolor intenso o incumplimiento de ejercicio), se enviará una alerta al profesional asignado. & Obligatorio & - \\
+		\addlinespace
+		\stepcounter{requisitosFuncionales} RF\therequisitosFuncionales & Los pacientes podrán agendar consultas a través de videollamadas con su fisioterapeuta. & Obligatorio & - \\
+		\addlinespace
+		\stepcounter{requisitosFuncionales} RF\therequisitosFuncionales & El sistema de mensajería permitirá la comunicación directa entre paciente y profesional. & Obligatorio & - \\
+		\bottomrule
+	\end{tabular}
+\end{table}
 
 \subsection{No funcionales}
 
-
-
-
-\section{Acceso al Repositorio}
-
-Toda la información adicional, incluyendo el código fuente y la documentación completa de este proyecto, está disponible en el repositorio de GitHub .
-
-% Incluir la bibliografía
-\bibliographystyle{plain}  % Estilo de la bibliografía (por ejemplo, plain, alpha, ieee, etc.)
-\bibliography{bibli}  % Nombre del archivo .bib sin la extensión
-
+\newcounter{requisitosNoFuncionales}
+\begin{table}[H]
+	\centering
+	\caption{Requisitos No Funcionales}
+	\begin{tabular}{@{} p{2.5cm} p{6.5cm} p{3cm} @{}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} \\
+		\midrule
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & La plataforma deberá ser accesible desde dispositivos móviles, tabletas y PC. & Obligatorio \\
+		\addlinespace
+			\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & Todos los datos personales y médicos estarán protegidos mediante cifrado. & Obligatorio \\
+	
+		\bottomrule
+	\end{tabular}
+\end{table}
+	
+	\section{Acceso al Repositorio}
+	
+	Toda la información adicional, incluyendo el código fuente y la documentación completa de este proyecto, está disponible en el repositorio de GitHub.
+	
+	% Incluir la bibliografía
+	\bibliographystyle{plain}  % Estilo de la bibliografía (por ejemplo, plain, alpha, ieee, etc.)
+	\bibliography{bibli}  % Nombre del archivo .bib sin la extensión
+	
 \end{document}
