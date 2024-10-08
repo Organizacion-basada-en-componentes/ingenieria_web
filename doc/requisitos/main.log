@@ -1,14 +1,18 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.9.19)  5 OCT 2024 20:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  8 OCT 2024 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**./main.tex
+(main.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
-(c:/texlive/2024/texmf-dist/tex/latex/base/article.cls
+
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/base\article.c
+ls
 Document Class: article 2024/02/08 v1.4n Standard LaTeX document class
-(c:/texlive/2024/texmf-dist/tex/latex/base/size10.clo
+
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.cl
+o
 File: size10.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count194
@@ -23,35 +27,43 @@ File: size10.clo 2024/02/08 v1.4n Standard LaTeX file (size option)
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
 )
-(c:/texlive/2024/texmf-dist/tex/latex/preprint/fullpage.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/preprint\fullp
+age.sty
 Package: fullpage 1999/02/23 1.1 (PWD)
 \FP@margin=\skip51
 )
-(c:/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+icx.sty
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2024/texmf-dist/tex/latex/graphics/keyval.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyva
+l.sty
 Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \KV@toks@=\toks17
 )
-(c:/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graph
+ics.sty
 Package: graphics 2024/05/23 v1.4g Standard LaTeX Graphics (DPC,SPQR)
 
-(c:/texlive/2024/texmf-dist/tex/latex/graphics/trig.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.
+sty
 Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 )
-(c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\g
+raphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
 Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(c:/texlive/2024/texmf-dist/tex/latex/graphics-def/pdftex.def
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\p
+dftex.def
 File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen142
 \Gin@req@width=\dimen143
 )
-(c:/texlive/2024/texmf-dist/tex/latex/tools/array.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.st
+y
 Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
 \col@sep=\dimen144
 \ar@mcellbox=\box52
@@ -61,7 +73,8 @@ Package: array 2024/06/14 v2.6d Tabular extension package (FMi)
 \backup@length=\skip53
 \ar@cellbox=\box53
 )
-(c:/texlive/2024/texmf-dist/tex/latex/booktabs/booktabs.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\bookt
+abs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \heavyrulewidth=\dimen146
 \lightrulewidth=\dimen147
@@ -81,25 +94,39 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@lastruleclass=\count271
 \@thisrulewidth=\dimen158
 )
-(c:/texlive/2024/texmf-dist/tex/latex/base/inputenc.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.
+sty
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks19
 \inpenc@posthook=\toks20
 )
-(c:/texlive/2024/texmf-dist/tex/latex/base/fontenc.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.s
+ty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 )
-(c:/texlive/2024/texmf-dist/tex/generic/babel/babel.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/generic/babel\babel.
+sty
 Package: babel 2024/08/29 v24.9 The Babel package
 \babel@savecnt=\count272
 \U@D=\dimen159
-\l@unhyphenated=\language89
+\l@unhyphenated=\language79
 
-(c:/texlive/2024/texmf-dist/tex/generic/babel/txtbabel.def)
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/generic/babel\txtbab
+el.def)
 \bbl@readstream=\read2
 \bbl@dirlevel=\count273
 
-(c:/texlive/2024/texmf-dist/tex/generic/babel-spanish/spanish.ldf
+*************************************
+* Local config file bblopts.cfg used
+*
+
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/arabi\bblopts.
+cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/babel-spanish\
+spanish.ldf
 Language: spanish.ldf 2021/05/27 v5.0q Spanish support from the babel system
 \es@quottoks=\toks21
 \es@quotdepth=\count274
@@ -108,11 +135,13 @@ Package babel Info: Making . an active character on input line 675.
 Package babel Info: Making < an active character on input line 722.
 Package babel Info: Making > an active character on input line 722.
 ))
-(c:/texlive/2024/texmf-dist/tex/generic/babel/locale/es/babel-spanish.tex
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/generic/babel/locale
+/es\babel-spanish.tex
 Package babel Info: Importing font and identification data for spanish
 (babel)             from babel-es.ini. Reported on input line 11.
 )
-(c:/texlive/2024/texmf-dist/tex/latex/float/float.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/float\float.st
+y
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count275
 \float@exts=\toks22
@@ -120,7 +149,8 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks23
 \@floatcapt=\box55
 )
-(c:/texlive/2024/texmf-dist/tex/latex/listings/listings.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listi
+ngs.sty
 \lst@mode=\count276
 \lst@gtempboxa=\box56
 \lst@token=\toks24
@@ -134,29 +164,35 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \lst@lineno=\count281
 \lst@maxwidth=\dimen163
 
-(c:/texlive/2024/texmf-dist/tex/latex/listings/lstpatch.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstpa
+tch.sty
 File: lstpatch.sty 2024/05/25 1.10b (Carsten Heinz)
 )
-(c:/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmi
+sc.sty
 File: lstmisc.sty 2024/05/25 1.10b (Carsten Heinz)
 \c@lstnumber=\count282
 \lst@skipnumbers=\count283
 \lst@framebox=\box57
 )
-(c:/texlive/2024/texmf-dist/tex/latex/listings/listings.cfg
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/listings\listi
+ngs.cfg
 File: listings.cfg 2024/05/25 1.10b listings configuration
 ))
 Package: listings 2024/05/25 1.10b (Carsten Heinz)
 
-(c:/texlive/2024/texmf-dist/tex/latex/xcolor/xcolor.sty
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.
+sty
 Package: xcolor 2023/11/15 v3.01 LaTeX color extensions (UK)
 
-(c:/texlive/2024/texmf-dist/tex/latex/graphics-cfg/color.cfg
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\c
+olor.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
 Package xcolor Info: Driver file: pdftex.def on input line 274.
 
-(c:/texlive/2024/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/graphics\mathc
+olor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1350.
 Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1354.
 Package xcolor Info: Model `RGB' extended on input line 1366.
@@ -167,12 +203,12 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1371.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1372.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1373.
 )
-(c:/texlive/2024/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3ba
+ckend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count284
 \l__pdf_internal_box=\box58
-)
-(./main.aux
+) (main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -192,7 +228,9 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 54.
 LaTeX Font Info:    ... okay on input line 54.
- (c:/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\su
+pp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count285
 \scratchdimen=\dimen164
@@ -205,14 +243,16 @@ LaTeX Font Info:    ... okay on input line 54.
 \MPnumerator=\count289
 \makeMPintoPDFobject=\count290
 \everyMPtoPDFconversion=\toks26
-) (c:/texlive/2024/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+)
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\e
+pstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 
-(c:/texlive/2024/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epsto
+pdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 LaTeX Info: Redefining \. on input line 54.
 LaTeX Info: Redefining \% on input line 54.
@@ -226,9 +266,8 @@ Package pdftex.def Info: images/uma_logo.jpg  used on input line 66.
 
 [1
 
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/
-texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./images/uma_logo.jpg>] (
-./main.toc
+{C:/Users/Diego De Pablo/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./i
+mages/uma_logo.jpg>] (main.toc
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -242,12 +281,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 
 [1]
-Underfull \hbox (badness 10000) in paragraph at lines 122--122
+Underfull \hbox (badness 10000) in paragraph at lines 129--129
 []|\T1/cmr/m/n/10 Desarrollador de
  []
 
 
-Overfull \hbox (9.48904pt too wide) in paragraph at lines 106--127
+Overfull \hbox (9.48904pt too wide) in paragraph at lines 113--134
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--152
+[]|\T1/cmr/m/n/10 Desarrollador de
+ []
+
+
+Overfull \hbox (23.08902pt too wide) in paragraph at lines 140--157
  [][] 
  []
 
@@ -255,16 +304,19 @@ Overfull \hbox (9.48904pt too wide) in paragraph at lines 106--127
 
 
 [2]
+Overfull \vbox (35.93243pt too high) has occurred while \output is active []
+
+
+
+[3]
 \c@requisitosNoFuncionales=\count293
-
-
-[3] (./main.bbl
+ (main.bbl
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 )
 
-[4] (./main.aux
+[4] (main.aux
 LaTeX Info: Redefining \. on input line 8.
 LaTeX Info: Redefining \% on input line 8.
 )
@@ -274,25 +326,26 @@ L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 5104 strings out of 473578
- 78732 string characters out of 5732242
- 494982 words of memory out of 5000000
- 27974 multiletter control sequences out of 15000+600000
+ 5113 strings out of 473899
+ 81776 string characters out of 5722216
+ 497578 words of memory out of 5000000
+ 27955 multiletter control sequences out of 15000+600000
  566466 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,10n,65p,332b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb><c:/texl
-ive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/t
-exmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/
-fonts/type1/public/cm-super/sfbx1728.pfb><c:/texlive/2024/texmf-dist/fonts/type
-1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/c
-m-super/sfrm1000.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sf
-rm1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1200.pfb
->
-Output written on main.pdf (5 pages, 998788 bytes).
+ 57i,10n,65p,334b,365s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dp
+i600\ecbx1200.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour
+/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\
+fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\Diego De Pablo\AppDat
+a\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Diego 
+De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <
+C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
+\ecti1200.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
+appen/ec/dpi600\ecbx1728.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\font
+s/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
+Output written on main.pdf (5 pages, 949245 bytes).
 PDF statistics:
- 62 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 274 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
