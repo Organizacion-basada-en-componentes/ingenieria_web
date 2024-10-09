@@ -7,6 +7,7 @@
 \usepackage{booktabs}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{hyperref}
 
 \usepackage[spanish]{babel} % Paquete para el idioma español
 \usepackage{float}  % Necesario para [H]
@@ -108,6 +109,8 @@
 	
 	\section{Descripción de Stakeholders}
 	
+	Un stakeholder (o parte interesada) es cualquier persona, grupo u organización que tiene un interés o impacto directo en un proyecto, producto o empresa, o que se ve afectada por los resultados de dicho proyecto. 
+	
 	\begin{table}[ht]
 		\centering
 		\caption{Stakeholders Principales}
@@ -135,27 +138,7 @@
 	\end{table}
 	
 	
-	\begin{table}[ht]
-		\centering
-		\caption{Stakeholders Principales}
-		\begin{tabular}{| p{3cm} | p{6cm} | p{7cm} |}
-			\hline
-			\textbf{Nombre} & \textbf{Representa} & \textbf{Rol} \\
-			\hline
-			Profesional médico & 
-			Especialista de la salud encargado del seguimiento y control de la rehabilitación a distancia & 
-			Supervisa y evalúa el progreso de los pacientes. \newline Personaliza los planes de tratamiento, proporciona feedback y ajusta terapias en tiempo real. \\
-			\hline
-			Paciente & 
-			Usuarios finales que necesitan realizar terapias de rehabilitación a distancia. & 
-			Participan activamente usando la plataforma para seguir sus planes de rehabilitación, registrar su progreso y recibir retroalimentación. Su satisfacción es esencial, ya que su experiencia definirá el éxito del proyecto. \\
-			\hline
-			Desarrollador de Software & 
-			Equipo encargado del desarrollo del software de la aplicación o página web & 
-			Desarrolla y mantiene la funcionalidad del sistema, asegurándose de que los datos de los pacientes se almacenen y se procesen correctamente. \\
-			\hline
-		\end{tabular}
-	\end{table}
+
 	
 	
 	\section{Requisitos}
@@ -241,13 +224,22 @@
 			\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & Todos los datos personales y médicos estarán protegidos mediante cifrado. & Obligatorio \\
 		\addlinespace
 		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales &La plataforma cumplirá con el RGPD y otras normativas relacionadas con la protección de datos. Accesible por los profesionales autorizados. & Obligatorio \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales}
+		RNF\therequisitosNoFuncionales & La funcionalidad de recordatorios y notificaciones debe estar disponible las 24 horas para garantizar que los pacientes reciban la información a tiempo. & Obligatorio \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales}
+		RNF\therequisitosNoFuncionales &  Debe permitir la sincronización con calendarios personales de los pacientes, como Google Calendar o iCal. & No obligatorio \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales}
+		RNF\therequisitosNoFuncionales &  Debe permitir la sincronización con calendarios personales de los pacientes, como Google Calendar o iCal. & No obligatorio \\
 		\bottomrule
 	\end{tabular}
 \end{table}
 	
 	\section{Acceso al Repositorio}
 	
-	Toda la información adicional, incluyendo el código fuente y la documentación completa de este proyecto, está disponible en el repositorio de GitHub.
+	Toda la información adicional, incluyendo el código fuente y la documentación completa de este proyecto, está disponible en  \href{https://github.com/Organizacion-basada-en-componentes/ingenieria_web}{el repositorio de GitHub.} 
 	
 	% Incluir la bibliografía
 	\bibliographystyle{plain}  % Estilo de la bibliografía (por ejemplo, plain, alpha, ieee, etc.)
