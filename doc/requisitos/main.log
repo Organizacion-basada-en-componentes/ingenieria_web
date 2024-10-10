@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  10 OCT 2024 01:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  10 OCT 2024 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -500,21 +500,21 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
 l.206 \end{longtable}
                      ] [3]
 \c@requisitosNoFuncionales=\count310
+ (main.bbl
 
-
-[4] (main.bbl
+[4
+pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
+ been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.1 \begin{thebibliography}{}
+                             ]
 
 LaTeX Warning: Empty `thebibliography' environment on input line 3.
 
 )
 
-[5
-pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
- been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.248 \end{document}
-                    ] (main.aux
+[5] (main.aux
 LaTeX Info: Redefining \. on input line 11.
 LaTeX Info: Redefining \% on input line 11.
 )
@@ -543,7 +543,7 @@ C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
 appen/ec/dpi600\ecbx1728.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\font
 s/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
-Output written on main.pdf (6 pages, 957393 bytes).
+Output written on main.pdf (6 pages, 957255 bytes).
 PDF statistics:
  330 PDF objects out of 1000 (max. 8388607)
  17 named destinations out of 1000 (max. 500000)
