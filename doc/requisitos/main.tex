@@ -130,7 +130,7 @@
 			
 			\addlinespace
 			
-			Desarrollador de Software & 
+			Desarrollador  Software & 
 			Equipo encargado del desarrollo del software de la aplicación o página web & 
 			Desarrolla y mantiene la funcionalidad del sistema, asegurándose de que los datos de los pacientes se almacenen y se procesen correctamente. \\
 			\bottomrule
@@ -154,20 +154,25 @@
 	\endfirsthead
 	
 	\toprule
-	\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Padres} \\
+	\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Trazabilidad} \\
 	\midrule
 	\endhead
 	
 	\addlinespace
-	RF\therequisitosFuncionales & Los pacientes podrán registrarse en la plataforma y crear un perfil personalizado. & Obligatorio & - \\ 
+	RF\therequisitosFuncionales & Los usuarios podrán registrarse en la plataforma según su rol. & Obligatorio & - \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los usuarios podrán iniciar sesión en la plataforma, accediendo a distintas partes del sistema dependiendo su rol. & Obligatorio & - \\  
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & Los pacientes podrán acceder a su plan de rehabilitación desde su perfil. & Obligatorio & RF0\\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF0 & Los pacientes podrán visualizar su historial de ejercicios desde su perfil. & Obligatorio & RF0 \\ 
+	RF\therequisitosFuncionales & Los pacientes podrán visualizar su historial de ejercicios desde su perfil. & Obligatorio & RF0 \\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & Los pacientes podrán reportar su progreso desde su perfil. & Obligatorio & RF0 \\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Los pacientes recibirán recordatorios de las sesiones desde su perfil. & Opcional & RF0 \\ 
+	RF\therequisitosFuncionales & Los pacientes recibirán recordatorios de las sesiones desde su perfil. & Opcional & RF0 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán registrar sus resultados y cumplimiento diario del plan de ejercicios, especificando series, repeticiones y niveles de dolor. & Obligatorio & - \\ 
+	RF\therequisitosFuncionales & Los pacientes podrán agendar consultas a través de videollamadas con su fisioterapeuta. & Obligatorio & - \\
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & Los profesionales de la salud (fisioterapeutas, médicos, etc.) podrán registrarse como proveedores de servicios. & Obligatorio & - \\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
@@ -189,19 +194,15 @@
 
 	RF\therequisitosFuncionales & Los profesionales podrán modificar y ajustar los planes de rehabilitación según el progreso observado en cada paciente. & Obligatorio & RF10 \\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Los pacientes podrán registrar sus resultados y cumplimiento diario del plan de ejercicios, especificando series, repeticiones y niveles de dolor. & Obligatorio & - \\
-	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & La plataforma recopilará datos de dispositivos wearables como frecuencia cardíaca, calorías quemadas y tiempo de actividad. & Obligatorio & - \\
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Si se detecta un patrón inusual (dolor intenso o incumplimiento de ejercicio), se enviará una alerta al profesional asignado. & Obligatorio & - \\
-	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Los pacientes podrán agendar consultas a través de videollamadas con su fisioterapeuta. & Obligatorio & - \\
+	RF\therequisitosFuncionales & Si se detecta un patrón inusual (dolor intenso o incumplimiento de ejercicio), se enviará una alerta al profesional asignado. & Obligatorio & R15 \\
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & El sistema de mensajería permitirá la comunicación directa entre paciente y profesional. & Obligatorio & - \\
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & La plataforma generará informes automáticos sobre el progreso del paciente, incluyendo métricas clave como el cumplimiento del tratamiento, el dolor reportado y la movilidad mejorada. & Obligatorio & - \\
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Los profesionales podrán acceder a paneles interactivos que proporcionan una visión general del progreso del paciente, permitiendo ajustes rápidos en el tratamiento si es necesario. & Obligatorio & - \\
+	RF\therequisitosFuncionales & Los profesionales podrán acceder a paneles interactivos que proporcionan una visión general del progreso del paciente, permitiendo ajustes rápidos en el tratamiento si es necesario. & Obligatorio & R19 \\
 	\bottomrule
 \end{longtable}
 

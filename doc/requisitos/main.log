@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  10 OCT 2024 16:27
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  10 OCT 2024 18:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -480,11 +480,6 @@ been already used, duplicate ignored
                    \relax 
 l.92 	\newpage
                [1]
-Underfull \hbox (badness 10000) in paragraph at lines 133--133
-[]|\T1/cmr/m/n/10 Desarrollador de
- []
-
-
 Overfull \hbox (9.48904pt too wide) in paragraph at lines 117--138
  [][] 
  []
@@ -497,7 +492,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.1}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.206 \end{longtable}
+l.207 \end{longtable}
                      ] [3]
 \c@requisitosNoFuncionales=\count310
  (main.bbl
@@ -528,7 +523,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  12307 strings out of 473899
  194783 string characters out of 5722216
- 624814 words of memory out of 5000000
+ 625814 words of memory out of 5000000
  35027 multiletter control sequences out of 15000+600000
  566466 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -543,9 +538,9 @@ C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\fonts/pk/ljfour/jkn
 appen/ec/dpi600\ecbx1728.pk> <C:\Users\Diego De Pablo\AppData\Local\MiKTeX\font
 s/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk>
-Output written on main.pdf (6 pages, 957255 bytes).
+Output written on main.pdf (6 pages, 957936 bytes).
 PDF statistics:
- 330 PDF objects out of 1000 (max. 8388607)
+ 332 PDF objects out of 1000 (max. 8388607)
  17 named destinations out of 1000 (max. 500000)
  54 words of extra memory for PDF output out of 10000 (max. 10000000)
 
