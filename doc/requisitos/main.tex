@@ -140,6 +140,22 @@ Entre los posibles casos de uso se encuentran situaciones como la rehabilitació
 	\section{Requisitos}
 	
 	\subsection{Funcionales}
+	
+	Aquí se podría poner algo tal que:
+	\begin{itemize}
+		\item \textbf{ID}: Identificador único del requisito funcional, que facilita su referencia y seguimiento. Ejemplo: RF0.
+		
+		\item \textbf{Descripción}: Breve enunciado que detalla lo que el requisito funcional implica, incluyendo las acciones que el usuario podrá realizar. Ejemplo: "Los usuarios podrán registrarse en la plataforma según su rol."
+		
+		\item \textbf{Obligatoriedad}: Indica si el requisito es obligatorio o opcional para el sistema, lo que ayuda a priorizar su implementación. 
+		
+		\item \textbf{Dependencia}: Enumera los requisitos de los que depende este requisito, lo que ayuda a entender la secuencia y relaciones entre los requisitos.
+		
+		\item \textbf{Trazabilidad}: Proporciona información sobre la característica de la plataforma o documento donde se relaciona este requisito, permitiendo seguir el origen y contexto del requisito. Ejemplo: "Características de la Plataforma, 1.", se refiere al documento de requisitos que en la página 3 tiene una sección de Características de la Plataforma 
+	\end{itemize}
+	
+
+	
 \newcounter{requisitosFuncionales}
 \begin{longtable}{@{} p{1.5cm} p{5cm} p{3cm} p{2cm} p{3cm} @{}}
 	\caption{Requisitos Funcionales}\\
@@ -156,7 +172,7 @@ Entre los posibles casos de uso se encuentran situaciones como la rehabilitació
 	\addlinespace 
 	RF\therequisitosFuncionales & Los usuarios podrán registrarse en la plataforma según su rol. & Obligatorio & Ninguna & Características de la Plataforma, 1  \\
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Los usuarios podrán iniciar sesión en la plataforma, accediendo a distintas partes del sistema dependiendo su rol. & Obligatorio & RF1 & Características de la Plataforma, 1 \\  
+	RF\therequisitosFuncionales & Los usuarios iniciarán sesión en la plataforma con acceso según su rol. & Obligatorio & RF1 & Características de la Plataforma, 1 \\  
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & Los pacientes podrán acceder a su plan de rehabilitación. & Obligatorio & RF1, RF9 & Características de la Plataforma, 1 \\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
@@ -208,15 +224,15 @@ Entre los posibles casos de uso se encuentran situaciones como la rehabilitació
 		\addlinespace
 		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & La plataforma deberá ser accesible desde dispositivos móviles, tabletas y PC. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 1 \\
 		\addlinespace
-		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & Se debe implementar un sistema de autenticación segura para proteger la privacidad y seguridad de los datos personales y médicos de los usuarios. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 1 \\
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & Se implementará un sistema de autenticación seguro para proteger los datos personales y médicos de los usuarios. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 1 \\
 		\addlinespace
 		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales &La plataforma cumplirá con el RGPD. Accesible por los profesionales autorizados. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 8 \\
 		\addlinespace
 		\stepcounter{requisitosNoFuncionales}
-		RNF\therequisitosNoFuncionales & La funcionalidad de recordatorios y notificaciones debe estar disponible las 24 horas para garantizar que los pacientes reciban la información a tiempo. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 6 \\
+		RNF\therequisitosNoFuncionales & Los recordatorios deben estar disponibles 24/7 para que los pacientes reciban la información a tiempo. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 6 \\
 		\addlinespace
 		\stepcounter{requisitosNoFuncionales}
-		RNF\therequisitosNoFuncionales &  Debe permitir la sincronización con calendarios personales de los pacientes, como Google Calendar o iCal. & Opcional & Documento Profe, Sección Características de la Plataforma, 6 \\
+		RNF\therequisitosNoFuncionales &  Debe permitir la sincronización con calendarios personales, como Google Calendar o iCal.. & Opcional & Charla con Paciente (chatGPT) \\
 		\addlinespace
 		
 		\bottomrule
