@@ -166,7 +166,7 @@ Entre los posibles casos de uso se encuentran situaciones como la rehabilitació
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & Los pacientes podrán registrar sus resultados y cumplimiento diario del plan de ejercicios. & Obligatorio & Ninguna & Características de la Plataforma, 3 \\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Los pacientes podrán agendar consultas a través de videollamadas con su fisioterapeuta. & Obligatorio & Ninguna & Características de la Plataforma, 4 \\
+	RF\therequisitosFuncionales & Los pacientes podrán agendar consultas a través de videollamadas con médico. & Obligatorio & Ninguna & Características de la Plataforma, 4 \\
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & Los profesionales podrán acceder a la información de sus pacientes. & Obligatorio & RF1 & Características de la Plataforma, 1 \\ 
 	\addlinespace \stepcounter{requisitosFuncionales}
@@ -179,15 +179,17 @@ Entre los posibles casos de uso se encuentran situaciones como la rehabilitació
 	RF\therequisitosFuncionales & La plataforma proporcionará una base de datos con plantillas de ejercicios. & Obligatorio & Ninguna & Sección Características de la Plataforma,  \\ 
 
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & La plataforma recopilará datos de dispositivos wearables como frecuencia cardíaca, calorías quemadas y tiempo de actividad. & Obligatorio & Ninguna & Características de la Plataforma, 3 \\
+	RF\therequisitosFuncionales & La plataforma recopilará datos de dispositivos wearables. & Obligatorio & Ninguna & Características de la Plataforma, 3 \\
 	\addlinespace \stepcounter{requisitosFuncionales}
-	RF\therequisitosFuncionales & Se enviará una alerta al profesional en caso de detección de un patrón inusual (dolor intenso o incumplimiento de ejercicio). & Obligatorio & RF14 & Características de la Plataforma, 3 \\
+	RF\therequisitosFuncionales & Se enviará una alerta al profesional en caso de detección de un patrón inusual. & Obligatorio & RF14 & Características de la Plataforma, 3 \\
 	\addlinespace \stepcounter{requisitosFuncionales}
 	RF\therequisitosFuncionales & El sistema de mensajería permitirá la comunicación directa entre paciente y profesional. & Obligatorio & RF6 & Características de la Plataforma, 4 \\
 	\addlinespace \stepcounter{requisitosFuncionales}
 	
 	RF\therequisitosFuncionales & Los profesionales podrán acceder a paneles interactivos del progreso del paciente. & Obligatorio & RF18 & Características de la Plataforma,  \\
-
+	\addlinespace
+	\stepcounter{requisitosFuncionales}RN\therequisitosFuncionales & Los pacientes pueden desbloquear logros (gamificación) al cumplir con sus ejercicios diarios. & Opcional & Ninguna & Charla con Paciente (chatGPT) \\
+	\addlinespace
 	\bottomrule
 \end{longtable}
 
@@ -216,6 +218,7 @@ Entre los posibles casos de uso se encuentran situaciones como la rehabilitació
 		\stepcounter{requisitosNoFuncionales}
 		RNF\therequisitosNoFuncionales &  Debe permitir la sincronización con calendarios personales de los pacientes, como Google Calendar o iCal. & Opcional & Documento Profe, Sección Características de la Plataforma, 6 \\
 		\addlinespace
+		
 		\bottomrule
 	\end{tabular}
 \end{table}
