@@ -317,12 +317,6 @@ El diagrama incluye un bloque condicional (\textit{alt}) que refleja los dos esc
 \end{itemize}
 
 
-
-
-\subsection{Diagrama de Clases}
-
-Insertar Diagrama Juan
-
 \subsection{Diagrama de requisitos en  SysML}
 
 El Diagrama de Requisitos en SysML es una herramienta visual utilizada para documentar y mostrar las relaciones entre los distintos requisitos de un sistema y su trazabilidad. Su objetivo principal es facilitar la comprensión de cómo los requisitos están interconectados y asegurar que se gestionen de manera adecuada durante todo el ciclo de vida del sistema. A través de este diagrama, se pueden identificar relaciones como dependencias, derivaciones o refinamientos entre requisitos, lo que ayuda a los equipos a garantizar que todos los aspectos del sistema estén cubiertos y alineados con los objetivos y restricciones establecidos.
@@ -337,7 +331,7 @@ En la figura \ref{fig:SysML} se muestran las diferentes relaciones entre los req
 		\label{fig:SysML}
 	\end{center}
 \end{figure}
-
+\vspace{5cm}
 
 \subsubsection{Tipos de relaciones}
 En el esquema se describen tres tipos de relaciones diferentes.
@@ -431,6 +425,236 @@ En el esquema se describen tres tipos de relaciones diferentes.
 	\end{itemize}
 \end{enumerate}
 
+
+\subsection{Diagrama de Clases}
+
+En el desarrollo de software orientado a objetos, el diagrama de clases es una herramienta esencial para representar la estructura del sistema. Este diagrama nos permite modelar las clases principales que intervienen en la aplicación, sus atributos y métodos, así como las relaciones entre ellas. El objetivo es tener una visión clara de cómo se organizan los datos y cómo interactúan los diferentes componentes en el sistema. 
+
+\begin{figure}
+	\begin{center} 
+		\includegraphics[width=1\textwidth]{images/diagrama_clases.png}
+		\caption{Diseño de Diagrama de clases}
+		\label{fig:DiagClases}
+	\end{center}
+\end{figure}
+\vspace{5cm}
+
+
+\subsubsection*{Clases y Métodos de la Aplicación de Rehabilitación}
+
+\subsubsection*{Paciente}
+
+Atributos: \textit{dni\_paciente}, \textit{nombre}, \textit{apellidos}, \textit{direccion}.
+
+Esta entidad mostrará las funciones a las que puede acceder desde la aplicación iniciando sesión como paciente.
+
+\begin{itemize}
+	\item \textbf{generarPlanRehabilitacion() : PlanRehabilitacion}  
+	Genera un plan de rehabilitación personalizado para el paciente, que incluye los ejercicios y rutinas recomendadas para su recuperación.
+	
+	\item \textbf{verHistorialEjercicios() : List<Ejercicio>}  
+	Permite al paciente ver el historial de ejercicios que ha realizado o que se le han asignado, mostrando información como repeticiones, frecuencia, etc.
+	
+	\item \textbf{registrarResultadoEjercicio(ejercicio: Ejercicio, resultado: Resultado)}  
+	El paciente registra los resultados de un ejercicio específico, incluyendo si completó las repeticiones y cualquier otro dato relevante.
+	
+	\item \textbf{agendarVideollamada(fecha: Date) : Videollamada}  
+	Permite al paciente agendar una videollamada con un profesional médico en una fecha específica.
+	
+	\item \textbf{enviarMensaje(mensaje: String, destinatario: ProfesionalMedico)}  
+	El paciente puede enviar un mensaje al profesional médico dentro de la plataforma para resolver dudas o hacer consultas.
+	
+	\item \textbf{agendarCita(fecha: Date, profesional: ProfesionalMedico)}  
+	Permite al paciente agendar una cita presencial o virtual con un profesional médico en una fecha específica.
+\end{itemize}
+
+\subsubsection*{ProfesionalMedico}
+Atributos: \textit{dni\_profesional}, \textit{nombre}, \textit{apellidos}, \textit{direccion}, \textit{especialidad}.
+
+Esta entidad mostrará las funciones a las que puede acceder desde la aplicación iniciando sesión como profesional médico.
+
+\begin{itemize}
+	\item \textbf{verPacientes() : List<Paciente>}  
+	Muestra una lista de los pacientes registrados en la aplicación, con acceso a sus planes de rehabilitación y progreso.
+	
+	\item \textbf{programarSeguimiento(paciente: Paciente, fecha: Date) : Seguimiento}  
+	Permite al profesional médico programar una sesión de seguimiento con un paciente para revisar su progreso.
+	
+	\item \textbf{actualizarPlan(paciente: Paciente, plan: PlanRehabilitacion)}  
+	Actualiza el plan de rehabilitación de un paciente, permitiendo modificar los ejercicios o las rutinas según sea necesario.
+	
+	\item \textbf{verDashboardProgreso(paciente: Paciente) : Dashboard}  
+	Accede a un tablero de control con el progreso del paciente, como resultados de ejercicios, cumplimiento de metas y otros indicadores.
+	
+	\item \textbf{recibirAlertas() : List<Alerta>}  
+	Permite al profesional recibir alertas relacionadas con sus pacientes, como recordatorios o notificaciones sobre problemas en el progreso.
+	
+	\item \textbf{agendarVideollamada(paciente: Paciente, fecha: Date) : Videollamada}  
+	Permite al profesional médico agendar una videollamada con un paciente en una fecha específica.
+	
+	\item \textbf{enviarMensaje(paciente: Paciente, mensaje: String)}  
+	El profesional médico puede enviar mensajes a sus pacientes para dar seguimiento o brindar instrucciones adicionales.
+	
+	\item \textbf{agendarCita(paciente: Paciente, fecha: Date)}  
+	El profesional médico puede agendar citas para una consulta presencial o virtual con el paciente en una fecha específica.
+\end{itemize}
+
+\subsubsection*{PlanRehabilitacion}
+Atributos: \textit{lista\_ejercicios}.
+\begin{itemize}
+	\item \textbf{verEjercicios() : List<Ejercicio>}  
+	Muestra una lista de todos los ejercicios que forman parte del plan de rehabilitación.
+	
+	\item \textbf{modificarEjercicio(ejercicio: Ejercicio, nuevoEjercicio: Ejercicio)}  
+	Permite modificar un ejercicio en el plan de rehabilitación, cambiando sus características como repeticiones, frecuencia, etc.
+	
+	\item \textbf{agregarEjercicio(ejercicio: Ejercicio)}  
+	Añade un nuevo ejercicio al plan de rehabilitación del paciente.
+	
+	\item \textbf{eliminarEjercicio(ejercicio: Ejercicio)}  
+	Elimina un ejercicio del plan de rehabilitación del paciente.
+\end{itemize}
+
+\subsubsection*{Cuenta}
+Atributos: \textit{lista\_ejercicios}.
+Representa la entidad encargada de gestionar la autenticación de los usuarios, tanto pacientes como profesionales médicos, en la aplicación.
+\begin{itemize}
+	\item \textbf{inicio\_sesion(usuario : char, contraseña : char) : void}
+	Este método verifica si las credenciales proporcionadas (usuario y contraseña) son correctas y permiten el acceso al sistema. Si las credenciales coinciden con las almacenadas, se concede el acceso al usuario. De lo contrario, se rechaza la autenticación y se notificará al usuario que las credenciales son incorrectas.
+\end{itemize}
+
+\subsubsection*{Ejercicio}
+Atributos: \textit{nombre}, \textit{descripcion}, \textit{repeticiones}, \textit{frecuencia}.  
+Los ejercicios contienen información relevante sobre las repeticiones, frecuencia y una descripción detallada del movimiento o acción a realizar.
+
+\subsubsection*{HistorialEjercicios}
+\begin{itemize}
+	\item \textbf{verResultados() : List<Resultado>}  
+	Muestra los resultados obtenidos por el paciente en los ejercicios realizados, con detalle del estado y comentarios.
+	
+	\item \textbf{agregarResultado(resultado: Resultado)}  
+	Agrega un nuevo resultado al historial de ejercicios, almacenando detalles sobre la fecha y el estado del ejercicio.
+\end{itemize}
+
+\subsubsection*{Resultado}
+Atributos: \textit{fecha}, \textit{estado}, \textit{comentarios}.  
+Guarda información sobre el desempeño de un paciente en un ejercicio específico, incluyendo la fecha en que se realizó, el estado del ejercicio (completado o incompleto) y cualquier comentario adicional.
+
+\subsubsection*{Videollamada}
+Atributos: \textit{fecha}, \textit{paciente}, \textit{profesionalMedico}.  
+Almacena la información de una videollamada programada, como la fecha y los participantes (paciente y profesional médico).
+
+\subsubsection*{Mensaje}
+Atributos: \textit{texto}, \textit{remitente}, \textit{destinatario}, \textit{fecha}, \textit{prioridad}.  
+Un mensaje enviado entre un paciente y un profesional médico, con detalles sobre el contenido, remitente, destinatario, la fecha de envío y si es prioritario o no.
+
+\subsubsection*{Cita}
+Atributos: \textit{fecha}, \textit{paciente}, \textit{profesionalMedico}.  
+Guarda la información de una cita programada, ya sea presencial o virtual, entre un paciente y un profesional médico.
+
+\subsubsection*{Seguimiento}
+Atributos: \textit{fecha}, \textit{paciente}, \textit{progreso}.  
+Registra los detalles de una sesión de seguimiento, incluyendo la fecha, el paciente y el progreso discutido o observado durante la sesión.
+
+\subsubsection*{Dashboard}
+\begin{itemize}
+	\item \textbf{generarInformeProgreso(paciente: Paciente) : Informe}  
+	Genera un informe detallado del progreso del paciente, basado en sus resultados, ejercicios realizados y cumplimiento de objetivos.
+\end{itemize}
+
+\subsubsection*{Alerta}
+Atributos: \textit{tipo}, \textit{descripcion}, \textit{fecha}.  
+Contiene información sobre una alerta que puede estar relacionada con citas próximas, tareas incompletas o actualizaciones en el plan de rehabilitación.
+
+\subsubsection*{Clases y Relaciones con Multiplicidades}
+
+\begin{itemize}
+	\item \textbf{Paciente}
+	\begin{itemize}
+		\item \textbf{PlanRehabilitacion} (1) — Un paciente tiene un plan de rehabilitación.
+		\item \textbf{HistorialEjercicios} (1) — Un paciente tiene un historial de ejercicios.
+		\item \textbf{Cuenta} (1) — Un paciente tiene una cuenta.
+		\item \textbf{Videollamada} (0..*) — Un paciente puede tener cero o muchas videollamadas.
+		\item \textbf{Mensaje} (0..*) — Un paciente puede enviar o recibir cero o muchos mensajes.
+		\item \textbf{Cita} (0..*) — Un paciente puede tener cero o muchas citas agendadas con un profesional médico.
+	\end{itemize}
+	
+	\item \textbf{Cuenta}
+	\begin{itemize}
+		\item \textbf{Paciente} (1) — Una cuenta pertenece a un paciente.
+		\item \textbf{ProfesionalMedico} (1) — Una cuenta pertenece a un profesional médico.
+	\end{itemize}
+	\item \textbf{ProfesionalMedico}
+	\begin{itemize}
+		\item \textbf{Paciente} (1) — Un profesional médico puede atender a cero o muchos pacientes.
+		\item \textbf{Cuenta} (1) — Un profesional médico tiene una cuenta.
+		\item \textbf{PlanRehabilitacion} (0..*) — Un profesional médico puede modificar los planes de rehabilitación de cero o muchos pacientes.
+		\item \textbf{Videollamada} (0..*) — Un profesional médico puede tener cero o muchas videollamadas con pacientes.
+		\item \textbf{Mensaje} (0..*) — Un profesional médico puede enviar o recibir cero o muchos mensajes.
+		\item \textbf{Cita} (0..*) — Un profesional médico puede tener cero o muchas citas agendadas con pacientes.
+		\item \textbf{Seguimiento} (0..*) — Un profesional médico puede programar cero o muchas sesiones de seguimiento para pacientes.
+		\item \textbf{Dashboard} (1) — Un profesional médico tiene un dashboard de progreso para cada paciente que sigue.
+		\item \textbf{Alerta} (0..*) — Un profesional médico puede recibir cero o muchas alertas relacionadas con los pacientes.
+	\end{itemize}
+	
+	\item \textbf{PlanRehabilitacion}
+	\begin{itemize}
+		\item \textbf{Ejercicio} (1..*) — Un plan de rehabilitación debe tener al menos un ejercicio.
+		\item \textbf{Paciente} (1) — Un plan de rehabilitación pertenece a exactamente un paciente.
+	\end{itemize}
+	
+	\item \textbf{Ejercicio}
+	\begin{itemize}
+		\item \textbf{PlanRehabilitacion} (1) — Cada ejercicio pertenece a exactamente un plan de rehabilitación.
+	\end{itemize}
+	
+	\item \textbf{HistorialEjercicios}
+	\begin{itemize}
+		\item \textbf{Resultado} (0..*) — Un historial de ejercicios puede contener cero o muchos resultados de los ejercicios realizados.
+		\item \textbf{Paciente} (1) — Un historial de ejercicios pertenece a exactamente un paciente.
+	\end{itemize}
+	
+	\item \textbf{Resultado}
+	\begin{itemize}
+		\item \textbf{Ejercicio} (1) — Un resultado pertenece a exactamente un ejercicio.
+		\item \textbf{HistorialEjercicios} (1) — Un resultado pertenece a exactamente un historial de ejercicios.
+	\end{itemize}
+	
+	\item \textbf{Videollamada}
+	\begin{itemize}
+		\item \textbf{Paciente} (1) — Cada videollamada incluye a exactamente un paciente.
+		\item \textbf{ProfesionalMedico} (1) — Cada videollamada incluye a exactamente un profesional médico.
+	\end{itemize}
+	
+	\item \textbf{Mensaje}
+	\begin{itemize}
+		\item \textbf{Paciente} (1) — Cada mensaje es enviado o recibido por exactamente un paciente.
+		\item \textbf{ProfesionalMedico} (1) — Cada mensaje es enviado o recibido por exactamente un profesional médico.
+	\end{itemize}
+	
+	\item \textbf{Cita}
+	\begin{itemize}
+		\item \textbf{Paciente} (1) — Cada cita incluye a exactamente un paciente.
+		\item \textbf{ProfesionalMedico} (1) — Cada cita incluye a exactamente un profesional médico.
+	\end{itemize}
+	
+	\item \textbf{Seguimiento}
+	\begin{itemize}
+		\item \textbf{Paciente} (1) — Cada seguimiento está asociado a exactamente un paciente.
+		\item \textbf{ProfesionalMedico} (1) — Cada seguimiento está asociado a exactamente un profesional médico.
+	\end{itemize}
+	
+	\item \textbf{Dashboard}
+	\begin{itemize}
+		\item \textbf{Paciente} (1) — Un dashboard de progreso está asociado a exactamente un paciente.
+		\item \textbf{ProfesionalMedico} (1) — Un dashboard de progreso pertenece a exactamente un profesional médico.
+	\end{itemize}
+	
+	\item \textbf{Alerta}
+	\begin{itemize}
+		\item \textbf{ProfesionalMedico} (1) — Cada alerta está dirigida a exactamente un profesional médico.
+	\end{itemize}
+\end{itemize}
 
 
 \end{document}

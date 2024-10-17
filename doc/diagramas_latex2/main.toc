@@ -6,7 +6,7 @@
 \contentsline {subsection}{\numberline {2.3}Explicación de Casos de Uso}{3}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Diagrama de Secuencia}{6}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Diagrama de Secuencias: Envío de mensaje}{6}{subsubsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.5}Diagrama de Clases}{8}{subsection.2.5}%
-\contentsline {subsection}{\numberline {2.6}Diagrama de requisitos en SysML}{8}{subsection.2.6}%
-\contentsline {subsubsection}{\numberline {2.6.1}Tipos de relaciones}{8}{subsubsection.2.6.1}%
-\contentsline {subsubsection}{\numberline {2.6.2}Requisitos Principales y sus Relaciones}{10}{subsubsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.5}Diagrama de requisitos en SysML}{8}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Tipos de relaciones}{10}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Requisitos Principales y sus Relaciones}{10}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Diagrama de Clases}{11}{subsection.2.6}%
