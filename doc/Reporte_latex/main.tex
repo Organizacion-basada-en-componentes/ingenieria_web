@@ -467,8 +467,114 @@ El diagrama incluye un bloque condicional (\textit{alt}) que refleja los dos esc
 
 Insertar Diagrama Juan
 
-\subsection{Diagrama de SysML}
+\subsection{Diagrama de requisitos en  SysML}
 
-Insertar Diagrama Marta
+El Diagrama de Requisitos en SysML es una herramienta visual utilizada para documentar y mostrar las relaciones entre los distintos requisitos de un sistema y su trazabilidad. Su objetivo principal es facilitar la comprensión de cómo los requisitos están interconectados y asegurar que se gestionen de manera adecuada durante todo el ciclo de vida del sistema. A través de este diagrama, se pueden identificar relaciones como dependencias, derivaciones o refinamientos entre requisitos, lo que ayuda a los equipos a garantizar que todos los aspectos del sistema estén cubiertos y alineados con los objetivos y restricciones establecidos.
+\\
+
+En la figura \ref{fig:SysML} se muestran las diferentes relaciones entre los requisitos funcionales y no funcionales de nuestro sistema.
+
+\begin{figure}
+	\begin{center} 
+		\includegraphics[width=1\textwidth]{images/SysML.png}
+		\caption{Diseño de Diagrama de requisitos en SysML}
+		\label{fig:SysML}
+	\end{center}
+\end{figure}
+
+
+\subsubsection{Tipos de relaciones}
+En el esquema se describen tres tipos de relaciones diferentes.
+
+\begin{itemize}
+	\item \textbf{Derivación ("deriveReqt"):} Un requisito se deriva de otro, es decir, el segundo requisito es una consecuencia directa del primero.
+	\item \textbf{Satisfacción ("satisfy"):} Un requisito no funcional satisface o cumple con un requisito funcional, indicando que ese aspecto técnico o de comportamiento es necesario para su implementación.
+	\item \textbf{Refinamiento ("refine"):} Un requisito refina otro, añadiendo más detalles o especificaciones para clarificar o profundizar en cómo se debe cumplir el requisito original.
+\end{itemize}
+
+\subsubsection{Requisitos Principales y sus Relaciones}
+\begin{enumerate}
+	\item \textbf{RNF1 - Acceso desde dispositivos} \textit{satisface} a \textbf{RF0 - Registro de usuarios}.
+	\begin{itemize}
+		\item El requisito no funcional RNF1 indica que el sistema debe ser accesible desde distintos dispositivos, lo que satisface el requisito \textbf{Registro de usuarios}, ya que los usuarios deben poder registrarse sin importar el dispositivo.
+	\end{itemize}
+	
+	\item \textbf{RNF2 - Autenticación segura} \textit{satisface} a \textbf{RF0 - Registro de usuarios}.
+	\begin{itemize}
+		\item El requisito de autenticación segura satisface el requisito de \textbf{Registro de usuarios}, ya que el proceso de registro debe ser seguro para proteger la información de los usuarios.
+	\end{itemize}
+	
+	\item \textbf{RNF2 - Autenticación segura} \textit{satisface} a \textbf{RF7 - Acceder a información de pacientes}.
+	\begin{itemize}
+		\item La autenticación segura satisface el acceso a la información de los pacientes, asegurando que solo los usuarios autorizados puedan acceder a dicha información.
+	\end{itemize}
+	
+	\item \textbf{RF0 - Registro de usuarios} \textit{derivaReqt} a \textbf{RF1 - Inicio de sesión de usuarios}.
+	\begin{itemize}
+		\item El inicio de sesión se deriva del \textbf{Registro de usuarios}, ya que solo un usuario registrado podrá iniciar sesión en el sistema.
+	\end{itemize}
+	
+	\item \textbf{RF1 - Inicio de sesión de usuarios} \textit{derivaReqt} a \textbf{RF2 - Acceso al plan de rehabilitación}.
+	\begin{itemize}
+		\item El acceso a los planes de rehabilitación se deriva del \textbf{Inicio de sesión de usuarios}, ya que solo un usuario autenticado podrá acceder a su plan.
+	\end{itemize}
+	
+	\item \textbf{RF2 - Acceso al plan de rehabilitación} \textit{refine} a \textbf{RF3 - Visualizar historial de ejercicios}.
+	\begin{itemize}
+		\item El acceso al historial de ejercicios refina el requisito de \textbf{Acceso al plan de rehabilitación}, proporcionando detalles adicionales sobre qué información específica se puede ver en los planes.
+	\end{itemize}
+	
+	\item \textbf{RF2 - Acceso al plan de rehabilitación} \textit{derivaReqt} a \textbf{RF5 - Registro de resultados y cumplimiento}.
+	\begin{itemize}
+		\item El registro de resultados y cumplimiento deriva del \textbf{Acceso al plan de rehabilitación}, ya que los pacientes deben poder registrar su progreso relacionado con el plan.
+	\end{itemize}
+	
+	\item \textbf{RF3 - Visualizar historial de ejercicios} \textit{refine} a \textbf{RF4 - Recordatorio de sesiones}.
+	\begin{itemize}
+		\item El recordatorio de sesiones refina el \textbf{Historial de ejercicios}, ya que los recordatorios son una función adicional del sistema que ayuda a los pacientes a seguir sus planes de ejercicios.
+	\end{itemize}
+	
+	\item \textbf{RF4 - Recordatorio de sesiones} \textit{refine} a \textbf{RNF4 - Los recordatorios tienen que estar siempre disponibles}.
+	\begin{itemize}
+		\item \textbf{Los recordatorios tienen que estar siempre disponibles} refina el \textbf{Recordatorio de sesiones} al indicar que los recordatorios deben estar disponibles 24/7, asegurando que los pacientes reciban esta información en cualquier momento.
+	\end{itemize}
+	
+	\item \textbf{RF5 - Registro de resultados y cumplimiento} \textit{derivaReqt} a \textbf{RF16 - Desbloqueo de logros por cumplimiento de ejercicios}.
+	\begin{itemize}
+		\item El desbloqueo de logros se deriva del \textbf{Registro de resultados y cumplimiento}, ya que los logros solo se pueden desbloquear una vez que los resultados están registrados y se ha demostrado el cumplimiento del plan.
+	\end{itemize}
+	
+	\item \textbf{RF5 - Registro de resultados y cumplimiento} \textit{derivaReqt} a \textbf{RF15 - Acceso a paneles interactivos del progreso}.
+	\begin{itemize}
+		\item El acceso a paneles interactivos del progreso se deriva del \textbf{Registro de resultados}, ya que los datos registrados deben estar disponibles para su visualización en los paneles interactivos.
+	\end{itemize}
+	
+	\item \textbf{RF7 - Acceder a información de pacientes} \textit{derivaReqt} a \textbf{RF9 - Crear planes de rehabilitación}.
+	\begin{itemize}
+		\item La creación de planes de rehabilitación se deriva del \textbf{Acceso a la información de los pacientes}, ya que los profesionales necesitan estos datos para diseñar planes personalizados.
+	\end{itemize}
+	
+	\item \textbf{RF9 - Crear planes de rehabilitación} \textit{refine} a \textbf{RF10 - Actualizar planes de rehabilitación}.
+	\begin{itemize}
+		\item La actualización de los planes refina la \textbf{Creación de planes}, especificando que los planes pueden y deben ser actualizados a lo largo del tiempo.
+	\end{itemize}
+	
+	\item \textbf{RF6 - Agendar consultas} \textit{refine} a \textbf{RNF5 - Sincronización con calendarios personales}.
+	\begin{itemize}
+		\item \textbf{Sincronización con calendarios personales} refina la \textbf{Función de agendar consultas}, proporcionando más detalles sobre cómo deben integrarse estas consultas con los calendarios de los usuarios.
+	\end{itemize}
+	
+	\item \textbf{RF13 - Envío de alertas} \textit{derivaReqt} a \textbf{RF14 - Comunicación entre paciente y profesional}.
+	\begin{itemize}
+		\item La \textbf{Comunicación entre paciente y profesional} se deriva del \textbf{Envío de alertas}, ya que estas alertas pueden generar interacciones directas entre el paciente y el profesional.
+	\end{itemize}
+	
+	\item \textbf{Proporcionar bases de datos de ejercicios} y \textbf{Recopilación de datos de dispositivos}
+	\begin{itemize}
+		\item Estos requisitos están aislados y no tienen conexiones directas con otros requisitos, lo cual indica que son funcionalidades independientes dentro del sistema.
+	\end{itemize}
+\end{enumerate}
+
+
 
 \end{document}
