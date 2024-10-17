@@ -1,12 +1,16 @@
 \babel@toc {spanish}{}\relax 
 \contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
 \contentsline {section}{\numberline {2}Modelado}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Diagrama IFML}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Diagrama de Casos de Uso}{2}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Explicación de Casos de Uso}{3}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Diagrama de Secuencia}{6}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Diagrama de Secuencias: Envío de mensaje}{6}{subsubsection.2.4.1}%
-\contentsline {subsection}{\numberline {2.5}Diagrama de requisitos en SysML}{8}{subsection.2.5}%
-\contentsline {subsubsection}{\numberline {2.5.1}Tipos de relaciones}{10}{subsubsection.2.5.1}%
-\contentsline {subsubsection}{\numberline {2.5.2}Requisitos Principales y sus Relaciones}{10}{subsubsection.2.5.2}%
-\contentsline {subsection}{\numberline {2.6}Diagrama de Clases}{11}{subsection.2.6}%
+\contentsline {subsection}{\numberline {2.1}Diagrama de Casos de Uso}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Explicación de Casos de Uso}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Diagrama de Secuencia}{6}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}Diagrama de Secuencias: Envío de mensaje}{6}{subsubsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.4}Diagrama de requisitos en SysML}{8}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Tipos de relaciones}{10}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Requisitos Principales y sus Relaciones}{10}{subsubsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.5}Diagrama IFML}{12}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Login y Registro}{13}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Interacciones en el Home}{13}{subsubsection.2.5.2}%
+\contentsline {subsubsection}{\numberline {2.5.3}Interacciones del Paciente}{14}{subsubsection.2.5.3}%
+\contentsline {subsubsection}{\numberline {2.5.4}Interacciones del Profesional Sanitario}{15}{subsubsection.2.5.4}%
+\contentsline {subsection}{\numberline {2.6}Diagrama de Clases}{15}{subsection.2.6}%

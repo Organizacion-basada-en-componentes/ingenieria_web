@@ -106,9 +106,7 @@ Entre los posibles casos de uso se encuentran situaciones como la rehabilitació
 
 \section{Modelado}
 
-\subsection{Diagrama IFML}
 
-Insertar Diagrama Ale
 
 \subsection{Diagrama de Casos de Uso}
 
@@ -425,6 +423,66 @@ En el esquema se describen tres tipos de relaciones diferentes.
 	\end{itemize}
 \end{enumerate}
 
+\newpage
+\subsection{Diagrama IFML}
+
+
+En esta subsección, se describe el uso del lenguaje de modelado IFML (Interaction Flow Modeling Language) en el diseño de la plataforma. IFML se utiliza para modelar las interacciones y flujos de usuario dentro de la aplicación, lo que permite representar visualmente los diferentes escenarios de uso.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=\textwidth]{images/ifml_general.png}
+	\caption{Esquema general del modelo IFML para la plataforma. Debido a la complejidad del diagrama, algunos detalles pueden no ser fácilmente visibles.}
+	\label{fig:ifml_general}
+\end{figure}
+
+La Figura \ref{fig:ifml_general} muestra un esquema general del flujo de interacción en la plataforma. A continuación, se describen más detalladamente algunos de los componentes clave.
+\newpage
+\subsubsection{Login y Registro}
+
+El proceso de autenticación es uno de los elementos clave en la plataforma. La Figura \ref{fig:ifml_login} ilustra las interacciones del usuario durante el proceso de login y registro, donde los usuarios pueden acceder al sistema como pacientes o profesionales sanitarios.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/ifml_login.png}
+	\caption{IFML del proceso de login y registro de usuarios.}
+	\label{fig:ifml_login}
+\end{figure}
+
+\subsubsection{Interacciones en el Home}
+
+Dependiendo del tipo de usuario, la plataforma redirige a distintas vistas tras el login. En la Figura \ref{fig:ifml_home}, se muestra cómo un paciente es dirigido a su pantalla principal, mientras que un profesional sanitario tiene acceso a una interfaz diferente con funcionalidades específicas.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/ifml_home.png}
+	\caption{IFML de las pantallas de inicio para paciente y profesional sanitario.}
+	\label{fig:ifml_home}
+\end{figure}
+
+\subsubsection{Interacciones del Paciente}
+
+En la Figura \ref{fig:ifml_paciente}, se detallan todas las posibles interacciones de un paciente dentro de la plataforma, incluyendo la realización de ejercicios, la consulta de informes médicos y la posibilidad de comunicarse con su profesional de la salud.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/ifml_paciente.png}
+	\caption{IFML detallado de las interacciones del paciente.}
+	\label{fig:ifml_paciente}
+\end{figure}
+\newpage
+\subsubsection{Interacciones del Profesional Sanitario}
+
+Finalmente, la Figura \ref{fig:ifml_profesional} presenta todas las posibles acciones que un profesional sanitario puede llevar a cabo, tales como la gestión de pacientes, la revisión de informes de rehabilitación y la asignación de nuevos ejercicios.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.8\textwidth]{images/ifml_profesional.png}
+	\caption{IFML detallado de las interacciones del profesional sanitario.}
+	\label{fig:ifml_profesional}
+\end{figure}
+
+Cada uno de estos diagramas IFML ayuda a representar los flujos de interacción específicos para cada tipo de usuario, facilitando la comprensión de los distintos escenarios de uso en la plataforma de telerehabilitación.
 
 \subsection{Diagrama de Clases}
 
