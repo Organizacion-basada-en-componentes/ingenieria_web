@@ -1,0 +1,254 @@
+\documentclass{article}
+\usepackage{fullpage}
+
+%load needed packages
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+\usepackage[spanish]{babel} % Paquete para el idioma español
+\usepackage{float}  % Necesario para [H]
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{longtable} 
+
+\definecolor{codegreen}{HTML}{5AB2FF}
+\definecolor{morado}{HTML}{AD88C6}
+\definecolor{BG}{HTML}{EEEEEE}
+\definecolor{azul}{HTML}{4D869C}
+\definecolor{sqlblue}{HTML}{FF8C00} % Color para las palabras clave SQL
+
+% Estilo para DDL
+\lstdefinestyle{ddlstyle}{
+	language=SQL,
+	backgroundcolor=\color{BG},
+	commentstyle=\color{codegreen},
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{azul},
+	stringstyle=\color{morado},
+	showstringspaces=false,
+	breaklines=true,
+	frame=shadowbox,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	captionpos=b,
+}
+
+% Estilo para SQL
+\lstdefinestyle{sqlstyle}{
+	language=SQL,
+	backgroundcolor=\color{BG},
+	commentstyle=\color{codegreen},
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{sqlblue}, % Color diferente para palabras clave SQL
+	stringstyle=\color{morado},
+	showstringspaces=false,
+	breaklines=true,
+	frame=shadowbox,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	captionpos=b,
+}
+
+\begin{document}
+	
+	% Portada
+	\begin{titlepage}
+		\centering
+		\vspace*{3cm}
+		
+		% Título destacado
+		{\Huge \textbf{Plataforma Web de Rehabilitación a Distancia}\\[0.5cm]}
+		
+		{\Large \textbf{Entrega Requisitos: Draft 2}\\[0.5cm]}
+		
+		% Espacio y logotipo (si lo tienes, por ejemplo el logo de tu universidad)
+		\vspace{2cm}
+		\includegraphics[width=0.3\textwidth]{images/uma_logo.jpg}\\[1cm]
+		
+		% Nombre del autor
+		{\LARGE \textbf{Organización basada en componentes}\\[0.5cm]}
+		{\large \textit{Integrantes:}\\
+			Cuevas Rodríguez, Marta\\
+			de Pablo, Diego\\
+			Silva Rodríguez, Alejandro\\
+			Soriano Muñoz, Juan Ignacio\\
+		}
+		\vfill
+		{\large \textit{Ingeniería web}\\
+			Universidad de Málaga\\
+		}
+		
+		\vfill
+		
+		% Fecha en la parte inferior de la página
+		{\large Octubre 2024}
+	\end{titlepage}
+	
+	% índice
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Introducción}
+
+La rehabilitación es una fase crítica en el proceso de recuperación de pacientes que han sufrido lesiones, intervenciones quirúrgicas o padecen enfermedades crónicas. Tradicionalmente, la rehabilitación se realiza de manera presencial, lo que puede generar barreras logísticas, económicas y geográficas tanto para los pacientes como para los profesionales de la salud. Ante esta realidad, surge la necesidad de una Plataforma Web de Rehabilitación a Distancia, cuyo objetivo es facilitar el acceso a programas de rehabilitación personalizados, ofrecer seguimiento remoto y mejorar la calidad de vida de los pacientes sin la necesidad de visitas constantes a centros de rehabilitación.
+\\
+\\
+Este proyecto plantea el desarrollo de una plataforma web integral que permita a los pacientes recibir tratamientos de rehabilitación de manera remota, mientras que los profesionales de la salud pueden monitorizar el progreso y ajustar las terapias en tiempo real. Los principales stakeholders involucrados en este proyecto incluyen a pacientes, profesionales de la salud (fisioterapeutas, médicos rehabilitadores) y desarrolladores de software. Los pacientes se beneficiarán de un acceso más flexible a sus tratamientos, mientras que los profesionales podrán optimizar el seguimiento clínico y ajustar terapias de manera eficiente.
+\\
+\\
+Entre los posibles casos de uso se encuentran situaciones como la rehabilitación de un paciente con una lesión muscular, que puede realizar sus ejercicios desde casa bajo la supervisión de un fisioterapeuta a través de videollamadas, o un paciente crónico que, mediante dispositivos de telemetría y un registro de ejercicios, permite que su progreso sea monitorizado de forma continua.
+
+
+	
+	\section{Descripción de Stakeholders}
+	
+	Un stakeholder (o parte interesada) es cualquier persona, grupo u organización que tiene un interés o impacto directo en un proyecto, producto o empresa, o que se ve afectada por los resultados de dicho proyecto. 
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Stakeholders Principales}
+		\begin{tabular}{@{} p{3cm} p{6cm} p{7cm} @{}}
+			\toprule
+			\textbf{Nombre} & \textbf{Representa} & \textbf{Rol} \\
+			\midrule
+			Profesional médico & 
+			Especialista de la salud encargado del seguimiento y control de la rehabilitación a distancia & 
+			Supervisa y evalúa el progreso de los pacientes. \newline Personaliza los planes de tratamiento, proporciona feedback y ajusta terapias en tiempo real. \\
+			
+			\addlinespace
+			
+			Paciente & 
+			Usuarios finales que necesitan realizar terapias de rehabilitación a distancia. & 
+			Participan activamente usando la plataforma para seguir sus planes de rehabilitación, registrar su progreso y recibir retroalimentación. Su satisfacción es esencial, ya que su experiencia definirá el éxito del proyecto. \\
+			
+			\addlinespace
+			
+			Desarrollador  Software & 
+			Equipo encargado del desarrollo del software de la aplicación o página web & 
+			Desarrolla y mantiene la funcionalidad del sistema, asegurándose de que los datos de los pacientes se almacenen y se procesen correctamente. \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	
+
+	
+	
+	\section{Requisitos}
+	
+	Un requisito es una condición o capacidad que debe cumplirse o tener un sistema, producto o proyecto para satisfacer las necesidades y expectativas de los usuarios o stakeholders, se pueden dividir en funcionales y no funcionales.
+	
+	\subsection{Funcionales}
+	
+	Un requisito funcional especifica las capacidades y servicios que debe ofrecer un sistema, definiendo lo que el sistema debe hacer para cumplir con las necesidades del usuario. Por ejemplo, en una aplicación bancaria, un requisito funcional podría ser: "El sistema debe permitir transferir dinero". Estos requisitos suelen describirse a través de escenarios de casos de uso y especificaciones formateadas.
+	
+	
+	Para este proyecto se creará una tabla para describir los requisitos, cada columna corresponderá a lo siguiente:
+	
+	
+	\begin{itemize}
+		\item \textbf{ID}: Identificador único del requisito funcional, que facilita su referencia y seguimiento. Ejemplo: RF0.
+		
+		\item \textbf{Descripción}: Breve enunciado que detalla lo que el requisito funcional implica, incluyendo las acciones que el usuario podrá realizar. Ejemplo: "Los usuarios podrán registrarse en la plataforma según su rol."
+		
+		\item \textbf{Obligatoriedad}: Indica si el requisito es obligatorio o opcional para el sistema, lo que ayuda a priorizar su implementación. 
+		
+		\item \textbf{Dependencia}: Enumera los requisitos de los que depende este requisito, lo que ayuda a entender la secuencia y relaciones entre los requisitos.
+		
+		\item \textbf{Trazabilidad}: Proporciona información sobre la característica de la plataforma o documento donde se relaciona este requisito, permitiendo seguir el origen y contexto del requisito. Ejemplo: "Características de la Plataforma, 1.", se refiere al documento de requisitos que en la página 3 tiene una sección de Características de la Plataforma 
+	\end{itemize}
+	
+
+	
+\newcounter{requisitosFuncionales}
+\begin{longtable}{@{} p{1.5cm} p{5cm} p{3cm} p{2cm} p{3cm} @{}}
+	\caption{Requisitos Funcionales}\\
+	\toprule
+	\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Dependencia} & \textbf{Trazabilidad} \\
+	\midrule
+	\endfirsthead
+	
+	\toprule
+	\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Dependencia} & \textbf{Trazabilidad} \\
+	\midrule
+	\endhead
+	
+	\addlinespace 
+	RF\therequisitosFuncionales & Los usuarios podrán registrarse en la plataforma según su rol. & Obligatorio & Ninguna & Características de la Plataforma, 1  \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los usuarios iniciarán sesión en la plataforma con acceso según su rol. & Obligatorio & RF0 & Características de la Plataforma, 1 \\  
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán acceder a su plan de rehabilitación. & Obligatorio & RF1, RF9 & Características de la Plataforma, 1 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán visualizar su historial de ejercicios. & Obligatorio & RF2 & Características de la Plataforma, 1 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes recibirán recordatorios de las sesiones. & Opcional & RF2 & Características de la Plataforma, 1 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán registrar sus resultados y cumplimiento diario del plan de ejercicios. & Obligatorio & Ninguna & Características de la Plataforma, 3 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán agendar consultas a través de videollamadas con médico. & Obligatorio & Ninguna & Características de la Plataforma, 4 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán acceder a la información de sus pacientes. & Obligatorio & RF1 & Características de la Plataforma, 1 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán programar sesiones de seguimiento con sus pacientes. & Obligatorio & RF7 & Características de la Plataforma,  \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán crear planes de rehabilitación personalizados. & Obligatorio & RF7 & Características de la Plataforma, 2  \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán actualizar los planes de rehabilitación de los pacientes. & Obligatorio & RF9 & Características de la Plataforma, 2 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & La plataforma proporcionará una base de datos con plantillas de ejercicios. & Obligatorio & Ninguna & Sección Características de la Plataforma,  \\ 
+
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & La plataforma recopilará datos de dispositivos wearables. & Obligatorio & Ninguna & Características de la Plataforma, 3 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Se enviará una alerta al profesional en caso de detección de un patrón inusual. & Obligatorio & RF14 & Características de la Plataforma, 3 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & El sistema de mensajería permitirá la comunicación directa entre paciente y profesional. & Obligatorio & RF6 & Características de la Plataforma, 4 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	
+	RF\therequisitosFuncionales & Los profesionales podrán acceder a paneles interactivos del progreso del paciente. & Obligatorio & RF5 & Características de la Plataforma, 7  \\
+	\addlinespace
+	\stepcounter{requisitosFuncionales}RF\therequisitosFuncionales & Los pacientes pueden desbloquear logros (gamificación) al cumplir con sus ejercicios diarios. & Opcional & RF5 & Charla con Paciente (chatGPT) \\
+	\addlinespace
+	\bottomrule
+\end{longtable}
+
+
+
+\subsection{No funcionales}
+
+Un requisito no funcional describe las propiedades y características de las capacidades del sistema, así como el nivel de servicio deseado. Por ejemplo, un requisito no funcional podría ser: "La aplicación web debe soportar el uso de 2500 usuarios de forma concurrente". A diferencia de los requisitos funcionales, que se centran en qué debe hacer el sistema, los requisitos no funcionales abordan cómo debe comportarse, incluyendo restricciones del proyecto y propiedades de las interfaces del sistema.
+
+\newcounter{requisitosNoFuncionales}
+\begin{table}[H]
+	\centering
+	\caption{Requisitos No Funcionales}
+	\begin{tabular}{@{} p{2.5cm} p{6.5cm} p{3cm} p{3cm} @{}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Trazabilidad} \\
+		\midrule
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & La plataforma deberá ser accesible desde dispositivos móviles, tabletas y PC. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 1 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & Se implementará un sistema de autenticación seguro para proteger los datos personales y médicos de los usuarios. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 1 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales &La plataforma cumplirá con el RGPD. Accesible por los profesionales autorizados. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 8 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales}
+		RNF\therequisitosNoFuncionales & Los recordatorios deben estar disponibles 24/7 para que los pacientes reciban la información a tiempo. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 6 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales}
+		RNF\therequisitosNoFuncionales &  Debe permitir la sincronización con calendarios personales, como Google Calendar o iCal.. & Opcional & Charla con Paciente (chatGPT) \\
+		\addlinespace
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+
+\end{document}
