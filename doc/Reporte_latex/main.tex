@@ -419,35 +419,47 @@ Elementos principales en Visual Paradigm:
 
 \subsubsection{Diagrama de Secuencias: Envío de mensaje prioritario}
 
-En este apartado, se ha seleccionado un caso de uso particular para detallar la interacción entre las diferentes entidades involucradas en el proceso de **envío de un mensaje prioritario** por parte del paciente a su profesional de la salud. Este enfoque se eligió para profundizar en las interacciones sin caer en la redundancia con otros diagramas. El caso de uso describe cómo el paciente puede optar por enviar un mensaje marcado como "prioritario", lo que genera una notificación adicional por correo al profesional, además de ser almacenado en el buzón de alertas.
+En este apartado, se ha seleccionado un caso de uso particular para detallar la interacción entre las diferentes entidades involucradas en el proceso de \textbf{envío de un mensaje prioritario} por parte del paciente a su profesional de la salud. Este enfoque se eligió para profundizar en las interacciones sin caer en la redundancia con otros diagramas. El caso de uso describe cómo el paciente puede optar por enviar un mensaje marcado como \textit{prioritario}, lo que genera una notificación adicional por correo al profesional, además de ser almacenado en el buzón de alertas.
 
-### Clases involucradas (lifelines/actores):
-1. **Paciente**: Inicia el flujo al redactar y enviar el mensaje a través de la aplicación.
-2. **Servidor de la aplicación**: Recibe la solicitud del paciente, almacena el mensaje y gestiona las notificaciones.
-3. **Base de datos**: Se encarga de almacenar los mensajes enviados y gestionar las alertas en el buzón.
-4. **Servidor de correo**: Es el encargado de enviar una notificación por correo electrónico al profesional si el mensaje es marcado como prioritario.
-5. **Profesional de la salud**: El destinatario del mensaje, quien accede a la plataforma para leer el mensaje.
+\textbf{Clases involucradas (lifelines/actores)}:
+\begin{itemize}
+	\item \textbf{Paciente}: Inicia el flujo al redactar y enviar el mensaje a través de la aplicación.
+	\item \textbf{Servidor de la aplicación}: Recibe la solicitud del paciente, almacena el mensaje y gestiona las notificaciones.
+	\item \textbf{Base de datos}: Se encarga de almacenar los mensajes enviados y gestionar las alertas en el buzón.
+	\item \textbf{Servidor de correo}: Es el encargado de enviar una notificación por correo electrónico al profesional si el mensaje es marcado como prioritario.
+	\item \textbf{Profesional de la salud}: El destinatario del mensaje, quien accede a la plataforma para leer el mensaje.
+\end{itemize}
 
-### Secuencia de Interacciones:
-- **Paciente → Iniciar sesión** (\texttt{IniciarSesion(String: usuario, String: contraseña)}): El paciente solicita iniciar sesión en la aplicación para acceder a sus funcionalidades, proporcionando sus credenciales (usuario y contraseña).
-- **Servidor de la aplicación → Verificación de credenciales** (\texttt{Verificación(String: usuario, String: contraseña)}): El servidor de la aplicación valida las credenciales consultando la base de datos para confirmar la autenticidad de los datos.
-- **Servidor de la aplicación → Login exitoso** (\texttt{Login(Boolean: correcto)}): El servidor responde con un valor booleano, confirmando si las credenciales son correctas (true) o incorrectas (false). En caso positivo, el paciente accede a la interfaz de usuario.
+\textbf{Secuencia de Interacciones}:
+\begin{itemize}
+	\item \textbf{Paciente → Iniciar sesión} (\texttt{IniciarSesion(String: usuario, String: contraseña)}): El paciente solicita iniciar sesión en la aplicación para acceder a sus funcionalidades, proporcionando sus credenciales (usuario y contraseña).
+	\item \textbf{Servidor de la aplicación → Verificación de credenciales} (\texttt{Verificación(String: usuario, String: contraseña)}): El servidor de la aplicación valida las credenciales consultando la base de datos para confirmar la autenticidad de los datos.
+	\item \textbf{Servidor de la aplicación → Login exitoso} (\texttt{Login(Boolean: correcto)}): El servidor responde con un valor booleano, confirmando si las credenciales son correctas (\texttt{true}) o incorrectas (\texttt{false}). En caso positivo, el paciente accede a la interfaz de usuario.
+\end{itemize}
 
 \textbf{Redacción y envío del mensaje}:
-- **Paciente → Servidor de la aplicación** (\texttt{EnviarMensaje(String: mensaje, Boolean: prioritario)}): El paciente redacta el mensaje y lo envía al servidor, seleccionando si es prioritario o no. El mensaje se transmite junto con un parámetro booleano que indica la prioridad.
-- **Servidor de la aplicación → Base de datos** (\texttt{AlmacenarMensaje(String: mensaje)}): El servidor almacena el mensaje en la base de datos, junto con la etiqueta de prioridad si corresponde.
-- **Servidor de la aplicación → Profesional de la salud** (\texttt{NotificarMensaje()}): Si el mensaje no es prioritario, el servidor notifica al profesional a través de la plataforma, almacenando el mensaje en el buzón de alertas.
-- **Servidor de la aplicación → Servidor de correo** (\texttt{EnviarCorreoNotificacion()}): En el caso de que el mensaje sea prioritario, el servidor también envía una notificación por correo electrónico al profesional a través del servidor de correo.
+\begin{itemize}
+	\item \textbf{Paciente → Servidor de la aplicación} (\texttt{EnviarMensaje(String: mensaje, Boolean: prioritario)}): El paciente redacta el mensaje y lo envía al servidor, seleccionando si es prioritario o no. El mensaje se transmite junto con un parámetro booleano que indica la prioridad.
+	\item \textbf{Servidor de la aplicación → Base de datos} (\texttt{AlmacenarMensaje(String: mensaje)}): El servidor almacena el mensaje en la base de datos, junto con la etiqueta de prioridad si corresponde.
+	\item \textbf{Servidor de la aplicación → Profesional de la salud} (\texttt{NotificarMensaje()}): Si el mensaje no es prioritario, el servidor notifica al profesional a través de la plataforma, almacenando el mensaje en el buzón de alertas.
+	\item \textbf{Servidor de la aplicación → Servidor de correo} (\texttt{EnviarCorreoNotificacion()}): En el caso de que el mensaje sea prioritario, el servidor también envía una notificación por correo electrónico al profesional a través del servidor de correo.
+\end{itemize}
 
 \textbf{Lectura del mensaje por el profesional}:
-- **Profesional de la salud → Servidor de la aplicación** (\texttt{ConsultarMensajes()}): El profesional accede a la plataforma y solicita la lista de mensajes.
-- **Servidor de la aplicación → Base de datos** (\texttt{RecuperarMensajes()}): El servidor consulta los mensajes almacenados en la base de datos para ese profesional.
-- **Base de datos → Servidor de la aplicación** (\texttt{DevolverMensajes()}): La base de datos devuelve los mensajes solicitados.
-- **Servidor de la aplicación → Profesional de la salud** (\texttt{MostrarMensajes()}): El servidor muestra los mensajes al profesional, quien puede proceder a leerlos y responder si es necesario.
+\begin{itemize}
+	\item \textbf{Profesional de la salud → Servidor de la aplicación} (\texttt{ConsultarMensajes()}): El profesional accede a la plataforma y solicita la lista de mensajes.
+	\item \textbf{Servidor de la aplicación → Base de datos} (\texttt{RecuperarMensajes()}): El servidor consulta los mensajes almacenados en la base de datos para ese profesional.
+	\item \textbf{Base de datos → Servidor de la aplicación} (\texttt{DevolverMensajes()}): La base de datos devuelve los mensajes solicitados.
+	\item \textbf{Servidor de la aplicación → Profesional de la salud} (\texttt{MostrarMensajes()}): El servidor muestra los mensajes al profesional, quien puede proceder a leerlos y responder si es necesario.
+\end{itemize}
 
-Concluyendo que El diagrama incluye un bloque condicional (\textit{alt}) que refleja los dos escenarios posibles:
-1. Si el mensaje es **prioritario**, el profesional recibe una notificación adicional por correo.
-2. Si el mensaje no es prioritario, simplemente se almacena en el buzón de alertas del profesional.
+\textbf{Escenarios alternativos}:
+El diagrama incluye un bloque condicional (\textit{alt}) que refleja los dos escenarios posibles:
+\begin{itemize}
+	\item Si el mensaje es \textbf{prioritario}, el profesional recibe una notificación adicional por correo.
+	\item Si el mensaje no es prioritario, simplemente se almacena en el buzón de alertas del profesional.
+\end{itemize}
+
 
 
 
