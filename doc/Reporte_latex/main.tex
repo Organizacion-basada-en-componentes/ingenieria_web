@@ -1,0 +1,462 @@
+\documentclass{article}
+\usepackage{fullpage}
+
+%load needed packages
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+
+\usepackage[spanish]{babel} % Paquete para el idioma español
+\usepackage{float}  % Necesario para [H]
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{longtable} 
+
+\definecolor{codegreen}{HTML}{5AB2FF}
+\definecolor{morado}{HTML}{AD88C6}
+\definecolor{BG}{HTML}{EEEEEE}
+\definecolor{azul}{HTML}{4D869C}
+\definecolor{sqlblue}{HTML}{FF8C00} % Color para las palabras clave SQL
+
+% Estilo para DDL
+\lstdefinestyle{ddlstyle}{
+	language=SQL,
+	backgroundcolor=\color{BG},
+	commentstyle=\color{codegreen},
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{azul},
+	stringstyle=\color{morado},
+	showstringspaces=false,
+	breaklines=true,
+	frame=shadowbox,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	captionpos=b,
+}
+
+% Estilo para SQL
+\lstdefinestyle{sqlstyle}{
+	language=SQL,
+	backgroundcolor=\color{BG},
+	commentstyle=\color{codegreen},
+	basicstyle=\ttfamily\small,
+	keywordstyle=\color{sqlblue}, % Color diferente para palabras clave SQL
+	stringstyle=\color{morado},
+	showstringspaces=false,
+	breaklines=true,
+	frame=shadowbox,
+	numbers=left,
+	numberstyle=\tiny\color{gray},
+	captionpos=b,
+}
+
+\begin{document}
+	
+	% Portada
+	\begin{titlepage}
+		\centering
+		\vspace*{3cm}
+		
+		% Título destacado
+		{\Huge \textbf{Plataforma Web de Rehabilitación a Distancia}\\[0.5cm]}
+		
+		% Espacio y logotipo (si lo tienes, por ejemplo el logo de tu universidad)
+		\vspace{2cm}
+		\includegraphics[width=0.3\textwidth]{images/uma_logo.jpg}\\[1cm]
+		
+		% Nombre del autor
+		{\LARGE \textbf{Organización basada en componentes}\\[0.5cm]}
+		{\large \textit{Integrantes:}\\
+			Cuevas Rodríguez, Marta\\
+			de Pablo, Diego\\
+			Silva Rodríguez, Alejandro\\
+			Soriano Muñoz, Juan Ignacio\\
+		}
+		\vfill
+		{\large \textit{Ingeniería web}\\
+			Universidad de Málaga\\
+		}
+		
+		\vfill
+		
+		% Fecha en la parte inferior de la página
+		{\large Octubre 2024}
+	\end{titlepage}
+	
+	% índice
+	\tableofcontents
+	
+	\newpage
+	
+	\section{Introducción}
+
+La rehabilitación es una fase crítica en el proceso de recuperación de pacientes que han sufrido lesiones, intervenciones quirúrgicas o padecen enfermedades crónicas. Tradicionalmente, la rehabilitación se realiza de manera presencial, lo que puede generar barreras logísticas, económicas y geográficas tanto para los pacientes como para los profesionales de la salud. Ante esta realidad, surge la necesidad de una Plataforma Web de Rehabilitación a Distancia, cuyo objetivo es facilitar el acceso a programas de rehabilitación personalizados, ofrecer seguimiento remoto y mejorar la calidad de vida de los pacientes sin la necesidad de visitas constantes a centros de rehabilitación.
+\\
+\\
+Este proyecto plantea el desarrollo de una plataforma web integral que permita a los pacientes recibir tratamientos de rehabilitación de manera remota, mientras que los profesionales de la salud pueden monitorizar el progreso y ajustar las terapias en tiempo real. Los principales stakeholders involucrados en este proyecto incluyen a pacientes, profesionales de la salud (fisioterapeutas, médicos rehabilitadores) y desarrolladores de software. Los pacientes se beneficiarán de un acceso más flexible a sus tratamientos, mientras que los profesionales podrán optimizar el seguimiento clínico y ajustar terapias de manera eficiente.
+\\
+\\
+Entre los posibles casos de uso se encuentran situaciones como la rehabilitación de un paciente con una lesión muscular, que puede realizar sus ejercicios desde casa bajo la supervisión de un fisioterapeuta a través de videollamadas, o un paciente crónico que, mediante dispositivos de telemetría y un registro de ejercicios, permite que su progreso sea monitorizado de forma continua.
+
+
+	
+	\section{Descripción de Stakeholders}
+	
+	Un stakeholder (o parte interesada) es cualquier persona, grupo u organización que tiene un interés o impacto directo en un proyecto, producto o empresa, o que se ve afectada por los resultados de dicho proyecto. 
+	
+	\begin{table}[ht]
+		\centering
+		\caption{Stakeholders Principales}
+		\begin{tabular}{@{} p{3cm} p{6cm} p{7cm} @{}}
+			\toprule
+			\textbf{Nombre} & \textbf{Representa} & \textbf{Rol} \\
+			\midrule
+			Profesional médico & 
+			Especialista de la salud encargado del seguimiento y control de la rehabilitación a distancia & 
+			Supervisa y evalúa el progreso de los pacientes. \newline Personaliza los planes de tratamiento, proporciona feedback y ajusta terapias en tiempo real. \\
+			
+			\addlinespace
+			
+			Paciente & 
+			Usuarios finales que necesitan realizar terapias de rehabilitación a distancia. & 
+			Participan activamente usando la plataforma para seguir sus planes de rehabilitación, registrar su progreso y recibir retroalimentación. Su satisfacción es esencial, ya que su experiencia definirá el éxito del proyecto. \\
+			
+			\addlinespace
+			
+			Desarrollador  Software & 
+			Equipo encargado del desarrollo del software de la aplicación o página web & 
+			Desarrolla y mantiene la funcionalidad del sistema, asegurándose de que los datos de los pacientes se almacenen y se procesen correctamente. \\
+			\bottomrule
+		\end{tabular}
+	\end{table}
+	
+	
+
+	
+	
+	\section{Requisitos}
+	
+	Un requisito es una condición o capacidad que debe cumplirse o tener un sistema, producto o proyecto para satisfacer las necesidades y expectativas de los usuarios o stakeholders, se pueden dividir en funcionales y no funcionales.
+	
+	\subsection{Funcionales}
+	
+	Un requisito funcional especifica las capacidades y servicios que debe ofrecer un sistema, definiendo lo que el sistema debe hacer para cumplir con las necesidades del usuario. Por ejemplo, en una aplicación bancaria, un requisito funcional podría ser: "El sistema debe permitir transferir dinero". Estos requisitos suelen describirse a través de escenarios de casos de uso y especificaciones formateadas.
+	
+	
+	Para este proyecto se creará una tabla para describir los requisitos, cada columna corresponderá a lo siguiente:
+	
+	
+	\begin{itemize}
+		\item \textbf{ID}: Identificador único del requisito funcional, que facilita su referencia y seguimiento. Ejemplo: RF0.
+		
+		\item \textbf{Descripción}: Breve enunciado que detalla lo que el requisito funcional implica, incluyendo las acciones que el usuario podrá realizar. Ejemplo: "Los usuarios podrán registrarse en la plataforma según su rol."
+		
+		\item \textbf{Obligatoriedad}: Indica si el requisito es obligatorio o opcional para el sistema, lo que ayuda a priorizar su implementación. 
+		
+		\item \textbf{Dependencia}: Enumera los requisitos de los que depende este requisito, lo que ayuda a entender la secuencia y relaciones entre los requisitos.
+		
+		\item \textbf{Trazabilidad}: Proporciona información sobre la característica de la plataforma o documento donde se relaciona este requisito, permitiendo seguir el origen y contexto del requisito. Ejemplo: "Características de la Plataforma, 1.", se refiere al documento de requisitos que en la página 3 tiene una sección de Características de la Plataforma 
+	\end{itemize}
+	
+
+	
+\newcounter{requisitosFuncionales}
+\begin{longtable}{@{} p{1.5cm} p{5cm} p{3cm} p{2cm} p{3cm} @{}}
+	\caption{Requisitos Funcionales}\\
+	\toprule
+	\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Dependencia} & \textbf{Trazabilidad} \\
+	\midrule
+	\endfirsthead
+	
+	\toprule
+	\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Dependencia} & \textbf{Trazabilidad} \\
+	\midrule
+	\endhead
+	
+	\addlinespace 
+	RF\therequisitosFuncionales & Los usuarios podrán registrarse en la plataforma según su rol. & Obligatorio & Ninguna & Características de la Plataforma, 1  \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los usuarios iniciarán sesión en la plataforma con acceso según su rol. & Obligatorio & RF0 & Características de la Plataforma, 1 \\  
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán acceder a su plan de rehabilitación. & Obligatorio & RF1, RF9 & Características de la Plataforma, 1 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán visualizar su historial de ejercicios. & Obligatorio & RF2 & Características de la Plataforma, 1 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes recibirán recordatorios de las sesiones. & Opcional & RF2 & Características de la Plataforma, 1 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán registrar sus resultados y cumplimiento diario del plan de ejercicios. & Obligatorio & Ninguna & Características de la Plataforma, 3 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los pacientes podrán agendar consultas a través de videollamadas con médico. & Obligatorio & Ninguna & Características de la Plataforma, 4 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán acceder a la información de sus pacientes. & Obligatorio & RF1 & Características de la Plataforma, 1 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán programar sesiones de seguimiento con sus pacientes. & Obligatorio & RF7 & Características de la Plataforma,  \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán crear planes de rehabilitación personalizados. & Obligatorio & RF7 & Características de la Plataforma, 2  \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Los profesionales podrán actualizar los planes de rehabilitación de los pacientes. & Obligatorio & RF9 & Características de la Plataforma, 2 \\ 
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & La plataforma proporcionará una base de datos con plantillas de ejercicios. & Obligatorio & Ninguna & Sección Características de la Plataforma,  \\ 
+
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & La plataforma recopilará datos de dispositivos wearables. & Obligatorio & Ninguna & Características de la Plataforma, 3 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & Se enviará una alerta al profesional en caso de detección de un patrón inusual. & Obligatorio & RF14 & Características de la Plataforma, 3 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	RF\therequisitosFuncionales & El sistema de mensajería permitirá la comunicación directa entre paciente y profesional. & Obligatorio & RF6 & Características de la Plataforma, 4 \\
+	\addlinespace \stepcounter{requisitosFuncionales}
+	
+	RF\therequisitosFuncionales & Los profesionales podrán acceder a paneles interactivos del progreso del paciente. & Obligatorio & RF5 & Características de la Plataforma, 7  \\
+	\addlinespace
+	\stepcounter{requisitosFuncionales}RF\therequisitosFuncionales & Los pacientes pueden desbloquear logros (gamificación) al cumplir con sus ejercicios diarios. & Opcional & RF5 & Charla con Paciente (chatGPT) \\
+	\addlinespace
+	\bottomrule
+\end{longtable}
+
+
+
+\subsection{No funcionales}
+
+Un requisito no funcional describe las propiedades y características de las capacidades del sistema, así como el nivel de servicio deseado. Por ejemplo, un requisito no funcional podría ser: "La aplicación web debe soportar el uso de 2500 usuarios de forma concurrente". A diferencia de los requisitos funcionales, que se centran en qué debe hacer el sistema, los requisitos no funcionales abordan cómo debe comportarse, incluyendo restricciones del proyecto y propiedades de las interfaces del sistema.
+
+\newcounter{requisitosNoFuncionales}
+\begin{table}[H]
+	\centering
+	\caption{Requisitos No Funcionales}
+	\begin{tabular}{@{} p{2.5cm} p{6.5cm} p{3cm} p{3cm} @{}}
+		\toprule
+		\textbf{ID} & \textbf{Descripción} & \textbf{Obligatoriedad} & \textbf{Trazabilidad} \\
+		\midrule
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & La plataforma deberá ser accesible desde dispositivos móviles, tabletas y PC. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 1 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales & Se implementará un sistema de autenticación seguro para proteger los datos personales y médicos de los usuarios. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 1 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales} RNF\therequisitosNoFuncionales &La plataforma cumplirá con el RGPD. Accesible por los profesionales autorizados. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 8 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales}
+		RNF\therequisitosNoFuncionales & Los recordatorios deben estar disponibles 24/7 para que los pacientes reciban la información a tiempo. & Obligatorio & Documento Profe, Sección Características de la Plataforma, 6 \\
+		\addlinespace
+		\stepcounter{requisitosNoFuncionales}
+		RNF\therequisitosNoFuncionales &  Debe permitir la sincronización con calendarios personales, como Google Calendar o iCal.. & Opcional & Charla con Paciente (chatGPT) \\
+		\addlinespace
+		
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\section{Modelado}
+
+\subsection{Diagrama IFML}
+
+Insertar Diagrama Ale
+
+\subsection{Diagrama de Casos de Uso}
+
+Un Diagrama de Casos de Uso muestra las operaciones que se esperan de un sistema y cómo interactúan los usuarios u otros sistemas con él. Es una herramienta esencial para la planificación y control de proyectos interactivos, permitiendo una visión clara de los requisitos que debe cumplir el sistema.
+
+Cada caso de uso se representa mediante una elipse que denota una operación completa desarrollada entre el sistema y sus actores. El conjunto de casos de uso refleja la totalidad de las operaciones realizadas por el sistema.
+
+Otros elementos que serán visto en el diagrama de casos de uso (ver figura \ref{fig:requisitos_diagrama})
+
+\begin{itemize}
+	\item \textbf{Actor}: Es un usuario del sistema que interactúa con uno o más casos de uso. Un actor puede representar tanto a personas como a sistemas externos que necesitan acceder a información o servicios del sistema. Un actor puede tener múltiples roles, y un caso de uso puede tener varios actores.
+	
+	\item \textbf{Generalización de Actor}: Permite agrupar actores con comportamientos similares. Por ejemplo, un \textit{Usuario} puede ser una generalización de \textit{Paciente} y \textit{Profesional de la salud}, dado que ambos comparten ciertas acciones comunes, pero también tienen roles específicos.
+	
+	\item \textbf{Relaciones Especiales}:
+	\begin{itemize}
+		\item \textbf{Uses}: Denota la inclusión del comportamiento de un caso de uso en otro. Se utiliza cuando el comportamiento es compartido entre varios casos de uso.
+		\item \textbf{Extends}: Indica una especialización de un caso de uso base. Se utiliza cuando un comportamiento adicional o alternativo se activa bajo ciertas condiciones.
+	\end{itemize}
+\end{itemize}
+
+\begin{figure}[h!]
+	\begin{center} 
+		\includegraphics[width=1\textwidth]{images/Casos_de_uso_rehabilitación.jpg}
+		\caption{Diseño de Diagrama de Casos de Uso}
+		\label{fig:requisitos_diagrama}
+	\end{center}
+\end{figure}
+
+\subsection{Explicación de Casos de Uso}
+
+\subsubsection*{CASO DE USO 1: Paciente registrando sus resultados}
+
+\begin{itemize}
+	\item \textbf{Nombre}: Registrar resultados del paciente.
+	\item \textbf{Objetivo}: El paciente registra sus resultados de la rutina de ejercicios.
+	\item \textbf{Autor}: Paciente
+	\item \textbf{Descripción}: 
+	El paciente, que ya está registrado en la aplicación, inicia sesión correctamente y accede al espacio de progreso. Si el paciente utiliza sensores o dispositivos Wearables, estos se conectarán automáticamente para introducir datos de actividad física y otras métricas. Además, el paciente podrá responder preguntas sobre su comodidad con la rutina, sus preferencias, y su estado de salud general. Si el paciente completa su rutina de ejercicios, la aplicación puede desbloquear logros (gamificación) como incentivo para continuar.
+\end{itemize}
+
+\textbf{Precondiciones:}
+\begin{itemize}
+	\item El paciente está registrado en la aplicación.
+	\item El paciente cuenta con un plan de rehabilitación activo.
+	\item El paciente puede disponer de un dispositivo Wearable y conexión a internet adecuada.
+\end{itemize}
+
+\textbf{Escenario principal:}
+\begin{enumerate}
+	\item El paciente abre la página web.
+	\item El paciente inicia sesión correctamente.
+	\item La página web verifica las credenciales y confirma el inicio de sesión.
+	\item El paciente hace clic en el botón \textit{Progreso}.
+	\item La página web carga la pestaña de progreso y logros.
+	\item El paciente comienza a introducir sus avances en la plataforma.
+	\begin{itemize}
+		\item Si el paciente tiene un dispositivo Wearable, este carga automáticamente los datos de actividad en su progreso.
+	\end{itemize}
+	\item La aplicación guarda los datos introducidos.
+	\item La aplicación otorga un logro al paciente por cumplir su cuota de actividad.
+\end{enumerate}
+
+\textbf{Escenario alternativo:}
+\begin{itemize}
+	\item En el caso de que el paciente no haya logrado su cuota de actividad, la aplicación no otorgará un logro.
+	\item El paciente recibirá un mensaje de motivación para fomentar una mayor actividad física.
+\end{itemize}
+
+
+\subsubsection*{CASO DE USO 2: Pactar una cita con un paciente}
+
+\begin{itemize}
+	\item \textbf{Nombre}: Pactar una cita con un paciente
+	\item \textbf{Objetivo}: El profesional de la salud programa una cita de seguimiento con un paciente.
+	\item \textbf{Autor}: Profesional de la salud
+	\item \textbf{Descripción}: 
+	El profesional de la salud, después de iniciar sesión correctamente, selecciona un paciente de su lista de pacientes. El profesional puede revisar la disponibilidad del paciente y programar una cita de seguimiento, ya sea en persona o por videollamada, para continuar con el plan de rehabilitación. La cita se agenda en el calendario del paciente, y ambos reciben una notificación automática.
+\end{itemize}
+
+\textbf{Precondiciones:}
+\begin{itemize}
+	\item El profesional de la salud está registrado en la plataforma y ha iniciado sesión.
+	\item El paciente está registrado en la plataforma y tiene un plan de rehabilitación activo.
+	\item El paciente tiene habilitado el acceso a su calendario para recibir notificaciones.
+\end{itemize}
+
+\textbf{Escenario principal:}
+\begin{enumerate}
+	\item El profesional de la salud abre la página web.
+	\item El profesional inicia sesión correctamente.
+	\item La página web verifica las credenciales y confirma el inicio de sesión.
+	\item El profesional selecciona un paciente de la lista.
+	\item El profesional hace clic en la opción \textit{Pactar cita}.
+	\item La plataforma muestra el calendario del paciente con las franjas horarias disponibles.
+	\item El profesional selecciona una fecha y hora para la cita.
+	\item La plataforma confirma la cita y la agenda en el calendario del paciente.
+	\item Se envía una notificación automática al paciente y al profesional.
+\end{enumerate}
+
+\textbf{Escenario alternativo:}
+\begin{itemize}
+	\item Si no hay disponibilidad en el calendario del paciente, la plataforma notifica al profesional y sugiere nuevas franjas horarias.
+	\item Si el paciente cancela la cita, la plataforma envía una notificación al profesional para reprogramar.
+\end{itemize}
+
+\subsubsection*{CASO DE USO 3: Modificar plan de rehabilitación de un paciente}
+
+\begin{itemize}
+	\item \textbf{Nombre}: Modificar plan de rehabilitación de un paciente
+	\item \textbf{Objetivo}: El profesional de la salud modifica el plan de rehabilitación de un paciente.
+	\item \textbf{Autor}: Profesional de la salud
+	\item \textbf{Descripción}: 
+	El profesional de la salud selecciona un paciente de su lista y revisa su progreso. Basado en el desempeño y las necesidades actuales del paciente, el profesional decide modificar el plan de rehabilitación existente. Esto puede implicar ajustar la rutina de ejercicios, cambiar la frecuencia de sesiones o actualizar las metas de recuperación. Una vez modificado, el nuevo plan es guardado y notificado al paciente.
+\end{itemize}
+
+\textbf{Precondiciones:}
+\begin{itemize}
+	\item El profesional de la salud está registrado en la plataforma y ha iniciado sesión.
+	\item El paciente tiene un plan de rehabilitación activo.
+	\item El profesional tiene acceso al historial de progreso del paciente.
+\end{itemize}
+
+\textbf{Escenario principal:}
+\begin{enumerate}
+	\item El profesional de la salud abre la página web.
+	\item El profesional inicia sesión correctamente.
+	\item La página web verifica las credenciales y confirma el inicio de sesión.
+	\item El profesional selecciona un paciente de la lista.
+	\item El profesional hace clic en la opción \textit{Modificar plan de rehabilitación}.
+	\item La plataforma muestra el plan de rehabilitación actual del paciente.
+	\item El profesional realiza modificaciones al plan (ej. ajustar ejercicios, cambiar frecuencia, actualizar metas).
+	\item El profesional guarda las modificaciones.
+	\item La plataforma envía una notificación al paciente informando los cambios en su plan.
+\end{enumerate}
+
+\textbf{Escenario alternativo:}
+\begin{itemize}
+	\item Si el profesional no está seguro de los cambios, puede optar por guardar un borrador del nuevo plan y continuar más tarde.
+	\item Si el paciente no está de acuerdo con las modificaciones, puede enviar un mensaje al profesional para discutir los ajustes.
+\end{itemize}
+
+
+\subsection{Diagrama de Secuencia}
+
+Un diagrama de secuencia muestra la interacción de un conjunto de objetos de una aplicación a lo largo del tiempo. Es una herramienta importante porque aporta detalles a los casos de uso, aclarando cómo se intercambian mensajes entre los objetos. Además, revela cómo las clases diseñadas interactúan en el contexto de una operación específica.
+
+Este tipo de diagrama es esencial para comprender la dinámica del sistema en términos de secuencia temporal, permitiendo visualizar el orden en que los mensajes se envían entre objetos y cómo se desarrollan las operaciones en el sistema. Detalla la lógica de las interacciones y ayuda a verificar que el diseño satisface los requisitos funcionales descritos en los casos de uso.
+
+Elementos principales en Visual Paradigm:
+\begin{itemize}
+	\item \textbf{Línea de vida (lifeline)}: Representa la existencia de un objeto a lo largo del tiempo, y se dibuja como una línea vertical punteada con un rectángulo de encabezado.
+	\item \textbf{Activación}: Denotada por un rectángulo a lo largo de la línea de vida, representa el periodo en el cual un objeto está ejecutando una operación.
+	\item \textbf{Mensaje}: Los mensajes entre objetos se representan mediante líneas sólidas con flechas, que indican el flujo de información desde el objeto que emite el mensaje hasta el objeto que lo recibe y ejecuta.
+\end{itemize}
+
+\begin{figure}[h!]
+	\begin{center} 
+		\includegraphics[width=1\textwidth]{images/Diagrama_de_secuencia_rehabilitacion.jpg}
+		\caption{Diseño de Diagrama de Secuencia}
+		\label{fig:secuencia_diagrama}
+	\end{center}
+\end{figure}
+
+\subsubsection{Diagrama de Secuencias: Envío de mensaje prioritario}
+
+En este apartado, se ha seleccionado un caso de uso particular para detallar la interacción entre las diferentes entidades involucradas en el proceso de **envío de un mensaje prioritario** por parte del paciente a su profesional de la salud. Este enfoque se eligió para profundizar en las interacciones sin caer en la redundancia con otros diagramas. El caso de uso describe cómo el paciente puede optar por enviar un mensaje marcado como "prioritario", lo que genera una notificación adicional por correo al profesional, además de ser almacenado en el buzón de alertas.
+
+### Clases involucradas (lifelines/actores):
+1. **Paciente**: Inicia el flujo al redactar y enviar el mensaje a través de la aplicación.
+2. **Servidor de la aplicación**: Recibe la solicitud del paciente, almacena el mensaje y gestiona las notificaciones.
+3. **Base de datos**: Se encarga de almacenar los mensajes enviados y gestionar las alertas en el buzón.
+4. **Servidor de correo**: Es el encargado de enviar una notificación por correo electrónico al profesional si el mensaje es marcado como prioritario.
+5. **Profesional de la salud**: El destinatario del mensaje, quien accede a la plataforma para leer el mensaje.
+
+### Secuencia de Interacciones:
+- **Paciente → Iniciar sesión** (\texttt{IniciarSesion(String: usuario, String: contraseña)}): El paciente solicita iniciar sesión en la aplicación para acceder a sus funcionalidades, proporcionando sus credenciales (usuario y contraseña).
+- **Servidor de la aplicación → Verificación de credenciales** (\texttt{Verificación(String: usuario, String: contraseña)}): El servidor de la aplicación valida las credenciales consultando la base de datos para confirmar la autenticidad de los datos.
+- **Servidor de la aplicación → Login exitoso** (\texttt{Login(Boolean: correcto)}): El servidor responde con un valor booleano, confirmando si las credenciales son correctas (true) o incorrectas (false). En caso positivo, el paciente accede a la interfaz de usuario.
+
+\textbf{Redacción y envío del mensaje}:
+- **Paciente → Servidor de la aplicación** (\texttt{EnviarMensaje(String: mensaje, Boolean: prioritario)}): El paciente redacta el mensaje y lo envía al servidor, seleccionando si es prioritario o no. El mensaje se transmite junto con un parámetro booleano que indica la prioridad.
+- **Servidor de la aplicación → Base de datos** (\texttt{AlmacenarMensaje(String: mensaje)}): El servidor almacena el mensaje en la base de datos, junto con la etiqueta de prioridad si corresponde.
+- **Servidor de la aplicación → Profesional de la salud** (\texttt{NotificarMensaje()}): Si el mensaje no es prioritario, el servidor notifica al profesional a través de la plataforma, almacenando el mensaje en el buzón de alertas.
+- **Servidor de la aplicación → Servidor de correo** (\texttt{EnviarCorreoNotificacion()}): En el caso de que el mensaje sea prioritario, el servidor también envía una notificación por correo electrónico al profesional a través del servidor de correo.
+
+\textbf{Lectura del mensaje por el profesional}:
+- **Profesional de la salud → Servidor de la aplicación** (\texttt{ConsultarMensajes()}): El profesional accede a la plataforma y solicita la lista de mensajes.
+- **Servidor de la aplicación → Base de datos** (\texttt{RecuperarMensajes()}): El servidor consulta los mensajes almacenados en la base de datos para ese profesional.
+- **Base de datos → Servidor de la aplicación** (\texttt{DevolverMensajes()}): La base de datos devuelve los mensajes solicitados.
+- **Servidor de la aplicación → Profesional de la salud** (\texttt{MostrarMensajes()}): El servidor muestra los mensajes al profesional, quien puede proceder a leerlos y responder si es necesario.
+
+Concluyendo que El diagrama incluye un bloque condicional (\textit{alt}) que refleja los dos escenarios posibles:
+1. Si el mensaje es **prioritario**, el profesional recibe una notificación adicional por correo.
+2. Si el mensaje no es prioritario, simplemente se almacena en el buzón de alertas del profesional.
+
+
+
+\subsection{Diagrama de Clases}
+
+Insertar Diagrama Juan
+
+\subsection{Diagrama de SysML}
+
+Insertar Diagrama Marta
+
+\end{document}
