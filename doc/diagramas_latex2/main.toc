@@ -14,3 +14,4 @@
 \contentsline {subsubsection}{\numberline {2.4.3}Interacciones del Paciente}{15}{subsubsection.2.4.3}%
 \contentsline {subsubsection}{\numberline {2.4.4}Interacciones del Profesional Sanitario}{17}{subsubsection.2.4.4}%
 \contentsline {subsection}{\numberline {2.5}Diagrama de Clases}{18}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Auto-Evaluaciones}{22}{section.3}%
