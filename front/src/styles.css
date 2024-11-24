@@ -1,0 +1,185 @@
+/* You can add global styles to this file, and also import other style files */
+/* ===================================
+   Normalización de Estilos (Reset)
+   =================================== */
+
+/* Restablecer márgenes y rellenos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Estilo básico para el body */
+  html, body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.5;
+    background-color: #f8f9fa; /* Color de fondo suave */
+    color: #333; /* Color de texto */
+  }
+  
+  /* ===================================
+     Estilos Básicos Globales
+     =================================== */
+  
+  /* Enlaces */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  a:hover {
+    color: #007bff; /* Color de hover para enlaces */
+  }
+  
+  /* Estilo para imágenes */
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  /* Estilo global para botones */
+  button {
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Color de hover */
+    color: white;
+  }
+  
+  /* ===================================
+     Estilos para el Diseño de la Página
+     =================================== */
+  
+  /* Contenedor principal */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Estilos para las cabeceras */
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  /* Espaciado entre secciones */
+  section {
+    margin-bottom: 20px;
+  }
+  
+  /* ===================================
+     Paleta de Colores Globales
+     =================================== */
+  
+  /* Definición de variables de color */
+  :root {
+    --primary-color: #007bff; /* Color principal */
+    --secondary-color: #6c757d; /* Color secundario */
+    --accent-color: #28a745; /* Color de acento */
+    --background-color: #f8f9fa; /* Color de fondo */
+    --text-color: #333; /* Color de texto */
+  }
+  
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Estilos para botones con colores personalizados */
+  button {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  button:hover {
+    background-color: darken(var(--primary-color), 10%);
+  }
+  
+  /* ===================================
+     Estilos para Diseño con Flexbox y Grid
+     =================================== */
+  
+  /* Contenedor flex para distribuir elementos */
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Contenedor grid para el diseño de las tarjetas o secciones */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  /* ===================================
+     Estilos para Formularios
+     =================================== */
+  
+  /* Estilo para los formularios */
+  input, select, textarea {
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  /* Estilo cuando un campo de formulario está enfocado */
+  input:focus, select:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  /* Estilo global para los formularios */
+  form {
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  /* ===================================
+     Media Queries (Estilos Responsivos)
+     =================================== */
+  
+  /* Estilos para pantallas pequeñas (dispositivos móviles) */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  
+    .flex-container {
+      flex-direction: column;
+    }
+  }
+  
+  /* ===================================
+     Otros Estilos Globales
+     =================================== */
+  
+  /* Sombra para elementos */
+  .shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Efecto de transición para suavizar cambios */
+  .transition {
+    transition: all 0.3s ease-in-out;
+  }
+  
