@@ -1,0 +1,84 @@
+:root {
+    --primary: #89A8B2; /* Color principal */
+    --secondary: #B3C8CF; /* Color secundario */
+    --tertiary: #E5E1DA;
+    
+    --background: #F1F0E8; /* Color de fondo */
+    --text: #333; /* Color de texto */
+    --text2: #E5E1DA;
+  
+    --cardBackground: #2C2C2C;
+    --cardText: #E0E0E0;
+    --cardTitle: rgb(6, 182, 212);  
+    --cardInput: #3C3D37;
+  
+    --calendarBackground: #2C2C2C;
+    --calendarText: #E0E0E0;
+  
+    --danger: #C7253E;
+    --border: #2C2C2C;
+  }
+  
+  .header {
+    background-color: var(--primary);
+    color: var(--text2);
+    padding: 20px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .header-logo h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--tertiary);
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .login-btn {
+    background-color: var(--secondary);
+    color: var(--text);
+  }
+  
+  .login-btn:hover {
+    background-color: var(--tertiary);
+    color: var(--text2);
+  }
+  
+  .register-btn {
+    background-color: var(--cardTitle);
+    color: var(--text2);
+  }
+  
+  .register-btn:hover {
+    background-color: var(--cardBackground);
+    color: var(--cardText);
+  }
+  
+  /* Añadiendo un efecto de sombra sutil cuando el usuario pasa el cursor por encima de los botones */
+  .btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  

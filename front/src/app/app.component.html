@@ -1,10 +1,4 @@
-<main class="main">
-  <div class="content">
-   
-     
-  </div>
-</main>
-
-
-
-<router-outlet />
+<app-header-logged-in *ngIf="isLoggedIn"></app-header-logged-in>
+<app-header-logged-out *ngIf="!isLoggedIn"></app-header-logged-out>
+<router-outlet></router-outlet>
+<app-footer></app-footer>
