@@ -1,19 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth.service';  // Importa AuthService
+import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
-  standalone: false, // Indica que es un componente standalone
+  standalone: false,
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  isAuthenticated: boolean = false;  // Definir la propiedad
-
   constructor(private authService: AuthService) {}
+  isAuthenticated$: Observable<boolean> | undefined;
+  userType$: Observable<string | null> | undefined;
 
-  ngOnInit() {
-    // Obtener el estado de autenticación desde el AuthService
-    this.isAuthenticated = this.authService.isLoggedIn();
+  
+
+  ngOnInit(): void {
+    this.isAuthenticated$ = this.authService.isAuthenticated$;
+    this.userType$ = this.authService.userType$;
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

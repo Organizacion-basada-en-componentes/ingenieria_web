@@ -1,4 +1,8 @@
-<app-header-logged-in *ngIf="isAuthenticated"></app-header-logged-in>
-<app-header-logged-out *ngIf="!isAuthenticated"></app-header-logged-out>
+
+<app-header-logged-in-paciente *ngIf="(isAuthenticated$ | async) && (userType$ | async) === 'paciente'"></app-header-logged-in-paciente>
+<app-header-logged-in-medico *ngIf="(isAuthenticated$ | async) && (userType$ | async) === 'medico'"></app-header-logged-in-medico>
+<app-header-logged-out *ngIf="!(isAuthenticated$ | async)"></app-header-logged-out>
+
 <router-outlet></router-outlet>
 <app-footer></app-footer>
+  

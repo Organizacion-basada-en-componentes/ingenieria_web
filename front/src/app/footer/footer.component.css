@@ -1,141 +1,121 @@
-:root {
-    --primary: #89A8B2; /* Color principal */
-    --secondary: #B3C8CF; /* Color secundario */
-    --tertiary: #E5E1DA;
-  
-    --background: #F1F0E8; /* Color de fondo */
-    --text: #333; /* Color de texto */
-    --text2: #E5E1DA;
-  
-    --cardBackground: #2C2C2C;
-    --cardText: #E0E0E0;
-    --cardTitle: rgb(6, 182, 212);  
-    --cardInput: #3C3D37;
-  
-    --calendarBackground: #2C2C2C;
-    --calendarText: #E0E0E0;
-  
-    --danger: #C7253E;
-    --border: #2C2C2C;
-  }
-  
-  .footer {
-    background-color: var(--primary);
-    color: var(--text2);
-    padding: 40px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  /* Contenedor para los elementos */
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  /* Estilo del logo */
-  .footer-logo h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: var(--tertiary);
-    letter-spacing: 1px;
-  }
-  
-  /* Estilo de los enlaces */
-  .footer-links {
-    display: flex;
-    gap: 20px;
-  }
-  
-  .footer-links a {
-    text-decoration: none;
-    color: var(--tertiary);
-    font-size: 1.1rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-  }
-  
-  .footer-links a:hover {
-    color: var(--cardTitle);
-    transform: scale(1.1);
-  }
-  
-  /* Estilo de los iconos sociales */
-  .footer-social {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .social-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 40px;
-    height: 40px;
-    background-color: var(--cardBackground);
-    border-radius: 50%;
-    font-size: 20px;
-    color: var(--cardText);
-    text-decoration: none;
-    transition: transform 0.3s, background-color 0.3s;
-  }
-  
-  .social-icon:hover {
-    transform: scale(1.2);
-    background-color: var(--cardTitle);
-  }
-  
-  .social-icon.facebook {
-    background-color: #3b5998;
-  }
-  
-  .social-icon.twitter {
-    background-color: #1da1f2;
-  }
-  
-  .social-icon.linkedin {
-    background-color: #0077b5;
-  }
-  
-  .social-icon.github {
-    background-color: #333;
-  }
-  
-  /* Estilo del footer bottom */
-  .footer-bottom {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--text2);
-  }
-  
-  .footer-bottom p {
-    margin: 0;
-  }
-  
-  /* Efecto de movimiento en el fondo */
-  .footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://www.transparenttextures.com/patterns/triangles.png');
-    opacity: 0.1;
-    pointer-events: none;
-    animation: moveBackground 20s infinite linear;
-  }
-  
-  @keyframes moveBackground {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 100%; }
-  }
-  
+
+.footer {
+  background-color: var(--primary);
+  color: var(--text2);
+  padding: 40px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column; /* Apila el contenido verticalmente */
+  align-items: center; /* Centra los elementos */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-logo h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--tertiary);
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 20px; /* Espaciado debajo del logo */
+}
+
+/* Mantener los enlaces en fila */
+.footer-links {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px; /* Espaciado debajo de los enlaces */
+  justify-content: center; /* Centra los enlaces */
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: var(--tertiary);
+  font-size: 1.1rem;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--cardTitle);
+  transform: scale(1.1);
+}
+
+.footer-social {
+  display: flex;
+  gap: 20px; /* Espaciado mayor entre los iconos */
+  margin-bottom: 20px; /* Espaciado debajo de los iconos */
+}
+
+.social-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: var(--cardBackground);
+  border-radius: 50%;
+  font-size: 20px;
+  color: var(--cardText);
+  text-decoration: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.social-icon:hover {
+  transform: scale(1.2);
+  background-color: var(--cardTitle);
+}
+
+.social-icon.facebook {
+  background-color: #3b5998;
+}
+
+.social-icon.twitter {
+  background-color: #1da1f2;
+}
+
+.social-icon.linkedin {
+  background-color: #0077b5;
+}
+
+.social-icon.github {
+  background-color: #333;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text2);
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://www.transparenttextures.com/patterns/triangles.png');
+  opacity: 0.1;
+  pointer-events: none;
+  animation: moveBackground 20s infinite linear;
+}
+
+@keyframes moveBackground {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 100%; }
+}

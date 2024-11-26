@@ -63,13 +63,13 @@
   }
   
   .login-btn:hover {
-    background-color: var(--tertiary);
-    color: var(--text2);
+    background-color: var(--cardBackground);
+    color: var(--cardText);
   }
   
   .register-btn {
-    background-color: var(--cardTitle);
-    color: var(--text2);
+    background-color: var(--tertiary);
+    color: var(--text);
   }
   
   .register-btn:hover {

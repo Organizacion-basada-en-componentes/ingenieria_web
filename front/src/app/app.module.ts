@@ -11,8 +11,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 
-import { HeaderLoggedInComponent } from './header-logged-in/header-logged-in.component';
 import { HeaderLoggedOutComponent } from './header-logged-out/header-logged-out.component';
+import { HeaderLoggedInMedicoComponent } from './header-logged-in-medico/header-logged-in-medico.component';
+import { HeaderLoggedInPacienteComponent } from './header-logged-in-paciente/header-logged-in-paciente.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { HeaderLoggedOutComponent } from './header-logged-out/header-logged-out.
     HomePacienteComponent,
     HomeMedicoComponent,
 
-    HeaderLoggedInComponent,
-    HeaderLoggedOutComponent
+    HeaderLoggedOutComponent,
+    HeaderLoggedInMedicoComponent,
+    HeaderLoggedInPacienteComponent
 
 
   ],
