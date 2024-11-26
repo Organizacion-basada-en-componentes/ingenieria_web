@@ -14,8 +14,8 @@
   html, body {
     font-family: 'Arial', sans-serif;
     line-height: 1.5;
-    background-color: #f8f9fa; /* Color de fondo suave */
-    color: #333; /* Color de texto */
+  
+    color: var(--text); /* Color de texto */
   }
   
   /* ===================================
@@ -29,7 +29,7 @@
   }
   
   a:hover {
-    color: #007bff; /* Color de hover para enlaces */
+    color: var(--secondary); /* Color de hover para enlaces */
   }
   
   /* Estilo para imágenes */
@@ -51,7 +51,7 @@
   }
   
   button:hover {
-    background-color: #0056b3; /* Color de hover */
+    background-color: var(--secondary); /* Color de hover */
     color: white;
   }
   
@@ -85,46 +85,43 @@
   
   /* Definición de variables de color */
   :root {
-    --primary-color: #007bff; /* Color principal */
-    --secondary-color: #6c757d; /* Color secundario */
-    --accent-color: #28a745; /* Color de acento */
-    --background-color: #f8f9fa; /* Color de fondo */
-    --text-color: #333; /* Color de texto */
+    --primary: #89A8B2; /* Color principal */
+    --secondary: #B3C8CF; /* Color secundario */
+    --tertiary: #E5E1DA;
+  
+    --background: #F1F0E8; /* Color de fondo */
+    --text: #333; /* Color de texto */
+    --text2: #E5E1DA;
+
+    --cardBackground:#2C2C2C;
+    --cardText:#E0E0E0;
+    --cardTitle:rgb(6, 182, 212);  
+    --cardInput:#3C3D37;
+
+    --calendarBackground:#2C2C2C;
+    --calendarText:#E0E0E0;
+
+    --danger:#C7253E;
+    --border:#2C2C2C;
+   
   }
   
   body {
-    background-color: var(--background-color);
-    color: var(--text-color);
+    background-color: var(--background);
+    color: var(--text);
   }
   
   /* Estilos para botones con colores personalizados */
   button {
-    background-color: var(--primary-color);
+    background-color: var(--primary);
     color: white;
   }
   
   button:hover {
-    background-color: darken(var(--primary-color), 10%);
+    background-color: darken(var(--primary), 10%);
   }
   
-  /* ===================================
-     Estilos para Diseño con Flexbox y Grid
-     =================================== */
-  
-  /* Contenedor flex para distribuir elementos */
-  .flex-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  /* Contenedor grid para el diseño de las tarjetas o secciones */
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-  
+ 
   /* ===================================
      Estilos para Formularios
      =================================== */
@@ -133,14 +130,14 @@
   input, select, textarea {
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #ccc;
+    border: 1px solid var(--tertiary);
     border-radius: 4px;
     width: 100%;
   }
   
   /* Estilo cuando un campo de formulario está enfocado */
   input:focus, select:focus, textarea:focus {
-    border-color: #007bff;
+    border-color: var(--secondary);
     outline: none;
   }
   
