@@ -19,10 +19,13 @@ import { HeaderLoggedOutComponent } from './header-logged-out/header-logged-out.
     AppComponent, // No olvides incluir AppComponent en las declaraciones
     FooterComponent,
     LandingPageComponent,
+    
     RegisterComponent,
     LoginComponent,
+    
     HomePacienteComponent,
     HomeMedicoComponent,
+
     HeaderLoggedInComponent,
     HeaderLoggedOutComponent
 
@@ -31,7 +34,7 @@ import { HeaderLoggedOutComponent } from './header-logged-out/header-logged-out.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginComponent, // Importamos el standalone
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
