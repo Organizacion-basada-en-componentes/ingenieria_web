@@ -1,30 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component'; // Standalone Component
+import { HomePacienteComponent } from './home-paciente/home-paciente.component'; // No standalone
+import { HomeMedicoComponent } from './home-medico/home-medico.component'; // No standalone
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
-    LandingPageComponent,
-    RegisterComponent,
-    LoginComponent,
-    HomeComponent
+    HomePacienteComponent,
+    HomeMedicoComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LoginComponent, // Importamos el standalone
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
