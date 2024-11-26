@@ -1,20 +1,28 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+
+  providedIn: 'root',
 })
 export class AuthService {
-  private loggedIn: boolean = false;
+  private isAuthenticated = false;
+  private userType: 'paciente' | 'medico' | null = null;
 
   isLoggedIn(): boolean {
-    return this.loggedIn;
+    return this.isAuthenticated;
   }
 
-  login() {
-    this.loggedIn = true;
+  getUserType(): 'paciente' | 'medico' | null {
+    return this.userType;
   }
 
-  logout() {
-    this.loggedIn = false;
+  login(userType: 'paciente' | 'medico'): void {
+    this.isAuthenticated = true;
+    this.userType = userType;
+  }
+
+  logout(): void {
+    this.isAuthenticated = false;
+    this.userType = null;
   }
 }
