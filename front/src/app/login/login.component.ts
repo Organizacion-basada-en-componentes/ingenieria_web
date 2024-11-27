@@ -20,4 +20,7 @@ export class LoginComponent {
     this.authService.login('medico');
     this.router.navigate(['/home-medico']);
   }
+  goToRegister(): void {
+    this.router.navigate(['/register']);
+  }
 }

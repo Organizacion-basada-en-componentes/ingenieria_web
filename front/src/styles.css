@@ -89,7 +89,8 @@
     --secondary: #B3C8CF; /* Color secundario */
     --tertiary: #E5E1DA;
   
-    --background: #F1F0E8; /* Color de fondo */
+    --background-color: #F1F0E8; /* Color de fondo */
+    --background:linear-gradient(0deg, var(--primary) 30%, var(--background-color) 68%);
     --text: #333; /* Color de texto */
     --text2: #E5E1DA;
 
@@ -107,7 +108,7 @@
   }
   
   body {
-    background-color: var(--background);
+    background: var(--background);
     color: var(--text);
   }
   

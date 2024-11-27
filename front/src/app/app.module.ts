@@ -15,6 +15,8 @@ import { HeaderLoggedOutComponent } from './header-logged-out/header-logged-out.
 import { HeaderLoggedInMedicoComponent } from './header-logged-in-medico/header-logged-in-medico.component';
 import { HeaderLoggedInPacienteComponent } from './header-logged-in-paciente/header-logged-in-paciente.component';
 
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent, // No olvides incluir AppComponent en las declaraciones
@@ -36,7 +38,7 @@ import { HeaderLoggedInPacienteComponent } from './header-logged-in-paciente/hea
   imports: [
     BrowserModule,
     AppRoutingModule,
-    
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
