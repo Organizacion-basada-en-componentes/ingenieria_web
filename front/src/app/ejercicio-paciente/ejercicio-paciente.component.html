@@ -1,0 +1,29 @@
+<div class="ejercicio-paciente">
+    <div class="exercise-card">
+      <h2>{{ ejercicio.nombre }}</h2>
+      <div class="exercise-details">
+        <p><strong>Series:</strong> {{ ejercicio.series }}</p>
+        <p><strong>Repeticiones:</strong> {{ ejercicio.repeticiones }}</p>
+        <p><strong>Descripción:</strong> {{ ejercicio.descripcion }}</p>
+      </div>
+  
+      <div class="exercise-actions">
+        <label class="checkbox-container">
+          <input type="checkbox" [(ngModel)]="completado" />
+          <span class="checkmark"></span>
+          Marcar como completado
+        </label>
+  
+        <div class="comment-section">
+          <textarea 
+            [(ngModel)]="comentario" 
+            rows="3" 
+            placeholder="Escribe tus sensaciones..."
+          ></textarea>
+        </div>
+  
+        <button (click)="guardarFeedback()">Guardar Feedback</button>
+      </div>
+    </div>
+  </div>
+  

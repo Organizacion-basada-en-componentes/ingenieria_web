@@ -97,12 +97,13 @@
     --cardBackground:#5e6c70;
     --cardText:#E0E0E0;
     --cardTitle:#9cc9d8;  
-    --cardInput:#3C3D37;
-
+    --cardInput:#E5E1DA;
+    --cardInputText:#333;
+    
     --calendarBackground:#2C2C2C;
     --calendarText:#E0E0E0;
 
-    --danger:#C7253E;
+    --danger:#ffc4cc;
     --border:#2C2C2C;
    
   }

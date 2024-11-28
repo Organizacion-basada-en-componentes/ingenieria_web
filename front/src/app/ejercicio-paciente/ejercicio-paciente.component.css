@@ -1,0 +1,92 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--background);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .ejercicio-paciente {
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--cardBackground);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .exercise-card h2 {
+    font-size: 1.8rem;
+    color: var(--cardTitle);
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  .exercise-details {
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  
+  .exercise-details p {
+    font-size: 1.1rem;
+    color: var(--cardText);
+    margin: 5px 0;
+  }
+  
+  .exercise-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    color: var(--cardText);
+    gap: 5px;  /* Reduce the gap to bring the checkbox and text closer */
+  }
+  
+  .checkbox-container input {
+    margin: 0;
+    width: auto; /* Ensures the checkbox doesn't stretch */
+    height: auto; /* Keeps the checkbox in its natural size */
+  }
+  
+  .comment-section {
+    margin-top: 10px;
+  }
+  
+  textarea {
+    width: 100%;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    resize: none;
+    transition: border-color 0.3s;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--secondary);
+  }
+  

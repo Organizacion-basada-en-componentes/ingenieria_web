@@ -1,0 +1,67 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--background);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .plan-rehabilitacion-paciente {
+    width: 100%;
+    max-width: 600px;
+    background-color: var(--cardBackground);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .plan-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .plan-header h2 {
+    font-size: 2rem;
+    color: var(--cardTitle);
+    margin-bottom: 10px;
+  }
+  
+  .plan-header p {
+    font-size: 1.1rem;
+    color: var(--cardText);
+  }
+  
+  .plan-ejercicios {
+    margin-top: 20px;
+  }
+  
+  .plan-ejercicios h3 {
+    font-size: 1.6rem;
+    color: var(--cardTitle);
+    margin-bottom: 15px;
+  }
+  
+  .plan-ejercicios ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .plan-ejercicios li {
+    background-color: var(--cardBackground);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ejercicio-info {
+    font-size: 1.1rem;
+    color: var(--cardText);
+  }
+  
+  .ejercicio-info p {
+    margin: 5px 0;
+  }
+  

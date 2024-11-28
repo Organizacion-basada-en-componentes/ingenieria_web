@@ -9,6 +9,9 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
+onSubmit() {
+throw new Error('Method not implemented.');
+}
   constructor(private authService: AuthService, private router: Router) {}
 
   loginAsPaciente() {

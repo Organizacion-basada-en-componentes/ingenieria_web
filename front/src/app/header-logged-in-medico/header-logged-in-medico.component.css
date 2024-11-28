@@ -71,11 +71,11 @@
 }
 
 .logout-btn {
-    background-color: var(--danger);
-    color: var(--text);
+    background-color: var(--cardBackground);
+    color: var(--cardText);
 }
 
 .logout-btn:hover {
-    background-color: var(--cardBackground);
-    color: var(--cardText);
+    background-color: var(--danger);
+    color: var(--text);
 }

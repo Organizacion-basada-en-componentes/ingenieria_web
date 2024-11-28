@@ -1,16 +1,16 @@
 .register-container {
-    background: rgba(241, 240, 232, 0.9); /* Fondo translúcido */
-    padding: 20px;
+    background: var(--cardBackground);    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
     max-width: 400px;
-    margin: auto;
-    color: var(--text);
+    margin: 5% auto 5% auto;
+    color: var(--cardText);
     backdrop-filter: blur(8px); /* Efecto de desenfoque */
     border: 1px solid rgba(44, 44, 44, 0.2);
   }
   
   .register-container h2 {
+    
     color: var(--cardTitle);
     text-align: center;
     margin-bottom: 20px;
@@ -33,13 +33,12 @@
     border: 1px solid var(--border);
     border-radius: 5px;
     background: var(--cardInput);
-    color: var(--cardText);
     font-size: 1rem;
     box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   input.form-control::placeholder {
-    color: rgba(224, 224, 224, 0.7); /* Texto placeholder translúcido */
+    color:var(--cardInputText) /* Texto placeholder translúcido */
   }
   
   .btn-register {

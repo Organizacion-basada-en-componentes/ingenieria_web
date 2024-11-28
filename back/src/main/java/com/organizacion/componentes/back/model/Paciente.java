@@ -1,7 +1,11 @@
 package com.organizacion.componentes.back.model;
 
-import jakarta.persistence.*;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Paciente extends User {
@@ -14,8 +18,8 @@ public class Paciente extends User {
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
     private List<Cita> citas;
 
-    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
-    private List<PlanDeRehabilitacion> planesDeRehabilitacion;
+    // @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
+    // private List<PlanDeRehabilitacion> planesDeRehabilitacion;
 
     // Getters y setters
 
@@ -43,12 +47,12 @@ public class Paciente extends User {
         this.citas = citas;
     }
 
-    public List<PlanDeRehabilitacion> getPlanesDeRehabilitacion() {
-        return planesDeRehabilitacion;
-    }
+    // public List<PlanDeRehabilitacion> getPlanesDeRehabilitacion() {
+    //     return planesDeRehabilitacion;
+    // }
 
-    public void setPlanesDeRehabilitacion(List<PlanDeRehabilitacion> planesDeRehabilitacion) {
-        this.planesDeRehabilitacion = planesDeRehabilitacion;
-    }
+    // public void setPlanesDeRehabilitacion(List<PlanDeRehabilitacion> planesDeRehabilitacion) {
+    //     this.planesDeRehabilitacion = planesDeRehabilitacion;
+    // }
 }
 

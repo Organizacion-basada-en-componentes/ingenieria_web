@@ -1,0 +1,20 @@
+<div class="plan-rehabilitacion-paciente">
+    <div class="plan-header">
+      <h2>{{ plan.nombre }}</h2>
+      <p><strong>Fecha:</strong> {{ plan.fecha | date:'dd/MM/yyyy' }}</p>
+    </div>
+  
+    <div class="plan-ejercicios">
+      <h3>Ejercicios asignados:</h3>
+      <ul>
+        <li *ngFor="let ejercicio of plan.ejercicios">
+          <div class="ejercicio-info">
+            <strong>{{ ejercicio.nombre }}</strong>
+            <p><strong>Series:</strong> {{ ejercicio.series }}</p>
+            <p><strong>Repeticiones:</strong> {{ ejercicio.repeticiones }}</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

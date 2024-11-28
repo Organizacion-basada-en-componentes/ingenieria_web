@@ -18,7 +18,7 @@ import com.organizacion.componentes.back.model.UserService;
 
 @RestController
 public class UserController {
-<<<<<<< HEAD
+
     
     @Autowired
     private UserService userService;
@@ -76,8 +76,6 @@ public class UserController {
             return ResponseEntity.internalServerError().body("Error al eliminar usuario");
         }
     }
-=======
 
->>>>>>> e0c60070a837eeedba57e368ce0a4eb639aa06c0
 }
 
