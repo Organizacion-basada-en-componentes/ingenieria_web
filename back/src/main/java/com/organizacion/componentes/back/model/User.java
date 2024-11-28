@@ -29,12 +29,12 @@ public class User {
         this.id = id;
     }
     @Column(unique = true, nullable = false)
-    private String user;
-    public String getUser() {
-        return user;
+    private String username;
+    public String getUsername() {
+        return username;
     }
-    public void setUser(String user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Column(nullable = false)
