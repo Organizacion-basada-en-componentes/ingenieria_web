@@ -1,0 +1,83 @@
+/* Estilos principales */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+  }
+  
+  /* Contenedor general */
+  .comunicacion-wrapper {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: var(--cardBackground);
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Encabezado */
+  .comunicacion-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .comunicacion-header h1 {
+    font-size: 2.5rem;
+    color: var(--cardTitle);
+  }
+  
+  .comunicacion-header p {
+    font-size: 1rem;
+    color: var(--cardText);
+  }
+  
+  /* Opciones de menú */
+  .comunicacion-options {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .card {
+    flex: 1;
+    padding: 1.5rem;
+    background-color: var(--tertiary);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  .card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #007bff;
+  }
+  
+  .card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .card p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Contenido dinámico */
+  .comunicacion-content {
+    padding: 1.5rem;
+    background-color: var(--tertiary);
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  

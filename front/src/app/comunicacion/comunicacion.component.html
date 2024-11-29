@@ -1,10 +1,33 @@
-<div class="comunicacion-container">
-    <h1>Comunicación</h1>
-    <div class="comunicacion-menu">
-      <button routerLink="/comunicacion/mensaje" class="btn">Mensaje</button>
-      <button routerLink="/comunicacion/pedir-cita" class="btn">Pedir Cita</button>
-      <button routerLink="/comunicacion/videollamada" class="btn">Videollamada</button>
-    </div>
-    <router-outlet></router-outlet>
+<div class="comunicacion-wrapper">
+    <header class="comunicacion-header">
+      <h1>Centro de Comunicación</h1>
+      <p>Elige una opción para interactuar:</p>
+    </header>
+  
+    <main class="comunicacion-main">
+      <!-- Menú de opciones -->
+      <div class="comunicacion-options">
+        <div class="card" routerLink="/comunicacion/mensaje">
+          <div class="card-icon">📩</div>
+          <h2>Mensaje</h2>
+          <p>Envía un mensaje rápido y directo.</p>
+        </div>
+        <div class="card" routerLink="/comunicacion/pedir-cita">
+          <div class="card-icon">📅</div>
+          <h2>Pedir Cita</h2>
+          <p>Solicita una cita fácilmente.</p>
+        </div>
+        <div class="card" routerLink="/comunicacion/videollamada">
+          <div class="card-icon">📹</div>
+          <h2>Videollamada</h2>
+          <p>Inicia una videollamada en tiempo real.</p>
+        </div>
+      </div>
+  
+      <!-- Contenido dinámico cargado por el Router -->
+      <section class="comunicacion-content">
+        <router-outlet></router-outlet>
+      </section>
+    </main>
   </div>
   
