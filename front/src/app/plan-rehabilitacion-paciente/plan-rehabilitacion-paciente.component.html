@@ -8,11 +8,8 @@
       <h3>Ejercicios asignados:</h3>
       <ul>
         <li *ngFor="let ejercicio of plan.ejercicios">
-          <div class="ejercicio-info">
-            <strong>{{ ejercicio.nombre }}</strong>
-            <p><strong>Series:</strong> {{ ejercicio.series }}</p>
-            <p><strong>Repeticiones:</strong> {{ ejercicio.repeticiones }}</p>
-          </div>
+         <app-ejercicio-paciente [ejercicio]="ejercicio"></app-ejercicio-paciente>
+
         </li>
       </ul>
     </div>

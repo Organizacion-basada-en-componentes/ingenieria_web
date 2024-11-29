@@ -1,0 +1,50 @@
+/* Fondo de pantalla con un toque gracioso */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+ 
+  }
+  
+  .error-container {
+    text-align: center;
+    background-color: #f5dab5;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error-message h1 {
+    font-size: 80px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #9d7774;
+    margin-bottom: 10px;
+  }
+  
+  .error-message p {
+    font-size: 20px;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    background-color: #6d725f;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #ff0000;
+  }
+  
+  button:active {
+    background-color: #ff0000;
+  }
+  

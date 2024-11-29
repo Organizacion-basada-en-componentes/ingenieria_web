@@ -18,5 +18,7 @@ export class HeaderLoggedInPacienteComponent {
     this.authService.logout();
     this.router.navigate(['/']);
   }
-
+  goToRehabilitacion(): void {
+    this.router.navigate(['rehabilitacion-paciente']);
+  }
 }

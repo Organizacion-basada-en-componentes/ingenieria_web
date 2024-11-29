@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-plan-rehabilitacion-paciente',
@@ -7,19 +8,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./plan-rehabilitacion-paciente.component.css']
 })
 export class PlanRehabilitacionPacienteComponent implements OnInit {
-  plan = {
-    nombre: 'Plan de Rehabilitación de Rodilla',
+  // Definir el plan como un objeto vacío por defecto
+  plan: any = {
+    nombre: 'Nombre del plan',
     fecha: new Date(),
-    ejercicios: [
-      { nombre: 'Sentadillas', series: 3, repeticiones: 12 },
-      { nombre: 'Elevaciones de pierna', series: 3, repeticiones: 15 },
-      { nombre: 'Flexiones de rodilla', series: 3, repeticiones: 10 }
-    ]
+    ejercicios: []
   };
 
-  constructor() { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // Acceder al parámetro de ruta 'plan', deserializarlo y asignarlo al plan
+    this.route.params.subscribe(params => {
+      const planData = params['plan'];
+      if (planData) {
+        this.plan = JSON.parse(planData);  // Deserializa el objeto JSON recibido
+      }
+    });
   }
-
 }

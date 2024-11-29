@@ -18,6 +18,8 @@ import { HeaderLoggedInPacienteComponent } from './header-logged-in-paciente/hea
 import { FormsModule } from '@angular/forms';
 import { EjercicioPacienteComponent } from './ejercicio-paciente/ejercicio-paciente.component';
 import { PlanRehabilitacionPacienteComponent } from './plan-rehabilitacion-paciente/plan-rehabilitacion-paciente.component';
+import { RehabilitacionPacienteComponent } from './rehabilitacion-paciente/rehabilitacion-paciente.component';
+import { AccesoDenegadoComponent } from './acceso-denegado/acceso-denegado.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { PlanRehabilitacionPacienteComponent } from './plan-rehabilitacion-pacie
     HeaderLoggedInMedicoComponent,
     HeaderLoggedInPacienteComponent,
     EjercicioPacienteComponent,
-    PlanRehabilitacionPacienteComponent
+    PlanRehabilitacionPacienteComponent,
+    RehabilitacionPacienteComponent,
+    AccesoDenegadoComponent
 
 
   ],
@@ -43,7 +47,7 @@ import { PlanRehabilitacionPacienteComponent } from './plan-rehabilitacion-pacie
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    EjercicioPacienteComponent
+    
 ],
   providers: [],
   bootstrap: [AppComponent],

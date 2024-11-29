@@ -11,10 +11,11 @@
   .plan-rehabilitacion-paciente {
     width: 100%;
     max-width: 600px;
-    background-color: var(--cardBackground);
+    background: var(--cardBackground);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    
   }
   
   .plan-header {
@@ -48,13 +49,7 @@
     padding: 0;
   }
   
-  .plan-ejercicios li {
-    background-color: var(--cardBackground);
-    padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+ 
   
   .ejercicio-info {
     font-size: 1.1rem;

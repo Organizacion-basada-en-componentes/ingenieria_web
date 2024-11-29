@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-ejercicio-paciente',
@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./ejercicio-paciente.component.css']
 })
 export class EjercicioPacienteComponent {
-  ejercicio = {
-    nombre: 'Sentadillas',
-    series: 3,
-    repeticiones: 15,
-    descripcion: 'Realiza sentadillas lentas y profundas, asegurándote de mantener una postura adecuada.'
+  @Input() ejercicio: { nombre: string; series: number; repeticiones: number; descripcion: string } = {
+    nombre: 'Nombre del ejercicio',
+    series: 0,
+    repeticiones: 0,
+    descripcion: 'Descipcion del ejercicio.'
   };
 
   completado: boolean = false;
