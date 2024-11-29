@@ -20,6 +20,7 @@ import { EjercicioPacienteComponent } from './ejercicio-paciente/ejercicio-pacie
 import { PlanRehabilitacionPacienteComponent } from './plan-rehabilitacion-paciente/plan-rehabilitacion-paciente.component';
 import { RehabilitacionPacienteComponent } from './rehabilitacion-paciente/rehabilitacion-paciente.component';
 import { AccesoDenegadoComponent } from './acceso-denegado/acceso-denegado.component';
+import { ProgresoComponent } from './progreso/progreso.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AccesoDenegadoComponent } from './acceso-denegado/acceso-denegado.compo
     EjercicioPacienteComponent,
     PlanRehabilitacionPacienteComponent,
     RehabilitacionPacienteComponent,
-    AccesoDenegadoComponent
+    AccesoDenegadoComponent,
+    ProgresoComponent
 
 
   ],

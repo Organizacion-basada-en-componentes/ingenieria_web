@@ -9,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { PlanRehabilitacionPacienteComponent } from './plan-rehabilitacion-paciente/plan-rehabilitacion-paciente.component';
 import { RehabilitacionPacienteComponent } from './rehabilitacion-paciente/rehabilitacion-paciente.component';
 import { AccesoDenegadoComponent } from './acceso-denegado/acceso-denegado.component'; // Puedes crear esta página
+import { ProgresoComponent } from './progreso/progreso.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },  // Landing page por defecto
@@ -22,7 +23,7 @@ const routes: Routes = [
 
   // Rutas para médicos, protegidas por AuthGuard
   { path: 'home-medico', component: HomeMedicoComponent, canActivate: [AuthGuard], data: { role: 'medico' } },
-
+  { path: 'progreso', component: ProgresoComponent },
   // Ruta de acceso denegado
   { path: 'acceso-denegado', component: AccesoDenegadoComponent },
 
