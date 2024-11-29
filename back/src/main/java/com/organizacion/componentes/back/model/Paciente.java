@@ -47,12 +47,12 @@ public class Paciente extends User {
         this.citas = citas;
     }
 
-    // public List<PlanDeRehabilitacion> getPlanesDeRehabilitacion() {
-    //     return planesDeRehabilitacion;
-    // }
+    public List<PlanDeRehabilitacion> getPlanesDeRehabilitacion() {
+           return planesDeRehabilitacion;
+    }
 
-    // public void setPlanesDeRehabilitacion(List<PlanDeRehabilitacion> planesDeRehabilitacion) {
-    //     this.planesDeRehabilitacion = planesDeRehabilitacion;
-    // }
+    public void setPlanesDeRehabilitacion(List<PlanDeRehabilitacion> planesDeRehabilitacion) {
+        this.planesDeRehabilitacion = planesDeRehabilitacion;
+    }
 }
 
