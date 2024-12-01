@@ -49,10 +49,16 @@
 
 table {
   width: 80%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Use separate borders to avoid overlap */
+  border-spacing: 0; /* Ensure there's no spacing between cells */
   margin: 0 auto;
   background: var(--tertiary);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+  overflow: hidden; /* Make sure the content doesn't overflow the rounded corners */
+  margin-bottom: 10px;
 }
+
 
 th, td {
   padding: 12px;
