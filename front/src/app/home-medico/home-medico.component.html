@@ -1,1 +1,53 @@
-<p>home-medico works!</p>
+<div class="home-medico">
+    <div class="header">
+      <h1>Bienvenido, {{nombre}}</h1>
+      <p>Gestiona tus pacientes y mantente al día con las alertas importantes.</p>
+    </div>
+  
+    <div class="pacientes">
+      <h2>Tus Pacientes</h2>
+      <div class="paciente-lista">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Edad</th>
+              <th>Última Consulta</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let paciente of pacientes">
+              <td>{{ paciente.nombre }}</td>
+              <td>{{ paciente.edad }}</td>
+              <td>{{ paciente.ultimaConsulta | date }}</td>
+              <td><button class="btn" (click)="selectPatient(paciente)">Ver detalles</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  
+    <div class="alertas">
+      <h2>Alertas Recientes</h2>
+      <div class="alerta-lista">
+        <table>
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Mensaje</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let alerta of alertas">
+              <td>{{ alerta.titulo }}</td>
+              <td>{{ alerta.mensaje }}</td>
+              <td><button class="btn" (click)="selectAlerta(alerta)">Ver detalles</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

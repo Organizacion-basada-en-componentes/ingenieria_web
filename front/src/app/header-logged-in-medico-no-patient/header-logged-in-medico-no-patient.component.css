@@ -1,0 +1,81 @@
+
+.header {
+    background-color: var(--primary);
+    color: var(--text2);
+    padding: 20px 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header-logo h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--tertiary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background-color: var(--secondary);
+    color: var(--text);
+}
+
+.btn:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.communication-btn {
+    background-color: var(--tertiary);
+}
+
+.communication-btn:hover {
+    background-color: var(--cardBackground);
+    color: var(--cardText);
+}
+
+.progress-btn {
+    background-color: var(--secondary);
+}
+
+.progress-btn:hover {
+    background-color: var(--cardBackground);
+    color: var(--cardText);
+}
+
+.rehab-btn {
+    background-color: var(--primary);
+}
+
+.rehab-btn:hover {
+    background-color: var(--cardBackground);
+    color: var(--cardText);
+}
+
+.logout-btn {
+    background-color: var(--cardBackground);
+    color: var(--cardText);
+}
+
+.logout-btn:hover {
+    background-color: var(--danger);
+    color: var(--text);
+}
