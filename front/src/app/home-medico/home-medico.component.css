@@ -1,93 +1,53 @@
-:host {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  background-color: var(--background);
-  padding: 20px;
-  font-family: 'Arial', sans-serif;
-  box-sizing: border-box;
-}
-
 .home-medico {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 40px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .header {
   text-align: center;
-}
-
-.header h1 {
-  font-size: 2.5rem;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-.header p {
-  font-size: 1.2rem;
-  color: var(--text);
-}
-
-.alertas, .pacientes {
-  text-align: center;
-}
-
-.alertas h2, .pacientes h2 {
-  font-size: 2rem;
-  color: var(--primary);
   margin-bottom: 20px;
 }
 
-.paciente-lista, .alerta-lista {
-  max-height: 400px;  /* Define the height of the scrollable area */
-  overflow-y: auto;   /* Enable vertical scroll */
-  padding-right: 10px; /* Add a bit of padding for scrollbar */
+.contenido {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.pacientes, .alertas {
+  width: 48%; /* Cada sección ocupa un 48% del ancho */
 }
 
 table {
-  width: 80%;
-  border-collapse: separate; /* Use separate borders to avoid overlap */
-  border-spacing: 0; /* Ensure there's no spacing between cells */
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
   margin: 0 auto;
   background: var(--tertiary);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-  overflow: hidden; /* Make sure the content doesn't overflow the rounded corners */
-  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
 }
 
-
 th, td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
 }
 
 th {
-  background-color: var(--primary);
-  color: white;
-  font-size: 1.1rem;
-}
-
-td {
-  font-size: 1rem;
-  color: var(--text);
+  background-color: #f1f1f1;
 }
 
 .btn {
-  padding: 8px 16px;
-  font-size: 1rem;
   background-color: var(--primary);
   color: white;
   border: none;
-  border-radius: 5px;
+  padding: 5px 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 5px;
 }
 
 .btn:hover {
-  background-color: var(--primaryDark);
+  background-color: var(--secondary);
 }
