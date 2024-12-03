@@ -28,6 +28,7 @@ import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.
 import { HeaderLoggedInMedicoNoPatientComponent } from './header-logged-in-medico-no-patient/header-logged-in-medico-no-patient.component';
 import { SelectedPatientComponent } from './selected-patient/selected-patient.component';
 import { SelectedAlertaComponent } from './selected-alerta/selected-alerta.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SelectedAlertaComponent } from './selected-alerta/selected-alerta.compo
     VideollamadaComponent,
     HeaderLoggedInMedicoNoPatientComponent,
     SelectedPatientComponent,
-    SelectedAlertaComponent
+    SelectedAlertaComponent,
+    LoadingComponent
 
 
   ],

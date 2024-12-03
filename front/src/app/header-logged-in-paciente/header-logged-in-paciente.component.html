@@ -1,15 +1,15 @@
 <!-- Header Paciente -->
 <header class="header">
-    <div class="header-container">
-      <div class="header-logo">
-        <h1>TeleRehab Paciente</h1>
-      </div>
-      <div class="header-actions">
-        <button class="btn home-btn" (click)="goToHome()">Inicio</button>
-        <button class="btn communication-btn" routerLink="/comunicacion">Comunicación</button>
-        <button class="btn progress-btn" routerLink="/progreso">Progreso</button>
-        <button class="btn rehab-btn" (click)="goToRehabilitacion()">Rehabilitación</button>
-        <button class="btn logout-btn" (click)="logout()">Cerrar sesión</button>
-      </div>
+  <div class="header-container">
+    <div class="header-logo">
+      <h1>TeleRehab</h1>
     </div>
-  </header>
+    <nav class="header-actions">
+      <a class="btn home-btn" (click)="goToHome()">Inicio</a>
+      <a class="btn communication-btn" routerLink="/comunicacion">Comunicación</a>
+      <a class="btn progress-btn" routerLink="/progreso">Progreso</a>
+      <a class="btn rehab-btn" (click)="goToRehabilitacion()">Rehabilitación</a>
+      <a class="btn logout-btn" (click)="logout()">Cerrar sesión</a>
+    </nav>
+  </div>
+</header>

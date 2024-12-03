@@ -1,10 +1,10 @@
-
 .header {
     background-color: var(--primary);
     color: var(--text2);
     padding: 20px 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
+    
 }
 
 .header-container {
@@ -29,53 +29,55 @@
 }
 
 .btn {
+    position: relative;
     padding: 12px 24px;
-    font-size: 1rem;
+    font-size: 1.15rem;
+    font-weight: bold;
     cursor: pointer;
-    border: none;
-    border-radius: 30px;
-    transition: all 0.3s ease;
-    background-color: var(--secondary);
+    text-decoration: none;
     color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.btn::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--tertiary);
+    transition: width 0.3s ease;
+}
+
+.btn:hover::after {
+    width: 100%;
 }
 
 .btn:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    color: var(--tertiary);
 }
 
+/* Botones específicos */
+.home-btn {
+    color: var(--tertiary);
+}
 .communication-btn {
-    background-color: var(--tertiary);
-}
-
-.communication-btn:hover {
-    background-color: var(--cardBackground);
-    color: var(--cardText);
+    color: var(--tertiary);
 }
 
 .progress-btn {
-    background-color: var(--secondary);
-}
-
-.progress-btn:hover {
-    background-color: var(--cardBackground);
-    color: var(--cardText);
+    color: var(--tertiary);
 }
 
 .rehab-btn {
-    background-color: var(--primary);
-}
-
-.rehab-btn:hover {
-    background-color: var(--cardBackground);
-    color: var(--cardText);
+    color: var(--tertiary);
 }
 
 .logout-btn {
-    background-color: var(--cardBackground);
-    color: var(--cardText);
+    color: var(--tertiary);
 }
 
 .logout-btn:hover {
-    background-color: var(--danger);
-    color: var(--text);
+    color: var(--tertiary);
 }
