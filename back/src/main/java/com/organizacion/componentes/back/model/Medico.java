@@ -1,7 +1,11 @@
 package com.organizacion.componentes.back.model;
 
-import jakarta.persistence.*;
 import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Medico extends User {
@@ -13,7 +17,7 @@ public class Medico extends User {
 
     private String especialidad;
 
-    @OneToMany(mappedBy = "profesional", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
     private List<Cita> citas;
 
     // Getters y setters

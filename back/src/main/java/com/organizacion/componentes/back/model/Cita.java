@@ -57,14 +57,14 @@ public class Cita {
     }
 
     @ManyToOne
-    private User profesionalMedico;
+    private Medico medico;
 
-    public User getProfesionalMedico() {
-        return profesionalMedico;
+    public Medico getMedico() {
+        return medico;
     }
 
-    public void setProfesionalMedico(User profesionalMedico) {
-        this.profesionalMedico = profesionalMedico;
+    public void setMedico(Medico medico) {
+        this.medico= medico;
     }
 
     @OneToMany(cascade = CascadeType.ALL)
@@ -94,4 +94,5 @@ public class Cita {
     public void setEstado(EstadoCita estado) {
         this.estado = estado;
     }
+
 }
