@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from './services/auth.service';
 import { Observable } from 'rxjs';
-import { SelectedPatientService } from './selected-patient.service';
+import { SelectedPatientService } from './services/selected-patient.service';
 
 @Component({
   selector: 'app-root',

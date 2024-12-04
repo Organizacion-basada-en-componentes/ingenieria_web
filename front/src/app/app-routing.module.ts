@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingPageComponent } from './landing-page/landing-page.component';  
-import { LoginComponent } from './login/login.component';
-import { HomePacienteComponent } from './home-paciente/home-paciente.component';
-import { HomeMedicoComponent } from './home-medico/home-medico.component';
-import { AuthGuard } from './auth.guard';
-import { RegisterComponent } from './register/register.component';
-import { PlanRehabilitacionPacienteComponent } from './plan-rehabilitacion-paciente/plan-rehabilitacion-paciente.component';
-import { RehabilitacionPacienteComponent } from './rehabilitacion-paciente/rehabilitacion-paciente.component';
-import { AccesoDenegadoComponent } from './acceso-denegado/acceso-denegado.component'; // Puedes crear esta página
+import { LandingPageComponent } from './comun/landing-page/landing-page.component';  
+import { LoginComponent } from './comun/login/login.component';
+import { HomePacienteComponent } from './paciente/home-paciente/home-paciente.component';
+import { HomeMedicoComponent } from './medico/home-medico/home-medico.component';
+import { AuthGuard } from './services/auth.guard';
+import { RegisterComponent } from './comun/register/register.component';
+import { PlanRehabilitacionPacienteComponent } from './paciente/plan-rehabilitacion-paciente/plan-rehabilitacion-paciente.component';
+import { RehabilitacionPacienteComponent } from './paciente/rehabilitacion-paciente/rehabilitacion-paciente.component';
+import { AccesoDenegadoComponent } from './comun/acceso-denegado/acceso-denegado.component'; // Puedes crear esta página
 import { ProgresoComponent } from './progreso/progreso.component';
 import { ComunicacionComponent } from './comunicacion/comunicacion.component';
 import { PedirCitaComponent } from './comunicacion/pedir-cita/pedir-cita.component';
 import { MensajeComponent } from './comunicacion/mensaje/mensaje.component';
 import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.component';
-import { SelectedPatientComponent } from './selected-patient/selected-patient.component';
-import { SelectedAlertaComponent } from './selected-alerta/selected-alerta.component';
+import { SelectedPatientComponent } from './medico/selected-patient/selected-patient.component';
+import { SelectedAlertaComponent } from './medico/selected-alerta/selected-alerta.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },  // Landing page por defecto
   { path: 'login', component: LoginComponent },  // Ruta para login
