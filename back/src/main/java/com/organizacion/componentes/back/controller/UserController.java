@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.organizacion.componentes.back.model.User;
-import com.organizacion.componentes.back.model.UserService;
+import com.organizacion.componentes.back.service.UserService;
 
 @RestController
 public class UserController {

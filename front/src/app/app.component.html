@@ -1,7 +1,8 @@
 
 <app-header-logged-in-paciente *ngIf="(isAuthenticated$ | async) && (userType$ | async) === 'paciente'"></app-header-logged-in-paciente>
-<app-header-logged-in-medico *ngIf="(isAuthenticated$ | async) && (userType$ | async) === 'medico'"></app-header-logged-in-medico>
-<app-header-logged-out *ngIf="!(isAuthenticated$ | async)"></app-header-logged-out>
+<app-header-logged-in-medico *ngIf="(isAuthenticated$ | async) && (userType$ | async) === 'medico' && selectedPatient !=null"></app-header-logged-in-medico>
+<app-header-logged-out *ngIf="!(isAuthenticated$ | async) "></app-header-logged-out>
+<app-header-logged-in-medico-no-patient *ngIf="(isAuthenticated$ | async) && (userType$ | async) === 'medico' && selectedPatient ===null"></app-header-logged-in-medico-no-patient>
 
 <router-outlet></router-outlet>
 <app-footer></app-footer>

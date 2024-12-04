@@ -1,9 +1,12 @@
-package com.organizacion.componentes.back.model;
+package com.organizacion.componentes.back.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.organizacion.componentes.back.model.User;
+import com.organizacion.componentes.back.repository.RepositoryUser;
 
 @Service
 public class UserService {

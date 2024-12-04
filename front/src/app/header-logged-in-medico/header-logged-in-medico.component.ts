@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrl: './header-logged-in-medico.component.css'
 })
 export class HeaderLoggedInMedicoComponent {
+
+
     
  
     constructor(private router: Router,@Inject(AuthService) private authService: AuthService) {}
@@ -18,6 +20,9 @@ export class HeaderLoggedInMedicoComponent {
       this.authService.logout();
       this.router.navigate(['/']);
 
+    }
+    goToHome() {
+      this.router.navigate(['/home-medico']);
     }
 
 }

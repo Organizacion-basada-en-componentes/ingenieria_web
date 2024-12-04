@@ -21,4 +21,7 @@ export class HeaderLoggedInPacienteComponent {
   goToRehabilitacion(): void {
     this.router.navigate(['rehabilitacion-paciente']);
   }
+  goToHome(): void {
+    this.router.navigate(['/home-paciente']);
+  }
 }

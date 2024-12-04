@@ -21,6 +21,14 @@ import { PlanRehabilitacionPacienteComponent } from './plan-rehabilitacion-pacie
 import { RehabilitacionPacienteComponent } from './rehabilitacion-paciente/rehabilitacion-paciente.component';
 import { AccesoDenegadoComponent } from './acceso-denegado/acceso-denegado.component';
 import { ProgresoComponent } from './progreso/progreso.component';
+import { ComunicacionComponent } from './comunicacion/comunicacion.component';
+import { MensajeComponent } from './comunicacion/mensaje/mensaje.component';
+import { PedirCitaComponent } from './comunicacion/pedir-cita/pedir-cita.component';
+import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.component';
+import { HeaderLoggedInMedicoNoPatientComponent } from './header-logged-in-medico-no-patient/header-logged-in-medico-no-patient.component';
+import { SelectedPatientComponent } from './selected-patient/selected-patient.component';
+import { SelectedAlertaComponent } from './selected-alerta/selected-alerta.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +49,15 @@ import { ProgresoComponent } from './progreso/progreso.component';
     PlanRehabilitacionPacienteComponent,
     RehabilitacionPacienteComponent,
     AccesoDenegadoComponent,
-    ProgresoComponent
+    ProgresoComponent,
+    ComunicacionComponent,
+    MensajeComponent,
+    PedirCitaComponent,
+    VideollamadaComponent,
+    HeaderLoggedInMedicoNoPatientComponent,
+    SelectedPatientComponent,
+    SelectedAlertaComponent,
+    LoadingComponent
 
 
   ],

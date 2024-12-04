@@ -1,4 +1,4 @@
-package com.organizacion.componentes.back.model;
+package com.organizacion.componentes.back.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

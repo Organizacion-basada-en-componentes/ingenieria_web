@@ -1,7 +1,9 @@
-package com.organizacion.componentes.back.model;
+package com.organizacion.componentes.back.service;
 
 import java.util.List;
 import java.util.Optional;
+
+import com.organizacion.componentes.back.model.Cita;
 
 public interface CitaService {
 

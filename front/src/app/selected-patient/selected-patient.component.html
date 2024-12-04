@@ -1,0 +1,32 @@
+<div class="selected-patient">
+    <div *ngIf="selectedPatient">
+      <div class="header">
+        <h1>{{ selectedPatient.nombre }}</h1>
+        <p>ID: {{ selectedPatient.id }}</p>
+      </div>
+  
+      <div class="details">
+        <div class="section">
+          <h2>Datos Personales</h2>
+          <p><strong>Edad:</strong> {{ selectedPatient.edad }}</p>
+          <p><strong>Sexo:</strong> {{ selectedPatient.sexo }}</p>
+          <p><strong>Teléfono:</strong> {{ selectedPatient.telefono }}</p>
+        </div>
+  
+        <div class="section">
+          <h2>Historial Médico</h2>
+          <ul>
+            <li *ngFor="let item of selectedPatient.historial">
+              {{ item.fecha | date }}: {{ item.descripcion }}
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      
+    </div>
+    <div *ngIf="!selectedPatient">
+      <p>No hay ningún paciente seleccionado.</p>
+    </div>
+  </div>
+  

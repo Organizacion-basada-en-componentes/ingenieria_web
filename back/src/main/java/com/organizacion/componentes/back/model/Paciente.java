@@ -18,9 +18,6 @@ public class Paciente extends User {
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
     private List<Cita> citas;
 
-    // @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL)
-    // private List<PlanDeRehabilitacion> planesDeRehabilitacion;
-
     // Getters y setters
 
     public String getDni() {
@@ -45,14 +42,6 @@ public class Paciente extends User {
 
     public void setCitas(List<Cita> citas) {
         this.citas = citas;
-    }
-
-    public List<PlanDeRehabilitacion> getPlanesDeRehabilitacion() {
-           return planesDeRehabilitacion;
-    }
-
-    public void setPlanesDeRehabilitacion(List<PlanDeRehabilitacion> planesDeRehabilitacion) {
-        this.planesDeRehabilitacion = planesDeRehabilitacion;
-    }
+        }
 }
 

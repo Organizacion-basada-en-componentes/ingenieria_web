@@ -1,14 +1,21 @@
 package com.organizacion.componentes.back.controller;
 
-import com.organizacion.componentes.back.model.Mensaje;
-import com.organizacion.componentes.back.model.MensajeService;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-import java.util.Optional;
+import com.organizacion.componentes.back.model.Mensaje;
+import com.organizacion.componentes.back.service.MensajeService;
 
 @RestController
 @RequestMapping("/api/mensajes")
@@ -23,17 +30,7 @@ public class MensajeController {
         return mensajeService.getAllMensajes();
     }
 
-    // Endpoint para obtener los mensajes de un paciente
-    @GetMapping("/paciente/{pacienteId}")
-    public List<Mensaje> getMensajesByPaciente(@PathVariable Long pacienteId) {
-        return mensajeService.getMensajesByPaciente(pacienteId);
-    }
-
-    // Endpoint para obtener los mensajes de un médico
-    @GetMapping("/medico/{medicoId}")
-    public List<Mensaje> getMensajesByMedico(@PathVariable Long medicoId) {
-        return mensajeService.getMensajesByMedico(medicoId);
-    }
+   
 
     // Endpoint para obtener un mensaje específico por ID
     @GetMapping("/{id}")
