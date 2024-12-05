@@ -13,30 +13,30 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.organizacion.componentes.back.model.User;
-import com.organizacion.componentes.back.service.UserService;
+import com.organizacion.componentes.back.model.Usuario;
+import com.organizacion.componentes.back.service.UsuarioService;
 
 @RestController
-public class UserController {
+public class UsuarioController {
 
     
     @Autowired
-    private UserService userService;
+    private UsuarioService userService;
 
-    @GetMapping("/users")
-    public List<User> getUsers(){
-        return userService.getAllUsers();
+    @GetMapping("/usuario")
+    public List<Usuario> getUsers(){
+        return userService.getAllUsuario();
     }
 
-    @GetMapping("/user/{id}")
-    public User getUser(@PathVariable("id") Long id) {
-        return userService.getUser(id);
+    @GetMapping("/usuario/{id}")
+    public Usuario getUser(@PathVariable("id") Long id) {
+        return userService.getUsuario(id);
     }
 
-    @PostMapping(value = "/user",     consumes = {MediaType.APPLICATION_JSON_VALUE} )
-	public ResponseEntity<?> saveUser(@RequestBody User user) {
+    @PostMapping(value = "/usuario",     consumes = {MediaType.APPLICATION_JSON_VALUE} )
+	public ResponseEntity<?> saveUser(@RequestBody Usuario user) {
         try{
-            userService.addUser(user);
+            userService.addUsuario(user);
             return ResponseEntity.ok().body("Un nuevo usuario se ha anyadido");
         }
         catch(Exception e){
@@ -44,10 +44,10 @@ public class UserController {
         }
 	}
 
-    @PostMapping(value = "/user",   consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE} )
-	public ResponseEntity<?> saveHTML  (User user) {
+    @PostMapping(value = "/usuario",   consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE} )
+	public ResponseEntity<?> saveHTML  (Usuario user) {
         try{
-            userService.addUser(user);
+            userService.addUsuario(user);
             return ResponseEntity.ok().body("Un nuevo usuario se ha anyadido");
         }
         catch(Exception e){
@@ -55,10 +55,10 @@ public class UserController {
         }
 	}
 
-    @PutMapping("/user")
-    public ResponseEntity<?> updateUser(User user) {
+    @PutMapping("/usuario")
+    public ResponseEntity<?> updateUser(Usuario user) {
         try{
-            userService.updateUser(user);
+            userService.updateUsuario(user);
             return ResponseEntity.ok().body("El usuario se ha actualizado");
         }
         catch(Exception e){
@@ -66,10 +66,10 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/user")
-    public ResponseEntity<?> deleteUser(@RequestBody User user){
+    @DeleteMapping("/usuario")
+    public ResponseEntity<?> deleteUser(@RequestBody Usuario user){
         try{
-            userService.removeUser(user);
+            userService.removeUsuario(user);
             return ResponseEntity.ok().body("El usuario se ha eliminado");
         }
         catch(Exception e){

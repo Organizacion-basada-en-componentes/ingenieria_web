@@ -46,13 +46,13 @@ public class Cita {
     }
 
     @ManyToOne
-    private User paciente;
+    private Paciente paciente;
 
-    public User getPaciente() {
+    public Paciente getPaciente() {
         return paciente;
     }
 
-    public void setPaciente(User paciente) {
+    public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 

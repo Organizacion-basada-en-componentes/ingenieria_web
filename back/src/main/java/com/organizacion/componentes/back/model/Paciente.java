@@ -8,7 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Paciente extends User {
+public class Paciente extends Usuario {
 
     @Column(nullable = false)
     private String dni;

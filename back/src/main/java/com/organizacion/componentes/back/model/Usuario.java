@@ -14,14 +14,14 @@ import jakarta.persistence.OneToMany;
 
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // para ignorar el serializador al devolver un objeto cuenta
-public class User {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     public long getId() {
         return id;
     }
-    public User (){
+    public Usuario (){
         
     }
     public void setId(long id) {
