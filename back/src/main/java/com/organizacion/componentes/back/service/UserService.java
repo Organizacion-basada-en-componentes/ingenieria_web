@@ -1,44 +1,34 @@
 package com.organizacion.componentes.back.service;
 
-import java.util.List;
+import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.organizacion.componentes.back.model.User;
-import com.organizacion.componentes.back.repository.RepositoryUser;
+import com.organizacion.componentes.back.model.User.Role;
+import com.organizacion.componentes.back.repository.UserRepository;
 
 @Service
 public class UserService {
 
-    @Autowired
-    RepositoryUser repositoryUser;
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public List<User> getAllUsers() {
-        return repositoryUser.findAll();
+    public UserService(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public User getUser(Long id) {
-        return repositoryUser.getReferenceById(id);
+    public User saveUser(String username, String password, Role role) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(passwordEncoder.encode(password));  // Codificar la contraseña
+        user.setRole(role);
+        return userRepository.save(user);
     }
 
-    public User addUser(User u) {
-        return repositoryUser.saveAndFlush(u);
-    }
-
-    public void updateUser(User u) {
-        User user = repositoryUser.getReferenceById(u.getId());
-        user.setPassword(u.getPassword());
-        user.setRole(u.getRole());
-        user.setEmail(u.getEmail());
-        repositoryUser.save(user);
-    }
-
-    public void removeUser(User u) {
-        repositoryUser.delete(u);
-    }
-
-    public void removeUserID(Long id) {
-        repositoryUser.deleteById(id);
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }
