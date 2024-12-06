@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SelectedPatientService } from '../selected-patient.service';
+import { SelectedPatientService } from '../../services/selected-patient.service';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-selected-patient',

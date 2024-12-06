@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SelectedPatientService } from '../selected-patient.service';
-import { SelectedAlertaService } from '../selected-alerta.service';
+import { SelectedPatientService } from '../../services/selected-patient.service';
+import { SelectedAlertaService } from '../../services/selected-alerta.service';
 import { Router } from '@angular/router';
 
 
