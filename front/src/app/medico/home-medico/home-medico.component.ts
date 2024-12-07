@@ -26,10 +26,32 @@ export class HomeMedicoComponent implements OnInit{
   ];
 
   alertas = [
-    { titulo: 'Consulta Pendiente', mensaje: 'Paciente Juan Pérez necesita una nueva cita.' },
-    { titulo: 'Nuevo Mensaje', mensaje: 'Tienes un mensaje del paciente María López.' },
-    { titulo: 'Alerta Crítica', mensaje: 'El paciente Pedro García tiene resultados preocupantes.' },
+    {
+      tipo: 'Alerta Médica',
+      fecha: '2024-12-07',
+      descripcion: 'Paciente con fiebre alta persistente.',
+      dni: '12345678A'
+    },
+    {
+      tipo: 'Alerta Administrativa',
+      fecha: '2024-12-06',
+      descripcion: 'Paciente con documentos incompletos.',
+      dni: '87654321B'
+    },
+    {
+      tipo: 'Alerta Urgente',
+      fecha: '2024-12-05',
+      descripcion: 'Paciente en estado crítico. Necesita intervención inmediata.',
+      dni: '11223344C'
+    },
+    {
+      tipo: 'Alerta de Seguimiento',
+      fecha: '2024-12-04',
+      descripcion: 'Revisión pendiente de paciente.',
+      dni: '44556677D'
+    }
   ];
+  
 
   ngOnInit(): void {
     console.log('HomeMedicoComponent ngOnInit');

@@ -36,6 +36,7 @@ const routes: Routes = [
   // Ruta de acceso denegado
   { path: 'acceso-denegado', component: AccesoDenegadoComponent },
   { path: 'paciente-seleccionado', component: SelectedPatientComponent },
+  {path : 'alerta-seleccionada', component: SelectedAlertaComponent},
   // Ruta comodín para redirigir a la landing page
   { path: '**', redirectTo: '' }
 ];
