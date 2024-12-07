@@ -30,6 +30,8 @@ import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.
 import { SelectedPatientComponent } from './medico/selected-patient/selected-patient.component';
 import { SelectedAlertaComponent } from './medico/selected-alerta/selected-alerta.component';
 import { LoadingComponent } from './comun/loading/loading.component';
+import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
+import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { LoadingComponent } from './comun/loading/loading.component';
     HeaderLoggedInMedicoNoPatientComponent,
     SelectedPatientComponent,
     SelectedAlertaComponent,
-    LoadingComponent
+    LoadingComponent,
+    RehabilitacionMedicoComponent,
+    PlanRehabilitacionMedicoComponent
 
 
   ],

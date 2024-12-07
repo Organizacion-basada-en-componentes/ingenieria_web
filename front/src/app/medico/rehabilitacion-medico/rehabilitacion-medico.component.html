@@ -1,0 +1,16 @@
+<div class="rehabilitacion-medico">
+    <h1 class="plan-header">Planes de Rehabilitación (Médico)</h1>
+    
+    <button (click)="crearNuevoPlan()" class="crear-btn">Crear Nuevo Plan</button>
+    
+    <div *ngFor="let plan of planes" class="plan-item">
+      <div class="plan-card">
+        <h2>{{ plan.nombre }}</h2>
+        <p><strong>Fecha:</strong> {{ plan.fecha | date:'dd/MM/yyyy' }}</p>
+    
+         
+        <button (click)="seleccionarPlan(plan)" class="editar-btn">Editar Plan</button>
+      </div>
+    </div>
+  </div>
+  

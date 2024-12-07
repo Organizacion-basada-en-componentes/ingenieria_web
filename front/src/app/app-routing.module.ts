@@ -16,6 +16,8 @@ import { MensajeComponent } from './comunicacion/mensaje/mensaje.component';
 import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.component';
 import { SelectedPatientComponent } from './medico/selected-patient/selected-patient.component';
 import { SelectedAlertaComponent } from './medico/selected-alerta/selected-alerta.component';
+import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
+import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },  // Landing page por defecto
   { path: 'login', component: LoginComponent },  // Ruta para login
@@ -37,6 +39,8 @@ const routes: Routes = [
   { path: 'acceso-denegado', component: AccesoDenegadoComponent },
   { path: 'paciente-seleccionado', component: SelectedPatientComponent },
   {path : 'alerta-seleccionada', component: SelectedAlertaComponent},
+  {path : 'rehabilitacion-medico', component: RehabilitacionMedicoComponent},
+  {path : 'plan-rehabilitacion-medico', component: PlanRehabilitacionMedicoComponent},
   // Ruta comodín para redirigir a la landing page
   { path: '**', redirectTo: '' }
 ];

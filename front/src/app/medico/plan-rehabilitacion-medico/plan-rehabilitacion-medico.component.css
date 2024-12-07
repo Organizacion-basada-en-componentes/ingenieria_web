@@ -1,0 +1,144 @@
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    padding: 20px;
+    background-color: var(--background);
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .plan-rehabilitacion-medico {
+    width: 100%;
+    max-width: 800px;
+    background: var(--cardBackground);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .plan-rehabilitacion-medico h2 {
+    font-size: 2rem;
+    color: var(--cardTitle);
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .plan-rehabilitacion-medico label {
+    font-size: 1.1rem;
+    color: var(--cardText);
+    margin-bottom: 5px;
+  }
+  
+  .plan-rehabilitacion-medico input,
+  .plan-rehabilitacion-medico textarea {
+    width: 100%;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    resize: none;
+    transition: border-color 0.3s;
+  }
+  
+  .plan-rehabilitacion-medico input:focus,
+  .plan-rehabilitacion-medico textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  .plan-ejercicios h3 {
+    font-size: 1.6rem;
+    color: var(--cardTitle);
+    margin-bottom: 15px;
+  }
+  
+  .plan-ejercicios ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .plan-ejercicios li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: var(--cardBackground);
+    border-radius: 5px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .plan-ejercicios button {
+    padding: 8px 15px;
+    font-size: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .plan-ejercicios button:hover {
+    background-color: var(--secondary);
+  }
+  
+  .nuevo-ejercicio h4 {
+    font-size: 1.6rem;
+    color: var(--cardTitle);
+    margin-bottom: 10px;
+  }
+  
+  .nuevo-ejercicio input,
+  .nuevo-ejercicio textarea {
+    margin-bottom: 10px;
+  }
+  
+  .nuevo-ejercicio button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: background-color 0.3s;
+  }
+  
+  .nuevo-ejercicio button:hover {
+    background-color: var(--secondary);
+  }
+  
+  .guardar-btn {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 30px;
+    align-self: center;
+    transition: background-color 0.3s;
+  }
+  
+  .guardar-btn:hover {
+    background-color: var(--secondary);
+  }
+  
+  textarea {
+    width: 100%;
+    border: 1px solid var(--secondary);
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1rem;
+    resize: none;
+    transition: border-color 0.3s;
+  }
+  
+  textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
