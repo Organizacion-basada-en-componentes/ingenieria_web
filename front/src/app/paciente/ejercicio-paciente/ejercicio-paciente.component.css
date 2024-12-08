@@ -11,7 +11,7 @@
   .ejercicio-paciente {
     width: 100%;
     max-width: 500px;
-    background-color: var(--cardBackground);
+    background-color: var(--cardBackground2);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     padding: 20px;

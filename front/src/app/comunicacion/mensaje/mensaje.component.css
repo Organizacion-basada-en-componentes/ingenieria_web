@@ -1,0 +1,110 @@
+/* Estilos para el componente de chat */
+.mensaje-container {
+  display: flex;
+  flex-direction: column;
+  height: 70vh;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: var(--background-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Área del chat */
+.messages-area {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+/* Estilo para cada mensaje */
+.message {
+  max-width: 80%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  display: flex;
+  flex-direction: column;
+}
+
+.message.paciente {
+  background-color: var(--primary);
+  align-self: flex-end;
+  color: #fff;
+  border-bottom-right-radius: 0;
+}
+
+.message.medico {
+  background-color: var(--secondary);
+  align-self: flex-start;
+  color: #333;
+  border-bottom-left-radius: 0;
+}
+
+/* Estilo para el formulario de envío */
+.form-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 30px;
+  background-color: var(--cardBackground2);
+  color: #fff;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  background-color: var(--cardBackground);
+}
+
+.send-button {
+  width: 45px;
+  height: 45px;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.send-button:hover {
+  background-color: var(--secondary);
+}
+
+.send-button:focus {
+  outline: none;
+}
+
+.send-button i {
+  color: white;
+  font-size: 20px;
+}
+
+/* Estilo para los elementos de carga (si los hay) */
+.loader {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Estilo para la cabecera del chat */
+.chat-header {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--text);
+  margin-bottom: 15px;
+}

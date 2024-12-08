@@ -1,13 +1,23 @@
 <div class="mensaje-container">
-    <h1>Enviar Mensaje</h1>
-    <form>
-      <label for="asunto">Asunto:</label>
-      <input id="asunto" type="text" placeholder="Escribe el asunto" required>
-      
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" rows="5" placeholder="Escribe tu mensaje aquí" required></textarea>
-      
-      <button type="submit" class="btn">Enviar</button>
-    </form>
+  <div class="chat-header">
+    Chat con {{ doctorName }}
   </div>
-  
+
+  <div class="messages-area">
+    <div *ngFor="let message of messages" [ngClass]="{'message': true, 'paciente': message.sender === 'paciente', 'medico': message.sender === 'medico'}">
+      <div class="message-content">
+        {{ message.content }}
+      </div>
+      <div class="message-time">
+        {{ message.timestamp | date: 'short' }}
+      </div>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <input type="text" [(ngModel)]="newMessage" placeholder="Escribe un mensaje..." (keyup.enter)="sendMessage(newMessage)" />
+    <button class="send-button" (click)="sendMessage(newMessage)">
+      <i class="fa fa-paper-plane"></i> <!-- Icono de flecha -->
+    </button>
+  </div>
+</div>

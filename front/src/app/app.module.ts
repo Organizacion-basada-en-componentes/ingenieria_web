@@ -32,6 +32,7 @@ import { SelectedAlertaComponent } from './medico/selected-alerta/selected-alert
 import { LoadingComponent } from './comun/loading/loading.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
+import { LobbyComponent } from './comunicacion/lobby/lobby.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-
     SelectedAlertaComponent,
     LoadingComponent,
     RehabilitacionMedicoComponent,
-    PlanRehabilitacionMedicoComponent
+    PlanRehabilitacionMedicoComponent,
+    LobbyComponent
 
 
   ],

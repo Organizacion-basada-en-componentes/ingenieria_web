@@ -1,0 +1,17 @@
+<div class="lobby-container">
+    <h2>Mis Chats</h2>
+    <ul class="chat-list">
+      <li
+        *ngFor="let chat of chats"
+        class="chat-item"
+        [routerLink]="['/comunicacion/chat', chat.id]"
+      >
+        <div class="chat-preview">
+          <h3>{{ chat.doctorName }}</h3>
+          <p class="last-message">{{ chat.lastMessage }}</p>
+          <span class="timestamp">{{ chat.timestamp | date: 'short' }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  

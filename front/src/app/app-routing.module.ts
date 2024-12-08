@@ -18,6 +18,7 @@ import { SelectedPatientComponent } from './medico/selected-patient/selected-pat
 import { SelectedAlertaComponent } from './medico/selected-alerta/selected-alerta.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
+import { LobbyComponent } from './comunicacion/lobby/lobby.component';
 const routes: Routes = [
   { path: '', component: LandingPageComponent },  // Landing page por defecto
   { path: 'login', component: LoginComponent },  // Ruta para login
@@ -33,7 +34,8 @@ const routes: Routes = [
   { path: 'progreso', component: ProgresoComponent },
   { path: 'comunicacion', component: ComunicacionComponent },
   { path: 'comunicacion/pedir-cita', component: PedirCitaComponent },
-  { path: 'comunicacion/mensaje', component: MensajeComponent },
+  { path: 'comunicacion/lobby', component: LobbyComponent },
+  { path: 'comunicacion/chat/:id', component: MensajeComponent },
   { path: 'comunicacion/videollamada', component: VideollamadaComponent },
   // Ruta de acceso denegado
   { path: 'acceso-denegado', component: AccesoDenegadoComponent },
