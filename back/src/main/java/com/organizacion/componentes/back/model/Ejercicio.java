@@ -28,7 +28,8 @@ public class Ejercicio {
     private String descripcion;
 
     // Constructor vacío
-    public Ejercicio() {}
+    public Ejercicio() {
+    }
 
     // Getters y Setters
 

@@ -1,9 +1,10 @@
 package com.organizacion.componentes.back.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.organizacion.componentes.back.model.Cita;
@@ -12,49 +13,42 @@ import com.organizacion.componentes.back.repository.CitaRepository;
 @Service
 public class CitaService {
 
-    // Inyección de dependencias para el repositorio de Cita
     @Autowired
     private CitaRepository citaRepository;
 
-    // Obtener todas las citas
-    public List<Cita> obtenerTodasLasCitas() {
-        return citaRepository.findAll(); // Retorna todas las citas de la base de datos
+    // Obtener todas las citas con paginación
+    public Page<Cita> obtenerTodasLasCitas(Pageable pageable) {
+        return citaRepository.findAll(pageable);
     }
 
     // Obtener una cita por ID
     public Optional<Cita> obtenerCitaPorId(Long id) {
-        return citaRepository.findById(id); // Busca una cita por su ID
+        return citaRepository.findById(id);
     }
 
     // Crear una nueva cita
     public Cita crearCita(Cita cita) {
-        return citaRepository.save(cita); // Guarda la nueva cita en la base de datos
+        return citaRepository.save(cita);
     }
 
     // Actualizar una cita existente
     public Optional<Cita> actualizarCita(Long id, Cita citaDetalles) {
-        // Verificar si la cita existe
-        Optional<Cita> citaExistente = citaRepository.findById(id);
-        if (citaExistente.isPresent()) {
-            // Si la cita existe, se actualizan los detalles
-            Cita cita = citaExistente.get();
-            cita.setFecha(citaDetalles.getFecha());
-            cita.setPaciente(citaDetalles.getPaciente());
-            cita.setMedico(citaDetalles.getMedico());
-            // Actualiza la cita en la base de datos
-            return Optional.of(citaRepository.save(cita));
-        }
-        return Optional.empty(); // Si no existe la cita, retornamos un Optional vacío
+        return citaRepository.findById(id)
+                .map(cita -> {
+                    cita.setFecha(citaDetalles.getFecha());
+                    cita.setMedico(citaDetalles.getMedico());
+                    cita.setPaciente(citaDetalles.getPaciente());
+                    cita.setEstado(citaDetalles.getEstado());
+                    return citaRepository.save(cita);
+                });
     }
 
-    // Eliminar una cita por ID
+    // Eliminar una cita
     public boolean eliminarCita(Long id) {
-        // Verifica si la cita existe antes de eliminarla
-        Optional<Cita> citaExistente = citaRepository.findById(id);
-        if (citaExistente.isPresent()) {
-            citaRepository.deleteById(id); // Elimina la cita por su ID
-            return true; // Retorna true si la cita fue eliminada exitosamente
+        if (citaRepository.existsById(id)) {
+            citaRepository.deleteById(id);
+            return true;
         }
-        return false; // Retorna false si la cita no existe
+        return false;
     }
 }

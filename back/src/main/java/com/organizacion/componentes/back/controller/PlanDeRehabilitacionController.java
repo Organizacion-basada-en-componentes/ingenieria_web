@@ -41,15 +41,21 @@ public class PlanDeRehabilitacionController {
         }
     }
 
-    // Crear un nuevo plan de rehabilitación
-    @PostMapping
-    public PlanDeRehabilitacion crearPlan(@RequestBody PlanDeRehabilitacion plan) {
-        return planDeRehabilitacionService.crearPlan(plan);
+    @PostMapping("/{planId}/ejercicios")
+    public ResponseEntity<PlanDeRehabilitacion> agregarEjercicios(@PathVariable Long planId,
+            @RequestBody List<Long> ejercicioIds) {
+        PlanDeRehabilitacion plan = planDeRehabilitacionService.agregarEjerciciosAlPlan(planId, ejercicioIds);
+        if (plan != null) {
+            return ResponseEntity.ok(plan); // Retorna el plan con los ejercicios actualizados
+        } else {
+            return ResponseEntity.notFound().build(); // Si no se encuentra el plan, se devuelve un 404
+        }
     }
 
     // Actualizar un plan de rehabilitación existente
     @PutMapping("/{id}")
-    public ResponseEntity<PlanDeRehabilitacion> actualizarPlan(@PathVariable Long id, @RequestBody PlanDeRehabilitacion planDetalles) {
+    public ResponseEntity<PlanDeRehabilitacion> actualizarPlan(@PathVariable Long id,
+            @RequestBody PlanDeRehabilitacion planDetalles) {
         Optional<PlanDeRehabilitacion> planActualizado = planDeRehabilitacionService.actualizarPlan(id, planDetalles);
         if (planActualizado.isPresent()) {
             return ResponseEntity.ok(planActualizado.get());

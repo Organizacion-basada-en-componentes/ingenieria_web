@@ -1,9 +1,10 @@
 package com.organizacion.componentes.back.service;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.organizacion.componentes.back.model.Mensaje;
@@ -20,13 +21,10 @@ public class MensajeService {
         return mensajeRepository.save(mensaje);
     }
 
-    // Método para obtener todos los mensajes
-    public List<Mensaje> getAllMensajes() {
-        return mensajeRepository.findAll();
+    // Método para obtener todos los mensajes con paginación
+    public Page<Mensaje> getAllMensajes(Pageable pageable) {
+        return mensajeRepository.findAll(pageable);
     }
-
-   
-
 
     // Método para obtener un mensaje por ID
     public Optional<Mensaje> getMensajeById(Long id) {

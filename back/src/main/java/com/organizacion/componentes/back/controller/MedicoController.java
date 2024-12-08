@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -30,14 +32,19 @@ public class MedicoController {
         if (medico.isPresent()) {
             return ResponseEntity.ok(medico.get());
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build(); // 404 si no se encuentra el médico
         }
     }
 
     // Crear un nuevo médico
     @PostMapping
-    public Medico crearMedico(@RequestBody Medico medico) {
-        return medicoService.crearMedico(medico);
+    public ResponseEntity<Medico> crearMedico(@RequestBody @Valid Medico medico) {
+        try {
+            Medico nuevoMedico = medicoService.crearMedico(medico);
+            return ResponseEntity.status(201).body(nuevoMedico); // 201 para creación exitosa
+        } catch (Exception e) {
+            return ResponseEntity.status(400).body(null); // Responder con 400 si hay un error en la creación
+        }
     }
 
     // Actualizar un médico existente
@@ -47,19 +54,18 @@ public class MedicoController {
         if (medicoActualizado.isPresent()) {
             return ResponseEntity.ok(medicoActualizado.get());
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build(); // 404 si no se encuentra el médico
         }
     }
 
     // Eliminar un médico por ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarMedico(@PathVariable Long id) {
+    public ResponseEntity<String> eliminarMedico(@PathVariable Long id) {
         boolean eliminado = medicoService.eliminarMedico(id);
         if (eliminado) {
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok("Médico eliminado exitosamente");
         } else {
-            return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build(); // 404 si no se encuentra el médico
         }
     }
 }
-

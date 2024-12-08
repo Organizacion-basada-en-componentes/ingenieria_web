@@ -2,12 +2,9 @@ package com.organizacion.componentes.back.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" }) // Para ignorar el serializador de Hibernate
@@ -26,11 +23,36 @@ public class PlanDeRehabilitacion {
     @ManyToOne(optional = false)
     private Medico medico;
 
+    @Column(nullable = false)
+    private boolean completado; // Campo para indicar si el paciente completó el plan
+
+    @Column(nullable = false)
+    private LocalDateTime fechaInicio; // Fecha de inicio del plan de rehabilitación
+
+    private String comentario; // Comentario para el feedback del paciente
+
+    // Relación ManyToMany con Ejercicio
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "plan_ejercicio", joinColumns = @JoinColumn(name = "plan_id"), inverseJoinColumns = @JoinColumn(name = "ejercicio_id"))
+    private List<Ejercicio> ejercicios;
+
     // Constructor vacío
-    public PlanDeRehabilitacion() {}
+    public PlanDeRehabilitacion() {
+    }
+
+    // Constructor con parámetros
+    public PlanDeRehabilitacion(String nombre, Paciente paciente, Medico medico, boolean completado,
+            LocalDateTime fechaInicio, String comentario, List<Ejercicio> ejercicios) {
+        this.nombre = nombre;
+        this.paciente = paciente;
+        this.medico = medico;
+        this.completado = completado;
+        this.fechaInicio = fechaInicio;
+        this.comentario = comentario;
+        this.ejercicios = ejercicios;
+    }
 
     // Getters y Setters
-
     public long getId() {
         return id;
     }
@@ -61,5 +83,37 @@ public class PlanDeRehabilitacion {
 
     public void setMedico(Medico medico) {
         this.medico = medico;
+    }
+
+    public boolean isCompletado() {
+        return completado;
+    }
+
+    public void setCompletado(boolean completado) {
+        this.completado = completado;
+    }
+
+    public LocalDateTime getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(LocalDateTime fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public List<Ejercicio> getEjercicios() {
+        return ejercicios;
+    }
+
+    public void setEjercicios(List<Ejercicio> ejercicios) {
+        this.ejercicios = ejercicios;
     }
 }

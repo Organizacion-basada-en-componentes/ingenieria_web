@@ -22,7 +22,17 @@ public class UsuarioService {
         return repositoryUser.getReferenceById(id);
     }
 
-    public Usuario addUsuario(Usuario u) {
+    // Usamos la excepción personalizada 'UserAlreadyExistsException'
+    public Usuario addUsuario(Usuario u) throws UserAlreadyExistsException {
+        // Verificar si el usuario ya existe por email o username
+        if (repositoryUser.existsByEmail(u.getEmail())) {
+            throw new UserAlreadyExistsException("El usuario con este email ya existe");
+        }
+        if (repositoryUser.existsByUsername(u.getUsername())) {
+            throw new UserAlreadyExistsException("El usuario con este nombre de usuario ya existe");
+        }
+
+        // Si el usuario no existe, lo guardamos
         return repositoryUser.saveAndFlush(u);
     }
 

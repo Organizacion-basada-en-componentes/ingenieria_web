@@ -5,77 +5,71 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.organizacion.componentes.back.model.Usuario;
 import com.organizacion.componentes.back.service.UsuarioService;
+import com.organizacion.componentes.back.service.UserAlreadyExistsException; // Asegúrate de crear esta excepción personalizada
 
 @RestController
+@RequestMapping("/usuario")
 public class UsuarioController {
 
-    
     @Autowired
     private UsuarioService userService;
 
-    @GetMapping("/usuario")
-    public List<Usuario> getUsers(){
+    @GetMapping
+    public List<Usuario> getUsers() {
         return userService.getAllUsuario();
     }
 
-    @GetMapping("/usuario/{id}")
-    public Usuario getUser(@PathVariable("id") Long id) {
-        return userService.getUsuario(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<Usuario> getUser(@PathVariable("id") Long id) {
+        Usuario user = userService.getUsuario(id);
+        if (user == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(user);
     }
 
-    @PostMapping(value = "/usuario",     consumes = {MediaType.APPLICATION_JSON_VALUE} )
-	public ResponseEntity<?> saveUser(@RequestBody Usuario user) {
-        try{
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> saveUser(@RequestBody Usuario user) {
+        try {
+            // Intentar agregar el usuario
             userService.addUsuario(user);
-            return ResponseEntity.ok().body("Un nuevo usuario se ha anyadido");
+            return ResponseEntity.ok("Un nuevo usuario se ha añadido");
+        } catch (UserAlreadyExistsException e) {
+            // Si el usuario ya existe, devolver un error 400 con el mensaje específico
+            return ResponseEntity.status(400).body(e.getMessage());
+        } catch (Exception e) {
+            // Registrar el error con el stack trace para obtener más detalles
+            e.printStackTrace();
+            // Si ocurre cualquier otro error, devolver un error 500
+            return ResponseEntity.status(500).body("Error al guardar el usuario: " + e.getMessage());
         }
-        catch(Exception e){
-            return ResponseEntity.internalServerError().body("El usuario ya existe");
-        }
-	}
+    }
 
-    @PostMapping(value = "/usuario",   consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE} )
-	public ResponseEntity<?> saveHTML  (Usuario user) {
-        try{
-            userService.addUsuario(user);
-            return ResponseEntity.ok().body("Un nuevo usuario se ha anyadido");
-        }
-        catch(Exception e){
-            return ResponseEntity.internalServerError().body("El usuario ya existe");
-        }
-	}
-
-    @PutMapping("/usuario")
-    public ResponseEntity<?> updateUser(Usuario user) {
-        try{
+    @PutMapping
+    public ResponseEntity<String> updateUser(@RequestBody Usuario user) {
+        try {
             userService.updateUsuario(user);
-            return ResponseEntity.ok().body("El usuario se ha actualizado");
-        }
-        catch(Exception e){
-            return ResponseEntity.internalServerError().body("Error al actualizar la cuenta");
+            return ResponseEntity.ok("El usuario se ha actualizado");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al actualizar el usuario");
         }
     }
 
-    @DeleteMapping("/usuario")
-    public ResponseEntity<?> deleteUser(@RequestBody Usuario user){
-        try{
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteUser(@PathVariable("id") Long id) {
+        try {
+            Usuario user = userService.getUsuario(id);
+            if (user == null) {
+                return ResponseEntity.notFound().build();
+            }
             userService.removeUsuario(user);
-            return ResponseEntity.ok().body("El usuario se ha eliminado");
-        }
-        catch(Exception e){
-            return ResponseEntity.internalServerError().body("Error al eliminar usuario");
+            return ResponseEntity.ok("El usuario se ha eliminado");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al eliminar el usuario");
         }
     }
-
 }
-

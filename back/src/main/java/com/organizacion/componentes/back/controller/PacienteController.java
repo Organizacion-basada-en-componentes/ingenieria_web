@@ -6,6 +6,7 @@ import com.organizacion.componentes.back.service.PacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import javax.validation.Valid;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,8 +37,8 @@ public class PacienteController {
 
     // Crear un nuevo paciente
     @PostMapping
-    public Paciente crearPaciente(@RequestBody Paciente paciente) {
-        return pacienteService.crearPaciente(paciente);
+    public ResponseEntity<Paciente> crearPaciente(@RequestBody @Valid Paciente paciente) {
+        return ResponseEntity.ok(pacienteService.crearPaciente(paciente));
     }
 
     // Actualizar un paciente existente
