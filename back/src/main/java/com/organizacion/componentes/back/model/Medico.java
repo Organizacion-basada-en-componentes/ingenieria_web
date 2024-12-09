@@ -5,11 +5,19 @@ import java.util.List;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 
 @Entity
-public class Medico extends Usuario {
+public class Medico {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    
     @Column(nullable = false)
     private String dni;
 
@@ -19,6 +27,9 @@ public class Medico extends Usuario {
 
     @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
     private List<Cita> citas;
+
+    @ManyToOne
+    private Usuario usuario;  // Relación con Usuario
 
     // Getters y setters
 
@@ -53,5 +64,12 @@ public class Medico extends Usuario {
     public void setCitas(List<Cita> citas) {
         this.citas = citas;
     }
-}
 
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+}

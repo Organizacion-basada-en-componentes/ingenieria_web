@@ -1,18 +1,41 @@
 package com.organizacion.componentes.back.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.organizacion.componentes.back.model.Usuario;
+import com.organizacion.componentes.back.model.Usuario.Role;
 import com.organizacion.componentes.back.repository.RepositoryUsuario;
 
 @Service
 public class UsuarioService {
 
-    @Autowired
+    private final PasswordEncoder passwordEncoder;
     RepositoryUsuario repositoryUser;
+
+    public UsuarioService(RepositoryUsuario repositoryUser, PasswordEncoder passwordEncoder) {
+        this.repositoryUser = repositoryUser;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+
+    public Usuario saveUser(String username, String password, Role role) {
+        Usuario user = new Usuario();
+        user.setUsername(username);
+        user.setPassword(passwordEncoder.encode(password));  // Codificar la contraseña
+        user.setRole(role);
+        return repositoryUser.save(user);
+    }
+
+    public Optional<Usuario> findByUsername(String username) {
+        return repositoryUser.findByUsername(username);
+    }
+
+
+
 
     public List<Usuario> getAllUsuario() {
         return repositoryUser.findAll();

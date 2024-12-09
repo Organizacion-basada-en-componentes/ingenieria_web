@@ -1,34 +1,50 @@
 package com.organizacion.componentes.back.model;
 
+import java.util.Collection;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Builder;
 
+@Builder
 @Entity
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // para ignorar el serializador al devolver un objeto cuenta
-public class Usuario {
+@Table(name = "usuario")
+public class Usuario implements UserDetails{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     public long getId() {
         return id;
     }
-    public Usuario (){
-        
+    public Usuario(long id, String username, String password, Role role, String email) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.role = role;
+        this.email = email;
+    
+    }
+    public Usuario() {
+        super();
     }
     public void setId(long id) {
         this.id = id;
     }
     @Column(unique = true, nullable = false)
     private String username;
+    @Override
     public String getUsername() {
         return username;
     }
@@ -36,22 +52,31 @@ public class Usuario {
         this.username = username;
     }
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String password;
+    @Override
     public String getPassword() {
         return password;
+    }
+
+    public enum Role {
+        MEDICO,
+        PACIENTE
+    }
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = true)
+    private Role role;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return List.of(new SimpleGrantedAuthority(role.name()));
     }
     public void setPassword(String passsword) {
         this.password = passsword;
     }
 
    
-    public enum Role {
-        MEDICO,
-        PACIENTE
-    }
-
-    private Role role;
+    
 
     public Role getRole() {
         return role;
@@ -61,7 +86,7 @@ public class Usuario {
         this.role = role;
     }
     
-    @Column(unique = true, nullable = false)
+    @Column(unique = true, nullable = true)
     private String email;
     public String getEmail() {
         return email;
@@ -70,15 +95,8 @@ public class Usuario {
         this.email = email;
     }
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Mensaje> mensajes;
-    public List<Mensaje> getMensajes() {
-        return mensajes;
-    }
-
-    public void setMensajes(List<Mensaje> mensajes) {
-        this.mensajes = mensajes;
-    }
+   
+  
 
 }
 
