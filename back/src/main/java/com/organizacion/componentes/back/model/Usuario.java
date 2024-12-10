@@ -14,10 +14,14 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 
 @Builder
+@AllArgsConstructor
+
 @Entity
 @Table(name = "usuario")
 public class Usuario implements UserDetails{
@@ -28,14 +32,15 @@ public class Usuario implements UserDetails{
     public long getId() {
         return id;
     }
-    public Usuario(long id, String username, String password, Role role, String email) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.role = role;
-        this.email = email;
-    
-    }
+    public Usuario(long id, String username, String password, Role role, Paciente paciente, Medico medico, String email) {
+            this.id = id;
+            this.username = username;
+            this.password = password;
+            this.role = role;
+            this.paciente = paciente;
+            this.medico = medico;
+            this.email = email;
+        }
     public Usuario() {
         super();
     }
@@ -76,7 +81,11 @@ public class Usuario implements UserDetails{
     }
 
    
-    
+    @OneToOne(mappedBy = "usuario") // Indica que 'usuario' en 'Medico' es el lado propietario
+    private Medico medico;
+
+    @OneToOne(mappedBy = "usuario") // Indica que 'usuario' en 'Paciente' es el lado propietario
+    private Paciente paciente;
 
     public Role getRole() {
         return role;

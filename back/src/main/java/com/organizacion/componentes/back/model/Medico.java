@@ -7,8 +7,12 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import lombok.Builder;
 
 @Builder
@@ -16,21 +20,27 @@ import lombok.Builder;
 public class Medico {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    public long getId() {
+        return id;
+    }
+
+    @Column(unique = true, nullable = false)
     private String dni;  // 'dni' es la clave primaria
 
     @Column(nullable = false)
     private String nombre;
 
-    
-
-    private String especialidad;
-
-    @Column(nullable = false, unique = true)
-    private String username;  // Nombre de usuario único y obligatorio
+    @OneToOne
+    @JoinColumn(name = "usuario_id", nullable = false) // 'usuario_id' es la clave foránea en la tabla 'Medico'
+    private Usuario usuario;
 
     @Column(nullable = false)
-    private String contraseña;  // Contraseña obligatoria
+    private String especialidad;
 
+  
+ 
     @OneToMany(mappedBy = "medico")
     @JsonIgnore
     private List<Cita> citas;
@@ -62,21 +72,6 @@ public class Medico {
         this.especialidad = especialidad;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
     public List<Cita> getCitas() {
         return citas;

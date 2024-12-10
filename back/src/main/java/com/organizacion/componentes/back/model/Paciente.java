@@ -1,29 +1,29 @@
 package com.organizacion.componentes.back.model;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.util.Date;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.Builder;
+
 
 @Entity
 public class Paciente {
 
+  
+    public Paciente() {
+    }
+
+  
     @Builder
-    public Paciente(String dni, String nombre, LocalDate fechaNacimiento, Usuario usuario, List<Cita> citas, List<Progreso> progresos, List<Ejercicio> ejercicios) {
+    public Paciente(String dni, String nombre, Date fechaNacimiento, Usuario usuario) {
         this.dni = dni;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.usuario = usuario;
-        this.citas = citas;
-        this.progresos = progresos;
-        this.ejercicios = ejercicios;
     }
 
     @Id
@@ -33,33 +33,41 @@ public class Paciente {
     private String nombre;
 
     @Column(nullable = true)
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
 
 
-    @OneToOne(mappedBy = "paciente")
-    @JsonIgnoreProperties({"paciente"}) 
-    private Usuario usuario; 
+    @OneToOne
+    @JoinColumn(name = "usuario_id", nullable = false) // 'usuario_id' es la clave foránea en la tabla 'Medico'
+    private Usuario usuario;
 
-    @OneToMany(mappedBy = "paciente")
-    @JsonIgnoreProperties({"paciente"}) 
-    private List<Cita> citas;
 
-    @OneToMany(mappedBy = "paciente")
-    private List<Progreso> progresos;
+    // @OneToMany(mappedBy = "paciente")
+    // @JsonIgnoreProperties({"paciente"}) 
+    // private List<Cita> citas;
 
-    @OneToMany(mappedBy = "paciente")
-    @JsonIgnoreProperties({"paciente"})  // Evita la referencia circular
-    private List<Ejercicio> ejercicios;
+    // @OneToMany(mappedBy = "paciente")
+    // private List<Progreso> progresos;
 
-    public Paciente(List<Cita> citas, String dni, List<Ejercicio> ejercicios, LocalDate fechaNacimiento, String nombre, List<Progreso> progresos, Usuario usuario) {
-        this.citas = citas;
-        this.dni = dni;
-        this.ejercicios = ejercicios;
-        this.fechaNacimiento = fechaNacimiento;
-        this.nombre = nombre;
-        this.progresos = progresos;
-        this.usuario = usuario;
-    }
+    // @OneToMany(mappedBy = "paciente")
+    // @JsonIgnoreProperties({"paciente"})  // Evita la referencia circular
+    // private List<Ejercicio> ejercicios;
+    // public Paciente(
+    //     List<Cita> citas, 
+    //     String dni, 
+    //     List<Ejercicio> ejercicios, 
+    //     LocalDate fechaNacimiento, 
+    //     String nombre, 
+    //     List<Progreso> progresos, 
+    //     Usuario usuario) 
+    // {
+    //     this.citas = citas;
+    //     this.dni = dni;
+    //     this.ejercicios = ejercicios;
+    //     this.fechaNacimiento = fechaNacimiento;
+    //     this.nombre = nombre;
+    //     this.progresos = progresos;
+    //     this.usuario = usuario;
+    // }
 
     // Getters y setters
     public String getDni() {
@@ -80,35 +88,35 @@ public class Paciente {
     }
 
 
-    public LocalDate getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public List<Cita> getCitas() {
-        return citas;
-    }
+    // public List<Cita> getCitas() {
+    //     return citas;
+    // }
 
-    public void setCitas(List<Cita> citas) {
-        this.citas = citas;
-    }
+    // public void setCitas(List<Cita> citas) {
+    //     this.citas = citas;
+    // }
 
-    public List<Progreso> getProgresos() {
-        return progresos;
-    }
+    // public List<Progreso> getProgresos() {
+    //     return progresos;
+    // }
 
-    public void setProgresos(List<Progreso> progresos) {
-        this.progresos = progresos;
-    }
+    // public void setProgresos(List<Progreso> progresos) {
+    //     this.progresos = progresos;
+    // }
 
-    public List<Ejercicio> getEjercicios() {
-        return ejercicios;
-    }
+    // public List<Ejercicio> getEjercicios() {
+    //     return ejercicios;
+    // }
 
-    public void setEjercicios(List<Ejercicio> ejercicios) {
-        this.ejercicios = ejercicios;
-    }
+    // public void setEjercicios(List<Ejercicio> ejercicios) {
+    //     this.ejercicios = ejercicios;
+    // }
 }

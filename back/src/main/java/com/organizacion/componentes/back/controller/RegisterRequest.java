@@ -1,6 +1,6 @@
 package com.organizacion.componentes.back.controller;
 
-import java.time.LocalDate;
+import java.sql.Date;
 
 import com.organizacion.componentes.back.model.Usuario.Role;
 
@@ -20,7 +20,7 @@ public class RegisterRequest {
     private String email;
     private String dni;
     private String nombre;
-    private LocalDate fechaNacimiento;
+    private Date fechaNacimiento;
     private String especialidad;
     
    
