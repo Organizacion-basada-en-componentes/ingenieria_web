@@ -1,23 +1,28 @@
 package com.organizacion.componentes.back.model;
 
 
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Builder;
 
-@Builder
+
 @Entity
 public class Medico {
+
+    public Medico() {
+    }
+    @Builder
+    public Medico(String dni, String nombre, Usuario usuario, String especialidad) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.usuario = usuario;
+        this.especialidad = especialidad;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -41,9 +46,9 @@ public class Medico {
 
   
  
-    @OneToMany(mappedBy = "medico")
-    @JsonIgnore
-    private List<Cita> citas;
+    // @OneToMany(mappedBy = "medico")
+    // @JsonIgnore
+    // private List<Cita> citas;
 
     // Getters y setters
     public String getDni() {
@@ -73,11 +78,11 @@ public class Medico {
     }
 
 
-    public List<Cita> getCitas() {
-        return citas;
-    }
+    // public List<Cita> getCitas() {
+    //     return citas;
+    // }
 
-    public void setCitas(List<Cita> citas) {
-        this.citas = citas;
-    }
+    // public void setCitas(List<Cita> citas) {
+    //     this.citas = citas;
+    // }
 }
