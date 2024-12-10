@@ -6,7 +6,10 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.organizacion.componentes.back.controller.citaRequest;
 import com.organizacion.componentes.back.model.Cita;
+import com.organizacion.componentes.back.model.Medico;
+import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.repository.CitaRepository;
 
 @Service
@@ -20,11 +23,11 @@ public class CitaService {
     }
 
     public Cita getCitaById(Long id) {
-        Optional<Cita> cita = citaRepository.findById(id);
-        return cita.orElse(null);
+        return citaRepository.findById(id).orElse(null);
     }
 
     public Cita createCita(Cita cita) {
+        // Solo guardar la cita directamente
         return citaRepository.save(cita);
     }
 
@@ -40,13 +43,11 @@ public class CitaService {
         citaRepository.deleteById(id);
     }
 
-    // Obtener todas las citas de un médico por su DNI
-    public List<Cita> getCitasByMedico(String dni) {
-        return citaRepository.findByMedico_Dni(dni);
+    public List<Cita> getCitasByMedico(String id) {
+        return citaRepository.findByMedico_Dni(id);
     }
 
-    // Obtener todas las citas de un paciente por su DNI
-    public List<Cita> getCitasByPaciente(String dni) {
-        return citaRepository.findByPaciente_Dni(dni);
+    public List<Cita> getCitasByPaciente(String id) {
+        return citaRepository.findByPaciente_Dni(id);
     }
 }

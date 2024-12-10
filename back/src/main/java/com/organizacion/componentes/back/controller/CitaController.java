@@ -2,9 +2,8 @@ package com.organizacion.componentes.back.controller;
 
 import java.util.List;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,7 +18,7 @@ import com.organizacion.componentes.back.service.CitaService;
 
 
 @RestController
-@RequestMapping("/auth/citas")
+@RequestMapping("/citas")
 public class CitaController {
 
     @Autowired
@@ -38,10 +37,14 @@ public class CitaController {
     }
 
     // Crear una nueva cita
+    
     @PostMapping
-    public Cita createCita(@RequestBody Cita cita) {
-        return citaService.createCita(cita);
+    public ResponseEntity<Cita> createCita(@RequestBody Cita cita) {
+        Cita nuevaCita = citaService.createCita(cita);
+        return ResponseEntity.ok(nuevaCita);
     }
+
+
 
     // Actualizar una cita existente
     @PutMapping("/{id}")
@@ -56,14 +59,14 @@ public class CitaController {
     }
 
     // Obtener todas las citas de un médico por su DNI
-    @GetMapping("/medico/{dni}")
-    public List<Cita> getCitasByMedico(@PathVariable String dni) {
-        return citaService.getCitasByMedico(dni);
+    @GetMapping("/medico/{id}")
+    public List<Cita> getCitasByMedico(@PathVariable String id) {
+        return citaService.getCitasByMedico(id);
     }
 
     // Obtener todas las citas de un paciente por su DNI
-    @GetMapping("/paciente/{dni}")
-    public List<Cita> getCitasByPaciente(@PathVariable String dni) {
-        return citaService.getCitasByPaciente(dni);
+    @GetMapping("/paciente/{id}")
+    public List<Cita> getCitasByPaciente(@PathVariable String id) {
+        return citaService.getCitasByPaciente(id);
     }
 }
