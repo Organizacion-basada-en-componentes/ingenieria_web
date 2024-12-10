@@ -30,34 +30,7 @@ public class PacienteService {
         }
     }
 
-    // Crear un nuevo paciente
-    public Paciente createPaciente(Paciente paciente) {
-        if (paciente.getUsername() == null || paciente.getContraseña() == null) {
-            throw new RuntimeException("El username y la contraseña no pueden ser nulos.");
-        }
-        return pacienteRepository.save(paciente);
-    }
-
-    // Actualizar un paciente existente
-    public Paciente updatePaciente(String dni, Paciente pacienteActualizado) {
-        Optional<Paciente> pacienteExistente = pacienteRepository.findById(dni);
-        if (pacienteExistente.isPresent()) {
-            Paciente paciente = pacienteExistente.get();
-            paciente.setNombre(pacienteActualizado.getNombre());
-            paciente.setEmail(pacienteActualizado.getEmail());
-            paciente.setFechaNacimiento(pacienteActualizado.getFechaNacimiento());
-            // Actualizamos también el username y la contraseña si están presentes
-            if (pacienteActualizado.getUsername() != null) {
-                paciente.setUsername(pacienteActualizado.getUsername());
-            }
-            if (pacienteActualizado.getContraseña() != null) {
-                paciente.setContraseña(pacienteActualizado.getContraseña());
-            }
-            return pacienteRepository.save(paciente);
-        } else {
-            throw new RuntimeException("No se puede actualizar. Paciente no encontrado con DNI: " + dni);
-        }
-    }
+    
 
     // Eliminar un paciente por su DNI
     public void deletePaciente(String dni) {

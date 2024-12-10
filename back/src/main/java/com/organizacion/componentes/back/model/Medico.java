@@ -1,14 +1,17 @@
 package com.organizacion.componentes.back.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
-import jakarta.persistence.OneToMany;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import lombok.Builder;
+
+@Builder
 @Entity
 public class Medico {
 
@@ -18,8 +21,7 @@ public class Medico {
     @Column(nullable = false)
     private String nombre;
 
-    @Column(nullable = false)
-    private String apellido;
+    
 
     private String especialidad;
 
@@ -50,13 +52,7 @@ public class Medico {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
+    
 
     public String getEspecialidad() {
         return especialidad;

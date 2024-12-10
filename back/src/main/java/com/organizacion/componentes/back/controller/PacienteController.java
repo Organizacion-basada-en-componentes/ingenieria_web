@@ -1,11 +1,16 @@
 package com.organizacion.componentes.back.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.service.PacienteService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/auth/pacientes")
@@ -27,16 +32,7 @@ public class PacienteController {
     }
 
     // Crear un nuevo paciente
-    @PostMapping
-    public Paciente createPaciente(@RequestBody Paciente paciente) {
-        return pacienteService.createPaciente(paciente);
-    }
 
-    // Actualizar un paciente existente
-    @PutMapping("/{dni}")
-    public Paciente updatePaciente(@PathVariable String dni, @RequestBody Paciente paciente) {
-        return pacienteService.updatePaciente(dni, paciente);
-    }
 
     // Eliminar un paciente por su DNI
     @DeleteMapping("/{dni}")

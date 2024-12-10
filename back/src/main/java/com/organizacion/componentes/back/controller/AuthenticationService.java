@@ -6,7 +6,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.organizacion.componentes.back.config.JwtService;
+import com.organizacion.componentes.back.model.Medico;
+import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.model.Usuario;
+import com.organizacion.componentes.back.model.Usuario.Role;
 import com.organizacion.componentes.back.repository.RepositoryUsuario;
 
 import lombok.RequiredArgsConstructor;
@@ -23,8 +26,26 @@ public class AuthenticationService {
         var user = Usuario.builder()
             .username(request.getUsername())
             .password(passwordEncoder.encode(request.getPassword()))
-            .role(Usuario.Role.MEDICO)
+            .role(request.getRole())
+            .email(request.getEmail())
             .build();
+            if(request.getRole().equals(Role.PACIENTE)){
+                var paciente = Paciente.builder()
+                .usuario(user)
+                .dni(request.getDni())
+                .nombre(request.getNombre())
+                .fechaNacimiento(request.getFechaNacimiento())
+
+                .build();
+            } else{
+                var medico = Medico.builder()
+                .usuario(user)
+                .dni(request.getDni())
+                .nombre(request.getNombre())
+                .especialidad(request.getEspecialidad())
+                .build();
+            }
+            
         repository.save(user);
         var token = jwtService.generateToken(user);
         return AuthenticationResponse.builder()

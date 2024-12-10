@@ -1,30 +1,44 @@
 package com.organizacion.componentes.back.model;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
-import java.time.LocalDate;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.OneToOne;
+import lombok.Builder;
 
 @Entity
 public class Paciente {
+
+    @Builder
+    public Paciente(String dni, String nombre, LocalDate fechaNacimiento, Usuario usuario, List<Cita> citas, List<Progreso> progresos, List<Ejercicio> ejercicios) {
+        this.dni = dni;
+        this.nombre = nombre;
+        this.fechaNacimiento = fechaNacimiento;
+        this.usuario = usuario;
+        this.citas = citas;
+        this.progresos = progresos;
+        this.ejercicios = ejercicios;
+    }
 
     @Id
     private String dni;  // Ahora 'dni' es la clave primaria
 
     @Column(nullable = false)
-    private String username;  // Nombre de usuario del paciente
-
-    @Column(nullable = false)
-    private String contraseña;  // Contraseña del paciente
-
     private String nombre;
-    private String email;
+
+    @Column(nullable = true)
     private LocalDate fechaNacimiento;
+
+
+    @OneToOne(mappedBy = "paciente")
+    @JsonIgnoreProperties({"paciente"}) 
+    private Usuario usuario; 
 
     @OneToMany(mappedBy = "paciente")
     @JsonIgnoreProperties({"paciente"}) 
@@ -37,6 +51,16 @@ public class Paciente {
     @JsonIgnoreProperties({"paciente"})  // Evita la referencia circular
     private List<Ejercicio> ejercicios;
 
+    public Paciente(List<Cita> citas, String dni, List<Ejercicio> ejercicios, LocalDate fechaNacimiento, String nombre, List<Progreso> progresos, Usuario usuario) {
+        this.citas = citas;
+        this.dni = dni;
+        this.ejercicios = ejercicios;
+        this.fechaNacimiento = fechaNacimiento;
+        this.nombre = nombre;
+        this.progresos = progresos;
+        this.usuario = usuario;
+    }
+
     // Getters y setters
     public String getDni() {
         return dni;
@@ -46,21 +70,6 @@ public class Paciente {
         this.dni = dni;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getContraseña() {
-        return contraseña;
-    }
-
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
-    }
 
     public String getNombre() {
         return nombre;
@@ -70,13 +79,6 @@ public class Paciente {
         this.nombre = nombre;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public LocalDate getFechaNacimiento() {
         return fechaNacimiento;
