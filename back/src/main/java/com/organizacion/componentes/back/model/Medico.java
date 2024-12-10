@@ -1,38 +1,36 @@
 package com.organizacion.componentes.back.model;
 
-import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Column;
 import jakarta.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Medico {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    
-    @Column(nullable = false)
-    private String dni;
+    private String dni;  // 'dni' es la clave primaria
 
+    @Column(nullable = false)
     private String nombre;
+
+    @Column(nullable = false)
+    private String apellido;
 
     private String especialidad;
 
-    @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
+    @Column(nullable = false, unique = true)
+    private String username;  // Nombre de usuario único y obligatorio
+
+    @Column(nullable = false)
+    private String contraseña;  // Contraseña obligatoria
+
+    @OneToMany(mappedBy = "medico")
     private List<Cita> citas;
 
-    @ManyToOne
-    private Usuario usuario;  // Relación con Usuario
-
     // Getters y setters
-
     public String getDni() {
         return dni;
     }
@@ -49,6 +47,14 @@ public class Medico {
         this.nombre = nombre;
     }
 
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
     public String getEspecialidad() {
         return especialidad;
     }
@@ -57,19 +63,27 @@ public class Medico {
         this.especialidad = especialidad;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getContraseña() {
+        return contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        this.contraseña = contraseña;
+    }
+
     public List<Cita> getCitas() {
         return citas;
     }
 
     public void setCitas(List<Cita> citas) {
         this.citas = citas;
-    }
-
-    public Usuario getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 }

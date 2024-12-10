@@ -2,16 +2,13 @@ package com.organizacion.componentes.back.controller;
 
 import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.service.PacienteService;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/pacientes")
+@RequestMapping("/auth/pacientes")
 public class PacienteController {
 
     @Autowired
@@ -19,46 +16,31 @@ public class PacienteController {
 
     // Obtener todos los pacientes
     @GetMapping
-    public List<Paciente> obtenerTodosLosPacientes() {
-        return pacienteService.obtenerTodosLosPacientes();
+    public List<Paciente> getAllPacientes() {
+        return pacienteService.getAllPacientes();
     }
 
-    // Obtener un paciente por ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Paciente> obtenerPacientePorId(@PathVariable Long id) {
-        Optional<Paciente> paciente = pacienteService.obtenerPacientePorId(id);
-        if (paciente.isPresent()) {
-            return ResponseEntity.ok(paciente.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    // Obtener un paciente por su DNI
+    @GetMapping("/{dni}")
+    public Paciente getPaciente(@PathVariable String dni) {
+        return pacienteService.getPacienteById(dni);
     }
 
     // Crear un nuevo paciente
     @PostMapping
-    public Paciente crearPaciente(@RequestBody Paciente paciente) {
-        return pacienteService.crearPaciente(paciente);
+    public Paciente createPaciente(@RequestBody Paciente paciente) {
+        return pacienteService.createPaciente(paciente);
     }
 
     // Actualizar un paciente existente
-    @PutMapping("/{id}")
-    public ResponseEntity<Paciente> actualizarPaciente(@PathVariable Long id, @RequestBody Paciente pacienteDetalles) {
-        Optional<Paciente> pacienteActualizado = pacienteService.actualizarPaciente(id, pacienteDetalles);
-        if (pacienteActualizado.isPresent()) {
-            return ResponseEntity.ok(pacienteActualizado.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    @PutMapping("/{dni}")
+    public Paciente updatePaciente(@PathVariable String dni, @RequestBody Paciente paciente) {
+        return pacienteService.updatePaciente(dni, paciente);
     }
 
-    // Eliminar un paciente por ID
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarPaciente(@PathVariable Long id) {
-        boolean eliminado = pacienteService.eliminarPaciente(id);
-        if (eliminado) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    // Eliminar un paciente por su DNI
+    @DeleteMapping("/{dni}")
+    public void deletePaciente(@PathVariable String dni) {
+        pacienteService.deletePaciente(dni);
     }
 }

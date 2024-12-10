@@ -1,52 +1,63 @@
 package com.organizacion.componentes.back.model;
 
-import java.time.LocalDateTime;
-import java.util.List;
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import java.time.LocalDateTime;
 
 @Entity
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" }) // Para ignorar el serializador de Hibernate
 public class Cita {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;  // Asumimos que 'id' es la clave primaria para Cita
 
-    public Cita() {
-        // Constructor vacío
-    }
+    private LocalDateTime fechaHora;
+    private String motivo;
 
-    public long getId() {
+    @ManyToOne
+    @JoinColumn(name = "medico_dni", referencedColumnName = "dni", nullable = false)
+    private Medico medico;  // Relación con Medico (aquí estamos usando 'dni' como referencia)
+
+    @ManyToOne
+    @JoinColumn(name = "paciente_dni", referencedColumnName = "dni", nullable = false)
+    private Paciente paciente;  // Relación con Paciente
+
+    // Getters y setters
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    @Column(nullable = false)
-    private LocalDateTime fecha;
-
-    public LocalDateTime getFecha() {
-        return fecha;
+    public LocalDateTime getFechaHora() {
+        return fechaHora;
     }
 
-    public void setFecha(LocalDateTime fecha) {
-        this.fecha = fecha;
+    public void setFechaHora(LocalDateTime fechaHora) {
+        this.fechaHora = fechaHora;
     }
 
-    @ManyToOne
-    private Paciente paciente;
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
 
     public Paciente getPaciente() {
         return paciente;
@@ -55,44 +66,4 @@ public class Cita {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
-
-    @ManyToOne
-    private Medico medico;
-
-    public Medico getMedico() {
-        return medico;
-    }
-
-    public void setMedico(Medico medico) {
-        this.medico= medico;
-    }
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Mensaje> mensajes;
-
-    public List<Mensaje> getMensajes() {
-        return mensajes;
-    }
-
-    public void setMensajes(List<Mensaje> mensajes) {
-        this.mensajes = mensajes;
-    }
-
-    public enum EstadoCita {
-        PENDIENTE,
-        CANCELADA,
-        COMPLETADA
-    }
-
-    @Column(nullable = false)
-    private EstadoCita estado;
-
-    public EstadoCita getEstado() {
-        return estado;
-    }
-
-    public void setEstado(EstadoCita estado) {
-        this.estado = estado;
-    }
-
 }

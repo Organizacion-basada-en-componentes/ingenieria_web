@@ -1,42 +1,37 @@
 package com.organizacion.componentes.back.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import jakarta.persistence.Column;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.JoinColumn;
 
 @Entity
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" }) // Para ignorar el serializador de Hibernate
 public class Ejercicio {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Genera el ID automáticamente
+    private Long id;  // Clave primaria para Ejercicio
 
-    @Column(nullable = false)
-    private String nombre;
+    private String nombre;      // Nombre del ejercicio
+    private String descripcion; // Descripción del ejercicio
+    private int series;         // Número de series
+    private int repeticiones;   // Número de repeticiones
 
-    @Column(nullable = false)
-    private int series;
+    @ManyToOne
+    @JoinColumn(name = "paciente_dni", referencedColumnName = "dni", nullable = false)
+    @JsonIgnoreProperties({"citas", "progresos", "ejercicios"})  // Evita la serialización de otras propiedades
+    private Paciente paciente;  // Relación con Paciente
 
-    @Column(nullable = false)
-    private int repeticiones;
-
-    private String descripcion;
-
-    // Constructor vacío
-    public Ejercicio() {}
-
-    // Getters y Setters
-
-    public long getId() {
+    // Getters y setters
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -46,6 +41,14 @@ public class Ejercicio {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public int getSeries() {
@@ -64,11 +67,16 @@ public class Ejercicio {
         this.repeticiones = repeticiones;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    @JsonProperty("paciente_dni")
+    public String getPacienteDni() {
+        return paciente != null ? paciente.getDni() : null;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public void setPaciente(Paciente paciente) {
+        this.paciente = paciente;
     }
 }

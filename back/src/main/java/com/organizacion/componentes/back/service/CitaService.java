@@ -12,49 +12,41 @@ import com.organizacion.componentes.back.repository.CitaRepository;
 @Service
 public class CitaService {
 
-    // Inyección de dependencias para el repositorio de Cita
     @Autowired
     private CitaRepository citaRepository;
 
-    // Obtener todas las citas
-    public List<Cita> obtenerTodasLasCitas() {
-        return citaRepository.findAll(); // Retorna todas las citas de la base de datos
+    public List<Cita> getAllCitas() {
+        return citaRepository.findAll();
     }
 
-    // Obtener una cita por ID
-    public Optional<Cita> obtenerCitaPorId(Long id) {
-        return citaRepository.findById(id); // Busca una cita por su ID
+    public Cita getCitaById(Long id) {
+        Optional<Cita> cita = citaRepository.findById(id);
+        return cita.orElse(null);
     }
 
-    // Crear una nueva cita
-    public Cita crearCita(Cita cita) {
-        return citaRepository.save(cita); // Guarda la nueva cita en la base de datos
+    public Cita createCita(Cita cita) {
+        return citaRepository.save(cita);
     }
 
-    // Actualizar una cita existente
-    public Optional<Cita> actualizarCita(Long id, Cita citaDetalles) {
-        // Verificar si la cita existe
-        Optional<Cita> citaExistente = citaRepository.findById(id);
-        if (citaExistente.isPresent()) {
-            // Si la cita existe, se actualizan los detalles
-            Cita cita = citaExistente.get();
-            cita.setFecha(citaDetalles.getFecha());
-            cita.setPaciente(citaDetalles.getPaciente());
-            cita.setMedico(citaDetalles.getMedico());
-            // Actualiza la cita en la base de datos
-            return Optional.of(citaRepository.save(cita));
+    public Cita updateCita(Long id, Cita cita) {
+        if (citaRepository.existsById(id)) {
+            cita.setId(id);
+            return citaRepository.save(cita);
         }
-        return Optional.empty(); // Si no existe la cita, retornamos un Optional vacío
+        return null;
     }
 
-    // Eliminar una cita por ID
-    public boolean eliminarCita(Long id) {
-        // Verifica si la cita existe antes de eliminarla
-        Optional<Cita> citaExistente = citaRepository.findById(id);
-        if (citaExistente.isPresent()) {
-            citaRepository.deleteById(id); // Elimina la cita por su ID
-            return true; // Retorna true si la cita fue eliminada exitosamente
-        }
-        return false; // Retorna false si la cita no existe
+    public void deleteCita(Long id) {
+        citaRepository.deleteById(id);
+    }
+
+    // Obtener todas las citas de un médico por su DNI
+    public List<Cita> getCitasByMedico(String dni) {
+        return citaRepository.findByMedico_Dni(dni);
+    }
+
+    // Obtener todas las citas de un paciente por su DNI
+    public List<Cita> getCitasByPaciente(String dni) {
+        return citaRepository.findByPaciente_Dni(dni);
     }
 }

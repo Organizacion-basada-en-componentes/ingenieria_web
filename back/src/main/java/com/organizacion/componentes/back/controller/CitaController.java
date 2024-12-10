@@ -1,10 +1,10 @@
 package com.organizacion.componentes.back.controller;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,8 +17,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.organizacion.componentes.back.model.Cita;
 import com.organizacion.componentes.back.service.CitaService;
 
+
 @RestController
-@RequestMapping("/api/citas")
+@RequestMapping("/auth/citas")
 public class CitaController {
 
     @Autowired
@@ -26,46 +27,43 @@ public class CitaController {
 
     // Obtener todas las citas
     @GetMapping
-    public List<Cita> obtenerTodasLasCitas() {
-        return citaService.obtenerTodasLasCitas();
+    public List<Cita> getAllCitas() {
+        return citaService.getAllCitas();
     }
 
-    // Obtener una cita por ID
+    // Obtener cita por ID
     @GetMapping("/{id}")
-    public ResponseEntity<Cita> obtenerCitaPorId(@PathVariable Long id) {
-        Optional<Cita> cita = citaService.obtenerCitaPorId(id);
-        if (cita.isPresent()) {
-            return ResponseEntity.ok(cita.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public Cita getCita(@PathVariable Long id) {
+        return citaService.getCitaById(id);
     }
 
     // Crear una nueva cita
     @PostMapping
-    public Cita crearCita(@RequestBody Cita cita) {
-        return citaService.crearCita(cita);
+    public Cita createCita(@RequestBody Cita cita) {
+        return citaService.createCita(cita);
     }
 
     // Actualizar una cita existente
     @PutMapping("/{id}")
-    public ResponseEntity<Cita> actualizarCita(@PathVariable Long id, @RequestBody Cita citaDetalles) {
-        Optional<Cita> citaActualizada = citaService.actualizarCita(id, citaDetalles);
-        if (citaActualizada.isPresent()) {
-            return ResponseEntity.ok(citaActualizada.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public Cita updateCita(@PathVariable Long id, @RequestBody Cita cita) {
+        return citaService.updateCita(id, cita);
     }
 
-    // Eliminar una cita por ID
+    // Eliminar una cita
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarCita(@PathVariable Long id) {
-        boolean eliminado = citaService.eliminarCita(id);
-        if (eliminado) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public void deleteCita(@PathVariable Long id) {
+        citaService.deleteCita(id);
+    }
+
+    // Obtener todas las citas de un médico por su DNI
+    @GetMapping("/medico/{dni}")
+    public List<Cita> getCitasByMedico(@PathVariable String dni) {
+        return citaService.getCitasByMedico(dni);
+    }
+
+    // Obtener todas las citas de un paciente por su DNI
+    @GetMapping("/paciente/{dni}")
+    public List<Cita> getCitasByPaciente(@PathVariable String dni) {
+        return citaService.getCitasByPaciente(dni);
     }
 }

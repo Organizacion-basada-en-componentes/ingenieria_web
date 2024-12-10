@@ -9,45 +9,26 @@ import org.springframework.stereotype.Service;
 import com.organizacion.componentes.back.model.Medico;
 import com.organizacion.componentes.back.repository.RepositoryMedico;
 
+
 @Service
 public class MedicoService {
 
     @Autowired
-    private RepositoryMedico repositoryMedico;
+    private RepositoryMedico medicoRepository;
 
-    // Obtener todos los médicos
-    public List<Medico> obtenerTodosLosMedicos() {
-        return repositoryMedico.findAll();
+    public Medico saveMedico(Medico medico) {
+        return medicoRepository.save(medico);
     }
 
-    // Obtener un médico por ID
-    public Optional<Medico> obtenerMedicoPorId(Long id) {
-        return repositoryMedico.findById(id);
+    public Optional<Medico> getMedicoByDni(String dni) {
+        return Optional.ofNullable(medicoRepository.findByDni(dni));
     }
 
-    // Crear un nuevo médico
-    public Medico crearMedico(Medico medico) {
-        return repositoryMedico.saveAndFlush(medico);
+    public List<Medico> getAllMedicos() {
+        return medicoRepository.findAll();
     }
 
-    // Actualizar un médico existente
-    public Optional<Medico> actualizarMedico(Long id, Medico medicoDetalles) {
-        Optional<Medico> medicoOpt = repositoryMedico.findById(id);
-        if (medicoOpt.isPresent()) {
-            Medico medicoExistente = medicoOpt.get();
-            medicoExistente.setEspecialidad(medicoDetalles.getEspecialidad());
-            medicoExistente.setNombre(medicoDetalles.getNombre());
-            return Optional.of(repositoryMedico.save(medicoExistente));
-        }
-        return Optional.empty();
-    }
-
-    // Eliminar un médico por ID
-    public boolean eliminarMedico(Long id) {
-        if (repositoryMedico.existsById(id)) {
-            repositoryMedico.deleteById(id);
-            return true;
-        }
-        return false;
+    public void deleteMedico(String dni) {
+        medicoRepository.deleteById(dni);  // Cambiado de Long a String
     }
 }

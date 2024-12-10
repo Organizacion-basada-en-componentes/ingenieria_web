@@ -1,7 +1,7 @@
 package com.organizacion.componentes.back.controller;
 
 import java.util.List;
-import java.util.Optional;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,8 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.organizacion.componentes.back.model.Ejercicio;
 import com.organizacion.componentes.back.service.EjercicioService;
 
+import org.springframework.http.HttpStatus;
+
+
+
+
 @RestController
-@RequestMapping("/api/ejercicios")
+@RequestMapping("/auth/ejercicios")
 public class EjercicioController {
 
     @Autowired
@@ -26,46 +31,37 @@ public class EjercicioController {
 
     // Obtener todos los ejercicios
     @GetMapping
-    public List<Ejercicio> obtenerTodosLosEjercicios() {
-        return ejercicioService.obtenerTodosLosEjercicios();
+    public ResponseEntity<List<Ejercicio>> getAllEjercicios() {
+        List<Ejercicio> ejercicios = ejercicioService.getAllEjercicios();
+        return new ResponseEntity<>(ejercicios, HttpStatus.OK);
     }
 
-    // Obtener un ejercicio por ID
+    // Obtener un ejercicio por su ID
     @GetMapping("/{id}")
-    public ResponseEntity<Ejercicio> obtenerEjercicioPorId(@PathVariable Long id) {
-        Optional<Ejercicio> ejercicio = ejercicioService.obtenerEjercicioPorId(id);
-        if (ejercicio.isPresent()) {
-            return ResponseEntity.ok(ejercicio.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Ejercicio> getEjercicioById(@PathVariable Long id) {
+        Ejercicio ejercicio = ejercicioService.getEjercicioById(id);
+        return new ResponseEntity<>(ejercicio, HttpStatus.OK);
     }
 
     // Crear un nuevo ejercicio
     @PostMapping
-    public Ejercicio crearEjercicio(@RequestBody Ejercicio ejercicio) {
-        return ejercicioService.crearEjercicio(ejercicio);
+    public ResponseEntity<Ejercicio> createEjercicio(@RequestBody Ejercicio ejercicio) {
+        Ejercicio nuevoEjercicio = ejercicioService.createEjercicio(ejercicio);
+        return new ResponseEntity<>(nuevoEjercicio, HttpStatus.CREATED);
     }
 
     // Actualizar un ejercicio existente
     @PutMapping("/{id}")
-    public ResponseEntity<Ejercicio> actualizarEjercicio(@PathVariable Long id, @RequestBody Ejercicio ejercicioDetalles) {
-        Optional<Ejercicio> ejercicioActualizado = ejercicioService.actualizarEjercicio(id, ejercicioDetalles);
-        if (ejercicioActualizado.isPresent()) {
-            return ResponseEntity.ok(ejercicioActualizado.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<Ejercicio> updateEjercicio(
+            @PathVariable Long id, @RequestBody Ejercicio ejercicioActualizado) {
+        Ejercicio ejercicio = ejercicioService.updateEjercicio(id, ejercicioActualizado);
+        return new ResponseEntity<>(ejercicio, HttpStatus.OK);
     }
 
-    // Eliminar un ejercicio por ID
+    // Eliminar un ejercicio por su ID
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> eliminarEjercicio(@PathVariable Long id) {
-        boolean eliminado = ejercicioService.eliminarEjercicio(id);
-        if (eliminado) {
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<String> deleteEjercicio(@PathVariable Long id) {
+        ejercicioService.deleteEjercicio(id);
+        return new ResponseEntity<>("Ejercicio eliminado con éxito", HttpStatus.OK);
     }
 }

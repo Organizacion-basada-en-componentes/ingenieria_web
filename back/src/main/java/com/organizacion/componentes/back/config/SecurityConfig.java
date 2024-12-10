@@ -32,7 +32,7 @@ public class SecurityConfig {
         http
     .csrf().disable()
     .authorizeHttpRequests()
-        .requestMatchers("/auth/**", "/h2/**").permitAll()
+        .requestMatchers("/**", "/h2/**").permitAll()
         .anyRequest().authenticated()
     .and()
     .headers().frameOptions().disable() // Permitir frames (requerido para H2)

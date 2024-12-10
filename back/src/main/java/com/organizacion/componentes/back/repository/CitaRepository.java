@@ -1,11 +1,16 @@
 package com.organizacion.componentes.back.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import com.organizacion.componentes.back.model.Cita;
 
-@Repository
+import java.util.List;
+
 public interface CitaRepository extends JpaRepository<Cita, Long> {
-    // Puedes agregar consultas personalizadas aquí si es necesario
+    
+    // Encontrar citas por DNI de médico
+    List<Cita> findByMedico_Dni(String dni);
+
+    // Encontrar citas por DNI de paciente
+    List<Cita> findByPaciente_Dni(String dni);
 }
