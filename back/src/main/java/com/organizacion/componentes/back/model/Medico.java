@@ -7,6 +7,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.OneToMany;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Medico {
 
@@ -28,6 +30,7 @@ public class Medico {
     private String contraseña;  // Contraseña obligatoria
 
     @OneToMany(mappedBy = "medico")
+    @JsonIgnore
     private List<Cita> citas;
 
     // Getters y setters

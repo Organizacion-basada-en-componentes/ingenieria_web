@@ -7,6 +7,7 @@ import jakarta.persistence.OneToMany;
 import java.time.LocalDate;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -26,6 +27,7 @@ public class Paciente {
     private LocalDate fechaNacimiento;
 
     @OneToMany(mappedBy = "paciente")
+    @JsonIgnoreProperties({"paciente"}) 
     private List<Cita> citas;
 
     @OneToMany(mappedBy = "paciente")
