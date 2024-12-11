@@ -29,6 +29,6 @@ public class MedicoService {
     }
 
     public void deleteMedico(String dni) {
-        medicoRepository.deleteById(dni);  // Cambiado de Long a String
+        
     }
 }
