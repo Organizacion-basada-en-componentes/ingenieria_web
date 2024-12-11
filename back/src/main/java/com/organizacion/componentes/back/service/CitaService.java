@@ -1,16 +1,15 @@
 package com.organizacion.componentes.back.service;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.organizacion.componentes.back.controller.citaRequest;
 import com.organizacion.componentes.back.model.Cita;
 import com.organizacion.componentes.back.model.Medico;
 import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.repository.CitaRepository;
+import com.organizacion.componentes.back.repository.RepositoryMedico;
+import com.organizacion.componentes.back.repository.RepositoryPaciente;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class CitaService {
@@ -18,36 +17,30 @@ public class CitaService {
     @Autowired
     private CitaRepository citaRepository;
 
-    public List<Cita> getAllCitas() {
-        return citaRepository.findAll();
-    }
+    @Autowired
+    private RepositoryMedico medicoRepository;
 
-    public Cita getCitaById(Long id) {
-        return citaRepository.findById(id).orElse(null);
-    }
+    @Autowired
+    private RepositoryPaciente pacienteRepository;
 
-    public Cita createCita(Cita cita) {
-        // Solo guardar la cita directamente
-        return citaRepository.save(cita);
-    }
-
-    public Cita updateCita(Long id, Cita cita) {
-        if (citaRepository.existsById(id)) {
-            cita.setId(id);
-            return citaRepository.save(cita);
+    public Cita crearCita(Cita cita) {
+        // Validar si el médico existe con el DNI
+        Optional<Medico> medicoOpt = medicoRepository.findByDni(cita.getMedicoDni());
+        if (medicoOpt.isEmpty()) {
+            throw new RuntimeException("El médico con DNI " + cita.getMedicoDni() + " no existe.");
         }
-        return null;
-    }
 
-    public void deleteCita(Long id) {
-        citaRepository.deleteById(id);
-    }
+        // Validar si el paciente existe con el DNI
+        Optional<Paciente> pacienteOpt = pacienteRepository.findByDni(cita.getPacienteDni());
+        if (pacienteOpt.isEmpty()) {
+            throw new RuntimeException("El paciente con DNI " + cita.getPacienteDni() + " no existe.");
+        }
 
-    public List<Cita> getCitasByMedico(String id) {
-        return citaRepository.findByMedico_Dni(id);
-    }
+        // Asignar el médico y el paciente a la cita
+        cita.setMedico(medicoOpt.get());
+        cita.setPaciente(pacienteOpt.get());
 
-    public List<Cita> getCitasByPaciente(String id) {
-        return citaRepository.findByPaciente_Dni(id);
+        // Guardar la cita en la base de datos
+        return citaRepository.save(cita);
     }
 }

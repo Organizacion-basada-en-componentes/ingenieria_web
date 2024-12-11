@@ -1,44 +1,33 @@
 package com.organizacion.componentes.back.model;
 
+import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import lombok.Builder;
-
 @Entity
+@Table(name = "cita")
 public class Cita {
-    public Cita() {
-    }
-    @Builder
-    public Cita(LocalDateTime fechaHora, String motivo, Medico medico, Paciente paciente) {
-        this.fechaHora = fechaHora;
-        this.motivo = motivo;
-        this.medico = medico;
-        this.paciente = paciente;
-    }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;  // Asumimos que 'id' es la clave primaria para Cita
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
+    @Column(nullable = false)
     private LocalDateTime fechaHora;
 
-    @Column(nullable = true)
-    private String motivo;
-
     @ManyToOne
-    @JoinColumn(name = "medico_id", nullable = false) 
+    @JoinColumn(name = "medico_id", nullable = false)
     private Medico medico;
 
     @ManyToOne
     @JoinColumn(name = "paciente_id", nullable = false)
-    private Paciente paciente;  // Relación con Paciente
+    private Paciente paciente;
+
+    @Column(nullable = true) // Permitir valores nulos
+    private String motivo;
+
+    // Nuevos campos para DNI
+    private String medicoDni;
+    private String pacienteDni;
 
     // Getters y setters
     public Long getId() {
@@ -57,14 +46,6 @@ public class Cita {
         this.fechaHora = fechaHora;
     }
 
-    public String getMotivo() {
-        return motivo;
-    }
-
-    public void setMotivo(String motivo) {
-        this.motivo = motivo;
-    }
-
     public Medico getMedico() {
         return medico;
     }
@@ -79,5 +60,29 @@ public class Cita {
 
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
+    }
+
+    public String getMotivo() {
+        return motivo;
+    }
+
+    public void setMotivo(String motivo) {
+        this.motivo = motivo;
+    }
+
+    public String getMedicoDni() {
+        return medicoDni;
+    }
+
+    public void setMedicoDni(String medicoDni) {
+        this.medicoDni = medicoDni;
+    }
+
+    public String getPacienteDni() {
+        return pacienteDni;
+    }
+
+    public void setPacienteDni(String pacienteDni) {
+        this.pacienteDni = pacienteDni;
     }
 }

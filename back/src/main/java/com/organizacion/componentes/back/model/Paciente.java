@@ -11,15 +11,12 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Builder;
 
-
 @Entity
 public class Paciente {
 
-  
     public Paciente() {
     }
 
-  
     @Builder
     public Paciente(String dni, String nombre, Date fechaNacimiento, Usuario usuario) {
         this.dni = dni;
@@ -29,14 +26,13 @@ public class Paciente {
     }
 
     @Id
-    private String dni;  // Ahora 'dni' es la clave primaria
+    private String dni; // Ahora 'dni' es la clave primaria
 
     @Column(nullable = false)
     private String nombre;
 
     @Column(nullable = true)
     private Date fechaNacimiento;
-
 
     @OneToOne
     @JoinColumn(name = "usuario_id", nullable = false) // 'usuario_id' es la clave foránea en la tabla 'Medico'
@@ -49,24 +45,24 @@ public class Paciente {
     // private List<Progreso> progresos;
 
     // @OneToMany(mappedBy = "paciente")
-    // @JsonIgnoreProperties({"paciente"})  // Evita la referencia circular
+    // @JsonIgnoreProperties({"paciente"}) // Evita la referencia circular
     // private List<Ejercicio> ejercicios;
     // public Paciente(
-    //     List<Cita> citas, 
-    //     String dni, 
-    //     List<Ejercicio> ejercicios, 
-    //     LocalDate fechaNacimiento, 
-    //     String nombre, 
-    //     List<Progreso> progresos, 
-    //     Usuario usuario) 
+    // List<Cita> citas,
+    // String dni,
+    // List<Ejercicio> ejercicios,
+    // LocalDate fechaNacimiento,
+    // String nombre,
+    // List<Progreso> progresos,
+    // Usuario usuario)
     // {
-    //     this.citas = citas;
-    //     this.dni = dni;
-    //     this.ejercicios = ejercicios;
-    //     this.fechaNacimiento = fechaNacimiento;
-    //     this.nombre = nombre;
-    //     this.progresos = progresos;
-    //     this.usuario = usuario;
+    // this.citas = citas;
+    // this.dni = dni;
+    // this.ejercicios = ejercicios;
+    // this.fechaNacimiento = fechaNacimiento;
+    // this.nombre = nombre;
+    // this.progresos = progresos;
+    // this.usuario = usuario;
     // }
 
     // Getters y setters
@@ -78,7 +74,6 @@ public class Paciente {
         this.dni = dni;
     }
 
-
     public String getNombre() {
         return nombre;
     }
@@ -86,7 +81,6 @@ public class Paciente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
 
     public Date getFechaNacimiento() {
         return fechaNacimiento;
@@ -97,26 +91,26 @@ public class Paciente {
     }
 
     // public List<Cita> getCitas() {
-    //     return citas;
+    // return citas;
     // }
 
     // public void setCitas(List<Cita> citas) {
-    //     this.citas = citas;
+    // this.citas = citas;
     // }
 
     // public List<Progreso> getProgresos() {
-    //     return progresos;
+    // return progresos;
     // }
 
     // public void setProgresos(List<Progreso> progresos) {
-    //     this.progresos = progresos;
+    // this.progresos = progresos;
     // }
 
     // public List<Ejercicio> getEjercicios() {
-    //     return ejercicios;
+    // return ejercicios;
     // }
 
     // public void setEjercicios(List<Ejercicio> ejercicios) {
-    //     this.ejercicios = ejercicios;
+    // this.ejercicios = ejercicios;
     // }
 }

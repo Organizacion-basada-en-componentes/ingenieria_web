@@ -1,11 +1,11 @@
 package com.organizacion.componentes.back.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import com.organizacion.componentes.back.model.Medico;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import java.util.Optional;
 
-@Repository
-public interface RepositoryMedico extends JpaRepository<Medico, String> {  // Cambiado de Long a String
+public interface RepositoryMedico extends JpaRepository<Medico, String> {
+    Optional<Medico> findByDni(String dni); // Este método es necesario
 
-    Medico findByDni(String dni);  // Método para buscar médico por DNI
+    void deleteById(String dni);
 }

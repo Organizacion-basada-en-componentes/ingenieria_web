@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import com.organizacion.componentes.back.model.Medico;
 import com.organizacion.componentes.back.repository.RepositoryMedico;
 
-
 @Service
 public class MedicoService {
 
@@ -21,7 +20,7 @@ public class MedicoService {
     }
 
     public Optional<Medico> getMedicoByDni(String dni) {
-        return Optional.ofNullable(medicoRepository.findByDni(dni));
+        return medicoRepository.findByDni(dni);
     }
 
     public List<Medico> getAllMedicos() {
@@ -29,6 +28,6 @@ public class MedicoService {
     }
 
     public void deleteMedico(String dni) {
-        medicoRepository.deleteById(dni);  // Cambiado de Long a String
+        medicoRepository.deleteById(dni); // Cambiado de Long a String
     }
 }

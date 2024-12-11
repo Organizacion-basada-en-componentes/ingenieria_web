@@ -30,8 +30,6 @@ public class PacienteService {
         }
     }
 
-    
-
     // Eliminar un paciente por su DNI
     public void deletePaciente(String dni) {
         if (pacienteRepository.existsById(dni)) {
