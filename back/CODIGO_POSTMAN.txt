@@ -1,0 +1,27 @@
+/auth/register
+{"username":"usuario1",
+"password":"12345",
+"role":"MEDICO",
+"email":"medico@gmail.com",
+"dni": "1111111m",
+"nombre": "pedro",
+"especialidad": "pediatria"
+}
+
+
+{"username":"usuario2",
+"password":"12345",
+"role":"PACIENTE",
+"email":"usuario2@gmail.com",
+"dni": "1111111a",
+"nombre": "luis",
+"fechaNacimiento": "2020-12-12"
+}
+/citas
+{
+  "fechaHora": "2023-12-11T10:30:00",
+  "motivo": "Consulta general",
+  "medicoDni": "1111111m",
+  "pacienteDni": "1111111a"
+}
+
