@@ -1,15 +1,11 @@
 package com.organizacion.componentes.back.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.organizacion.componentes.back.controller.citaRequest;
 import com.organizacion.componentes.back.model.Cita;
-import com.organizacion.componentes.back.model.Medico;
-import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.repository.CitaRepository;
 
 @Service

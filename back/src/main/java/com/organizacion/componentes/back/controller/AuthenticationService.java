@@ -1,12 +1,16 @@
 package com.organizacion.componentes.back.controller;
 
 import java.util.List;
+
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.organizacion.componentes.back.config.JwtService;
+import com.organizacion.componentes.back.controller.Responses.AuthenticationResponse;
+import com.organizacion.componentes.back.controller.requests.AuthenticationRequest;
+import com.organizacion.componentes.back.controller.requests.RegisterRequest;
 import com.organizacion.componentes.back.model.Medico;
 import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.model.Usuario;

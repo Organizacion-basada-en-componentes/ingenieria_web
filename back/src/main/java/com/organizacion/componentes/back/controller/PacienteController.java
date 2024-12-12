@@ -16,7 +16,7 @@ import com.organizacion.componentes.back.model.Paciente;
 import com.organizacion.componentes.back.service.PacienteService;
 
 @RestController
-@RequestMapping("/auth/pacientes")
+@RequestMapping("/pacientes")
 public class PacienteController {
 
     @Autowired

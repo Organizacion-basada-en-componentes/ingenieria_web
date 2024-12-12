@@ -1,4 +1,4 @@
-package com.organizacion.componentes.back.controller;
+package com.organizacion.componentes.back.controller.requests;
 
 import java.sql.Date;
 
