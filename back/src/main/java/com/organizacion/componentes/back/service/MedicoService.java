@@ -20,15 +20,17 @@ public class MedicoService {
         return medicoRepository.save(medico);
     }
 
-    public Optional<Medico> getMedicoByDni(String dni) {
-        return Optional.ofNullable(medicoRepository.findByDni(dni));
+    public Optional<Medico> getMedicoById(Long id) {
+        return medicoRepository.findById(id);
     }
 
     public List<Medico> getAllMedicos() {
         return medicoRepository.findAll();
     }
 
-    public void deleteMedico(String dni) {
-        medicoRepository.deleteById(dni);  // Cambiado de Long a String
+    public void deleteMedico(Long id) {
+        medicoRepository.deleteById(id);  // Cambiado de Long a String
     }
+
+   
 }

@@ -3,6 +3,7 @@ package com.organizacion.componentes.back.model;
 
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -28,6 +29,7 @@ public class Medico {
     }
 
     @Id
+    @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     public long getId() {
@@ -49,6 +51,23 @@ public class Medico {
 
     @Column(nullable = false)
     private String especialidad;
+
+    @OneToMany(mappedBy = "medico", cascade = CascadeType.ALL)
+    private List<Paciente> pacientes;
+
+    public List<Paciente> getPacientes() {
+        return pacientes;
+    }
+
+    public void setPacientes(List<Paciente> pacientes) {
+        this.pacientes = pacientes;
+    }
+
+    public void addPaciente(Paciente paciente) {
+        this.pacientes.add(paciente);
+        paciente.setMedico(this);
+    }
+
 
   
  
