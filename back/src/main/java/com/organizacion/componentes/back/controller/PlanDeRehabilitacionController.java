@@ -22,8 +22,15 @@ public class PlanDeRehabilitacionController {
     @Autowired
     private PlanDeRehabilitacionService planService;
 
-    @PostMapping
-    public ResponseEntity<PlanDeRehabilitacion> crearPlan(@RequestBody PlanDeRehabilitacion plan) {
+    @PostMapping("/{idPaciente}")
+    public ResponseEntity<PlanDeRehabilitacion> crearPlan(
+            @PathVariable Long idPaciente, 
+            @RequestBody PlanDeRehabilitacion plan) {
+        
+        // Establecer el idPaciente en el plan
+        plan.setIdPaciente(idPaciente);
+        
+        // Crear el plan y asociarlo con el paciente
         PlanDeRehabilitacion nuevoPlan = planService.crearPlan(plan);
         return ResponseEntity.ok(nuevoPlan);
     }

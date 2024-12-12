@@ -1,7 +1,6 @@
 package com.organizacion.componentes.back.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,34 +15,19 @@ public class PlanDeRehabilitacionService {
     private PlanDeRehabilitacionRepository planRepository;
 
     public PlanDeRehabilitacion crearPlan(PlanDeRehabilitacion plan) {
+        // Asegúrate de que el plan tenga el idPaciente correctamente establecido
         return planRepository.save(plan);
     }
 
     public List<PlanDeRehabilitacion> obtenerTodos() {
         return planRepository.findAll();
     }
+
+    public PlanDeRehabilitacion obtenerPlanPorId(Long id) {
+        return planRepository.findById(id).orElseThrow(() -> new RuntimeException("Plan no encontrado"));
+    }
+
     public PlanDeRehabilitacion actualizarPlan(PlanDeRehabilitacion plan) {
         return planRepository.save(plan);
     }
-
-   
-    public PlanDeRehabilitacion obtenerPlanPorId(Long id) {
-
-        Optional<PlanDeRehabilitacion> plan = planRepository.findById(id);
-
-        if (plan.isPresent()) {
-
-            return plan.get();
-
-        } else {
-
-            throw new  RuntimeException("Plan not found with id " + id);
-
-        }
-
-    }
-
 }
-
-    
-
