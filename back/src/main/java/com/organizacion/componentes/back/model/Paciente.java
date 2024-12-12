@@ -3,6 +3,8 @@ package com.organizacion.componentes.back.model;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -55,6 +57,7 @@ public class Paciente {
     @OneToMany(mappedBy = "paciente")
     private List<Cita> citas;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "medico_id", nullable = false) // Llave foránea hacia Medico
     private Medico medico;
