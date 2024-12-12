@@ -33,6 +33,7 @@ import { LoadingComponent } from './comun/loading/loading.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
 import { LobbyComponent } from './comunicacion/lobby/lobby.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { LobbyComponent } from './comunicacion/lobby/lobby.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     
 ],
   providers: [],

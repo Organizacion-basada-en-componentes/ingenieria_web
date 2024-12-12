@@ -9,6 +9,8 @@ import java.util.function.Function;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import com.organizacion.componentes.back.model.Usuario;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -30,12 +32,15 @@ public class JwtService {
         return generateToken(new HashMap<>(), userDetails);
     }
     public String generateToken(
-        Map<String, Object> extractClaims,
+        Map<String, Object> extraClaims,
         UserDetails userDetails
     ){
+        // Aquí puedes agregar más información a 'extraClaims'
+        extraClaims.put("email", ((Usuario) userDetails).getEmail());
+        extraClaims.put("role", ((Usuario) userDetails).getRole().toString());
         return Jwts
         .builder()
-        .setClaims(extractClaims)
+        .setClaims(extraClaims)
         .setSubject(userDetails.getUsername())
         .setIssuedAt(new Date(System.currentTimeMillis()))
         .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
