@@ -1,13 +1,21 @@
 package com.organizacion.componentes.back.controller;
 
-import com.organizacion.componentes.back.model.Medico;
-import com.organizacion.componentes.back.service.MedicoService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.organizacion.componentes.back.model.Medico;
+import com.organizacion.componentes.back.model.Paciente;
+import com.organizacion.componentes.back.service.MedicoService;
 
 @RestController
 @RequestMapping("/auth/medicos")
@@ -22,9 +30,9 @@ public class MedicoController {
         return ResponseEntity.ok(savedMedico);
     }
 
-    @GetMapping("/{dni}")
-    public ResponseEntity<Medico> getMedicoByDni(@PathVariable String dni) {
-        Optional<Medico> medico = medicoService.getMedicoByDni(dni);
+    @GetMapping("/{id}")
+    public ResponseEntity<Medico> getMedicoByDni(@PathVariable Long id) {
+        Optional<Medico> medico = medicoService.getMedicoById(id);
         return medico.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -33,9 +41,19 @@ public class MedicoController {
         return medicoService.getAllMedicos();
     }
 
-    @DeleteMapping("/{dni}")
-    public ResponseEntity<Void> deleteMedico(@PathVariable String dni) {
-        medicoService.deleteMedico(dni);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteMedico(@PathVariable Long id) {
+        medicoService.deleteMedico(id);
         return ResponseEntity.noContent().build();
+    }
+    @GetMapping("/{id}/pacientes")
+    public ResponseEntity<List<Paciente>> getPacientesByMedico(@PathVariable Long id) {
+        Optional<Medico> medicoOptional = medicoService.getMedicoById(id);
+        if (medicoOptional.isPresent()) {
+            Medico medico = medicoOptional.get();
+            return ResponseEntity.ok(medico.getPacientes());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

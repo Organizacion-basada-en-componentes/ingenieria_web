@@ -9,6 +9,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import lombok.Builder;
@@ -20,24 +21,25 @@ public class Paciente {
   
     public Paciente() {
     }
-
-  
     @Builder
     public Paciente(String dni, String nombre, Date fechaNacimiento, Usuario usuario) {
         this.dni = dni;
         this.nombre = nombre;
         this.fechaNacimiento = fechaNacimiento;
         this.usuario = usuario;
+        
     }
+
     @Id
+    @Column(unique = true, nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     public long getId() {
         return id;
     }
 
-    @Column(unique = true, nullable = false)
-    private String dni;  // 'dni' es la clave primaria
+    @Column(nullable = false)
+    private String dni;  
 
     @Column(nullable = false)
     private String nombre;
@@ -52,6 +54,19 @@ public class Paciente {
 
     @OneToMany(mappedBy = "paciente")
     private List<Cita> citas;
+
+    @ManyToOne
+    @JoinColumn(name = "medico_id", nullable = false) // Llave foránea hacia Medico
+    private Medico medico;
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public void setMedico(Medico medico) {
+        this.medico = medico;
+    }
+
 
     // @OneToMany(mappedBy = "paciente")
     // private List<Progreso> progresos;
