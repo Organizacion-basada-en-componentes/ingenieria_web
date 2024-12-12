@@ -1,4 +1,3 @@
-
 package com.organizacion.componentes.back.controller;
 
 import java.util.List;
@@ -35,7 +34,17 @@ public class PacienteController {
         return pacienteService.getPacienteById(id);
     }
 
-    // Crear un nuevo paciente
+    // Obtener el ID del médico asociado a un paciente
+    @GetMapping("/{id}/medico")
+    public ResponseEntity<Long> getMedicoIdByPaciente(@PathVariable Long id) {
+        Paciente paciente = pacienteService.getPacienteById(id); // Obtén el paciente por su ID
+        if (paciente.getMedico() != null) { // Verifica si el paciente tiene un médico asociado
+            return ResponseEntity.ok(paciente.getMedico().getId()); // Devuelve el ID del médico
+        } else {
+            return ResponseEntity.notFound().build(); // Si no hay médico asociado, devuelve un 404
+        }
+    }
+
 
 
     // Eliminar un paciente por su DNI
