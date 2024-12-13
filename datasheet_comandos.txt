@@ -1,0 +1,156 @@
+PREGUNTAS
+Hace falta controles en backend del estilo devolver un error si 2 DNI son iguales? si ponen fechas de nacimiento que todavía no han sucedido? 
+
+Back
+################ Medicos genericos  Peticion get: http://localhost:8080/medicos/1
+/auth/register
+
+{"username":"Medico1",
+"password":"12345",
+"role":"MEDICO",
+"email":"medico@gmail.com",
+"dni": "1111111m",
+"nombre": "pedro",
+"especialidad": "pediatria"
+}
+
+
+{
+    "username": "Medico2",
+    "password": "12345",
+    "role": "MEDICO",
+    "email": "medico2@gmail.com",
+    "dni": "2222222M",
+    "nombre": "Marta",
+    "especialidad": "Cardiología"
+}
+
+{
+    "username": "Medico3",
+    "password": "12345",
+    "role": "MEDICO",
+    "email": "medico3@gmail.com",
+    "dni": "3333333M",
+    "nombre": "Alejandro",
+    "especialidad": "Dermatología"
+}
+
+{
+    "username": "Medico4",
+    "password": "12345",
+    "role": "MEDICO",
+    "email": "medico4@gmail.com",
+    "dni": "4444444M",
+    "nombre": "Diego",
+    "especialidad": "Neurología"
+}
+
+
+
+
+
+################ pacientes genericos Peticion get: http://localhost:8080/pacientes/1
+{
+    "username": "usuario1",
+    "password": "12345",
+    "role": "PACIENTE",
+    "email": "paciente1@gmail.com",
+    "dni": "1111111A",
+    "nombre": "Luis",
+    "fechaNacimiento": "1990-05-15"
+}
+
+{
+    "username": "usuario2",
+    "password": "12345",
+    "role": "PACIENTE",
+    "email": "paciente2@gmail.com",
+    "dni": "2222222A",
+    "nombre": "Juan",
+    "fechaNacimiento": "1985-08-22"
+}
+{
+    "username": "usuario3",
+    "password": "12345",
+    "role": "PACIENTE",
+    "email": "paciente3@gmail.com",
+    "dni": "3333333A",
+    "nombre": "Javier",
+    "fechaNacimiento": "1978-02-10"
+}
+
+{
+    "username": "usuario4",
+    "password": "12345",
+    "role": "PACIENTE",
+    "email": "paciente4@gmail.com",
+    "dni": "4444444A",
+    "nombre": "Ana",
+    "fechaNacimiento": "2000-11-30"
+}
+
+{
+    "username": "usuario5",
+    "password": "12345",
+    "role": "PACIENTE",
+    "email": "paciente5@gmail.com",
+    "dni": "5555555A",
+    "nombre": "Carlos",
+    "fechaNacimiento": "1995-04-18"
+}
+
+################ Chats genericos /chats
+Mediante un Post se puede hacer: http://localhost:8080/chats/sincronizar
+Manualmente
+Chat
+{
+    "pacienteId": 1,
+    "medicoId": 1
+}
+
+################ Mensajes genericos 
+
+http://localhost:8080/mensajes
+
+
+{
+  "chatId": 1,
+  "contenido": "Hola, doctor. Tengo una consulta sobre mi rehabilitación.",
+  "remitente": "PACIENTE"
+}
+
+{
+  "chatId": 1,
+  "contenido": "Hola, Paciente. Yo tengo una mejor consulta, a quien le importas???",
+  "remitente": "MEDICO"
+}
+
+
+{
+  "chatId": 2,
+  "contenido": "Hola, Paciente. tas vivo",
+  "remitente": "MEDICO"
+}
+
+{
+  "chatId": 2,
+  "contenido": "NO",
+  "remitente": "PACIENTE"
+}
+
+
+################ citas genericos 
+/citas
+
+?
+
+
+
+
+Frontend
+/front
+npm install
+ng serve
+
+
+http://localhost:4200/login
