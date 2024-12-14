@@ -33,7 +33,7 @@ import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/re
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
 import { LobbyComponent } from './comunicacion/lobby/lobby.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent, // No olvides incluir AppComponent en las declaraciones
@@ -72,6 +72,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
     
 ],
   providers: [],
