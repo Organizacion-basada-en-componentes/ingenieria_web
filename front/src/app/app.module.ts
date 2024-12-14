@@ -31,7 +31,6 @@ import { SelectedPatientComponent } from './medico/selected-patient/selected-pat
 import { LoadingComponent } from './comun/loading/loading.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
-import { LobbyComponent } from './comunicacion/lobby/lobby.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -63,7 +62,6 @@ import { HttpClientModule } from '@angular/common/http';
     LoadingComponent,
     RehabilitacionMedicoComponent,
     PlanRehabilitacionMedicoComponent,
-    LobbyComponent
 
 
   ],

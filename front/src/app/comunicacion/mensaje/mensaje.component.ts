@@ -1,63 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { MensajesService } from '../../services/mensajes.service';
 
 @Component({
   selector: 'app-mensaje',
   standalone: false,
   templateUrl: './mensaje.component.html',
-  styleUrls: ['./mensaje.component.css'],
+  styleUrls: ['./mensaje.component.css']
 })
 export class MensajeComponent implements OnInit {
-  messages: { content: string; sender: string; timestamp: Date }[] = [];
-  doctorName: string | null = null;
+  doctorName: string = 'Dr. Smith';
+  messages: any[] = [];
   newMessage: string = '';
-
-  constructor(private route: ActivatedRoute) {}
+  
+  constructor(private mensajesService: MensajesService) {}
 
   ngOnInit(): void {
-    const chatId = this.route.snapshot.paramMap.get('id');
-    if (chatId) {
-      this.loadChat(Number(chatId));
-    }
+    this.mensajesService.mensaje$.subscribe((message) => {
+      if (message) {
+        this.messages.push(message);
+      }
+    });
+
+    this.loadMessages();
   }
 
-  loadChat(chatId: number): void {
-    // Simulación de datos de chats
-    const chats: Record<number, {
-      doctorName: string;
-      messages: { content: string; sender: string; timestamp: Date }[];
-    }> = {
-      1: {
-        doctorName: 'Dr. García',
-        messages: [
-          { content: 'Hola, ¿cómo estás?', sender: 'medico', timestamp: new Date() },
-          { content: 'Estoy bien, gracias por preguntar.', sender: 'paciente', timestamp: new Date() },
-        ],
-      },
-      2: {
-        doctorName: 'Dra. Martínez',
-        messages: [
-          { content: '¿Cómo sigues con los ejercicios?', sender: 'medico', timestamp: new Date() },
-          { content: 'Muy bien, gracias.', sender: 'paciente', timestamp: new Date() },
-        ],
-      },
-    };
-
-    const chat = chats[chatId];
-    if (chat) {
-      this.doctorName = chat.doctorName;
-      this.messages = chat.messages;
+  loadMessages(): void {
+    if (this.mensajesService.chatId) {
+      this.mensajesService.getChatMessages(this.mensajesService.chatId).subscribe({
+        next: (messages) => {
+          this.messages = messages;
+        },
+        error: (err) => console.error('Error al cargar los mensajes:', err)
+      });
     }
   }
 
   sendMessage(message: string): void {
-    if (message.trim()) {
-      this.messages.push({
-        content: message,
-        sender: 'paciente',  // Suponiendo que el mensaje es del paciente
-        timestamp: new Date(),
-      });
-      this.newMessage = '';  // Limpiar el campo de entrada después de enviar el mensaje
+    if (message.trim() !== '') {
+      this.mensajesService.onSendMessage(message);
+      this.newMessage = '';
     }
   }
 }
