@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, switchMap } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 import { PacienteService } from './paciente.service';
 
 @Injectable({
@@ -34,12 +34,16 @@ export class PedirCitaService {
         if (!paciente || !paciente.id) {
           throw new Error('No se pudo obtener el ID del paciente');
         }
-
-        // Realiza la solicitud al backend usando el ID del paciente
+  
         const pacienteId = paciente.id;
         const url = `${this.baseUrl}/citas/${pacienteId}`;
-        return this.http.get(url);
+        return this.http.get(url).pipe(
+          tap((citas) => {
+            console.log('Citas obtenidas:', citas);  // Verificar las citas
+          })
+        );
       })
     );
   }
+  
 }
