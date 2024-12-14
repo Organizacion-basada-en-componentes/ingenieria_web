@@ -66,11 +66,12 @@ export class PedirCitaComponent implements OnInit {
       console.error('No se pudo obtener el ID del paciente');
       return;
     }
-
+  
     this.loading = true;
     this.pedirCitaService.getCitas().subscribe(
       (citas) => {
-        this.citas = citas || [];
+        console.log('Citas recibidas:', citas); // Asegúrate de ver si las citas están llegando
+        this.citas = citas || [];  // Asigna las citas recibidas
         this.loading = false;
       },
       (error) => {
@@ -79,6 +80,7 @@ export class PedirCitaComponent implements OnInit {
       }
     );
   }
+  
 
   // Método para enviar el formulario y pedir una cita
   onSubmit(): void {
