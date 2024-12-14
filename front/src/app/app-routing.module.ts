@@ -9,11 +9,9 @@ import { RegisterComponent } from './comun/register/register.component';
 import { PlanRehabilitacionPacienteComponent } from './paciente/plan-rehabilitacion-paciente/plan-rehabilitacion-paciente.component';
 import { RehabilitacionPacienteComponent } from './paciente/rehabilitacion-paciente/rehabilitacion-paciente.component';
 import { AccesoDenegadoComponent } from './comun/acceso-denegado/acceso-denegado.component'; // Puedes crear esta página
-import { ProgresoComponent } from './progreso/progreso.component';
 import { ComunicacionComponent } from './comunicacion/comunicacion.component';
 import { PedirCitaComponent } from './comunicacion/pedir-cita/pedir-cita.component';
 import { MensajeComponent } from './comunicacion/mensaje/mensaje.component';
-import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.component';
 import { SelectedPatientComponent } from './medico/selected-patient/selected-patient.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
@@ -29,11 +27,9 @@ const routes: Routes = [
 
   // Rutas para médicos, protegidas por AuthGuard
   { path: 'home-medico', component: HomeMedicoComponent, canActivate: [AuthGuard], data: { role: 'medico' } },
-  { path: 'progreso', component: ProgresoComponent },
   { path: 'comunicacion', component: ComunicacionComponent },
   { path: 'comunicacion/pedir-cita', component: PedirCitaComponent },
   { path: 'comunicacion/mensaje', component: MensajeComponent },
-  { path: 'comunicacion/videollamada', component: VideollamadaComponent },
   // Ruta de acceso denegado
   { path: 'acceso-denegado', component: AccesoDenegadoComponent },
   { path: 'paciente-seleccionado', component: SelectedPatientComponent },

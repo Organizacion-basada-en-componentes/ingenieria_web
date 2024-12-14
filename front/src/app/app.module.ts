@@ -22,11 +22,9 @@ import { EjercicioPacienteComponent } from './paciente/ejercicio-paciente/ejerci
 import { PlanRehabilitacionPacienteComponent } from './paciente/plan-rehabilitacion-paciente/plan-rehabilitacion-paciente.component';
 import { RehabilitacionPacienteComponent } from './paciente/rehabilitacion-paciente/rehabilitacion-paciente.component';
 import { AccesoDenegadoComponent } from './comun/acceso-denegado/acceso-denegado.component';
-import { ProgresoComponent } from './progreso/progreso.component';
 import { ComunicacionComponent } from './comunicacion/comunicacion.component';
 import { MensajeComponent } from './comunicacion/mensaje/mensaje.component';
 import { PedirCitaComponent } from './comunicacion/pedir-cita/pedir-cita.component';
-import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.component';
 import { SelectedPatientComponent } from './medico/selected-patient/selected-patient.component';
 import { LoadingComponent } from './comun/loading/loading.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
@@ -52,11 +50,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     PlanRehabilitacionPacienteComponent,
     RehabilitacionPacienteComponent,
     AccesoDenegadoComponent,
-    ProgresoComponent,
     ComunicacionComponent,
     MensajeComponent,
     PedirCitaComponent,
-    VideollamadaComponent,
     HeaderLoggedInMedicoNoPatientComponent,
     SelectedPatientComponent,
     LoadingComponent,
