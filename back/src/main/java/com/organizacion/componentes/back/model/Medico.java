@@ -45,6 +45,7 @@ public class Medico {
     private String nombre;
 
     @OneToOne
+    
     @JoinColumn(name = "usuario_id", nullable = false) // 'usuario_id' es la clave foránea en la tabla 'Medico'
     private Usuario usuario;
 

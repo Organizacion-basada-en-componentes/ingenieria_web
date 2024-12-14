@@ -32,8 +32,6 @@ public class PacienteService {
         }
     }
 
-    
-
     // Eliminar un paciente por su DNI
     public void deletePaciente(Long id) {
         if (pacienteRepository.existsById(id)) {
@@ -42,8 +40,13 @@ public class PacienteService {
             throw new RuntimeException("No se puede eliminar. Paciente no encontrado con ID: " + id);
         }
     }
+
     @Autowired
     private RepositoryMedico medicoRepository;
+
+    // Si queremos crear los chats de los pacientes automaticamente
+    // @Autowired
+    // private ChatService chatService;
 
     // Método para crear un nuevo paciente y asignar un médico automáticamente
     public Paciente crearPaciente(Paciente nuevoPaciente) {
@@ -56,8 +59,8 @@ public class PacienteService {
 
         // Encuentra el médico con menos pacientes
         Medico medicoDisponible = medicos.stream()
-            .min((m1, m2) -> Integer.compare(m1.getPacientes().size(), m2.getPacientes().size()))
-            .orElseThrow(() -> new RuntimeException("No se pudo encontrar un médico disponible."));
+                .min((m1, m2) -> Integer.compare(m1.getPacientes().size(), m2.getPacientes().size()))
+                .orElseThrow(() -> new RuntimeException("No se pudo encontrar un médico disponible."));
 
         // Asignar el médico al paciente
         nuevoPaciente.setMedico(medicoDisponible);
@@ -69,6 +72,8 @@ public class PacienteService {
         pacienteRepository.save(nuevoPaciente);
         medicoRepository.save(medicoDisponible);
 
+        // chatService.crearChat(nuevoPaciente.getId(), medicoDisponible.getId()); //
+        // solucion fuerza bruta
         return nuevoPaciente;
     }
 }
