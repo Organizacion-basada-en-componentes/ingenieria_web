@@ -44,7 +44,16 @@ public class PacienteController {
             return ResponseEntity.notFound().build(); // Si no hay médico asociado, devuelve un 404
         }
     }
-
+    
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<?> getPacienteByUsuarioId(@PathVariable Long usuarioId) {
+        try {
+            Paciente paciente = pacienteService.getPacienteByUsuarioId(usuarioId);
+            return ResponseEntity.ok(paciente);
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
 
 
     // Eliminar un paciente por su DNI

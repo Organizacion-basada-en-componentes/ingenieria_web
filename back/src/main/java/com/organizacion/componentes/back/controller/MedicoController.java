@@ -35,6 +35,12 @@ public class MedicoController {
         Optional<Medico> medico = medicoService.getMedicoById(id);
         return medico.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
+    // NUEVO MÉTODO para obtener médico por USUARIO_ID
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<Medico> getMedicoByUsuarioId(@PathVariable Long usuarioId) {
+        Optional<Medico> medico = medicoService.getMedicoByUsuarioId(usuarioId);
+        return medico.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
 
     @GetMapping
     public List<Medico> getAllMedicos() {

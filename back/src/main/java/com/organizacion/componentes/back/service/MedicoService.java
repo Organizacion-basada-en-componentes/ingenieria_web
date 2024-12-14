@@ -31,6 +31,10 @@ public class MedicoService {
     public void deleteMedico(Long id) {
         medicoRepository.deleteById(id);  // Cambiado de Long a String
     }
+    // NUEVO método para obtener médico por USUARIO_ID
+    public Optional<Medico> getMedicoByUsuarioId(Long usuarioId) {
+        return medicoRepository.findByUsuarioId(usuarioId);
+    }
 
    
 }

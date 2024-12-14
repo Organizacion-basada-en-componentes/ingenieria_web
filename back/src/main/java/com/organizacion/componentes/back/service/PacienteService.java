@@ -40,6 +40,10 @@ public class PacienteService {
             throw new RuntimeException("No se puede eliminar. Paciente no encontrado con ID: " + id);
         }
     }
+    public Paciente getPacienteByUsuarioId(Long usuarioId) {
+        return pacienteRepository.findByUsuarioId(usuarioId)
+                .orElseThrow(() -> new RuntimeException("No se encontró un paciente asociado al usuario con ID: " + usuarioId));
+    }
 
     @Autowired
     private RepositoryMedico medicoRepository;
