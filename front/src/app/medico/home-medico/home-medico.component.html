@@ -1,60 +1,36 @@
+<!-- home-medico.component.html -->
 <div class="home-medico">
-    <div class="header">
-      <h1>Bienvenido, {{nombre}}</h1>
-      <p>Gestiona tus pacientes y mantente al día con las alertas importantes.</p>
-    </div>
-  
-    <div class="contenido">
-      <div class="pacientes">
-        <h2>Tus Pacientes</h2>
-        <div class="paciente-lista">
-          <table>
-            <thead>
-              <tr>
-                <th>Nombre</th>
-                <th>Edad</th>
-                <th>Última Consulta</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let paciente of pacientes">
-                <td>{{ paciente.nombre }}</td>
-                <td>{{ paciente.edad }}</td>
-                <td>{{ paciente.ultimaConsulta | date }}</td>
-                <td><button class="btn" (click)="selectPatient(paciente)">Ver detalles</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-  
-      <div class="alertas">
-        <h2>Alertas Recientes</h2>
-        <div class="alerta-lista">
-          <table>
-            <thead>
-              <tr>
-                <th>Tipo</th>
-                <th>Fecha</th>
-                <th>Descripción</th>
-                <th>DNI del Paciente</th>
-                <th>Acción</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let alerta of alertas">
-                <td>{{ alerta.tipo }}</td>
-                <td>{{ alerta.fecha | date }}</td>
-                <td>{{ alerta.descripcion }}</td>
-                <td>{{ alerta.dni }}</td>
-                <td><button class="btn" (click)="selectAlerta(alerta)">Ver detalles</button></td>
-              </tr>
-            </tbody>
-          </table>
-          
-        </div>
+  <div class="header">
+    <h1>Bienvenido, {{ nombre }}</h1>
+    <p>Gestiona tus pacientes.</p>
+  </div>
+
+  <div class="contenido">
+    <div class="pacientes">
+      <h2>Tus Pacientes</h2>
+      <div class="paciente-lista">
+        <table>
+          <thead>
+            <tr>
+              <th>DNI</th>
+              <th>Nombre</th>
+              <th>Edad</th>
+              <th>Acción</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let paciente of pacientes">
+              <td>{{ paciente.dni }}</td>
+              <td>{{ paciente.nombre }}</td>
+              <td>{{ calcularEdad(paciente.fechaNacimiento) }} años</td>
+              <td>
+                <button class="btn" (click)="selectPatient(paciente)">Ver detalles</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
-  
+</div>

@@ -1,76 +1,59 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { SelectedPatientService } from '../../services/selected-patient.service';
-import { SelectedAlertaService } from '../../services/selected-alerta.service';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { HomeMedicoService } from '../../services/home-medico.service';
+import { SelectedPatientService} from '../../services/selected-patient.service'
 
 @Component({
   selector: 'app-home-medico',
   standalone: false,
   templateUrl: './home-medico.component.html',
-  styleUrls: ['./home-medico.component.css']
+  styleUrls: ['./home-medico.component.css'],
 })
-export class HomeMedicoComponent implements OnInit{
- 
+export class HomeMedicoComponent implements OnInit {
+  nombre = '';
+  id=0;
+  pacientes: any[] = [];
 
   constructor(
-    private selectedPatientService: SelectedPatientService,
-    private alertaService: SelectedAlertaService,
-    private router: Router
-  ) {}
-  nombre = 'Dr. Diego';
-  pacientes = [
-    { nombre: 'Juan Pérez', edad: 45, ultimaConsulta: new Date('2024-11-15') },
-    { nombre: 'María López', edad: 34, ultimaConsulta: new Date('2024-11-10') },
-    { nombre: 'Pedro García', edad: 60, ultimaConsulta: new Date('2024-11-05') },
-  ];
-
-  alertas = [
-    {
-      tipo: 'Alerta Médica',
-      fecha: '2024-12-07',
-      descripcion: 'Paciente con fiebre alta persistente.',
-      dni: '12345678A'
-    },
-    {
-      tipo: 'Alerta Administrativa',
-      fecha: '2024-12-06',
-      descripcion: 'Paciente con documentos incompletos.',
-      dni: '87654321B'
-    },
-    {
-      tipo: 'Alerta Urgente',
-      fecha: '2024-12-05',
-      descripcion: 'Paciente en estado crítico. Necesita intervención inmediata.',
-      dni: '11223344C'
-    },
-    {
-      tipo: 'Alerta de Seguimiento',
-      fecha: '2024-12-04',
-      descripcion: 'Revisión pendiente de paciente.',
-      dni: '44556677D'
-    }
-  ];
-  
+    private homeMedicoService: HomeMedicoService,
+    private router: Router,
+    private selectedPatientService: SelectedPatientService) {}
 
   ngOnInit(): void {
-    console.log('HomeMedicoComponent ngOnInit');
-    // Quitamos el paciente y alerta seleccionados cuando entramos al componente
-    this.selectedPatientService.setPatient(null);
-    this.alertaService.setAlerta(null);
-    console.log(this.selectedPatientService.selectedPatient$);
+    // Obtén el nombre del médico desde el token
+    const token = localStorage.getItem('authToken')!;
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    this.id = payload.id; // Cambia 'nombre' por el campo correcto en el token
 
+    // Carga los pacientes del médico
+    this.homeMedicoService.getPacientes().subscribe(
+      (data) => {
+        console.log('Pacientes obtenidos:', data);  // Agrega este log para ver los pacientes obtenidos
+        this.pacientes = data;
+      },
+      (error) => {
+        console.error('Error al cargar los pacientes:', error);
+      }
+    );
   }
-
- 
 
   selectPatient(paciente: any): void {
-    this.selectedPatientService.setPatient(paciente);
+    // Lógica para seleccionar al paciente
+    this.selectedPatientService.setPatient(paciente)
     this.router.navigate(['/paciente-seleccionado']);
   }
+  // Método para calcular la edad
+  calcularEdad(fechaNacimiento: string): number {
+    const hoy = new Date();
+    const nacimiento = new Date(fechaNacimiento);
+    let edad = hoy.getFullYear() - nacimiento.getFullYear();
+    const mes = hoy.getMonth() - nacimiento.getMonth();
 
-  selectAlerta(alerta: any): void {
-    this.alertaService.setAlerta(alerta);
-    this.router.navigate(['/alerta-seleccionada']);
+    // Ajustar si aún no ha pasado el cumpleaños este año
+    if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+      edad--;
+    }
+
+    return edad;
   }
-}
+}  

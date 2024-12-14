@@ -15,7 +15,6 @@ import { PedirCitaComponent } from './comunicacion/pedir-cita/pedir-cita.compone
 import { MensajeComponent } from './comunicacion/mensaje/mensaje.component';
 import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.component';
 import { SelectedPatientComponent } from './medico/selected-patient/selected-patient.component';
-import { SelectedAlertaComponent } from './medico/selected-alerta/selected-alerta.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
 import { LobbyComponent } from './comunicacion/lobby/lobby.component';
@@ -40,7 +39,6 @@ const routes: Routes = [
   // Ruta de acceso denegado
   { path: 'acceso-denegado', component: AccesoDenegadoComponent },
   { path: 'paciente-seleccionado', component: SelectedPatientComponent },
-  {path : 'alerta-seleccionada', component: SelectedAlertaComponent},
   {path : 'rehabilitacion-medico', component: RehabilitacionMedicoComponent},
   {path : 'plan-rehabilitacion-medico', component: PlanRehabilitacionMedicoComponent},
   // Ruta comodín para redirigir a la landing page

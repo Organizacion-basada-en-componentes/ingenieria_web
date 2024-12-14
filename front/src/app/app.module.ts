@@ -28,7 +28,6 @@ import { MensajeComponent } from './comunicacion/mensaje/mensaje.component';
 import { PedirCitaComponent } from './comunicacion/pedir-cita/pedir-cita.component';
 import { VideollamadaComponent } from './comunicacion/videollamada/videollamada.component';
 import { SelectedPatientComponent } from './medico/selected-patient/selected-patient.component';
-import { SelectedAlertaComponent } from './medico/selected-alerta/selected-alerta.component';
 import { LoadingComponent } from './comun/loading/loading.component';
 import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/rehabilitacion-medico.component';
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
@@ -61,7 +60,6 @@ import { HttpClientModule } from '@angular/common/http';
     VideollamadaComponent,
     HeaderLoggedInMedicoNoPatientComponent,
     SelectedPatientComponent,
-    SelectedAlertaComponent,
     LoadingComponent,
     RehabilitacionMedicoComponent,
     PlanRehabilitacionMedicoComponent,
