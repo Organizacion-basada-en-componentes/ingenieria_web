@@ -70,8 +70,11 @@ export class PedirCitaComponent implements OnInit {
     this.loading = true;
     this.pedirCitaService.getCitas().subscribe(
       (citas) => {
-        console.log('Citas recibidas:', citas); // Asegúrate de ver si las citas están llegando
-        this.citas = citas || [];  // Asigna las citas recibidas
+        console.log('Citas recibidas:', citas); // Agrega este log para ver cómo llega la respuesta
+  
+        // Si citas es un objeto en vez de un arreglo, lo convertimos en un arreglo
+        this.citas = Array.isArray(citas) ? citas : [citas];
+  
         this.loading = false;
       },
       (error) => {
@@ -80,6 +83,7 @@ export class PedirCitaComponent implements OnInit {
       }
     );
   }
+  
   
 
   // Método para enviar el formulario y pedir una cita
