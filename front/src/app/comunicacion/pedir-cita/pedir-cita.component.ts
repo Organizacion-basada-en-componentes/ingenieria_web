@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PedirCitaService } from '../../services/citas.service'; // Servicio para las citas
 import { PacienteService } from '../../services/paciente.service'; // Servicio para cargar el paciente
+import { SelectedPatientService } from '../../services/selected-patient.service'; // Servicio para obtener el paciente seleccionado
 
 @Component({
   selector: 'app-pedir-cita',
@@ -19,7 +20,8 @@ export class PedirCitaComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private pedirCitaService: PedirCitaService,
-    private pacienteService: PacienteService // Inyectar el servicio de paciente
+    private pacienteService: PacienteService, // Inyectar el servicio de paciente
+    private selectedPatientService: SelectedPatientService // Inyectamos el servicio del paciente seleccionado
   ) {}
 
   ngOnInit(): void {
@@ -51,7 +53,34 @@ export class PedirCitaComponent implements OnInit {
             }
           );
         } else {
-          console.error('Paciente no encontrado');
+          // Si no se puede obtener el paciente, intentar obtenerlo desde el servicio de SelectedPatient
+          console.warn('No se encontró el paciente, intentando desde SelectedPatientService');
+          this.selectedPatientService.getPatient().subscribe((selectedPatient) => {
+            console.log('Paciente desde SelectedPatientService:', selectedPatient);
+            if (selectedPatient && selectedPatient.id) {
+              this.pacienteId = selectedPatient.id;
+              console.log('Paciente encontrado desde SelectedPatientService:', this.pacienteId);
+
+              // Intentamos cargar el médico para este paciente
+              this.pacienteService.getMedico().subscribe(
+                (medico) => {
+                  if (medico && medico.id) {
+                    this.medicoId = medico.id;
+                    console.log('Médico encontrado:', this.medicoId);
+                    this.loadCitas(); // Recargamos las citas una vez que tenemos el médico
+                  } else {
+                    console.error('No se encontró el médico asociado');
+                  }
+                },
+                (error) => {
+                  console.error('Error al obtener el ID del médico:', error);
+                }
+              );
+            } else {
+              console.error('No se encontró el paciente en SelectedPatientService');
+            }
+          });
+
         }
       },
       (error) => {
@@ -62,19 +91,11 @@ export class PedirCitaComponent implements OnInit {
 
   // Método para cargar las citas del paciente
   loadCitas(): void {
-    if (!this.pacienteId) {
-      console.error('No se pudo obtener el ID del paciente');
-      return;
-    }
-  
     this.loading = true;
     this.pedirCitaService.getCitas().subscribe(
       (citas) => {
-        console.log('Citas recibidas:', citas); // Agrega este log para ver cómo llega la respuesta
-  
-        // Si citas es un objeto en vez de un arreglo, lo convertimos en un arreglo
+        console.log('Citas recibidas:', citas);
         this.citas = Array.isArray(citas) ? citas : [citas];
-  
         this.loading = false;
       },
       (error) => {
@@ -83,8 +104,6 @@ export class PedirCitaComponent implements OnInit {
       }
     );
   }
-  
-  
 
   // Método para enviar el formulario y pedir una cita
   onSubmit(): void {
@@ -94,15 +113,13 @@ export class PedirCitaComponent implements OnInit {
 
     const fechaHoraISO = `${this.pedirCitaForm.value.fecha}T${this.pedirCitaForm.value.hora}`;
 
-    // Crear el objeto de la cita, incluyendo el ID del médico y paciente
     const nuevaCita = {
-      fechaHora: fechaHoraISO,  // La fecha en formato ISO
+      fechaHora: fechaHoraISO, // La fecha en formato ISO
       motivo: this.pedirCitaForm.value.motivo,
-      medico: { id: this.medicoId },  // ID del médico obtenido
-      paciente: { id: this.pacienteId },  // ID del paciente
+      medico: { id: this.medicoId }, // ID del médico obtenido
+      paciente: { id: this.pacienteId }, // ID del paciente
     };
 
-    // Crear la cita usando el servicio
     this.pedirCitaService.createCita(nuevaCita).subscribe(
       (response) => {
         console.log('Cita creada exitosamente:', response);
