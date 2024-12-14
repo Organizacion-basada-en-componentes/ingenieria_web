@@ -1,26 +1,20 @@
 <div class="container">
   <h1>Bienvenido a tu perfil</h1>
 
-  <div *ngIf="paciente; else loadingPaciente">
+  <div >
     <h2>Información del paciente</h2>
     <p><strong>Nombre:</strong> {{ paciente.nombre }}</p>
     <p><strong>DNI:</strong> {{ paciente.dni }}</p>
-    <p><strong>ID:</strong> {{ paciente.id }}</p>
-    <p>medico: {{medico}}</p>
+ 
   </div>
 
-  <ng-template #loadingPaciente>
-    <p>Cargando datos del paciente...</p>
-  </ng-template>
-
-  <div *ngIf="medico && medico.length > 0; else noMedico">
+ 
+  <div >
     <h2>Información de tu médico</h2>
-    <p><strong>Nombre:</strong> {{ medico[0].nombre }}</p>
-    <p><strong>Email:</strong> {{ medico[0].email }}</p>
-    <p><strong>Especialidad:</strong> {{ medico[0].especialidad }}</p>
+    <p><strong>Nombre:</strong> {{ medico.nombre }}</p>
+    <p><strong>DNI:</strong> {{ medico.dni }}</p>
+    <p><strong>Especialidad:</strong> {{ medico.especialidad }}</p>
   </div>
 
-  <ng-template #noMedico>
-    <p>No se encontró un médico asociado a este paciente.</p>
-  </ng-template>
+
 </div>
