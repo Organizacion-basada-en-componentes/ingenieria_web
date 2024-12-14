@@ -1,21 +1,26 @@
-<div class="home-paciente">
-    <section class="welcome">
-      <h1>¡Hola, paciente!</h1>
-      <p>Continúa avanzando en tu rehabilitación con los ejercicios asignados y consulta tu progreso.</p>
-    </section>
-  
-    <section class="progress">
-      <h2>Tu progreso</h2>
-      <div class="progress-cards">
-        <div class="card">
-          <h3>Ejercicios completados</h3>
-          <p>10/15 esta semana</p>
-        </div>
-        <div class="card">
-          <h3>Próxima cita</h3>
-          <p>Miércoles, 6 de diciembre</p>
-        </div>
-      </div>
-    </section>
+<div class="container">
+  <h1>Bienvenido a tu perfil</h1>
+
+  <div *ngIf="paciente; else loadingPaciente">
+    <h2>Información del paciente</h2>
+    <p><strong>Nombre:</strong> {{ paciente.nombre }}</p>
+    <p><strong>DNI:</strong> {{ paciente.dni }}</p>
+    <p><strong>ID:</strong> {{ paciente.id }}</p>
+    <p>medico: {{medico}}</p>
   </div>
-  
+
+  <ng-template #loadingPaciente>
+    <p>Cargando datos del paciente...</p>
+  </ng-template>
+
+  <div *ngIf="medico && medico.length > 0; else noMedico">
+    <h2>Información de tu médico</h2>
+    <p><strong>Nombre:</strong> {{ medico[0].nombre }}</p>
+    <p><strong>Email:</strong> {{ medico[0].email }}</p>
+    <p><strong>Especialidad:</strong> {{ medico[0].especialidad }}</p>
+  </div>
+
+  <ng-template #noMedico>
+    <p>No se encontró un médico asociado a este paciente.</p>
+  </ng-template>
+</div>
