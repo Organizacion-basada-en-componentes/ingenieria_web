@@ -36,6 +36,7 @@ public class JwtService {
         UserDetails userDetails
     ){
         // Aquí puedes agregar más información a 'extraClaims'
+        extraClaims.put("id", ((Usuario) userDetails).getId());
         extraClaims.put("email", ((Usuario) userDetails).getEmail());
         extraClaims.put("role", ((Usuario) userDetails).getRole().toString());
         return Jwts
