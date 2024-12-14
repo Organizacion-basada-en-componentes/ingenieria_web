@@ -24,9 +24,7 @@ export class HeaderLoggedInMedicoComponent {
     goToHome() {
       this.router.navigate(['/home-medico']);
     }
-    goToProgreso() {
-      this.router.navigate(['/progreso']);
-    }
+
     goToComunicacion() {
       this.router.navigate(['/comunicacion']);
     }

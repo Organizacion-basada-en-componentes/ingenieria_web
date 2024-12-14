@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+import { concatMap, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -42,14 +42,36 @@ export class AuthService {
   }
 
   // Método de registro de usuario
-  register(data: any): Observable<any> {
-    console.log('Datos a enviar:', data);
-    return this.http.post('http://localhost:8080/auth/register', data, {
-      headers: { 'Content-Type': 'application/json' }
-    });
+// Método de registro de usuario
+register(data: any): Observable<any> {
+  console.log('Datos a enviar:', data);
+  return this.http.post<{ token: string }>('http://localhost:8080/auth/register', data, {
+    headers: { 'Content-Type': 'application/json' }
+  }).pipe(
+    tap((response) => {
+      // Al recibir la respuesta con el token
+      const token = response.token;
+      localStorage.setItem(this.tokenKey, token);
 
-  }
-  
+      // Extraemos el tipo de usuario desde el token
+      const userType = this.getUserTypeFromToken(token);
+      this.userTypeSubject.next(userType);
+      localStorage.setItem('userType', userType);
+
+      // Actualizamos el estado de autenticación
+      this.isAuthenticatedSubject.next(true);
+
+      // Si el usuario es paciente, sincronizamos con el backend
+      if (userType === 'paciente') {
+        this.http.post('http://localhost:8080/chats/sincronizar', {}, {
+          headers: { 'Content-Type': 'application/json' }
+        }).subscribe();
+      }
+    })
+  );
+}
+
+
   // Método para cerrar sesión
   logout(): void {
     localStorage.removeItem(this.tokenKey);

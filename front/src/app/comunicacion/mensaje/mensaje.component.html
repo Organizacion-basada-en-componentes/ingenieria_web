@@ -4,20 +4,40 @@
   </div>
 
   <div class="messages-area">
-    <div *ngFor="let message of messages" [ngClass]="{'message': true, 'paciente': message.sender === 'paciente', 'medico': message.sender === 'medico'}">
-      <div class="message-content">
-        {{ message.content }}
+    <div *ngIf="messages && messages.length > 0">
+      <div
+        *ngFor="let message of messages"
+        [ngClass]="{
+          'message': true,
+          'paciente': message.remitente === 'paciente',
+          'medico': message.remitente === 'medico'
+        }"
+      >
+        <div class="message-content">
+          {{ message.contenido }}
+        </div>
+        <div class="message-time">
+          {{ message.timestamp ? (message.timestamp | date: 'short') : 'Hora no disponible' }}
+        </div>
       </div>
-      <div class="message-time">
-        {{ message.timestamp | date: 'short' }}
-      </div>
+    </div>
+    <div *ngIf="messages && messages.length === 0">
+      No hay mensajes aún.
+    </div>
+    <div *ngIf="!messages">
+      Cargando mensajes...
     </div>
   </div>
 
   <div class="form-container">
-    <input type="text" [(ngModel)]="newMessage" placeholder="Escribe un mensaje..." (keyup.enter)="sendMessage(newMessage)" />
+    <input
+      type="text"
+      [(ngModel)]="newMessage"
+      placeholder="Escribe un mensaje..."
+      (keyup.enter)="sendMessage(newMessage)"
+    />
     <button class="send-button" (click)="sendMessage(newMessage)">
-      <i class="fa fa-paper-plane"></i> <!-- Icono de flecha -->
+      <i class="fa fa-paper-plane"></i>
     </button>
   </div>
 </div>
