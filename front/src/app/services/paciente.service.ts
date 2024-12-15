@@ -57,17 +57,21 @@ export class PacienteService {
       })
     );
   }
-
+  getPacienteById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/pacientes/${id}`);
+  }
 
   getMedico(): Observable<any> {
     return this.paciente$.pipe(
       switchMap((paciente) => {
+        console.log('Paciente recibido en getMedico:', paciente); // Asegúrate de ver lo que contiene el paciente
         if (!paciente || !paciente.id) {
           console.error('No se pudo obtener el ID del paciente');
           return of(null); // Devuelve un Observable con `null` en caso de error
         }
   
         const pacienteID = paciente.id;
+        console.log('ID del paciente:', pacienteID); // Verifica que se esté obteniendo el ID
   
         // Primera petición: obtener el ID del médico asociado al paciente
         return this.http.get<number>(`${this.baseUrl}/pacientes/${pacienteID}/medico`).pipe(
@@ -76,6 +80,8 @@ export class PacienteService {
               console.error('No se encontró un ID de médico');
               return of(null); // Devuelve un Observable con `null` si no hay médico
             }
+  
+            console.log('ID del médico:', medicoID); // Verifica que se esté obteniendo el ID del médico
   
             // Segunda petición: obtener los detalles del médico usando su ID
             return this.http.get<any>(`${this.baseUrl}/medicos/${medicoID}`);
@@ -88,6 +94,7 @@ export class PacienteService {
       })
     );
   }
+  
       
 
 

@@ -24,11 +24,12 @@ export class SelectedPatientService {
   
   // Método para establecer el paciente, que también guarda en localStorage y emite el cambio
   setPatient(patient: any): void {
-   
-      // Guardamos el paciente en localStorage
-      this.selectedPatientSubject.next(patient);
-      localStorage.setItem('selectedPatient', JSON.stringify(patient));
-    }
+    // Guardamos el paciente en el BehaviorSubject
+    this.selectedPatientSubject.next(patient);
+    // También lo guardamos en localStorage para persistir entre recargas
+    localStorage.setItem('selectedPatient', JSON.stringify(patient));
+    console.log('Paciente guardado:', patient);
+  }
   unsetPatient(): void {
     this.selectedPatientSubject.next(null);
     localStorage.removeItem('selectedPatient');

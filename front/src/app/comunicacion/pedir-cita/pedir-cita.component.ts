@@ -32,59 +32,33 @@ export class PedirCitaComponent implements OnInit {
       motivo: ['', [Validators.required, Validators.minLength(5)]],
     });
 
-    // Cargar el paciente y obtener el ID del médico
-    this.pacienteService.loadPaciente().subscribe(
-      (paciente) => {
-        if (paciente && paciente.id) {
-          this.pacienteId = paciente.id;
+    // Intentamos obtener el paciente desde el servicio SelectedPatientService
+    this.selectedPatientService.getPatient().subscribe(
+      (selectedPatient) => {
+        if (selectedPatient && selectedPatient.id) {
+          this.pacienteId = selectedPatient.id; // Asignar ID del paciente desde el SelectedPatientService
+          console.log('Paciente encontrado desde SelectedPatientService:', this.pacienteId);
 
-          // Obtener el ID del médico asociado al paciente
+          // Ahora intentamos cargar el médico asociado a este paciente
           this.pacienteService.getMedico().subscribe(
             (medico) => {
               if (medico && medico.id) {
-                this.medicoId = medico.id;  // Guardar el ID del médico
-                this.loadCitas(); // Cargar citas una vez que tenemos el médico
+                this.medicoId = medico.id; // Asignar ID del médico
+                this.loadCitas(); // Cargar citas después de obtener el médico
               } else {
                 console.error('No se encontró el médico asociado');
               }
             },
             (error) => {
-              console.error('Error al obtener el ID del médico:', error);
+              console.error('Error al obtener el médico:', error);
             }
           );
         } else {
-          // Si no se puede obtener el paciente, intentar obtenerlo desde el servicio de SelectedPatient
-          console.warn('No se encontró el paciente, intentando desde SelectedPatientService');
-          this.selectedPatientService.getPatient().subscribe((selectedPatient) => {
-            console.log('Paciente desde SelectedPatientService:', selectedPatient);
-            if (selectedPatient && selectedPatient.id) {
-              this.pacienteId = selectedPatient.id;
-              console.log('Paciente encontrado desde SelectedPatientService:', this.pacienteId);
-
-              // Intentamos cargar el médico para este paciente
-              this.pacienteService.getMedico().subscribe(
-                (medico) => {
-                  if (medico && medico.id) {
-                    this.medicoId = medico.id;
-                    console.log('Médico encontrado:', this.medicoId);
-                    this.loadCitas(); // Recargamos las citas una vez que tenemos el médico
-                  } else {
-                    console.error('No se encontró el médico asociado');
-                  }
-                },
-                (error) => {
-                  console.error('Error al obtener el ID del médico:', error);
-                }
-              );
-            } else {
-              console.error('No se encontró el paciente en SelectedPatientService');
-            }
-          });
-
+          console.error('No se encontró el paciente desde SelectedPatientService');
         }
       },
       (error) => {
-        console.error('Error al cargar el paciente:', error);
+        console.error('Error al obtener el paciente desde SelectedPatientService:', error);
       }
     );
   }
