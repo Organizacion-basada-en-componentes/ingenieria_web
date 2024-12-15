@@ -144,6 +144,27 @@ http://localhost:8080/mensajes
 
 ?
 
+######### crear plan a un paciente
+http://localhost:8080/planes/{id}
+{
+  "nombre": "Plan semanal de fisioterapia",
+  "ejercicios": [
+    {
+      "nombre": "Ejercicio 1",
+      "descripcion": "Flexión de rodilla",
+      "duracion": 10
+    },
+    {
+      "nombre": "Ejercicio 2",
+      "descripcion": "Estiramiento de cuádriceps",
+      "duracion": 15
+    }
+  ]
+}
+###### obtener plan de un paciente
+http://localhost:8080/planes/paciente/{id}
+
+
 
 
 

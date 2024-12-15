@@ -20,7 +20,10 @@ export class PlanRehabilitacionMedicoComponent implements OnInit {
     nombre: '',
     series: 0,
     repeticiones: 0,
-    descripcion: ''
+    descripcion: '',
+    completado: false,
+    comentario: ''
+
   };
 
   ejercicioEditando: any = null;
@@ -63,7 +66,7 @@ export class PlanRehabilitacionMedicoComponent implements OnInit {
     if (this.nuevoEjercicio.nombre && this.nuevoEjercicio.series > 0 && this.nuevoEjercicio.repeticiones > 0 && this.nuevoEjercicio.descripcion) {
       this.plan.ejercicios.push({ ...this.nuevoEjercicio });
       console.log('Ejercicio añadido:', this.nuevoEjercicio); // Debugging
-      this.nuevoEjercicio = { nombre: '', series: 0, repeticiones: 0, descripcion: '' };
+      this.nuevoEjercicio = { nombre: '', series: 0, repeticiones: 0, descripcion: '', completado: false, comentario: '' };
     } else {
       alert('Por favor, completa todos los campos del ejercicio.');
     }

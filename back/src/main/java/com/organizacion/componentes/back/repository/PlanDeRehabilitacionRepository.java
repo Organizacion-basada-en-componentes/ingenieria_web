@@ -10,4 +10,5 @@ import com.organizacion.componentes.back.model.PlanDeRehabilitacion;
 public interface PlanDeRehabilitacionRepository extends JpaRepository<PlanDeRehabilitacion, Long> {
     @Override
     List<PlanDeRehabilitacion> findAll();
+    List<PlanDeRehabilitacion> findByIdPaciente(Long idPaciente);
 }

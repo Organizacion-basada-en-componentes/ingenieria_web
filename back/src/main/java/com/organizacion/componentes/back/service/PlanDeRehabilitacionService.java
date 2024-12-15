@@ -30,4 +30,11 @@ public class PlanDeRehabilitacionService {
     public PlanDeRehabilitacion actualizarPlan(PlanDeRehabilitacion plan) {
         return planRepository.save(plan);
     }
+    public List<PlanDeRehabilitacion> obtenerPlanPorIdPaciente(Long idPaciente) {
+        return planRepository.findByIdPaciente(idPaciente);
+    }
+    public boolean existePlanPorId(Long id) {
+        return planRepository.existsById(id);
+    }
+    
 }

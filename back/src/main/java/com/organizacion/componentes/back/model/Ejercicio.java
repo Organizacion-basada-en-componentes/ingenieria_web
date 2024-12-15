@@ -25,14 +25,22 @@ public class Ejercicio {
     @Column(nullable = true)
     private String descripcion;
 
+    @Column(nullable = true)
+    private Boolean completado;
+
+    @Column(nullable = true)
+    private String comentario;
+
     public Ejercicio() {
     }
 
-    public Ejercicio(String nombre, int series, int repeticiones, String descripcion) {
+    public Ejercicio(String nombre, int series, int repeticiones, String descripcion, Boolean completado, String comentario) {
         this.nombre = nombre;
         this.series = series;
         this.repeticiones = repeticiones;
         this.descripcion = descripcion;
+        this.completado = completado;
+        this.comentario = comentario;
     }
 
     // Getters y setters
@@ -43,7 +51,18 @@ public class Ejercicio {
     public void setId(Long id) {
         this.id = id;
     }
-
+    public Boolean getCompletado() {
+        return completado;
+    }
+    public void setCompletado(Boolean completado) {
+        this.completado = completado;
+    }
+    public String getComentario() {
+        return comentario;
+    }
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
     public String getNombre() {
         return nombre;
     }

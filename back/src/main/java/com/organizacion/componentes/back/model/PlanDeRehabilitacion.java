@@ -24,6 +24,9 @@ public class PlanDeRehabilitacion {
     @Column(nullable = false)
     private Long idPaciente;
 
+    @Column(nullable = true)
+    private String fecha;
+
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "plan_id") // Esto une los ejercicios al plan
     private List<Ejercicio> ejercicios;
@@ -31,10 +34,11 @@ public class PlanDeRehabilitacion {
     public PlanDeRehabilitacion() {
     }
 
-    public PlanDeRehabilitacion(String nombre, Long idPaciente, List<Ejercicio> ejercicios) {
+    public PlanDeRehabilitacion(String nombre, Long idPaciente, List<Ejercicio> ejercicios, String fecha) {
         this.nombre = nombre;
         this.idPaciente = idPaciente;
         this.ejercicios = ejercicios;
+        this.fecha = fecha;
     }
 
     // Getters y setters
@@ -46,6 +50,12 @@ public class PlanDeRehabilitacion {
         this.id = id;
     }
 
+    public String getFecha() {
+        return fecha;
+    }
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
     public String getNombre() {
         return nombre;
     }
