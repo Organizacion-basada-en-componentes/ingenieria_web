@@ -16,8 +16,13 @@ public class CitaService {
         // Guardar la cita directamente
         return citaRepository.save(cita);
     }
+
     public Cita getCitaById(Long idCita) {
         return citaRepository.findById(idCita).orElse(null);
+    }
+
+    public Cita getProximaCitaByPacienteId(Long idPaciente) {
+        return citaRepository.findFirstByPacienteIdOrderByFechaHoraAsc(idPaciente);
     }
 
     // Eliminar una cita por su ID

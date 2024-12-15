@@ -24,21 +24,21 @@ public class CitaController {
     public ResponseEntity<Cita> createCita(@PathVariable Long idPaciente, @RequestBody Cita cita) {
         // Obtener el paciente por su ID
         Paciente paciente = pacienteService.getPacienteById(idPaciente);
-        
+
         if (paciente == null) {
-            return ResponseEntity.notFound().build();  // Si el paciente no se encuentra, devolvemos 404
+            return ResponseEntity.notFound().build(); // Si el paciente no se encuentra, devolvemos 404
         }
 
         // Obtener el médico asociado al paciente
-        cita.setPaciente(paciente);  // Asignar paciente a la cita
-        cita.setMedico(paciente.getMedico());  // Obtener y asignar el médico del paciente
+        cita.setPaciente(paciente); // Asignar paciente a la cita
+        cita.setMedico(paciente.getMedico()); // Obtener y asignar el médico del paciente
 
         // Guardar la cita
         Cita nuevaCita = citaService.createCita(cita);
         return ResponseEntity.ok(nuevaCita);
     }
 
-    // Obtener una cita por su ID
+    // Obtener una cita por su ID del paciente
     @GetMapping("/{idCita}")
     public ResponseEntity<Cita> getCitaById(@PathVariable Long idCita) {
         Cita cita = citaService.getCitaById(idCita);
@@ -61,4 +61,17 @@ public class CitaController {
 
         return ResponseEntity.noContent().build(); // Si se eliminó correctamente, devolvemos 204 No Content
     }
+
+    // Obtener la cita más próxima de un paciente por su ID
+    @GetMapping("/proxima/{idPaciente}")
+    public ResponseEntity<Cita> getProximaCitaByPacienteId(@PathVariable Long idPaciente) {
+        Cita cita = citaService.getProximaCitaByPacienteId(idPaciente);
+
+        if (cita == null) {
+            return ResponseEntity.notFound().build(); // Si no se encuentra ninguna cita, devolvemos 404
+        }
+
+        return ResponseEntity.ok(cita); // Devolver la cita más próxima encontrada
+    }
+
 }
