@@ -1,63 +1,86 @@
-:host {
+/* Contenedor principal */
+.rehabilitacion-medico {
   display: flex;
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: flex-start; /* Alinea el contenido al principio del contenedor */
-  height: 100vh; /* Usa la altura completa de la ventana del navegador */
-  padding: 2rem; /* Relleno relativo para dispositivos pequeños */
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+  padding: 2rem;
   background-color: var(--background);
-}
-
-.plan-rehabilitacion-paciente {
-  width: 100%; /* Ocupa todo el ancho disponible */
-  max-width: 50rem; /* Limita el ancho máximo a 800px (50rem) */
-  padding: 2rem; /* Añade relleno dentro del contenedor */
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 2rem auto;
 }
 
 .plan-header {
   text-align: center;
-  margin-bottom: 2rem; /* Margen relativo para separar los elementos */
+  margin-bottom: 2rem;
 }
 
 .plan-header h1 {
-  font-size: 2rem; /* Tamaño de fuente relativo */
+  font-size: 2.5rem;
   color: var(--cardTitle);
-  margin-bottom: 1.5rem; /* Margen relativo */
+  font-weight: 600;
 }
 
+.crear-btn {
+  background-color: #5e6c70; /* Color sólido */
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition: all 0.3s ease;
+}
+
+.crear-btn:hover {
+  background-color: #4a5457; /* Color más oscuro en hover */
+}
+
+/* Estilos de los planes */
 .plan-item {
-  margin-bottom: 2rem; /* Separa cada plan */
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
 .plan-card {
   background-color: var(--cardBackground);
-  border-radius: 0.625rem; /* Bordes redondeados con un valor relativo */
-  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* Sombra más suave */
-  padding: 2rem; /* Espaciado interno */
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 .plan-card h2 {
-  font-size: 1.6rem; /* Tamaño de fuente relativo */
+  font-size: 1.8rem;
   color: var(--cardTitle);
-  margin-bottom: 1rem; /* Espacio entre título y contenido */
+  margin-bottom: 1rem;
 }
 
 .plan-card p {
-  font-size: 1rem; /* Tamaño de texto más pequeño */
+  font-size: 1rem;
   color: var(--cardText);
-  margin-bottom: 1.5rem; /* Espacio entre el texto y el botón */
+  margin-bottom: 1.5rem;
 }
 
-button.seleccionar-btn {
+button.editar-btn {
   background-color: var(--secondary);
   color: white;
   border: none;
-  padding: 0.625rem 1.25rem; /* Espaciado en el botón usando rem */
-  border-radius: 0.3125rem; /* Bordes redondeados */
+  padding: 0.625rem 1.25rem;
+  border-radius: 30px;
   cursor: pointer;
-  font-size: 1rem; /* Tamaño de fuente relativo */
+  font-size: 1rem;
+  transition: all 0.3s ease;
 }
 
-button.seleccionar-btn:hover {
+button.editar-btn:hover {
   background-color: var(--tertiary);
   color: var(--text);
 }
@@ -67,25 +90,26 @@ button.crear-btn {
 }
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
-  .plan-rehabilitacion-paciente {
-    padding: 1rem; /* Reduce el relleno en pantallas pequeñas */
+  .rehabilitacion-medico {
+    padding: 1rem;
   }
 
   .plan-header h1 {
-    font-size: 1.8rem; /* Ajusta el tamaño del título */
+    font-size: 2rem;
   }
 
   .plan-card h2 {
-    font-size: 1.4rem; /* Ajusta el tamaño del subtítulo */
+    font-size: 1.6rem;
   }
 
   .plan-card p {
-    font-size: 0.9rem; /* Ajusta el tamaño del texto en dispositivos pequeños */
+    font-size: 0.9rem;
   }
 
-  button.seleccionar-btn {
-    font-size: 1rem; /* Asegura que el tamaño del texto en el botón no sea demasiado pequeño */
-    padding: 0.5rem 1rem; /* Ajusta el espaciado en pantallas más pequeñas */
+  button.crear-btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
   }
 
 }

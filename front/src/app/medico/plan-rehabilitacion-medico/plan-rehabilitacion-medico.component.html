@@ -1,52 +1,62 @@
 <div class="plan-rehabilitacion-medico">
-    <h2>Editar Plan de Rehabilitación</h2>
-    <label for="nombre">Nombre del Plan:</label>
-    <input id="nombre" type="text" [(ngModel)]="plan.nombre" placeholder="Nombre del plan" required />
+  <h2>Editar Plan de Rehabilitación</h2>
   
-    <div class="plan-ejercicios">
-      <h3>Ejercicios:</h3>
-      <ul>
-        <li *ngFor="let ejercicio of plan.ejercicios; let i = index">
-          <!-- Modo de visualización -->
-          <div *ngIf="i !== ejercicioEditandoIndex">
-            <strong>{{ ejercicio.nombre }}</strong>
-            <p>Series: {{ ejercicio.series }}</p>
-            <p>Repeticiones: {{ ejercicio.repeticiones }}</p>
-            <p>Descripción: {{ ejercicio.descripcion }}</p>
-            <button (click)="editarEjercicio(i)">Editar</button>
-            <button (click)="eliminarEjercicio(i)">Eliminar</button>
+  <label for="nombre">Nombre del Plan:</label>
+  <input id="nombre" type="text" [(ngModel)]="plan.nombre" placeholder="Nombre del plan" class="input" required />
+
+  <div class="plan-ejercicios">
+    <h3>Ejercicios:</h3>
+    <ul>
+      <li *ngFor="let ejercicio of plan.ejercicios; let i = index" class="ejercicio-item">
+        <div *ngIf="i !== ejercicioEditandoIndex">
+          <strong>{{ ejercicio.nombre }}</strong>
+          <p>Series: {{ ejercicio.series }}</p>
+          <p>Repeticiones: {{ ejercicio.repeticiones }}</p>
+          <p>Descripción: {{ ejercicio.descripcion }}</p>
+          <div class="ejercicio-actions">
+            <button (click)="editarEjercicio(i)" class="btn editar">Editar</button>
+            <button (click)="eliminarEjercicio(i)" class="btn eliminar">Eliminar</button>
           </div>
-  
-          <!-- Modo de edición -->
-          <div *ngIf="i === ejercicioEditandoIndex">
-            <label>Nombre:</label>
-            <input type="text" [(ngModel)]="ejercicioEditando.nombre" placeholder="Nombre del ejercicio" />
-  
-            <label>Series:</label>
-            <input type="number" [(ngModel)]="ejercicioEditando.series" placeholder="Series" min="1" />
-  
-            <label>Repeticiones:</label>
-            <input type="number" [(ngModel)]="ejercicioEditando.repeticiones" placeholder="Repeticiones" min="1" />
-  
-            <label>Descripción:</label>
-            <textarea [(ngModel)]="ejercicioEditando.descripcion" rows="3" placeholder="Descripción"></textarea>
-  
-            <button (click)="guardarEdicionEjercicio()">Guardar</button>
-            <button (click)="cancelarEdicion()">Cancelar</button>
+        </div>
+
+        <div *ngIf="i === ejercicioEditandoIndex" class="ejercicio-editar">
+          <label for="nombre-ejercicio">Nombre:</label>
+          <input id="nombre-ejercicio" type="text" [(ngModel)]="ejercicioEditando.nombre" placeholder="Nombre del ejercicio" class="input" />
+
+          <label for="series-ejercicio">Series:</label>
+          <input id="series-ejercicio" type="number" [(ngModel)]="ejercicioEditando.series" placeholder="Series" min="1" class="input" />
+
+          <label for="repeticiones-ejercicio">Repeticiones:</label>
+          <input id="repeticiones-ejercicio" type="number" [(ngModel)]="ejercicioEditando.repeticiones" placeholder="Repeticiones" min="1" class="input" />
+
+          <label for="descripcion-ejercicio">Descripción:</label>
+          <textarea id="descripcion-ejercicio" [(ngModel)]="ejercicioEditando.descripcion" rows="3" placeholder="Descripción" class="input"></textarea>
+
+          <div class="acciones-editar">
+            <button (click)="guardarEdicionEjercicio()" class="btn guardar">Guardar</button>
+            <button (click)="cancelarEdicion()" class="btn cancelar">Cancelar</button>
           </div>
-        </li>
-      </ul>
-    </div>
-  
-    <div class="nuevo-ejercicio">
-      <h4>Agregar Nuevo Ejercicio</h4>
-      <input type="text" [(ngModel)]="nuevoEjercicio.nombre" placeholder="Nombre del ejercicio" />
-      <input type="number" [(ngModel)]="nuevoEjercicio.series" placeholder="Series" min="1" />
-      <input type="number" [(ngModel)]="nuevoEjercicio.repeticiones" placeholder="Repeticiones" min="1" />
-      <textarea [(ngModel)]="nuevoEjercicio.descripcion" rows="3" placeholder="Descripción"></textarea>
-      <button (click)="agregarEjercicio()">Agregar Ejercicio</button>
-    </div>
-  
-    <button (click)="guardarPlan()" class="guardar-btn">Guardar Plan</button>
+        </div>
+      </li>
+    </ul>
   </div>
-  
+
+  <div class="nuevo-ejercicio">
+    <h4>Agregar Nuevo Ejercicio</h4>
+    <label for="nuevo-nombre-ejercicio">Nombre:</label>
+    <input id="nuevo-nombre-ejercicio" type="text" [(ngModel)]="nuevoEjercicio.nombre" placeholder="Nombre del ejercicio" class="input" />
+
+    <label for="nuevo-series-ejercicio">Series:</label>
+    <input id="nuevo-series-ejercicio" type="number" [(ngModel)]="nuevoEjercicio.series" placeholder="Series" min="1" class="input" />
+
+    <label for="nuevo-repeticiones-ejercicio">Repeticiones:</label>
+    <input id="nuevo-repeticiones-ejercicio" type="number" [(ngModel)]="nuevoEjercicio.repeticiones" placeholder="Repeticiones" min="1" class="input" />
+
+    <label for="nuevo-descripcion-ejercicio">Descripción:</label>
+    <textarea id="nuevo-descripcion-ejercicio" [(ngModel)]="nuevoEjercicio.descripcion" rows="3" placeholder="Descripción" class="input"></textarea>
+
+    <button (click)="agregarEjercicio()" class="btn agregar">Agregar Ejercicio</button>
+  </div>
+
+  <button (click)="guardarPlan()" class="guardar-btn">Guardar Plan</button>
+</div>

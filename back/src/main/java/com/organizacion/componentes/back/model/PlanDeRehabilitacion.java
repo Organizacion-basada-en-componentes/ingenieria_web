@@ -1,6 +1,10 @@
 package com.organizacion.componentes.back.model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.organizacion.componentes.back.model.Ejercicio;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -28,8 +32,10 @@ public class PlanDeRehabilitacion {
     private String fecha;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "plan_id") // Esto une los ejercicios al plan
-    private List<Ejercicio> ejercicios;
+    @JoinColumn(name = "plan_id")
+    @JsonManagedReference
+    private List<Ejercicio> ejercicios = new ArrayList<>();
+
 
     public PlanDeRehabilitacion() {
     }

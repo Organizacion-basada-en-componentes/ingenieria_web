@@ -1,6 +1,8 @@
+/* General landing page styles */
 .landing-page {
   background-color: var(--background);
-  padding: 40px 20px;
+  font-family: 'Arial', sans-serif;
+  padding: 60px 20px;
 }
 
 .landing-container {
@@ -9,99 +11,109 @@
   text-align: center;
 }
 
+/* Header Section */
 .landing-header {
+  background: linear-gradient(135deg, #5e81ac, #81a1c1);
+  color: #ffffff;
+  padding: 50px 20px;
+  border-radius: 10px;
   margin-bottom: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .landing-header h1 {
   font-size: 3rem;
-  color: var(--primary);
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+}
+
+.landing-header h1 span {
+  color: #eceff4;
 }
 
 .landing-header p {
   font-size: 1.2rem;
-  color: var(--text);
+  opacity: 0.9;
 }
 
+/* "Quiénes somos" Section */
 .who-we-are {
-  background-color: var(--secondary);
+  background: #eceff4;
   padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 40px;
-  border-radius: 8px;
 }
 
 .who-we-are h2 {
   font-size: 2.5rem;
-  color: var(--text);
+  color: #2e3440;
   margin-bottom: 20px;
 }
 
 .description {
   font-size: 1.2rem;
-  color: var(--text);
+  color: #4c566a;
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
 }
 
+/* Features Section */
 .features {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-top: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 .feature-item {
-  background-color: var(--cardBackground);
+  background: #ffffff;
   padding: 20px;
-  border-radius: 8px;
-  color: var(--cardText);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
 .feature-item h3 {
   font-size: 1.6rem;
-  color: var(--cardTitle);
+  color: #2e3440;
   margin-bottom: 10px;
 }
 
 .feature-item p {
   font-size: 1rem;
   line-height: 1.5;
+  color: #4c566a;
 }
 
-/* Media queries para pantallas pequeñas */
+/* Media Queries */
 @media (max-width: 768px) {
   .landing-header h1 {
-    font-size: 2.2rem; /* Reducir tamaño del título en pantallas pequeñas */
+    font-size: 2.5rem;
   }
 
   .landing-header p {
-    font-size: 1rem; /* Reducir el tamaño del párrafo */
+    font-size: 1rem;
   }
 
   .who-we-are h2 {
-    font-size: 2rem; /* Reducir el tamaño del subtítulo */
+    font-size: 2rem;
   }
 
   .description {
-    font-size: 1rem; /* Reducir el tamaño del texto de la descripción */
+    font-size: 1rem;
   }
 
   .features {
-    grid-template-columns: 1fr; /* Cambiar a una sola columna en pantallas pequeñas */
+    grid-template-columns: 1fr;
   }
 
   .feature-item {
-    padding: 15px; /* Reducir padding en las tarjetas */
-  }
-
-  .feature-item h3 {
-    font-size: 1.4rem; /* Reducir el tamaño del título en las características */
-  }
-
-  .feature-item p {
-    font-size: 0.9rem; /* Reducir el tamaño del texto en las características */
+    padding: 15px;
   }
 }
