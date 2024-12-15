@@ -229,71 +229,54 @@ button.agregar:hover {
 .nuevo-ejercicio textarea {
   margin-bottom: 20px; /* Ajusta el espacio entre los elementos */
 }
-/* Estilo para los títulos */
-.plan-rehabilitacion-medico h2 {
-  font-size: 2.4rem;
-  font-weight: 600;
-  color: #2d3436;
+
+/* Estilos para los títulos h1, h2, h3 */
+h1 {
+  font-size: 2.5rem; /* Tamaño grande para el título principal */
+  color: #2c3e50; /* Un color oscuro */
   text-align: center;
-  text-transform: capitalize;
-  letter-spacing: 1px;
-  margin: 30px 0;
-  padding: 15px;
-  background: #f0f4f8; /* Fondo suave en tono gris claro */
-  border-radius: 12px;
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1), -4px -4px 10px rgba(255, 255, 255, 0.9);
-  border: 1px solid #dfe6e9;
-  position: relative;
+  font-weight: 700;
+  margin-bottom: 20px; /* Espacio debajo */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre letras */
 }
 
-.plan-rehabilitacion-medico h2::before {
-  content: '';
-  position: absolute;
-  top: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 5px;
-  background: #7f8c8d; /* Color neutro suave */
-  border-radius: 10px;
-}
-
-.plan-rehabilitacion-medico h2::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 5px;
-  background: #bdc3c7; /* Color neutro suave */
-  border-radius: 10px;
-}
-
-
-/* Estilo para los subtítulos */
-.plan-ejercicios h3 {
-  font-size: 2rem;
+h2 {
+  font-size: 2rem; /* Un poco más pequeño que h1 */
+  color: #34495e; /* Color de texto oscuro */
+  text-align: center;
   font-weight: 600;
+  margin-bottom: 15px; /* Espacio debajo */
+  text-transform: capitalize; /* Solo la primera letra en mayúscula */
+  letter-spacing: 0.8px;
+  border-bottom: 2px solid #5e6c70; /* Línea debajo del título */
+  padding-bottom: 8px; /* Espacio entre texto y línea */
+}
+
+h3 {
+  font-size: 1.7rem; /* Más pequeño que h2 */
   color: #34495e;
   text-align: center;
-  margin: 20px 0;
-  padding: 12px;
-  background: linear-gradient(135deg, #f1f2f6, #e8e8e8);
-  border-radius: 10px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1), -4px -4px 8px rgba(255, 255, 255, 0.9);
-  border: 1px solid #dfe6e9;
-  position: relative;
+  font-weight: 500;
+  margin-bottom: 10px; /* Espacio debajo */
+  letter-spacing: 1px;
 }
 
-.plan-ejercicios h3::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50%;
-  height: 3px;
-  background: #4a90e2;
-  border-radius: 5px;
+/* Estilos del contenedor */
+.plan-rehabilitacion-medico {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: var(--input-bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition-duration);
+}
+
+.plan-rehabilitacion-medico:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
