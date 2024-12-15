@@ -1,0 +1,118 @@
+/* Contenedor principal */
+.pedir-cita-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--background);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--cardTitle);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .form-group label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #354b5e; /* Tonalidad más fuerte para las etiquetas */
+  }
+  
+  .form-group .form-control {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border: 1px solid var(--secondary);
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group .form-control:focus {
+    border-color: var(--tertiary);
+    box-shadow: 0 0 4px var(--tertiary);
+    outline: none;
+  }
+  
+  .form-group .is-invalid {
+    border-color: red;
+  }
+  
+  .invalid-feedback {
+    color: red;
+    font-size: 0.875rem;
+  }
+  
+  .btn-submit {
+    background-color: #5e6c70;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    align-self: center;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-submit:hover {
+    background-color: #4a5457;
+  }
+  
+  .divider {
+    margin: 2rem 0;
+    border: 1px solid var(--secondary);
+  }
+  
+  .sub-header {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #354b5e; /* Color más fuerte para Mis Citas */
+    margin-bottom: 1rem;
+    text-align: center; /* Centra el texto */
+  }
+  
+  /* Lista de citas */
+  .citas-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .cita-item {
+    margin-bottom: 1rem;
+  }
+  
+  .cita-card {
+    background-color: var(--cardBackground);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .cita-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .cita-card p {
+    margin: 0.5rem 0;
+    color: var(--cardText);
+  }
+  
+  .no-citas {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--cardText);
+    margin-top: 1rem;
+  }
+  
