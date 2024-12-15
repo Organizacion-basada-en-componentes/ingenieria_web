@@ -1,144 +1,162 @@
+/* Estilo para el host del componente, centrándolo vertical y horizontalmente */
 :host {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-    padding: 20px;
-    background-color: var(--background);
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .plan-rehabilitacion-medico {
-    width: 100%;
-    max-width: 800px;
-    background: var(--cardBackground);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-  }
-  
-  .plan-rehabilitacion-medico h2 {
-    font-size: 2rem;
-    color: var(--cardTitle);
-    margin-bottom: 20px;
-    text-align: center;
-  }
-  
-  .plan-rehabilitacion-medico label {
-    font-size: 1.1rem;
-    color: var(--cardText);
-    margin-bottom: 5px;
-  }
-  
-  .plan-rehabilitacion-medico input,
-  .plan-rehabilitacion-medico textarea {
-    width: 100%;
-    border: 1px solid var(--secondary);
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-    margin-bottom: 15px;
-    resize: none;
-    transition: border-color 0.3s;
-  }
-  
-  .plan-rehabilitacion-medico input:focus,
-  .plan-rehabilitacion-medico textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-  
-  .plan-ejercicios h3 {
-    font-size: 1.6rem;
-    color: var(--cardTitle);
-    margin-bottom: 15px;
-  }
-  
-  .plan-ejercicios ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .plan-ejercicios li {
-    margin-bottom: 20px;
-    padding: 15px;
-    background-color: var(--cardBackground);
-    border-radius: 5px;
-    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .plan-ejercicios button {
-    padding: 8px 15px;
-    font-size: 1rem;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 5px;
-    transition: background-color 0.3s;
-  }
-  
-  .plan-ejercicios button:hover {
-    background-color: var(--secondary);
-  }
-  
-  .nuevo-ejercicio h4 {
-    font-size: 1.6rem;
-    color: var(--cardTitle);
-    margin-bottom: 10px;
-  }
-  
-  .nuevo-ejercicio input,
-  .nuevo-ejercicio textarea {
-    margin-bottom: 10px;
-  }
-  
-  .nuevo-ejercicio button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background-color 0.3s;
-  }
-  
-  .nuevo-ejercicio button:hover {
-    background-color: var(--secondary);
-  }
-  
-  .guardar-btn {
-    padding: 10px 20px;
-    font-size: 1.2rem;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 30px;
-    align-self: center;
-    transition: background-color 0.3s;
-  }
-  
-  .guardar-btn:hover {
-    background-color: var(--secondary);
-  }
-  
-  textarea {
-    width: 100%;
-    border: 1px solid var(--secondary);
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-    resize: none;
-    transition: border-color 0.3s;
-  }
-  
-  textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-  
+  display: flex; /* Usa flexbox para una distribución flexible */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: flex-start; /* Alinea el contenido en la parte superior de la pantalla */
+  height: 100%; /* Asegura que ocupe toda la altura disponible */
+  padding: 20px; /* Agrega un espaciado interno para que el contenido no toque los bordes */
+  background-color: var(--background); /* Fondo de color definido por la variable */
+  font-family: 'Arial', sans-serif; /* Fuente para el texto */
+}
+
+/* Estilo para el contenedor principal del plan de rehabilitación */
+.plan-rehabilitacion-medico {
+  width: 100%; /* Ancho al 100% */
+  max-width: 800px; /* Ancho máximo de 800px */
+  background: var(--cardBackground); /* Fondo de color definido por la variable */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor */
+  padding: 20px; /* Espaciado interior */
+}
+
+/* Estilo para el título principal del plan de rehabilitación */
+.plan-rehabilitacion-medico h2 {
+  font-size: 2rem; /* Tamaño de fuente para el título */
+  color: var(--cardTitle); /* Color del título definido por la variable */
+  margin-bottom: 20px; /* Espaciado inferior */
+  text-align: center; /* Centrado del título */
+}
+
+/* Estilo para las etiquetas de los formularios */
+.plan-rehabilitacion-medico label {
+  font-size: 1.1rem; /* Tamaño de fuente para las etiquetas */
+  color: var(--cardText); /* Color del texto definido por la variable */
+  margin-bottom: 5px; /* Espaciado inferior de las etiquetas */
+}
+
+/* Estilo para los campos de entrada (input y textarea) */
+.plan-rehabilitacion-medico input,
+.plan-rehabilitacion-medico textarea {
+  width: 100%; /* Ocupan el 100% del ancho disponible */
+  border: 1px solid var(--secondary); /* Borde del campo con color definido por la variable */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  margin-bottom: 15px; /* Espaciado inferior */
+  resize: none; /* Deshabilita el redimensionado del textarea */
+  transition: border-color 0.3s; /* Transición suave al cambiar el color del borde */
+}
+
+/* Estilo para los campos de entrada al recibir el foco */
+.plan-rehabilitacion-medico input:focus,
+.plan-rehabilitacion-medico textarea:focus {
+  outline: none; /* Elimina el contorno por defecto */
+  border-color: var(--primary); /* Cambia el color del borde cuando se enfoca */
+}
+
+/* Estilo para el título de los ejercicios */
+.plan-ejercicios h3 {
+  font-size: 1.6rem; /* Tamaño de fuente para el título de ejercicios */
+  color: var(--cardTitle); /* Color del título */
+  margin-bottom: 15px; /* Espaciado inferior */
+}
+
+/* Estilo para las listas de ejercicios */
+.plan-ejercicios ul {
+  list-style-type: none; /* Elimina los puntos de lista */
+  padding: 0; /* Elimina el padding predeterminado */
+}
+
+/* Estilo para cada ejercicio individual */
+.plan-ejercicios li {
+  margin-bottom: 20px; /* Espaciado inferior entre los ejercicios */
+  padding: 15px; /* Espaciado interior */
+  background-color: var(--cardBackground); /* Fondo de color definido por la variable */
+  border-radius: 5px; /* Bordes redondeados */
+  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil alrededor */
+}
+
+/* Estilo para los botones de ejercicios */
+.plan-ejercicios button {
+  padding: 8px 15px; /* Tamaño y espaciado interno del botón */
+  font-size: 1rem; /* Tamaño de fuente */
+  background-color: var(--primary); /* Fondo del botón con color definido por la variable */
+  color: white; /* Color del texto del botón */
+  border: none; /* Elimina el borde del botón */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+  margin-top: 5px; /* Espaciado superior del botón */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+}
+
+/* Estilo para el botón de ejercicio al pasar el cursor (hover) */
+.plan-ejercicios button:hover {
+  background-color: var(--secondary); /* Cambia el color de fondo al pasar el cursor */
+}
+
+/* Estilo para el título del nuevo ejercicio */
+.nuevo-ejercicio h4 {
+  font-size: 1.6rem; /* Tamaño de fuente para el título */
+  color: var(--cardTitle); /* Color del título */
+  margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilo para los campos de entrada en el nuevo ejercicio */
+.nuevo-ejercicio input,
+.nuevo-ejercicio textarea {
+  margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilo para el botón de agregar nuevo ejercicio */
+.nuevo-ejercicio button {
+  padding: 10px 20px; /* Tamaño y espaciado interno del botón */
+  font-size: 1rem; /* Tamaño de fuente */
+  background-color: var(--primary); /* Fondo del botón */
+  color: white; /* Color del texto */
+  border: none; /* Elimina el borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano */
+  align-self: flex-start; /* Alinea el botón al inicio del contenedor */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color */
+}
+
+/* Estilo para el botón de nuevo ejercicio al pasar el cursor */
+.nuevo-ejercicio button:hover {
+  background-color: var(--secondary); /* Cambia el color de fondo */
+}
+
+/* Estilo para el botón de guardar */
+.guardar-btn {
+  padding: 10px 20px; /* Tamaño y espaciado interno */
+  font-size: 1.2rem; /* Tamaño de fuente */
+  background-color: var(--primary); /* Fondo del botón */
+  color: white; /* Color del texto */
+  border: none; /* Elimina el borde */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano */
+  margin-top: 30px; /* Espaciado superior */
+  align-self: center; /* Alinea el botón al centro */
+  transition: background-color 0.3s; /* Transición suave al cambiar el color */
+}
+
+/* Estilo para el botón de guardar al pasar el cursor */
+.guardar-btn:hover {
+  background-color: var(--secondary); /* Cambia el color de fondo */
+}
+
+/* Estilo para los campos de texto (textarea) */
+textarea {
+  width: 100%; /* Ocupa todo el ancho disponible */
+  border: 1px solid var(--secondary); /* Borde de color secundario */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de fuente */
+  resize: none; /* Deshabilita el redimensionado */
+  transition: border-color 0.3s; /* Transición suave al cambiar el borde */
+}
+
+/* Estilo para los campos de texto (textarea) al recibir el foco */
+textarea:focus {
+  outline: none; /* Elimina el contorno */
+  border-color: var(--primary); /* Cambia el color del borde al enfocar */
+}

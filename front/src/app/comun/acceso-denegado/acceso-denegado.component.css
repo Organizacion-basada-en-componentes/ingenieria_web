@@ -1,50 +1,72 @@
 /* Fondo de pantalla con un toque gracioso */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
- 
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px; /* Añadir padding para evitar que el contenido toque los bordes en móviles */
+}
+
+.error-container {
+  text-align: center;
+  background-color: #f5dab5;
+  padding: 5vw; /* Usar unidades relativas para que el padding sea proporcional al ancho de la pantalla */
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  max-width: 90%; /* Limitar el ancho en pantallas grandes */
+}
+
+/* Ajuste de la fuente para pantallas grandes y pequeñas */
+.error-message h1 {
+  font-size: 8vw; /* Usar vw para que el tamaño de la fuente sea proporcional al ancho de la ventana */
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  color: #9d7774;
+  margin-bottom: 10px;
+}
+
+.error-message p {
+  font-size: 4vw; /* Usar vw para tamaños de fuente proporcionales */
+  color: #333;
+  font-family: 'Arial', sans-serif;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #6d725f;
+  color: white;
+  font-size: 4vw; /* Usar vw en lugar de px */
+  padding: 2vw 4vw; /* Padding relativo al tamaño de la pantalla */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #ff0000;
+}
+
+button:active {
+  background-color: #ff0000;
+}
+
+/* Media queries para pantallas grandes */
+@media (min-width: 768px) {
   .error-container {
-    text-align: center;
-    background-color: #f5dab5;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      padding: 40px; /* Ajustar padding en pantallas grandes */
+      max-width: 60%; /* Ajustar ancho máximo en pantallas grandes */
   }
-  
+
   .error-message h1 {
-    font-size: 80px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    color: #9d7774;
-    margin-bottom: 10px;
+      font-size: 60px; /* Ajustar tamaño de la fuente */
   }
-  
+
   .error-message p {
-    font-size: 20px;
-    color: #333;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 20px;
+      font-size: 20px; /* Ajustar tamaño de la fuente */
   }
-  
+
   button {
-    background-color: #6d725f;
-    color: white;
-    font-size: 16px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+      font-size: 16px; /* Ajustar tamaño del texto del botón */
+      padding: 10px 20px; /* Ajustar padding del botón */
   }
-  
-  button:hover {
-    background-color: #ff0000;
-  }
-  
-  button:active {
-    background-color: #ff0000;
-  }
-  
+}

@@ -1,65 +1,98 @@
 :host {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-    padding: 20px;
-    background-color: var(--background);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 2rem; /* Se usa rem en lugar de px para que el padding sea relativo y adaptable */
+  background-color: var(--background);
+}
+
+.plan-rehabilitacion-paciente {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem; /* Cambié el padding a unidades relativas para mejorar la adaptabilidad */
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 3rem; /* Aumenté el margen inferior para mejorar el espaciado */
+}
+
+.plan-header h1 {
+  font-size: 2.5rem;
+  color: var(--cardTitle);
+  margin-bottom: 1.5rem; /* Ajusté el margen inferior */
+}
+
+.plan-item {
+  margin-bottom: 2rem; /* Aumenté el margen inferior para mejor separación entre los elementos */
+}
+
+.plan-card {
+  background-color: var(--cardBackground);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem; /* Cambié el padding a unidades relativas */
+}
+
+.plan-card h2 {
+  font-size: 1.8rem;
+  color: var(--cardTitle);
+  margin-bottom: 1rem; /* Ajusté el margen inferior */
+}
+
+.plan-card p {
+  font-size: 1.1rem;
+  color: var(--cardText);
+  margin-bottom: 1.5rem; /* Aumenté el margen inferior entre el párrafo y el botón */
+}
+
+button.seleccionar-btn {
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+button.seleccionar-btn:hover {
+  background-color: var(--tertiary);
+  color: var(--text);
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem; /* Reducir padding en pantallas pequeñas */
   }
-  
+
   .plan-rehabilitacion-paciente {
-    width: 100%;
-    max-width: 800px;
-  
-    padding: 20px;
+    padding: 1.5rem; /* Reducir padding dentro de la tarjeta */
   }
-  
-  .plan-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
+
   .plan-header h1 {
-    font-size: 2.5rem;
-    color: var(--cardTitle);
-    margin-bottom: 15px;
+    font-size: 2rem; /* Reducir el tamaño de la fuente para h1 */
+    margin-bottom: 1.2rem; /* Reducir el margen inferior */
   }
-  
-  .plan-item {
-    margin-bottom: 25px; /* Separa cada plan */
-  }
-  
+
   .plan-card {
-    background-color: var(--cardBackground);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 1.5rem; /* Reducir padding dentro de las tarjetas */
   }
-  
+
   .plan-card h2 {
-    font-size: 1.8rem;
-    color: var(--cardTitle);
-    margin-bottom: 10px;
+    font-size: 1.6rem; /* Reducir tamaño de la fuente */
+    margin-bottom: 1rem; /* Ajuste de márgenes */
   }
-  
+
   .plan-card p {
-    font-size: 1.1rem;
-    color: var(--cardText);
-    margin-bottom: 15px; /* Espacio entre la fecha y el botón */
+    font-size: 1rem; /* Reducir tamaño de la fuente de los párrafos */
+    margin-bottom: 1rem; /* Reducir espacio entre párrafo y botón */
   }
-  
+
   button.seleccionar-btn {
-    background-color: var(--secondary);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1.1rem;
+    font-size: 1rem; /* Reducir tamaño de fuente del botón */
+    padding: 8px 16px; /* Ajustar el padding del botón */
   }
-  
-  button.seleccionar-btn:hover {
-    background-color: var(--tertiary);
-    color: var(--text);
-  }
-  
+}

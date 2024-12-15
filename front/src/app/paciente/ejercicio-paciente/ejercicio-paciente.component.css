@@ -1,98 +1,134 @@
 :host {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 20px;
-    background-color: var(--background);
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .ejercicio-paciente {
-    width: 100%;
-    max-width: 500px;
-    background-color: var(--cardBackground2);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    padding: 20px;
-  }
-  
-  .exercise-card h2 {
-    font-size: 1.8rem;
-    color: var(--cardTitle);
-    text-align: center;
-    margin-bottom: 15px;
-  }
-  
-  .exercise-details {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .exercise-details p {
-    font-size: 1.1rem;
-    color: var(--cardText);
-    margin: 5px 0;
-  }
-  
-  .exercise-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-  
-  .checkbox-container {
-    display: flex;
-    align-items: center;
-    font-size: 1.1rem;
-    color: var(--cardText);
-    gap: 5px;  /* Reduce the gap to bring the checkbox and text closer */
-  }
-  
-  .checkbox-container input {
-    margin: 0;
-    width: auto; /* Ensures the checkbox doesn't stretch */
-    height: auto; /* Keeps the checkbox in its natural size */
-  }
-  
-  .comment-section {
-    margin-top: 10px;
-  }
-  
-  textarea {
-    width: 100%;
-    border: 1px solid var(--secondary);
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-    resize: none;
-    transition: border-color 0.3s;
-  }
-  
-  textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    background-color: var(--primary);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    align-self: flex-start;
-    transition: background-color 0.3s;
-  }
-  
-  button:hover {
-    background-color: var(--secondary);
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem; /* Cambié a unidades relativas */
+  background-color: var(--background);
+  font-family: 'Arial', sans-serif;
+}
 
-  /* CHECKBOX DE UIVERSE */
-  /* From Uiverse.io by guilhermeyohan */ 
+.ejercicio-paciente {
+  width: 100%;
+  max-width: 500px; /* Asegura que no se estire demasiado */
+  background-color: var(--cardBackground2);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  padding: 2rem; /* Cambié a unidades relativas */
+}
+
+.exercise-card h2 {
+  font-size: 1.8rem; /* Ajustado para que no sea demasiado grande */
+  color: var(--cardTitle);
+  text-align: center;
+  margin-bottom: 1rem; /* Ajusté el margen */
+}
+
+.exercise-details {
+  margin-bottom: 1.5rem; /* Ajusté el margen */
+  text-align: left;
+}
+
+.exercise-details p {
+  font-size: 1.1rem; /* Ajusté el tamaño de la fuente */
+  color: var(--cardText);
+  margin: 0.5rem 0; /* Ajusté los márgenes */
+}
+
+.exercise-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Aumenté el espacio entre los elementos */
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  font-size: 1.1rem;
+  color: var(--cardText);
+  gap: 0.5rem; /* Reducido el espacio entre el checkbox y el texto */
+}
+
+.checkbox-container input {
+  margin: 0;
+  width: auto; /* Se asegura de que el checkbox no se estire */
+  height: auto; /* Mantiene el tamaño original del checkbox */
+}
+
+.comment-section {
+  margin-top: 1rem; /* Aumenté el margen superior */
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid var(--secondary);
+  border-radius: 5px;
+  padding: 1rem; /* Cambié a unidades relativas */
+  font-size: 1rem;
+  resize: none;
+  transition: border-color 0.3s;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+button {
+  padding: 1rem 2rem; /* Ajusté el padding a unidades relativas */
+  font-size: 1rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary);
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  :host {
+    padding: 1rem; /* Reduce el padding en pantallas pequeñas */
+  }
+
+  .ejercicio-paciente {
+    max-width: 100%; /* Hace que el contenedor sea más flexible en pantallas pequeñas */
+    padding: 1.5rem; /* Ajusté el relleno */
+  }
+
+  .exercise-card h2 {
+    font-size: 1.6rem; /* Ajuste el tamaño del título */
+    margin-bottom: 1rem;
+  }
+
+  .exercise-details p {
+    font-size: 1rem; /* Reducí el tamaño de la fuente */
+  }
+
+  .exercise-actions {
+    gap: 1rem; /* Reduce el espacio entre los elementos */
+  }
+
+  .checkbox-container {
+    font-size: 1rem; /* Reducí el tamaño de la fuente */
+  }
+
+  textarea {
+    padding: 0.8rem; /* Reducido el padding */
+    font-size: 0.9rem; /* Ajusté el tamaño de la fuente */
+  }
+
+  button {
+    padding: 0.8rem 1.5rem; /* Ajusté el padding del botón */
+  }
+}
+
+/* Estilos para el checkbox personalizado */
 .checkbox-wrapper-31:hover .check {
   stroke-dashoffset: 0;
 }
@@ -107,7 +143,6 @@
 .checkbox-wrapper-31 .background {
   fill: #ccc;
   transition: ease all 0.6s;
-  -webkit-transition: ease all 0.6s;
 }
 
 .checkbox-wrapper-31 .stroke {
@@ -118,7 +153,6 @@
   stroke-dashoffset: 100;
   stroke-dasharray: 100;
   transition: ease all 0.6s;
-  -webkit-transition: ease all 0.6s;
 }
 
 .checkbox-wrapper-31 .check {
@@ -130,7 +164,6 @@
   stroke-dashoffset: 22;
   stroke-dasharray: 22;
   transition: ease all 0.6s;
-  -webkit-transition: ease all 0.6s;
 }
 
 .checkbox-wrapper-31 input[type=checkbox] {
@@ -141,8 +174,6 @@
   top: 0;
   margin: 0;
   opacity: 0;
-  -appearance: none;
-  -webkit-appearance: none;
 }
 
 .checkbox-wrapper-31 input[type=checkbox]:hover {

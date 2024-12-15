@@ -82,3 +82,29 @@ input.form-control::placeholder {
   color: var(--secondary);
   text-decoration: underline;
 }
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 15px;
+    margin: 10% auto; /* Ajuste para mayor espacio superior e inferior */
+    max-width: 90%; /* Ajustar el ancho máximo al 90% en pantallas pequeñas */
+  }
+
+  .btn-login {
+    padding: 12px; /* Aumentar ligeramente el padding para mejor usabilidad */
+  }
+
+  input.form-control {
+    padding: 8px; /* Reducir padding en campos de entrada */
+    font-size: 0.9rem; /* Ajustar el tamaño de fuente */
+  }
+
+  .login-container h2 {
+    font-size: 1.8rem; /* Reducir tamaño de fuente del título */
+  }
+
+  .register-prompt {
+    font-size: 0.85rem; /* Reducir tamaño del texto de registro */
+  }
+}

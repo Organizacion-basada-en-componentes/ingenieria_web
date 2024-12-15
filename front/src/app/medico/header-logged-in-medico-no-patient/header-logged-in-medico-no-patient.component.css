@@ -1,83 +1,108 @@
+/* Estilos para la cabecera */
 .header {
-    background-color: var(--primary);
-    color: var(--text2);
-    padding: 20px 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif;
-    
+    background-color: var(--primary); /* Color de fondo de la cabecera */
+    color: var(--text2); /* Color del texto */
+    padding: 20px 40px; /* Espaciado interior de la cabecera */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
+    font-family: 'Arial', sans-serif; /* Fuente general */
 }
 
+/* Contenedor de la cabecera */
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
+    display: flex; /* Usamos flexbox para alinear los elementos */
+    justify-content: space-between; /* Distribuye los elementos entre los extremos */
+    align-items: center; /* Alinea verticalmente */
+    max-width: 1200px; /* Ancho máximo de la cabecera */
+    margin: 0 auto; /* Centra el contenedor */
 }
 
+/* Estilo para el logo */
 .header-logo h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--tertiary);
+    font-size: 2.5rem; /* Tamaño grande para el título */
+    font-weight: bold; /* Negrita para destacar el título */
+    text-transform: uppercase; /* Convierte el texto a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    color: var(--tertiary); /* Color del texto del logo */
 }
 
+/* Contenedor de los botones de acción */
 .header-actions {
-    display: flex;
-    gap: 20px;
+    display: flex; /* Usamos flexbox para alinear los botones */
+    gap: 20px; /* Espaciado entre los botones */
 }
 
+/* Estilo para los botones */
 .btn {
-    position: relative;
-    padding: 12px 24px;
-    font-size: 1.15rem;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    color: var(--text);
-    transition: all 0.3s ease;
+    position: relative; /* Para usar el pseudoelemento ::after */
+    padding: 12px 24px; /* Espaciado interior del botón */
+    font-size: 1.15rem; /* Tamaño del texto */
+    font-weight: bold; /* Negrita para resaltar el texto */
+    cursor: pointer; /* El cursor cambia a mano al pasar sobre el botón */
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    color: var(--text); /* Color del texto */
+    transition: all 0.3s ease; /* Transición suave para los efectos */
 }
 
+/* Efecto del pseudoelemento ::after que se activa al pasar el mouse */
 .btn::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--tertiary);
-    transition: width 0.3s ease;
+    content: ""; /* Crea el pseudoelemento vacío */
+    position: absolute; /* Posiciona el pseudoelemento */
+    bottom: 0; /* Lo coloca al fondo del botón */
+    left: 0; /* Lo alinea a la izquierda */
+    width: 0; /* Inicialmente no tiene ancho */
+    height: 2px; /* Altura de la línea */
+    background-color: var(--tertiary); /* Color de la línea */
+    transition: width 0.3s ease; /* Transición suave para el efecto */
 }
 
+/* Efecto hover para el pseudoelemento, se expande */
 .btn:hover::after {
-    width: 100%;
+    width: 100%; /* La línea se expande a todo el ancho */
 }
 
+/* Efecto hover para cambiar el color del texto */
 .btn:hover {
-    color: var(--tertiary);
+    color: var(--tertiary); /* El color del texto cambia al color terciario */
 }
 
-/* Botones específicos */
-.home-btn {
-    color: var(--tertiary);
-}
-.communication-btn {
-    color: var(--tertiary);
+/* Estilos para los botones específicos */
+.home-btn, .communication-btn, .progress-btn, .rehab-btn, .logout-btn {
+    color: var(--tertiary); /* Los botones tienen el mismo color terciario */
 }
 
-.progress-btn {
-    color: var(--tertiary);
-}
-
-.rehab-btn {
-    color: var(--tertiary);
-}
-
-.logout-btn {
-    color: var(--tertiary);
-}
-
+/* Efecto hover para el botón de logout */
 .logout-btn:hover {
-    color: var(--tertiary);
+    color: var(--tertiary); /* Cambia el color del texto al pasar el cursor */
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) { /* Aplica estos estilos en pantallas de hasta 768px */
+    .header {
+        padding: 15px 20px; /* Reduce el padding en pantallas pequeñas */
+    }
+
+    .header-container {
+        flex-direction: column; /* Alinea los elementos en una columna */
+        align-items: flex-start; /* Alinea los elementos a la izquierda */
+        text-align: center; /* Centra los textos */
+    }
+
+    .header-logo h1 {
+        font-size: 2rem; /* Reduce el tamaño del logo en pantallas pequeñas */
+        margin-bottom: 10px; /* Añade un margen debajo del logo */
+    }
+
+    .header-actions {
+        flex-direction: column; /* Distribuye los botones en columnas */
+        gap: 10px; /* Reduce el espacio entre los botones */
+        width: 100%; /* Los botones ocupan todo el ancho */
+        align-items: center; /* Centra los botones */
+    }
+
+    .btn {
+        font-size: 1rem; /* Reduce el tamaño del texto del botón */
+        padding: 10px 20px; /* Reduce el padding de los botones */
+        width: 80%; /* Los botones ocupan el 80% del ancho disponible */
+        text-align: center; /* Centra el texto en los botones */
+    }
 }

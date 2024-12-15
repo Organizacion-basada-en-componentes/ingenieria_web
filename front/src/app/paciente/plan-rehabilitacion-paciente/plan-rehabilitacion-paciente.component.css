@@ -1,62 +1,83 @@
 :host {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    height: 100%;
-    padding: 20px;
-    background-color: var(--background);
-    font-family: 'Arial', sans-serif;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100%;
+  padding: 2rem; /* Se usa rem en lugar de px para que el padding sea relativo y adaptable */
+  background-color: var(--background);
+  font-family: 'Arial', sans-serif;
+}
+
+.plan-rehabilitacion-paciente {
+  width: 100%;
+  max-width: 600px;
+  background: var(--cardBackground);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem; /* Cambié el padding a unidades relativas para mejorar la adaptabilidad */
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 3rem; /* Aumenté el margen inferior para mejorar el espaciado */
+}
+
+.plan-header h2 {
+  font-size: 2rem;
+  color: var(--cardTitle);
+  margin-bottom: 1rem; /* Ajusté el margen inferior */
+}
+
+.plan-header p {
+  font-size: 1.1rem;
+  color: var(--cardText);
+}
+
+.plan-ejercicios {
+  margin-top: 2rem; /* Aumenté el margen superior para mayor separación entre secciones */
+}
+
+.plan-ejercicios h3 {
+  font-size: 1.6rem;
+  color: var(--cardTitle);
+  margin-bottom: 1.5rem; /* Aumenté el margen inferior para mayor separación */
+}
+
+.plan-ejercicios ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ejercicio-info {
+  font-size: 1.1rem;
+  color: var(--cardText);
+}
+
+.ejercicio-info p {
+  margin: 5px 0;
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 768px) {
   .plan-rehabilitacion-paciente {
-    width: 100%;
-    max-width: 600px;
-    background: var(--cardBackground);
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    
+    padding: 1.5rem; /* Reducir padding para pantallas pequeñas */
   }
-  
-  .plan-header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-  
+
   .plan-header h2 {
-    font-size: 2rem;
-    color: var(--cardTitle);
-    margin-bottom: 10px;
+    font-size: 1.8rem; /* Reducir el tamaño de la fuente para h2 */
+    margin-bottom: 1rem; /* Reducir el margen inferior */
   }
-  
+
   .plan-header p {
-    font-size: 1.1rem;
-    color: var(--cardText);
+    font-size: 1rem; /* Reducir el tamaño de la fuente de los párrafos */
   }
-  
-  .plan-ejercicios {
-    margin-top: 20px;
-  }
-  
+
   .plan-ejercicios h3 {
-    font-size: 1.6rem;
-    color: var(--cardTitle);
-    margin-bottom: 15px;
+    font-size: 1.4rem; /* Reducir el tamaño de la fuente para h3 */
+    margin-bottom: 1.2rem; /* Reducir el margen inferior */
   }
-  
-  .plan-ejercicios ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
- 
-  
+
   .ejercicio-info {
-    font-size: 1.1rem;
-    color: var(--cardText);
+    font-size: 1rem; /* Reducir el tamaño de la fuente */
   }
-  
-  .ejercicio-info p {
-    margin: 5px 0;
-  }
-  
+}
