@@ -1,4 +1,15 @@
 /* From Uiverse.io by milley69 */
+/* posicion absoluta en el centro de la pantalla y por encima de todo */
+.loading {
+  /* fondo negro transparente suave */
+  
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
 .loading svg polyline {
   fill: none;
   stroke-width: 3;
@@ -8,12 +19,12 @@
 
 .loading svg polyline#back {
   fill: none;
-  stroke: #ff4d5033;
+  stroke: #00000055;
 }
 
 .loading svg polyline#front {
   fill: none;
-  stroke: #ff4d4f;
+  stroke: #2f6abc;
   stroke-dasharray: 48, 144;
   stroke-dashoffset: 192;
   animation: dash_682 1.4s linear infinite;

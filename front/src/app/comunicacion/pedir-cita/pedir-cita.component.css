@@ -1,0 +1,123 @@
+/* Estilo para el contenedor principal */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 30px;
+    min-height: 100vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos entre sí */
+    gap: 30px; /* Espacio entre las secciones */
+    flex-wrap: wrap; /* Permite que los elementos se ajusten */
+  }
+  
+  /* Estilo para la sección del formulario (izquierda) */
+  .form-container {
+    background-color: var(--cardBackground);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 600px; /* Limita el ancho del formulario */
+    flex: 1 1 100%; /* Flexibilidad para que ocupe todo el ancho disponible */
+    height: fit-content; /* Ajusta la altura al contenido */
+    color: var(--cardText);
+  }
+  
+  /* Estilo para la sección de citas (derecha) */
+  .citas-container {
+    width: 30%; /* Tamaño de la sección de citas */
+    min-width: 250px; /* Ajusta para pantallas pequeñas */
+    flex: 1 1 30%; /* Se adapta en pantallas pequeñas */
+  }
+  
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--cardTitle);
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    color: #2d3a3b;
+    margin-top: 40px;
+  }
+  
+  ul.list-group {
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+  }
+  
+  .list-group-item {
+    background-color: var(--secondary);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .list-group-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .list-group-item strong {
+    display: block;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  /* Estilo cuando no hay citas */
+  .text-muted {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #7f8c8d;
+  }
+  
+  /* Media Query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column; /* Cambia a diseño vertical en pantallas pequeñas */
+      width: 95%;
+      padding: 20px;
+    }
+  
+    .form-container {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .citas-container {
+      width: 100%;
+      margin-top: 20px;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    h2 {
+      font-size: 1.8rem;
+    }
+  
+    label {
+      font-size: 1rem;
+    }
+  
+    input[type="date"],
+    input[type="time"],
+    textarea {
+      font-size: 0.9rem;
+    }
+  
+    button[type="submit"] {
+      font-size: 1rem;
+      padding: 12px 25px;
+    }
+  }
+  

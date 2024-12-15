@@ -61,7 +61,10 @@ button.seleccionar-btn:hover {
   background-color: var(--tertiary);
   color: var(--text);
 }
+button.crear-btn {
 
+  margin-bottom: 5%;
+}
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
   .plan-rehabilitacion-paciente {
@@ -84,4 +87,5 @@ button.seleccionar-btn:hover {
     font-size: 1rem; /* Asegura que el tamaño del texto en el botón no sea demasiado pequeño */
     padding: 0.5rem 1rem; /* Ajusta el espaciado en pantallas más pequeñas */
   }
+
 }

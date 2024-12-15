@@ -3,6 +3,7 @@
   width: 80%; /* El contenedor ocupa el 80% del ancho de la pantalla */
   margin: 0 auto; /* Centrado horizontal del contenedor */
   padding: 20px; /* Espaciado interior del contenedor */
+  min-height: 100vh; /* Altura mínima del contenedor para ocupar toda la pantalla */
 }
 
 /* Estilo para el encabezado */
@@ -19,8 +20,8 @@
 }
 
 /* Secciones de pacientes y alertas, cada una ocupa el 48% del contenedor */
-.pacientes, .alertas {
-  width: 48%; /* Cada sección ocupa un 48% del ancho disponible */
+.pacientes {
+  width: 100%; /* Cada sección ocupa un 48% del ancho disponible */
 }
 
 /* Estilos para las tablas */

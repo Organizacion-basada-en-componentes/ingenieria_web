@@ -9,10 +9,13 @@ export class LoadingService {
   public readonly loadingStatus = this._loading.asObservable();
 
   show(): void {
-    this._loading.next(true);
+    this._loading.next(true);  // Muestra el loading
   }
 
   hide(): void {
-    this._loading.next(false);
+    // Introduce un retraso de 1 segundo (1000ms) antes de ocultar el loading
+    setTimeout(() => {
+      this._loading.next(false);  // Oculta el loading después del retraso
+    }, 1000);  // Puedes ajustar el tiempo aquí
   }
 }
