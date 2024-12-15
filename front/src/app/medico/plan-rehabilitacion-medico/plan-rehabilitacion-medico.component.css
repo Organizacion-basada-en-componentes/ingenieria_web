@@ -1,15 +1,25 @@
+.plan-rehabilitacion-medico label {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  color: #34495e;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+
 /* Estilos del input personalizados */ 
 .input {
   border: none;
   padding: 1rem;
   border-radius: 1rem;
-  box-shadow: 4px 4px 8px #d4d4d4, -4px -4px 8px #f5f5f5; /* Sombra menos contrastada */
+  box-shadow: 4px 4px 8px #d4d4d4; /* Sombra menos contrastada */
   transition: 0.3s;
 }
 
 .input:focus {
   outline: none;
-  box-shadow: inset 3px 3px 6px #d4d4d4, inset -3px -3px 6px #f5f5f5; /* Sombra interna más ligera */
+  box-shadow: inset 3px 3px 6px #d4d4d4; /* Sombra interna más ligera */
   transition: 0.3s;
 }
 
@@ -218,4 +228,55 @@ button.agregar:hover {
 .nuevo-ejercicio input,
 .nuevo-ejercicio textarea {
   margin-bottom: 20px; /* Ajusta el espacio entre los elementos */
+}
+
+/* Estilos para los títulos h1, h2, h3 */
+h1 {
+  font-size: 2.5rem; /* Tamaño grande para el título principal */
+  color: #2c3e50; /* Un color oscuro */
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 20px; /* Espacio debajo */
+  text-transform: uppercase; /* Texto en mayúsculas */
+  letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+h2 {
+  font-size: 2rem; /* Un poco más pequeño que h1 */
+  color: #34495e; /* Color de texto oscuro */
+  text-align: center;
+  font-weight: 600;
+  margin-bottom: 15px; /* Espacio debajo */
+  text-transform: capitalize; /* Solo la primera letra en mayúscula */
+  letter-spacing: 0.8px;
+  border-bottom: 2px solid #5e6c70; /* Línea debajo del título */
+  padding-bottom: 8px; /* Espacio entre texto y línea */
+}
+
+h3 {
+  font-size: 1.7rem; /* Más pequeño que h2 */
+  color: #34495e;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 10px; /* Espacio debajo */
+  letter-spacing: 1px;
+}
+
+/* Estilos del contenedor */
+.plan-rehabilitacion-medico {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 30px;
+  background-color: var(--input-bg-color);
+  border-radius: var(--border-radius);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  transition: box-shadow var(--transition-duration);
+}
+
+.plan-rehabilitacion-medico:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
