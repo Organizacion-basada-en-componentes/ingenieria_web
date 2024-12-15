@@ -1,23 +1,23 @@
 .selected-patient {
   background-color: var(--background);
-  padding: 40px 20px;
+  padding: 3rem 2rem; /* Usando unidades relativas */
 }
 
 .selected-patient-container {
-  max-width: 1200px;
+  max-width: 90%; /* Asegura que el contenedor no sea demasiado ancho en pantallas grandes */
   margin: 0 auto;
   text-align: center;
 }
 
 .selected-patient-header {
-  margin-bottom: 40px;
+  margin-bottom: 3rem; /* Ajustado el margen */
 }
 
 .selected-patient-header h1 {
-  font-size: 3rem;
+  font-size: 2.5rem; /* Ajustado para que se vea bien */
   color: var(--primary);
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .selected-patient-header p {
@@ -27,46 +27,82 @@
 
 .patient-info {
   background-color: var(--secondary);
-  padding: 40px 20px;
-  margin-bottom: 40px;
-  border-radius: 8px;
+  padding: 3rem 2rem; /* Relleno relativo */
+  margin-bottom: 3rem;
+  border-radius: 0.5rem; /* Bordes más suaves */
 }
 
 .patient-info h2 {
-  font-size: 2.5rem;
+  font-size: 2rem; /* Tamaño de fuente relativo */
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
 }
 
 .patient-info ul {
   font-size: 1.2rem;
   color: var(--text);
   line-height: 1.6;
-  max-width: 800px;
+  max-width: 70%; /* Ajusta el ancho máximo para que no se extienda demasiado */
   margin: 0 auto;
   list-style: none;
   padding: 0;
 }
 
 .patient-info ul li {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .no-patient {
   font-size: 1.5rem;
   color: var(--text);
   text-align: center;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .no-patient h2 {
-  font-size: 2rem;
+  font-size: 1.8rem; /* Ajusta el tamaño de fuente */
   color: var(--primary);
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .no-patient p {
   font-size: 1rem;
   color: var(--text);
   line-height: 1.5;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .selected-patient {
+    padding: 2rem 1rem; /* Reduce el relleno en pantallas pequeñas */
+  }
+
+  .selected-patient-container {
+    max-width: 95%; /* Aumenta el ancho en pantallas pequeñas */
+  }
+
+  .selected-patient-header h1 {
+    font-size: 2rem; /* Reduce el tamaño del título */
+  }
+
+  .patient-info {
+    padding: 2rem 1rem; /* Reduce el relleno */
+  }
+
+  .patient-info h2 {
+    font-size: 1.6rem; /* Ajusta el tamaño de subtítulo */
+  }
+
+  .patient-info ul {
+    font-size: 1rem; /* Reduce el tamaño de texto en pantallas pequeñas */
+    max-width: 90%; /* Ajusta el ancho de la lista */
+  }
+
+  .no-patient h2 {
+    font-size: 1.6rem; /* Ajusta el tamaño de h2 */
+  }
+
+  .no-patient p {
+    font-size: 0.9rem; /* Reduce el tamaño de texto en pantallas pequeñas */
+  }
 }

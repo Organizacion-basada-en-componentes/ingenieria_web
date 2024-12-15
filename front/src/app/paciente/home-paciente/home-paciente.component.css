@@ -1,9 +1,9 @@
 .container {
-  padding: 40px 20px;
+  padding: 4rem 2rem; /* Se usa unidades relativas */
   border-radius: 8px;
-  max-width: 800px;
+  max-width: 100%; /* Asegura que se ajuste a pantallas más pequeñas */
+  width: 100%;
   margin: 0 auto;
-
 }
 
 .container h1 {
@@ -11,22 +11,22 @@
   color: var(--cardTitle);
   font-weight: bold;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 3rem; /* Se ajustó el margen inferior */
 }
 
 .container h2 {
   font-size: 2rem;
   color: var(--cardTitle);
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
   border-bottom: 2px solid var(--primary);
-  padding-bottom: 5px;
+  padding-bottom: 0.5rem;
 }
 
 .container p {
   font-size: 1.2rem;
   color: var(--cardText);
   line-height: 1.6;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .container strong {
@@ -35,11 +35,37 @@
 
 .container div {
   background-color: var(--cardBackground);
-  padding: 20px;
+  padding: 2rem; /* Se ajusta el padding */
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 .container div:last-child {
   margin-bottom: 0;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem 1rem; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  .container h1 {
+    font-size: 2rem; /* Reducir el tamaño de la fuente en pantallas pequeñas */
+    margin-bottom: 2rem;
+  }
+
+  .container h2 {
+    font-size: 1.7rem; /* Reducir el tamaño de la fuente */
+    margin-bottom: 1.2rem;
+  }
+
+  .container p {
+    font-size: 1rem; /* Reducir el tamaño de la fuente */
+    margin-bottom: 0.8rem;
+  }
+
+  .container div {
+    padding: 1.5rem; /* Reducir padding dentro de los divs */
+  }
 }

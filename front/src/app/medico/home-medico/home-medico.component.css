@@ -1,53 +1,88 @@
+/* Estilo para el contenedor principal de la sección médica */
 .home-medico {
-  width: 90%;
-  margin: 0 auto;
-  padding: 20px;
+  width: 80%; /* El contenedor ocupa el 80% del ancho de la pantalla */
+  margin: 0 auto; /* Centrado horizontal del contenedor */
+  padding: 20px; /* Espaciado interior del contenedor */
 }
 
+/* Estilo para el encabezado */
 .header {
-  text-align: center;
-  margin-bottom: 20px;
+  text-align: center; /* Centra el texto del encabezado */
+  margin-bottom: 20px; /* Espaciado inferior para separar del contenido */
 }
 
+/* Contenedor de contenido, con distribución flexible */
 .contenido {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
+  display: flex; /* Usa flexbox para organizar los elementos */
+  justify-content: space-between; /* Distribuye el espacio entre los elementos */
+  gap: 20px; /* Espaciado entre las secciones */
 }
 
+/* Secciones de pacientes y alertas, cada una ocupa el 48% del contenedor */
 .pacientes, .alertas {
-  width: 48%; /* Cada sección ocupa un 48% del ancho */
+  width: 48%; /* Cada sección ocupa un 48% del ancho disponible */
 }
 
+/* Estilos para las tablas */
 table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-  margin: 0 auto;
-  background: var(--tertiary);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-  overflow: hidden;
+  width: 100%; /* La tabla ocupa todo el ancho disponible */
+  border-collapse: separate; /* Separa las celdas de la tabla */
+  border-spacing: 0; /* Elimina el espacio entre las celdas */
+  margin: 0 auto; /* Centra la tabla */
+  background: var(--tertiary); /* Color de fondo de la tabla */
+  border-radius: 10px; /* Bordes redondeados en la tabla */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra sutil alrededor de la tabla */
+  overflow: hidden; /* Oculta cualquier contenido que se desborde */
 }
 
+/* Estilo de las celdas de la tabla */
 th, td {
-  padding: 10px;
-  text-align: center;
+  padding: 10px; /* Espaciado interior de las celdas */
+  text-align: center; /* Centra el contenido de las celdas */
 }
 
+/* Estilo para el encabezado de la tabla */
 th {
-  background-color: #f1f1f1;
+  background-color: #f1f1f1; /* Fondo claro para las celdas de encabezado */
 }
 
+/* Estilo para los botones */
 .btn {
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 5px;
+  background-color: var(--primary); /* Color de fondo del botón */
+  color: white; /* Color del texto del botón */
+  border: none; /* Elimina el borde del botón */
+  padding: 10px 20px; /* Tamaño y espaciado interior del botón */
+  cursor: pointer; /* Cambia el cursor a mano cuando pasa sobre el botón */
+  border-radius: 5px; /* Bordes redondeados en el botón */
 }
 
+/* Efecto hover para los botones */
 .btn:hover {
-  background-color: var(--secondary);
+  background-color: var(--secondary); /* Cambia el color de fondo del botón al pasar el cursor */
+}
+
+/* Media Query para pantallas más pequeñas */
+@media (max-width: 768px) { /* Aplica estos estilos para pantallas de hasta 768px */
+  .home-medico {
+    width: 95%; /* Aumenta el ancho del contenedor a 95% en pantallas pequeñas */
+    padding: 15px; /* Reduce el padding para ahorrar espacio */
+  }
+
+  .contenido {
+    flex-direction: column; /* Coloca las secciones de pacientes y alertas en una columna */
+    gap: 15px; /* Reduce el espacio entre las secciones */
+  }
+
+  .pacientes, .alertas {
+    width: 100%; /* Las secciones ocupan todo el ancho disponible en pantallas pequeñas */
+  }
+
+  table {
+    font-size: 0.9rem; /* Reduce el tamaño de fuente de la tabla para mejorar la visibilidad en pantallas pequeñas */
+  }
+
+  .btn {
+    width: 100%; /* Los botones ocupan el 100% del ancho en pantallas pequeñas */
+    padding: 12px 20px; /* Ajusta el tamaño del padding para botones más grandes en dispositivos móviles */
+  }
 }

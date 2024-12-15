@@ -4,7 +4,6 @@
     padding: 20px 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
-    
 }
 
 .header-container {
@@ -26,6 +25,8 @@
 .header-actions {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap; /* Permite que los botones se distribuyan en múltiples líneas si es necesario */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
 }
 
 .btn {
@@ -59,25 +60,45 @@
 }
 
 /* Botones específicos */
-.home-btn {
-    color: var(--tertiary);
-}
-.communication-btn {
-    color: var(--tertiary);
-}
-
-.progress-btn {
-    color: var(--tertiary);
-}
-
-.rehab-btn {
-    color: var(--tertiary);
-}
-
+.home-btn,
+.communication-btn,
+.progress-btn,
+.rehab-btn,
 .logout-btn {
     color: var(--tertiary);
 }
 
 .logout-btn:hover {
     color: var(--tertiary);
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px 20px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .header-logo h1 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .header-actions {
+        flex-direction: row; /* Asegura que los botones se alineen en una fila */
+        gap: 10px;
+        width: 100%;
+        justify-content: flex-start; /* Alinea los botones a la izquierda */
+        flex-wrap: wrap; /* Los botones se ajustan a nuevas líneas si no hay espacio suficiente */
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        width: auto; /* Ajusta el ancho de los botones */
+    }
 }
