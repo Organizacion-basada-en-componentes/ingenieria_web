@@ -16,6 +16,6 @@ export class LoadingService {
     // Introduce un retraso de 1 segundo (1000ms) antes de ocultar el loading
     setTimeout(() => {
       this._loading.next(false);  // Oculta el loading después del retraso
-    }, 1000);  // Puedes ajustar el tiempo aquí
+    }, 500);  // Puedes ajustar el tiempo aquí
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SelectedPatientService } from '../../services/selected-patient.service';
 import { HttpClient } from '@angular/common/http';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-plan-rehabilitacion-medico',
@@ -36,7 +37,8 @@ export class PlanRehabilitacionMedicoComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private selectedPatientService: SelectedPatientService,
-    private http: HttpClient
+    private http: HttpClient,
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit(): void {
@@ -99,6 +101,7 @@ export class PlanRehabilitacionMedicoComponent implements OnInit {
   }
 
   guardarPlan() {
+    this.loadingService.show();
     if (!this.paciente || !this.paciente.id) {
       alert('No se puede guardar el plan porque no se ha seleccionado un paciente válido.');
       return;
@@ -111,11 +114,14 @@ export class PlanRehabilitacionMedicoComponent implements OnInit {
     this.http.post(url, this.plan).subscribe({
       next: (response) => {
         console.log('Plan guardado exitosamente:', response);
-        alert('Plan de rehabilitación guardado con éxito.');
+        this.loadingService.hide();
         this.router.navigate(['rehabilitacion-medico']);
+        alert('Plan de rehabilitación guardado con éxito.');
+
       },
       error: (error) => {
         console.error('Error al guardar el plan:', error);
+        this.loadingService.hide();
         alert('Hubo un error al guardar el plan. Por favor, intenta nuevamente.');
       }
     });

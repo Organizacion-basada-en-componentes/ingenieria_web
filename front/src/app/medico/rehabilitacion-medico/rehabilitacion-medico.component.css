@@ -8,7 +8,6 @@
   padding: 2rem;
   background-color: var(--background);
   border-radius: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 2rem auto;
 }
 
@@ -17,27 +16,13 @@
   margin-bottom: 2rem;
 }
 
-.plan-header h1 {
+h1 {
   font-size: 2.5rem;
-  color: var(--cardTitle);
+  color: var(--primary);
   font-weight: 600;
 }
 
-.crear-btn {
-  background-color: #5e6c70; /* Color sólido */
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 30px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  margin-bottom: 2rem;
-  transition: all 0.3s ease;
-}
 
-.crear-btn:hover {
-  background-color: #4a5457; /* Color más oscuro en hover */
-}
 
 /* Estilos de los planes */
 .plan-item {
@@ -69,16 +54,6 @@
   margin-bottom: 1.5rem;
 }
 
-button.editar-btn {
-  background-color: var(--secondary);
-  color: white;
-  border: none;
-  padding: 0.625rem 1.25rem;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: all 0.3s ease;
-}
 
 button.editar-btn:hover {
   background-color: var(--tertiary);

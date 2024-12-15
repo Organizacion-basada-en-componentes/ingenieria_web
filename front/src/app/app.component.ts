@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Observable } from 'rxjs';
 import { SelectedPatientService } from './services/selected-patient.service';
-
+import { LoadingService } from './services/loading.service';
 @Component({
   selector: 'app-root',
   standalone: false,

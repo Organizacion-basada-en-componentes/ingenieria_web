@@ -4,6 +4,7 @@ import { PacienteService } from '../../services/paciente.service'; // Servicio p
 import { SelectedPatientService } from '../../services/selected-patient.service'; // Servicio para obtener el paciente seleccionado
 import { HomeMedicoService } from '../../services/home-medico.service';
 import { HttpClient } from '@angular/common/http';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
   selector: 'app-pedir-cita',
@@ -27,7 +28,8 @@ export class PedirCitaComponent implements OnInit {
     private http: HttpClient,
     private homeMedicoService: HomeMedicoService,
     private pacienteService: PacienteService, // Inyectar el servicio de paciente
-    private selectedPatientService: SelectedPatientService // Inyectamos el servicio del paciente seleccionado
+    private selectedPatientService: SelectedPatientService, // Inyectamos el servicio del paciente seleccionado
+    private loadingService: LoadingService 
   ) {}
 
   ngOnInit(): void {
@@ -111,6 +113,7 @@ export class PedirCitaComponent implements OnInit {
 
   // Método para enviar el formulario y pedir una cita
   onSubmit(): void {
+    this.loadingService.show();
     if (this.pedirCitaForm.invalid) {
       return;
     }
@@ -129,9 +132,11 @@ export class PedirCitaComponent implements OnInit {
         console.log('Cita pedida:', cita); // Debugging
         this.loadCitas(); // Recargar la lista de citas
         this.pedirCitaForm.reset(); // Limpiar el formulario
+        this.loadingService.hide();
       },
       error: (err) => {
         console.error('Error al pedir la cita:', err);
+        this.loadingService.hide();
       },
     });
    

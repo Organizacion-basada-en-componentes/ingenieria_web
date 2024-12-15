@@ -13,13 +13,25 @@
 
 /* Header Section */
 .landing-header {
-  background: linear-gradient(135deg, #5e81ac, #81a1c1);
+  background: var(--secondary);
   color: #ffffff;
   padding: 50px 20px;
   border-radius: 10px;
   margin-bottom: 40px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row; /* Hace que los elementos se alineen verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center; /* Alinea el texto dentro del div */
 }
+
+.landing-header img {
+  max-width: 150px; /* Establece un tamaño máximo para la imagen */
+  height: auto; /* Mantiene la proporción de la imagen */
+  margin-top: 20px; /* Opcional, para agregar espacio entre el texto y la imagen */
+}
+
 
 .landing-header h1 {
   font-size: 3rem;
@@ -67,7 +79,7 @@
 }
 
 .feature-item {
-  background: #ffffff;
+  background: #d0dce6;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);

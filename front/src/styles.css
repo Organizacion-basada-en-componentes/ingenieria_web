@@ -152,10 +152,101 @@
     margin: 20px auto;
   }
   
+
+
+
+
+
+
+/* Estilos generales para la alerta */
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #b4e1ff; /* Azul pastel */
+  color: #333;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s ease, transform 0.3s ease;
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Desvanecer la alerta */
+.custom-alert.fade-out {
+  opacity: 0;
+  transform: translateY(-20px); /* Mueve hacia arriba al desaparecer */
+}
+
+/* Tipos de alerta con tonos pastel */
+.custom-alert.alert-success {
+  background-color: #81d4b5; /* Verde pastel */
+  border: 1px solid #80d4a7;
+  color: #F1F0E8;
+}
+
+.custom-alert.alert-error {
+  background-color: #ffadad; /* Rojo pastel */
+  border: 1px solid #ff7b7b;
+}
+
+.custom-alert.alert-warning {
+  background-color: #ffe6a7; /* Amarillo pastel */
+  border: 1px solid #ffd166;
+}
+
+.custom-alert.alert-info {
+  background-color: #b4e1ff; /* Azul pastel */
+  border: 1px solid #7ec8ff;
+}
+
+/* Animación para que desaparezca la alerta */
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   /* ===================================
      Media Queries (Estilos Responsivos)
      =================================== */
   
+
+
   /* Estilos para pantallas pequeñas (dispositivos móviles) */
   @media (max-width: 768px) {
     body {
