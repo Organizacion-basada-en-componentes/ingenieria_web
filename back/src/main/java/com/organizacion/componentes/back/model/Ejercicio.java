@@ -1,10 +1,9 @@
 package com.organizacion.componentes.back.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.organizacion.componentes.back.model.PlanDeRehabilitacion;
 
 @Entity
 public class Ejercicio {
@@ -31,6 +30,12 @@ public class Ejercicio {
     @Column(nullable = true)
     private String comentario;
 
+    @ManyToOne
+    @JoinColumn(name = "plan_id", nullable = true)
+    @JsonBackReference
+    private PlanDeRehabilitacion planDeRehabilitacion;
+
+
     public Ejercicio() {
     }
 
@@ -51,18 +56,31 @@ public class Ejercicio {
     public void setId(Long id) {
         this.id = id;
     }
+
+    public PlanDeRehabilitacion getPlanDeRehabilitacion() {
+        return planDeRehabilitacion;
+    }
+
+    public void setPlanDeRehabilitacion(PlanDeRehabilitacion planDeRehabilitacion) {
+        this.planDeRehabilitacion = planDeRehabilitacion;
+    }
+
     public Boolean getCompletado() {
         return completado;
     }
+
     public void setCompletado(Boolean completado) {
         this.completado = completado;
     }
+
     public String getComentario() {
         return comentario;
     }
+
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
+
     public String getNombre() {
         return nombre;
     }

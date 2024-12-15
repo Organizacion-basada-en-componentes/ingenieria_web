@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import jakarta.transaction.Transactional;
 
+import com.organizacion.componentes.back.model.Ejercicio;
 import com.organizacion.componentes.back.model.PlanDeRehabilitacion;
 import com.organizacion.componentes.back.repository.PlanDeRehabilitacionRepository;
 
@@ -27,9 +29,24 @@ public class PlanDeRehabilitacionService {
         return planRepository.findById(id).orElseThrow(() -> new RuntimeException("Plan no encontrado"));
     }
 
+    @Transactional
     public PlanDeRehabilitacion actualizarPlan(PlanDeRehabilitacion plan) {
-        return planRepository.save(plan);
+        PlanDeRehabilitacion planExistente = planRepository.findById(plan.getId())
+                .orElseThrow(() -> new RuntimeException("Plan no encontrado"));
+
+        // Actualizar campos
+        planExistente.setNombre(plan.getNombre());
+        planExistente.setIdPaciente(plan.getIdPaciente());
+
+        // Asegúrate de que los ejercicios estén correctamente vinculados
+        for (Ejercicio ejercicio : plan.getEjercicios()) {
+            ejercicio.setPlanDeRehabilitacion(planExistente);
+        }
+
+        // Guardar el plan
+        return planRepository.save(planExistente);
     }
+
     public List<PlanDeRehabilitacion> obtenerPlanPorIdPaciente(Long idPaciente) {
         return planRepository.findByIdPaciente(idPaciente);
     }
