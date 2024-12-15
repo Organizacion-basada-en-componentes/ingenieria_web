@@ -139,10 +139,19 @@ http://localhost:8080/mensajes
 }
 
 
-################ citas genericos 
-/citas
+################ citas 
+poner una cita a un paciente
+http://localhost:8080/citas/{idPaciente}
+{
+    "fechaHora": "2024-12-15T17:55:37",
+    "motivo": "motivooo",
+    "medico": { "id": 1 },
+    "paciente": { "id": 1 }
 
-?
+}
+coger las citas de un paciente:
+http://localhost:8080/citas/paciente/1
+
 
 ######### crear plan a un paciente
 http://localhost:8080/planes/{id}

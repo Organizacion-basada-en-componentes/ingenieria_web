@@ -2,7 +2,13 @@ package com.organizacion.componentes.back.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.organizacion.componentes.back.model.Cita;
 import com.organizacion.componentes.back.model.Paciente;
@@ -38,7 +44,7 @@ public class CitaController {
         return ResponseEntity.ok(nuevaCita);
     }
 
-    // Obtener una cita por su ID del paciente
+    // Obtener una cita por su ID 
     @GetMapping("/{idCita}")
     public ResponseEntity<Cita> getCitaById(@PathVariable Long idCita) {
         Cita cita = citaService.getCitaById(idCita);
@@ -49,7 +55,15 @@ public class CitaController {
 
         return ResponseEntity.ok(cita); // Devolver la cita encontrada
     }
-
+    // Obtener citas de un paciente por su ID
+    @GetMapping("/paciente/{idPaciente}")
+    public ResponseEntity<?> getCitasByPacienteId(@PathVariable Long idPaciente) {
+        try {
+            return ResponseEntity.ok(citaService.getCitasByPacienteId(idPaciente));
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
     // Eliminar una cita por su ID
     @DeleteMapping("/{idCita}")
     public ResponseEntity<Void> deleteCita(@PathVariable Long idCita) {

@@ -28,14 +28,17 @@ export class MensajesService implements OnInit {
   ngOnInit(): void {
     console.log('Tipo de usuario:', this.usertype);
 
+    // Cargar los datos dependiendo del tipo de usuario
     if (this.usertype === 'paciente') {
+      // Cargar datos del paciente al inicializar el componente
       this.pacienteService.loadPaciente().subscribe({
         next: (paciente) => {
-          console.log('Paciente cargado:', paciente);
-          this.idPaciente = paciente.id;
-          this.getChat();
+          this.idPaciente = paciente.id; // Obtiene el ID del paciente
+          console.log('Paciente cargado:', this.idPaciente); // Debugging
         },
-        error: (err) => console.error('Error al cargar datos del paciente:', err)
+        error: (err: any) => {
+          console.error('Error al cargar los datos del paciente:', err);
+        }
       });
     } else if (this.usertype === 'medico') {
       this.selectedPatientService.getPatient().subscribe({
@@ -44,21 +47,22 @@ export class MensajesService implements OnInit {
           this.idPaciente = patient.id;
           this.getChat();
         },
-        error: (err) => console.error('Error al obtener paciente seleccionado:', err)
+        error: (err) => {
+          console.error('Error al obtener paciente seleccionado:', err);
+          this.mensajeSubject.next('Error al obtener paciente seleccionado');
+        }
       });
     } else {
       console.error('Tipo de usuario no válido.');
+      this.mensajeSubject.next('Tipo de usuario no válido.');
     }
   }
 
+  // Obtener el chat relacionado con el paciente
   getChat(): void {
-    console.log('ID del paciente:', this.idPaciente);
-
     if (this.idPaciente) {
       this.http.get<any[]>(`${this.urlchats}/paciente/${this.idPaciente}`).subscribe({
         next: (chats) => {
-          console.log('Chats recibidos:', chats);
-
           if (chats && chats.length > 0) {
             this.chat = chats[0]; // Asigna el primer chat
             this.chatId = this.chat.chatId; // Obtiene el ID del chat
@@ -66,36 +70,47 @@ export class MensajesService implements OnInit {
             console.log('ID del chat cargado:', this.chatId);
           } else {
             console.error('No se encontraron chats para el paciente.');
+            this.mensajeSubject.next('No se encontraron chats para el paciente.');
           }
         },
-        error: (err) => console.error('Error al cargar los chats:', err)
+        error: (err) => {
+          console.error('Error al cargar los chats:', err);
+          this.mensajeSubject.next('Error al cargar los chats');
+        }
       });
     } else {
       console.error('No se pudo obtener el ID del paciente.');
+      this.mensajeSubject.next('No se pudo obtener el ID del paciente');
     }
   }
 
+  // Obtener los mensajes para un chat
   getChatMessages(chatId: string) {
     console.log('Obteniendo mensajes para el chat ID:', chatId);
     return this.http.get<any[]>(`${this.urlchats}/${chatId}/mensajes`);
   }
 
+  // Enviar un mensaje en el chat
   onSendMessage(message: string): void {
-    console.log('Intentando enviar mensaje:', message);
-    console.log('ID del chat actual:', this.chatId);
-
-    if (this.chatId) {
-      this.http.post<any>(`${this.baseUrl}/mensajes`, {
-        chatId: this.chatId,
-        contenido: message,
-        remitente: this.usertype
-      }).subscribe({
-        next: (response) => console.log('Mensaje enviado:', response),
-        error: (err) => console.error('Error al enviar el mensaje:', err)
-      });
-    } else {
+    if (!this.chatId) {
       console.error('No se pudo obtener el ID del chat para enviar el mensaje.');
-      console.log('Chat actual:', this.chat); // Muestra el estado del chat para depuración
+      this.mensajeSubject.next('Error: No se pudo obtener el ID del chat');
+      return;
     }
+
+    this.http.post<any>(`${this.baseUrl}/mensajes`, {
+      chatId: this.chatId,
+      contenido: message,
+      remitente: this.usertype
+    }).subscribe({
+      next: (response) => {
+        console.log('Mensaje enviado:', response);
+        this.mensajeSubject.next(response);
+      },
+      error: (err) => {
+        console.error('Error al enviar el mensaje:', err);
+        this.mensajeSubject.next(`Error al enviar el mensaje: ${err}`);
+      }
+    });
   }
 }

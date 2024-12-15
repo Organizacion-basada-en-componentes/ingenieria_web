@@ -1,4 +1,3 @@
-/* Estilos para el componente de chat */
 .mensaje-container {
   display: flex;
   flex-direction: column;
@@ -11,7 +10,6 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Área del chat */
 .messages-area {
   flex-grow: 1;
   overflow-y: auto;
@@ -19,7 +17,6 @@
   margin-bottom: 20px;
 }
 
-/* Estilo para cada mensaje */
 .message {
   max-width: 80%;
   margin-bottom: 15px;
@@ -31,21 +28,21 @@
   flex-direction: column;
 }
 
-.message.paciente {
-  background-color: var(--primary);
-  align-self: flex-end;
+.message.recibido {
+  background-color: var(--cardBackground); /* Verde para el mensaje recibido */
   color: #fff;
-  border-bottom-right-radius: 0;
-}
-
-.message.medico {
-  background-color: var(--secondary);
-  align-self: flex-start;
-  color: #333;
+  align-self: flex-start; /* Alineación a la izquierda */
   border-bottom-left-radius: 0;
 }
 
-/* Estilo para el formulario de envío */
+.message.enviado {
+  background-color: var(--secondary); /* Azul para el mensaje enviado */
+  color: #fff;
+  /* a la derecha del todo */
+  align-self: flex-end;
+  border-bottom-right-radius: 0;
+}
+
 .form-container {
   display: flex;
   align-items: center;
@@ -93,7 +90,6 @@ input[type="text"]:focus {
   font-size: 20px;
 }
 
-/* Estilo para los elementos de carga (si los hay) */
 .loader {
   margin-top: 20px;
   display: flex;
@@ -101,7 +97,6 @@ input[type="text"]:focus {
   align-items: center;
 }
 
-/* Estilo para la cabecera del chat */
 .chat-header {
   font-size: 18px;
   font-weight: bold;
@@ -109,36 +104,35 @@ input[type="text"]:focus {
   margin-bottom: 15px;
 }
 
-/* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
   .mensaje-container {
     padding: 15px;
-    max-width: 90%; /* Ancho ajustado para pantallas pequeñas */
+    max-width: 90%;
   }
 
   .message {
-    font-size: 12px; /* Ajuste de tamaño de fuente */
-    padding: 8px; /* Reducción de padding en los mensajes */
+    font-size: 12px;
+    padding: 8px;
   }
 
   .form-container {
-    flex-direction: column; /* Cambia la disposición del formulario en pantallas pequeñas */
+    flex-direction: column;
     align-items: stretch;
   }
 
   input[type="text"] {
-    width: 100%; /* Asegura que el campo de texto ocupe todo el ancho */
+    width: 100%;
     margin-right: 0;
-    margin-bottom: 10px; /* Añade margen inferior para separar el botón */
+    margin-bottom: 10px;
   }
 
   .send-button {
     width: 100%;
-    height: 45px; /* Asegura que el botón sea más accesible */
+    height: 45px;
     border-radius: 10px;
   }
 
   .chat-header {
-    font-size: 16px; /* Ajuste del tamaño de la cabecera */
+    font-size: 16px;
   }
 }

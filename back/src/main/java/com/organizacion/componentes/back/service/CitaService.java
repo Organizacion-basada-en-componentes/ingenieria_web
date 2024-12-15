@@ -1,5 +1,7 @@
 package com.organizacion.componentes.back.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,5 +34,8 @@ public class CitaService {
             return true;
         }
         return false;
+    }
+    public List<Cita> getCitasByPacienteId(Long idPaciente) {
+        return citaRepository.findByPacienteId(idPaciente);
     }
 }

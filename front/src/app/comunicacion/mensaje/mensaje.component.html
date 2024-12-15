@@ -1,6 +1,6 @@
 <div class="mensaje-container">
   <div class="chat-header">
-    Chat con {{ doctorName }}
+    Chat 
   </div>
 
   <div class="messages-area">
@@ -9,15 +9,15 @@
         *ngFor="let message of messages"
         [ngClass]="{
           'message': true,
-          'paciente': message.remitente === 'paciente',
-          'medico': message.remitente === 'medico'
+          'recibido': message.remitente !== usertypeUpper ,
+          'enviado': message.remitente === usertypeUpper
         }"
       >
         <div class="message-content">
           {{ message.contenido }}
         </div>
         <div class="message-time">
-          {{ message.timestamp ? (message.timestamp | date: 'short') : 'Hora no disponible' }}
+          {{ message.fechaEnvio ? (message.fechaEnvio | date: 'short') : 'Hora no disponible' }}
         </div>
       </div>
     </div>
@@ -34,9 +34,8 @@
       type="text"
       [(ngModel)]="newMessage"
       placeholder="Escribe un mensaje..."
-      (keyup.enter)="sendMessage(newMessage)"
     />
-    <button class="send-button" (click)="sendMessage(newMessage)">
+    <button class="send-button" (click)="sendMessage()">
       <i class="fa fa-paper-plane"></i>
     </button>
   </div>
