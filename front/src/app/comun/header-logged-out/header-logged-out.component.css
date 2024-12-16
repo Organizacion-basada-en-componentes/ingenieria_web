@@ -1,4 +1,4 @@
-
+/* Estilos del header */
 .header {
   background-color: var(--primary);
   color: var(--text2);
@@ -6,88 +6,321 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Arial', sans-serif;
 }
-img.logo{
-  width: 100px;
-  height: 100px;
-}
+
+/* Contenedor general del header */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
-.header-logo h1 {
+/* Estilos del logo */
+.header-logo h1,
+.header-logo h2 {
   font-size: 2.5rem;
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--tertiary);
+  flex: 1; /* Empuja el logo a la izquierda */
 }
 
+/* Ajustar el logo a h2 en pantallas pequeñas */
+@media (max-width: 768px) {
+  .header-logo h1 {
+    display: none; /* Ocultar h1 en móviles */
+  }
+
+  .header-logo h2 {
+    display: block; /* Mostrar h2 en móviles */
+    font-size: 2rem; /* Tamaño más pequeño en móviles */
+  }
+}
+
+/* Posicionamiento de los botones a la derecha */
 .header-actions {
   display: flex;
-  gap: 20px;
+  gap: 10px;
+  position: absolute;
+  right: 0; /* Alinea los botones a la derecha de la pantalla */
 }
 
-.btn {
-  padding: 12px 24px;
-  font-size: 1rem;
-  cursor: pointer;
+/* Estilos del botón de menú (hamburguesa) en móviles */
+.menu-toggle {
+  display: none; /* Oculto en pantallas grandes */
+  background: none;
   border: none;
-  border-radius: 30px;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+}
+
+/* Icono de menú hamburguesa (tres líneas) */
+.menu-icon {
+  width: 25px;
+  height: 2px;
+  background-color: var(--text2);
+  display: block;
+  position: relative;
+}
+
+.menu-icon::before,
+.menu-icon::after {
+  content: '';
+  width: 25px;
+  height: 2px;
+  background-color: var(--text2);
+  display: block;
+  position: absolute;
+  left: 0;
   transition: all 0.3s ease;
 }
 
-.login-btn {
-  background-color: var(--secondary);
-  color: var(--text);
+.menu-icon::before {
+  top: -8px;
 }
 
-.login-btn:hover {
-  background-color: var(--cardBackground);
-  color: var(--cardText);
+.menu-icon::after {
+  top: 8px;
 }
 
-.register-btn {
-  background-color: var(--tertiary);
-  color: var(--text);
-}
-
-.register-btn:hover {
-  background-color: var(--cardBackground);
-  color: var(--cardText);
-}
-
-/* Añadiendo un efecto de sombra sutil cuando el usuario pasa el cursor por encima de los botones */
-.btn:hover {
+/* Menú desplegable en móviles */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  right: 20px;
+  top: 60px;
+  background-color: var(--primary);
+  padding: 20px;
+  border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.mobile-menu.show {
+  display: flex;
 }
 
 /* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
-  .header {
-    padding: 10px 20px; /* Reducir padding en pantallas pequeñas */
+  /* Mostrar el botón de menú hamburguesa solo en pantallas pequeñas */
+  .menu-toggle {
+    display: block;
   }
 
-  .header-container {
-    flex-direction: column; /* Cambiar la disposición del header a vertical en pantallas pequeñas */
-    text-align: center; /* Centrar el contenido */
-  }
-
-  .header-logo h1 {
-    font-size: 1.8rem; /* Reducir el tamaño del logo en pantallas pequeñas */
-  }
-
+  /* Ocultar los botones normales en pantallas pequeñas */
   .header-actions {
-    flex-direction: column; /* Colocar los botones uno debajo del otro */
-    gap: 10px; /* Reducir el espacio entre botones */
-    margin-top: 10px; /* Agregar un margen superior */
+    display: none;
   }
 
-  .btn {
-    padding: 10px 20px; /* Reducir el tamaño de los botones */
-    font-size: 0.9rem; /* Reducir la fuente en pantallas pequeñas */
+  /* Mostrar el menú desplegable cuando esté activo */
+  .mobile-menu {
+    display: flex;
   }
+}
+
+/* Media queries para pantallas medianas y grandes */
+@media (min-width: 769px) {
+  /* Ocultar el botón de menú hamburguesa */
+  .menu-toggle {
+    display: none;
+  }
+
+  /* Mantener visibles los botones de "Iniciar sesión" y "Registrarse" */
+  .header-actions {
+    display: flex;
+    position: absolute;
+    right: 40px; /* Ajusta la posición relativa a la derecha */
+  }
+
+  /* Alinear los botones a la derecha y el logo a la izquierda */
+  .header-container {
+    justify-content: space-between;
+  }
+}
+/* ############################## BOTÓN NUEVO  ################################################### */
+
+
+.button {
+  --blue-light: #4A90E2;  /* Color azul celeste */
+  --black-700: rgb(74, 80, 80);
+  --border_radius: 9999px;
+  --transition: 0.3s ease-in-out;
+  --offset: 2px;
+
+  cursor: pointer;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  transform-origin: center;
+
+  padding: 1rem 2rem;
+  background-color: transparent;
+
+  border: none;
+  border-radius: var(--border_radius);
+  transform: scale(calc(1 + (var(--active, 0) * 0.01)));
+
+  transition: transform var(--transition);
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--black-700);
+
+  border-radius: var(--border_radius);
+
+  transition: all var(--transition);
+  z-index: 0;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 100%;
+  height: 100%;
+  background-color: var(--cardBackground); /* Azul celeste */
+  background-image: radial-gradient(
+      at 51% 89%,
+      rgba(175, 228, 255, 0.9) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 100% 100%, rgba(175, 228, 255, 0.9) 0px, transparent 50%),
+    radial-gradient(at 22% 91%, rgba(175, 228, 255, 0.9) 0px, transparent 50%);
+  background-position: top;
+
+  opacity: var(--active, 0);
+  border-radius: var(--border_radius);
+  transition: opacity var(--transition);
+  z-index: 2;
+}
+
+.button:is(:hover, :focus-visible) {
+  --active: 1;
+}
+.button:active {
+  transform: scale(1);
+}
+
+.button .dots_border {
+  --size_border: calc(100% + 2px);
+
+  overflow: hidden;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: var(--size_border);
+  height: var(--size_border);
+  background-color: transparent;
+
+  border-radius: var(--border_radius);
+  z-index: -10;
+}
+
+.button .dots_border::before {
+  content: "";
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: left;
+  transform: rotate(0deg);
+
+  width: 100%;
+  height: 2rem;
+  background-color: white;
+
+  mask: linear-gradient(transparent 0%, white 120%);
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.button .sparkle {
+  position: relative;
+  z-index: 10;
+
+  width: 1.75rem;
+}
+
+.button .sparkle .path {
+  fill: currentColor;
+  stroke: currentColor;
+
+  transform-origin: center;
+
+  color: hsl(0, 0%, 100%);
+}
+
+.button:is(:hover, :focus) .sparkle .path {
+  animation: path 1.5s linear 0.5s infinite;
+}
+
+.button .sparkle .path:nth-child(1) {
+  --scale_path_1: 1.2;
+}
+.button .sparkle .path:nth-child(2) {
+  --scale_path_2: 1.2;
+}
+.button .sparkle .path:nth-child(3) {
+  --scale_path_3: 1.2;
+}
+
+@keyframes path {
+  0%,
+  34%,
+  71%,
+  100% {
+    transform: scale(1);
+  }
+  17% {
+    transform: scale(var(--scale_path_1, 1));
+  }
+  49% {
+    transform: scale(var(--scale_path_2, 1));
+  }
+  83% {
+    transform: scale(var(--scale_path_3, 1));
+  }
+}
+
+.button .text_button {
+  position: relative;
+  z-index: 10;
+
+  background-image: linear-gradient(
+    90deg,
+    hsla(0 0% 100% / 1) 0%,
+    hsla(0 0% 100% / var(--active, 0)) 120%
+  );
+  background-clip: text;
+
+  font-size: 1rem;
+  color: transparent;
 }

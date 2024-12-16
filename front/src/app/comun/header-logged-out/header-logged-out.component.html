@@ -1,12 +1,42 @@
 <header class="header">
-    <div class="header-container">
-      <div class="header-logo">
-        <h1>TeleRehab</h1>
-      </div>
-      <div class="header-actions">
-        <button (click)="goToLogin()" class="btn login-btn" >Iniciar sesión </button>
-        <button (click)="goToRegister()" class="btn register-btn">Registrarse</button>
-      </div>
+  <div class="header-container">
+    <!-- Logo a la izquierda -->
+    
+          <!-- Logo visible en el header -->
+    <div class="header-logo">
+      <h2 class="logo-text">TeleRehab</h2>
     </div>
-  </header>
-  
+
+    <!-- Logo para la pestaña (visible solo en el title) -->
+    <title>TeleRehab</title>
+    <!-- Botones de inicio de sesión y registro -->
+    <div class="header-actions">
+
+
+      <button (click)="goToLogin(); toggleMenu()" class="button">
+        <div class="dots_border"></div>
+        <span class="text_button">Iniciar sesión</span>
+      </button>
+      
+      <button (click)="goToRegister(); toggleMenu()" class="button">
+        <div class="dots_border"></div>
+        <span class="text_button">Registrarse</span>
+      </button>
+
+      
+    </div>
+
+    <!-- Botón de menú hamburguesa solo visible en pantallas pequeñas -->
+    <div class="menu-wrapper">
+      <button class="menu-toggle" (click)="toggleMenu()" aria-label="Abrir menú">
+        <span class="menu-icon"></span>
+      </button>
+    </div>
+
+    <!-- Menú desplegable en móviles -->
+    <div class="mobile-menu" *ngIf="isMenuOpen">
+      <button (click)="goToLogin()" class="btn login-btn">Iniciar sesión</button>
+      <button (click)="goToRegister()" class="btn register-btn">Registrarse</button>
+    </div>
+  </div>
+</header>
