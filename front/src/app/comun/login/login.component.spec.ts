@@ -1,23 +1,45 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
-import { LoginComponent } from './login.component';
+@Component({
+  selector: 'app-login',
+  standalone: false,
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
+})
+export class LoginComponent {
+  username = '';
+  password = '';
+  errorMessage = '';
 
-describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+  constructor(private authService: AuthService, private router: Router) {
+    // Cerrar sesión automáticamente si ya está activa
+    if (this.authService.isLoggedIn()) {
+      console.log('Sesión activa al llegar al login. Cerrando sesión...');
+      this.authService.logout(); // Cerrar sesión si ya está activa
+    }
+  }
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [LoginComponent]
-    })
-    .compileComponents();
+  onSubmit() {
+    this.authService.login(this.username, this.password).subscribe({
+      next: () => {
+        // Redirige basado en el rol del usuario
+        if (this.authService.getUserType() === 'paciente') {
+          this.router.navigate(['/home-paciente']);
+        }
+        if (this.authService.getUserType() === 'medico') {
+          this.router.navigate(['/home-medico']);
+        }
+      },
+      error: (err) => {
+        this.errorMessage = 'Credenciales inválidas. Intente de nuevo.';
+        console.error(err);
+      },
+    });
+  }
 
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  goToRegister(): void {
+    this.router.navigate(['/register']);
+  }
+}

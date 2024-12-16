@@ -3,12 +3,47 @@
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  max-width: 400px;
-  margin: 5% auto;
+  max-width: 600px; /* Ancho máximo en pantallas grandes */
+  width: 50vw; /* 50% del ancho del viewport en pantallas grandes */
+  margin: 5% auto; /* Centramos vertical y horizontalmente */
   color: var(--cardText);
   backdrop-filter: blur(8px); /* Efecto de desenfoque */
   border: 1px solid rgba(44, 44, 44, 0.2);
 }
+
+@media (min-width: 1024px) {
+  .register-container {
+    max-width: 800px; /* Hacemos que el formulario sea más amplio */
+    width: 40vw; /* Ocupa el 40% del ancho del viewport en pantallas grandes */
+  }
+}
+
+@media (max-width: 768px) {
+  .register-container {
+    padding: 15px;
+    max-width: 90%; /* Ajustamos el ancho para pantallas pequeñas */
+    margin: 10% auto; /* Ajuste de margen superior e inferior */
+    width: 90vw; /* 90% del ancho del viewport en pantallas pequeñas */
+  }
+
+  .btn-register {
+    padding: 12px; /* Aumento de padding para mejor usabilidad */
+  }
+
+  input.form-control {
+    padding: 8px; /* Reducción de padding en campos de entrada */
+    font-size: 0.9rem; /* Ajuste de tamaño de fuente */
+  }
+
+  .register-container h2 {
+    font-size: 1.8rem; /* Reducción del tamaño del título */
+  }
+
+  .login-prompt {
+    font-size: 0.85rem; /* Ajuste del tamaño de texto */
+  }
+}
+
 
 .register-container h2 {
   color: var(--cardTitle);

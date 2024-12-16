@@ -3,7 +3,7 @@
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Sombra suave */
-  max-width: 400px;
+  max-width: 500px; /* Ancho máximo para pantallas grandes */
   margin: 5% auto;
   color: var(--cardText);
   backdrop-filter: blur(8px); /* Efecto de desenfoque */
@@ -106,5 +106,31 @@ input.form-control::placeholder {
 
   .register-prompt {
     font-size: 0.85rem; /* Reducir tamaño del texto de registro */
+  }
+}
+
+/* Media query para pantallas grandes (como laptops) */
+@media (min-width: 1024px) {
+  .login-container {
+    padding: 30px;
+    margin: 5% auto;
+    max-width: 600px; /* Ajuste del ancho máximo en pantallas grandes */
+  }
+
+  .btn-login {
+    padding: 15px;
+  }
+
+  input.form-control {
+    padding: 12px; /* Aumentar padding para más comodidad */
+    font-size: 1rem; /* Asegurar que la fuente sea consistente */
+  }
+
+  .login-container h2 {
+    font-size: 2rem; /* Título más grande */
+  }
+
+  .register-prompt {
+    font-size: 1rem; /* Aumentar tamaño de texto */
   }
 }

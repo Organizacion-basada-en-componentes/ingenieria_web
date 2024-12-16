@@ -62,8 +62,8 @@ export class RegisterComponent {
 
     this.authService.register(userData).subscribe({
       next: () => {
-        console.log('Registro exitoso');
-        this.router.navigate(['/login']);
+        this.authService.logout(); //////// Cerrar sesión si ya está activa COMPROBAR QUE NO DA ERRORES
+        this.router.navigate(['/login']); 
       },
       error: (err) => {
         this.errorMessage = 'Error en el registro. Intente nuevamente.';
