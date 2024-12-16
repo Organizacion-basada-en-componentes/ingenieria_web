@@ -1,282 +1,135 @@
-.plan-rehabilitacion-medico label {
-  display: block;
-  font-size: 1.2rem;
-  margin-bottom: 8px;
-  color: #34495e;
-  font-weight: bold;
-  letter-spacing: 1px;
-  text-transform: capitalize;
-}
-
-/* Estilos del input personalizados */ 
-.input {
-  border: none;
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 4px 4px 8px #d4d4d4; /* Sombra menos contrastada */
-  transition: 0.3s;
-}
-
-.input:focus {
-  outline: none;
-  box-shadow: inset 3px 3px 6px #d4d4d4; /* Sombra interna más ligera */
-  transition: 0.3s;
-}
-
-
-
-/* Ajustes generales */
+/* Estilo general del contenedor principal */
 .plan-rehabilitacion-medico {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
-  width: 100%;
-  max-width: 900px;
-  margin: 20px auto;
+
+  width: 80%;
+  margin: 5% auto;
   padding: 30px;
-  background-color: var(--input-bg-color);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: box-shadow var(--transition-duration);
+  border-radius: 10px;
+  background-color: var(--cardBackground);
+  box-shadow: var(--sombra); /* Sombra sutil alrededor de la tabla */
+  color: var(--cardText);
+  font-family: 'Roboto', sans-serif;
+
 }
 
-.plan-rehabilitacion-medico:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-h2, h3, h4 {
-  color: var(--text-color);
+.plan-rehabilitacion-medico h2 {
   text-align: center;
-  font-weight: 600;
+  font-size: 2rem;
+  color: var(--cardTitle);
+  margin-bottom: 20px;
 }
 
-label {
-  display: block;
-  font-size: 1.1rem;
-  margin-bottom: 8px;
-  color: var(--text-color);
+.plan-rehabilitacion-medico h3,
+.plan-rehabilitacion-medico h4 {
+  font-size: 1.5rem;
+  color: var(--cardTitle);
+  margin-top: 20px;
 }
 
-/* Estilos de los botones */
-button {
-  width: 9em;
-  height: 3em;
-  border-radius: 30em; /* Bordes más redondeados */
-  font-size: 15px;
-  font-family: inherit;
+/* Estilo para inputs y textarea */
+.plan-rehabilitacion-medico .input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Botones generales */
+.btn {
+  padding: 10px 20px;
+  margin: 5px;
   border: none;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  box-shadow: 6px 6px 12px #c5c5c5;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-button::before {
-  content: '';
-  width: 0;
-  height: 3em;
-  border-radius: 30em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #5e6c70; /* Color sólido en lugar del gradiente */
-  transition: 0.5s ease;
-  display: block;
-  z-index: -1;
-}
-
-button:hover::before {
-  width: 9em;
-}
-
-button.editar {
-  background-color: transparent; /* Fondo transparente */
-  color: #ffffff;
-}
-
-button.editar:hover {
-  background-color: transparent; /* Sin color de fondo en hover */
-}
-
-button.eliminar {
-  background-color: transparent; /* Fondo transparente */
-  color: #721c24;
-}
-
-button.eliminar:hover {
-  background-color: transparent; /* Sin color de fondo en hover */
-}
-
-/* Ajustes para el botón "Guardar Ejercicio" */
-button.guardar {
-  width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
-  height: 3em; /* Define una altura consistente */
-  border-radius: 30em;
-  background-color: transparent;
-  color: white; /* Texto blanco */
-  font-size: 1.2rem;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-button.guardar::before {
-  content: '';
-  width: 0;
-  height: 3em;
-  border-radius: 30em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #5e6c70; /* Color sólido en lugar del gradiente */
-  transition: 0.5s ease;
-  display: block;
-  z-index: -1;
-}
-
-button.guardar:hover::before {
-  width: 100%; /* El color ahora llena completamente el botón */
-}
-
-button.cancelar {
-  background-color: transparent; /* Fondo transparente */
-  color: #6c757d;
-}
-
-button.cancelar:hover {
-  background-color: transparent; /* Sin color de fondo en hover */
-}
-
-button.agregar {
-  background-color: transparent; /* Fondo transparente */
-  color: #155724;
-}
-
-button.agregar:hover {
-  background-color: transparent; /* Sin color de fondo en hover */
-}
-
-/* Ajustes para el botón "Guardar Plan" */
-.guardar-btn {
-  width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
-  height: 3em; /* Define una altura consistente */
-  background-color: transparent; /* Fondo transparente */
-  color: #f4f5f6;
-  font-size: 1.2rem;
-  border-radius: 30em;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.guardar-btn::before {
-  content: '';
-  width: 0;
-  height: 3em;
-  border-radius: 30em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #5e6c70; /* Color sólido en lugar del gradiente */
-  transition: 0.5s ease;
-  display: block;
-  z-index: -1;
-}
-
-.guardar-btn:hover::before {
-  width: 100%; /* El color ahora llena completamente el botón */
-}
-
-/* Ajustes para el botón "Agregar Ejercicio" */
-.nuevo-ejercicio button.agregar {
-  margin-top: 15px; /* Da espacio encima del botón */
-  width: 100%; /* Asegura que el botón ocupe todo el ancho disponible */
-  height: 3em; /* Define una altura consistente */
-  border-radius: 30em;
-  background-color: transparent;
-  color: white;
+  border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.nuevo-ejercicio button.agregar::before {
-  content: '';
-  width: 0;
-  height: 3em;
-  border-radius: 30em;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #5e6c70; /* Color sólido en lugar del gradiente */
-  transition: 0.5s ease;
+
+
+
+
+/* Lista de ejercicios */
+.plan-rehabilitacion-medico .plan-ejercicios ul {
+  list-style: none;
+  padding: 0;
+}
+
+.plan-rehabilitacion-medico .plan-ejercicios .ejercicio-item {
+  background-color: var(--secondary);
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  color: rgb(62, 62, 62);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.plan-rehabilitacion-medico .plan-ejercicios .ejercicio-item strong {
+  font-size: 1.2rem;
+  color: #333;
   display: block;
-  z-index: -1;
+  margin-bottom: 5px;
 }
 
-.nuevo-ejercicio button.agregar:hover::before {
-  width: 100%; /* El color ahora llena completamente el botón */
+.plan-rehabilitacion-medico .plan-ejercicios .ejercicio-actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }
 
-/* Ajustes de márgenes para evitar que los botones se peguen a otros elementos */
-.nuevo-ejercicio input,
-.nuevo-ejercicio textarea {
-  margin-bottom: 20px; /* Ajusta el espacio entre los elementos */
+/* Estilo para el formulario de edición de ejercicios */
+.plan-rehabilitacion-medico .ejercicio-editar label {
+  font-size: 1rem;
+  color: red;
+  margin-top: 10px;
+  display: block;
 }
 
-/* Estilos para los títulos h1, h2, h3 */
-h1 {
-  font-size: 2.5rem; /* Tamaño grande para el título principal */
-  color: #2c3e50; /* Un color oscuro */
-  text-align: center;
-  font-weight: 700;
-  margin-bottom: 20px; /* Espacio debajo */
-  text-transform: uppercase; /* Texto en mayúsculas */
-  letter-spacing: 1px; /* Espaciado entre letras */
+.plan-rehabilitacion-medico .ejercicio-editar .acciones-editar {
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
 }
 
-h2 {
-  font-size: 2rem; /* Un poco más pequeño que h1 */
-  color: #34495e; /* Color de texto oscuro */
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 15px; /* Espacio debajo */
-  text-transform: capitalize; /* Solo la primera letra en mayúscula */
-  letter-spacing: 0.8px;
-  border-bottom: 2px solid #5e6c70; /* Línea debajo del título */
-  padding-bottom: 8px; /* Espacio entre texto y línea */
+/* Estilo para el formulario de nuevo ejercicio */
+.plan-rehabilitacion-medico .nuevo-ejercicio label {
+  font-size: 1rem;
+  color: var(--cardText);
+  margin-top: 10px;
+  display: block;
 }
 
-h3 {
-  font-size: 1.7rem; /* Más pequeño que h2 */
-  color: #34495e;
-  text-align: center;
-  font-weight: 500;
-  margin-bottom: 10px; /* Espacio debajo */
-  letter-spacing: 1px;
-}
-
-/* Estilos del contenedor */
-.plan-rehabilitacion-medico {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 20px;
+.plan-rehabilitacion-medico .nuevo-ejercicio button {
+  margin-top: 15px;
   width: 100%;
-  max-width: 900px;
-  margin: 20px auto;
-  padding: 30px;
-  background-color: var(--input-bg-color);
-  border-radius: var(--border-radius);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: box-shadow var(--transition-duration);
 }
 
-.plan-rehabilitacion-medico:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+
+
+
+/* Media Query para pantallas pequeñas */
+@media (max-width: 768px) {
+  .plan-rehabilitacion-medico {
+      width: 95%;
+      padding: 20px;
+  }
+
+  .plan-rehabilitacion-medico h2 {
+      font-size: 1.8rem;
+  }
+
+  .plan-rehabilitacion-medico h3, .plan-rehabilitacion-medico h4 {
+      font-size: 1.3rem;
+  }
+
+  .plan-rehabilitacion-medico .input {
+      font-size: 0.9rem;
+  }
+
+ 
+
 }

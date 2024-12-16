@@ -31,7 +31,7 @@
 .plan-card {
   background-color: var(--cardBackground);
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow:var(--sombra);
   padding: 2rem; /* Cambié el padding a unidades relativas */
 }
 

@@ -74,6 +74,7 @@
     font-weight: bold;
     color: #222;
     margin-bottom: 10px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
   }
   
   /* Espaciado entre secciones */
@@ -108,7 +109,7 @@
 
     --danger:#ffc4cc;
     --border:#2C2C2C;
-   
+    --sombra:0 4px 10px rgba(0, 0, 0, 0.6);
   }
   
   body {

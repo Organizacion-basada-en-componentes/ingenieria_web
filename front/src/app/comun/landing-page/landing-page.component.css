@@ -18,7 +18,8 @@
   padding: 50px 20px;
   border-radius: 10px;
   margin-bottom: 40px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--sombra); /* Se usa la variable de CSS */
+
   display: flex;
   flex-direction: row; /* Hace que los elementos se alineen verticalmente */
   justify-content: center; /* Centra horizontalmente */
@@ -57,7 +58,7 @@
   background: #eceff4;
   padding: 40px 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--sombra); /* Se usa la variable de CSS */
   margin-bottom: 40px;
 }
 
@@ -86,13 +87,13 @@
   background: #d0dce6;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--sombra); /* Se usa la variable de CSS */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .feature-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 1);
 }
 
 .feature-item h3 {

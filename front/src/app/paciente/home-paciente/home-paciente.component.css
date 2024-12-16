@@ -38,6 +38,7 @@
   padding: 2rem; /* Se ajusta el padding */
   border-radius: 8px;
   margin-bottom: 2rem;
+  box-shadow: var(--sombra); /* Se usa la variable de CSS */
 }
 
 .container div:last-child {

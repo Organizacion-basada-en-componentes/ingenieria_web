@@ -18,6 +18,7 @@
   color: var(--primary);
   font-weight: bold;
   margin-bottom: 1.5rem;
+  
 }
 
 .selected-patient-header p {
@@ -27,6 +28,8 @@
 
 .patient-info {
   background-color: var(--secondary);
+  box-shadow: var(--sombra); /* Se usa la variable de CSS */
+
   padding: 3rem 2rem; /* Relleno relativo */
   margin-bottom: 3rem;
   border-radius: 0.5rem; /* Bordes más suaves */

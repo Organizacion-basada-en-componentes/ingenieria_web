@@ -9,6 +9,7 @@
     justify-content: space-between; /* Distribuye los elementos entre sí */
     gap: 30px; /* Espacio entre las secciones */
     flex-wrap: wrap; /* Permite que los elementos se ajusten */
+    
   }
   
   /* Estilo para la sección del formulario (izquierda) */
@@ -16,13 +17,15 @@
     background-color: var(--cardBackground);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--sombra); /* Se usa la variable de CSS */
+
     width: 100%;
     box-sizing: border-box;
     max-width: 600px; /* Limita el ancho del formulario */
     flex: 1 1 100%; /* Flexibilidad para que ocupe todo el ancho disponible */
     height: fit-content; /* Ajusta la altura al contenido */
     color: var(--cardText);
+
   }
   
   /* Estilo para la sección de citas (derecha) */

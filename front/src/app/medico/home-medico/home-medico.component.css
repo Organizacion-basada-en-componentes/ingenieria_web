@@ -32,7 +32,7 @@ table {
   margin: 0 auto; /* Centra la tabla */
   background: var(--tertiary); /* Color de fondo de la tabla */
   border-radius: 10px; /* Bordes redondeados en la tabla */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* Sombra sutil alrededor de la tabla */
+  box-shadow: var(--sombra); /* Se usa la variable de CSS */
   overflow: hidden; /* Oculta cualquier contenido que se desborde */
 }
 
