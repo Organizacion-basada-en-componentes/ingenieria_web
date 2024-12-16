@@ -12,6 +12,7 @@
   width: 100%;
   max-width: 500px; /* Asegura que no se estire demasiado */
   background-color: var(--cardBackground2);
+  ;
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   padding: 2rem; /* Cambié a unidades relativas */

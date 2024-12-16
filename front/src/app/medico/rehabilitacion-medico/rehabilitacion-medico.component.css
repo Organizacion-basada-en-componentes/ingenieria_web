@@ -7,6 +7,7 @@
   max-width: 900px;
   padding: 2rem;
   background-color: var(--background);
+  color: var(--cardTitle);
   border-radius: 1rem;
   margin: 2rem auto;
 }
@@ -84,6 +85,7 @@ button.crear-btn {
   button.crear-btn {
     width: 100%;
     padding: 1rem;
+    
     font-size: 1.1rem;
   }
 

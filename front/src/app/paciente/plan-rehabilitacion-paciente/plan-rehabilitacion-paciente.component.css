@@ -7,11 +7,18 @@
   background-color: var(--background);
   font-family: 'Arial', sans-serif;
 }
-
+.plan-ejercicios {
+  width: 100%;
+  max-width: 500px; /* Asegura que no se estire demasiado */
+  background-color: var(--tertiary);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(146, 142, 142, 0.4);
+  padding: 2rem; /* Cambié a unidades relativas */
+}
 .plan-rehabilitacion-paciente {
   width: 100%;
   max-width: 600px;
-  background: var(--cardBackground);
+  background: var(--primary);
   border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 2rem; /* Cambié el padding a unidades relativas para mejorar la adaptabilidad */
