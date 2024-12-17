@@ -1,13 +1,18 @@
 <header class="header">
-    <div class="header-container">
-      <div class="header-logo">
-        <h1>TeleRehab</h1>
-      </div>
-      <div class="header-actions">
-        <button class="btn home-btn" (click)="goToHome()">Inicio</button>
-        <button class="btn communication-btn"(click)="goToComunicacion()">Comunicación</button>
-        <button class="btn rehab-btn"(click)="goToRehabilitacion()">Rehabilitación</button>
-        <button class="btn logout-btn" (click)="logout()">Cerrar sesión</button>
-      </div>
+  <div class="header-container">
+    <div class="header-logo">
+      <h1>TeleRehab</h1>
     </div>
-  </header>
+    <!-- Botón hamburguesa (visible solo en pantallas pequeñas) -->
+    <button class="btn hamburger-btn" (click)="toggleMenu()">
+      <span class="hamburger-icon"></span>
+    </button>
+    <!-- Menú de navegación (desplegable en móviles) -->
+    <div class="header-actions">
+      <button class="btn home-btn" (click)="goToHome()">Inicio</button>
+      <button class="btn communication-btn" (click)="goToComunicacion()">Comunicación</button>
+      <button class="btn rehab-btn" (click)="goToRehabilitacion()">Rehabilitación</button>
+      <button class="btn logout-btn" (click)="logout()">Cerrar sesión</button>
+    </div>
+  </div>
+</header>

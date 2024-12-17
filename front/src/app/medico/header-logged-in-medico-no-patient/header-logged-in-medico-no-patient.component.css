@@ -1,7 +1,7 @@
 /* Estilos para la cabecera */
 .header {
     background-color: var(--primary); /* Color de fondo de la cabecera */
-    color: var(--text2); /* Color del texto */
+    color: var(--text); 
     padding: 20px 40px; /* Espaciado interior de la cabecera */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para darle profundidad */
     font-family: 'Arial', sans-serif; /* Fuente general */
@@ -22,7 +22,7 @@
     font-weight: bold; /* Negrita para destacar el título */
     text-transform: uppercase; /* Convierte el texto a mayúsculas */
     letter-spacing: 1px; /* Espaciado entre letras */
-    color: var(--tertiary); /* Color del texto del logo */
+    color: var(--tertiary); /* Color del texto del logo: debe ser blanco */
 }
 
 /* Contenedor de los botones de acción */
@@ -39,7 +39,7 @@
     font-weight: bold; /* Negrita para resaltar el texto */
     cursor: pointer; /* El cursor cambia a mano al pasar sobre el botón */
     text-decoration: none; /* Elimina el subrayado de los enlaces */
-    color: var(--text); /* Color del texto */
+    color: var(--text2); /* Color del texto: blanco */
     transition: all 0.3s ease; /* Transición suave para los efectos */
 }
 
@@ -51,7 +51,7 @@
     left: 0; /* Lo alinea a la izquierda */
     width: 0; /* Inicialmente no tiene ancho */
     height: 2px; /* Altura de la línea */
-    background-color: var(--tertiary); /* Color de la línea */
+    background-color: var(--tertiary); /* Color de la línea: blanco */
     transition: width 0.3s ease; /* Transición suave para el efecto */
 }
 
@@ -62,12 +62,12 @@
 
 /* Efecto hover para cambiar el color del texto */
 .btn:hover {
-    color: var(--tertiary); /* El color del texto cambia al color terciario */
+    color: var(--tertiary); /* El color del texto cambia a blanco */
 }
 
-/* Estilos para los botones específicos */
+/* Estilo para los botones específicos */
 .home-btn, .communication-btn, .progress-btn, .rehab-btn, .logout-btn {
-    color: var(--tertiary); /* Los botones tienen el mismo color terciario */
+    color: var(--tertiary); /* Los botones tienen el color blanco */
 }
 
 /* Efecto hover para el botón de logout */
@@ -104,5 +104,12 @@
         padding: 10px 20px; /* Reduce el padding de los botones */
         width: 80%; /* Los botones ocupan el 80% del ancho disponible */
         text-align: center; /* Centra el texto en los botones */
+    }
+
+    .logout-btn {
+        font-size: 1rem; /* Asegura que el botón de logout tenga el mismo tamaño que otros botones */
+        padding: 10px 20px; /* Igual padding para el botón de logout */
+        width: 80%; /* El botón ocupa el 80% del ancho disponible */
+        text-align: center; /* Centra el texto en el botón de logout */
     }
 }

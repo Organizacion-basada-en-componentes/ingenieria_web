@@ -1,6 +1,7 @@
+/* ############################## HEADER ################################################### */
 .header {
     background-color: var(--primary);
-    color: var(--text2);
+    color: var(--text);
     padding: 20px 40px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     font-family: 'Arial', sans-serif;
@@ -22,6 +23,7 @@
     color: var(--tertiary);
 }
 
+/* Botones de navegación (cuando no es móvil) */
 .header-actions {
     display: flex;
     gap: 20px;
@@ -36,7 +38,7 @@
     font-weight: bold;
     cursor: pointer;
     text-decoration: none;
-    color: var(--text);
+    color:  #ffffff;
     transition: all 0.3s ease;
 }
 
@@ -59,25 +61,132 @@
     color: var(--tertiary);
 }
 
-/* Botones específicos */
-.home-btn,
-.communication-btn,
-.progress-btn,
-.rehab-btn,
-.logout-btn {
+/* Estilo del botón hamburguesa */
+.hamburger-btn {
+    display: none; /* Oculto en pantallas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-icon {
+    width: 30px;
+    height: 4px;
+    background-color: var(--tertiary);
+    position: relative;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: var(--tertiary);
+    transition: transform 0.3s ease;
+}
+
+.hamburger-icon::before {
+    top: -10px;
+}
+
+.hamburger-icon::after {
+    bottom: -10px;
+}
+
+/* Menú desplegable (invisible por defecto) */
+.header-actions {
+    display: flex;
+    gap: 20px;
+}
+
+.header-actions.active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.menu button {
+    padding: 12px 24px;
+    font-size: 1.15rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--text);
+    transition: all 0.3s ease;
+}
+
+.menu button:hover {
     color: var(--tertiary);
 }
 
-.logout-btn:hover {
-    color: var(--tertiary);
+/* Estilo del botón hamburguesa */
+.hamburger-btn {
+    display: none; /* Oculto en pantallas grandes */
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    width: 30px; /* Ancho del botón */
+    height: 25px; /* Altura del botón */
+    z-index: 10; /* Aseguramos que esté por encima de otros elementos */
+}
+
+/* Icono de las rayas */
+.hamburger-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 4px;
+    background-color: var(--tertiary);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-icon::before,
+.hamburger-icon::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 4px;
+    background-color: var(--tertiary);
+    border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.hamburger-icon::before {
+    top: -10px;
+}
+
+.hamburger-icon::after {
+    bottom: -10px;
+}
+
+/* Efecto al pasar el mouse sobre el botón hamburguesa */
+.hamburger-btn:hover .hamburger-icon,
+.hamburger-btn:hover .hamburger-icon::before,
+.hamburger-btn:hover .hamburger-icon::after {
+    background-color: var(--primary); /* Cambia a un color de fondo cuando el mouse pasa */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Agrega sombra al pasar el mouse */
+}
+
+.hamburger-btn.active .hamburger-icon {
+    transform: rotate(45deg); /* Rotación para el icono cuando está activo */
+}
+
+.hamburger-btn.active .hamburger-icon::before {
+    top: 0;
+    transform: rotate(90deg); /* Rota la barra superior */
+}
+
+.hamburger-btn.active .hamburger-icon::after {
+    bottom: 0;
+    transform: rotate(90deg); /* Rota la barra inferior */
 }
 
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
-    .header {
-        padding: 15px 20px;
-    }
-
     .header-container {
         flex-direction: column;
         align-items: flex-start;
@@ -89,16 +198,20 @@
     }
 
     .header-actions {
-        flex-direction: row; /* Asegura que los botones se alineen en una fila */
-        gap: 10px;
+        display: none; /* Ocultamos los botones por defecto */
+        flex-direction: column;
+        gap: 15px;
         width: 100%;
-        justify-content: flex-start; /* Alinea los botones a la izquierda */
-        flex-wrap: wrap; /* Los botones se ajustan a nuevas líneas si no hay espacio suficiente */
+        justify-content: flex-start;
     }
 
-    .btn {
-        font-size: 1rem;
-        padding: 10px 20px;
-        width: auto; /* Ajusta el ancho de los botones */
+    .hamburger-btn {
+        display: block; /* Mostrar el botón hamburguesa en pantallas pequeñas */
+        margin-left: auto; /* Esto empuja el botón hacia la derecha */
+        margin-top: -10px; /* Ajustamos el botón un poco más arriba (ajustar según sea necesario) */
+    }
+
+    .header-actions.active {
+        display: flex; /* Mostrar los botones cuando el menú esté activo */
     }
 }
