@@ -31,6 +31,9 @@ import { RehabilitacionMedicoComponent } from './medico/rehabilitacion-medico/re
 import { PlanRehabilitacionMedicoComponent } from './medico/plan-rehabilitacion-medico/plan-rehabilitacion-medico.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/auth.interceptor';
 @NgModule({
   declarations: [
     AppComponent, // No olvides incluir AppComponent en las declaraciones
@@ -69,7 +72,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
     
 ],
-  providers: [],
+  providers: [    {
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true, // Permite usar múltiples interceptores
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
