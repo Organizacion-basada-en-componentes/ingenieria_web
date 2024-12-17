@@ -27,6 +27,11 @@
       />
     </div>
 
+    <!-- Mostrar el mensaje de error si existe -->
+    <div *ngIf="errorMessage" class="error-message">
+      <p>{{ errorMessage }}</p>
+    </div>
+
     <button
       type="submit"
       class="btn-login"
