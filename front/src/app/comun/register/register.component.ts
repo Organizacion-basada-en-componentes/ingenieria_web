@@ -16,7 +16,7 @@ export class RegisterComponent {
   dni: string = '';
   especialidad: string = '';
   fechaNacimiento: string = '';
-  role: string = 'PACIENTE'; // Por defecto es paciente
+  role: string = 'MEDICO'; // Por defecto es paciente
   errorMessage: string | null = null;
   debugInfo: string | null = null;
 

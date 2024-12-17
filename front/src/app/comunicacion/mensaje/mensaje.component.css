@@ -24,33 +24,37 @@
   margin-bottom: 20px;
 }
 
+
 .message {
-  max-width: 80%;
-  margin-bottom: 15px;
-  padding: 10px;
+  max-width: 70%; /* Ancho máximo del mensaje */
+  width: fit-content; /* Se ajusta solo al contenido */
+  margin-bottom: 8px; /* Espacio entre mensajes */
+  padding: 8px 12px; /* Espacio interno ajustado */
   border-radius: 12px;
   font-size: 14px;
-  line-height: 1.5;
-
+  line-height: 1.4;
+  word-wrap: break-word; /* Rompe palabras largas */
 }
 
 .message.recibido {
-  background-color: var(--cardBackground); /* Verde para el mensaje recibido */
+  background-color: var(--cardBackground); /* Color de mensajes recibidos */
   color: #fff;
-  align-self: flex-start; /* Alineación a la izquierda */
-  margin-left: 0; /* Opcional, asegura que quede pegado a la izquierda */
+  align-self: flex-start; /* Alinea a la izquierda */
+  margin-left: 0;
+  margin-right: auto; /* Empuja hacia la derecha */
   border-bottom-left-radius: 0;
 }
 
 .message.enviado {
-  background-color: var(--secondary); /* Azul para el mensaje enviado */
+  background-color: var(--secondary); /* Color de mensajes enviados */
   color: #fff;
-  /* A la derecha del padre */
-  align-self: flex-end  ;
-
-  margin-right: 0; /* Opcional, asegura que quede pegado a la derecha */
+  align-self: flex-end; /* Alinea a la derecha */
+  margin-right: 0;
+  margin-left: auto; /* Empuja hacia la izquierda */
   border-bottom-right-radius: 0;
 }
+
+
 
 .form-container {
   display: flex;
